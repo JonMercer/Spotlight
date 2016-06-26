@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Feedback-->
@@ -63,18 +64,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oc4-4W-1QZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oc4-4W-1QZ">
                                 <rect key="frame" x="20" y="20" width="275" height="238"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="238" id="TUI-fn-iio"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7iE-Ls-EIN">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7iE-Ls-EIN">
                                 <rect key="frame" x="137" y="396" width="41" height="30"/>
                                 <state key="normal" title="Photo"/>
                                 <connections>
                                     <action selector="CaptureImage:" destination="0fN-8s-9Nh" eventType="touchUpInside" id="DfZ-8r-7Fu"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6w-y6-aRR">
+                                <rect key="frame" x="140" y="455" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="SaveButton:" destination="0fN-8s-9Nh" eventType="touchUpInside" id="bxa-if-IYt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Oc4-4W-1QZ" firstAttribute="top" secondItem="bep-RV-wHS" secondAttribute="bottom" id="2Jb-bo-PM7"/>
+                            <constraint firstItem="6q4-FI-EX2" firstAttribute="top" secondItem="s6w-y6-aRR" secondAttribute="bottom" constant="34" id="5nf-Tj-vwQ"/>
+                            <constraint firstItem="7iE-Ls-EIN" firstAttribute="centerX" secondItem="s6w-y6-aRR" secondAttribute="centerX" id="Qvr-eP-YEI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Oc4-4W-1QZ" secondAttribute="trailing" constant="9" id="bTe-Bk-5lC"/>
+                            <constraint firstItem="s6w-y6-aRR" firstAttribute="top" secondItem="7iE-Ls-EIN" secondAttribute="bottom" constant="29" id="dxM-dg-v39"/>
+                            <constraint firstItem="Oc4-4W-1QZ" firstAttribute="centerX" secondItem="7iE-Ls-EIN" secondAttribute="centerX" id="fII-yP-eEe"/>
+                            <constraint firstItem="Oc4-4W-1QZ" firstAttribute="leading" secondItem="1qS-3C-pK8" secondAttribute="leadingMargin" constant="4" id="r62-DA-GCx"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Camera" id="Ea5-Ub-N51"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

@@ -22,6 +22,19 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         picker.sourceType = .Camera
         
         presentViewController(picker, animated: true, completion: nil)
+        
+    
+        
+    }
+    
+    @IBAction func SaveButton(sender: AnyObject) {
+        
+        saveImage()
+    }
+    
+    
+    func saveImage() {
+        UIImageWriteToSavedPhotosAlbum(PhotoView.image!, nil, nil, nil)
     }
     
     
