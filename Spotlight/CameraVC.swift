@@ -39,6 +39,8 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     
     func saveImage() {
         UIImageWriteToSavedPhotosAlbum(PhotoView.image!, nil, nil, nil)
+        //photoAlbum.saveImage(PhotoView.image!)
+        CustomPhotoAlbum.sharedInstance.saveImage(PhotoView.image!)
     }
     
     
@@ -49,7 +51,7 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        photoAlbum.createAlbum()
+        //photoAlbum.createAlbum()
         
         // Do any additional setup after loading the view, typically from a nib.
     }
