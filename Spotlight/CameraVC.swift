@@ -9,8 +9,17 @@
 
 import UIKit
 
-class CameraVC: UIViewController {
+class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    @IBAction func CaptureImage(sender: AnyObject) {
+        
+        let picker = UIImagePickerController()
+        
+        picker.delegate = self
+        picker.sourceType = .Camera
+        
+        presentViewController(picker, animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         print("fffF")
