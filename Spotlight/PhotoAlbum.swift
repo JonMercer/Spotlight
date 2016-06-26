@@ -10,7 +10,7 @@ import Foundation
 import Photos
 
 class PhotoAlbum {
-    let albumName = "SpotlightM1"
+    let albumName = "SpotlightM1-v1"
     var assetCollection: PHAssetCollection!
     var albumFound : Bool = false
     var photosAsset: PHFetchResult!

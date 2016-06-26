@@ -32,7 +32,6 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     
     
     @IBAction func SaveButton(sender: AnyObject) {
-        photoAlbum.createAlbum()
         saveImage()
         
     }
@@ -50,7 +49,7 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("fffF")
+        photoAlbum.createAlbum()
         
         // Do any additional setup after loading the view, typically from a nib.
     }
