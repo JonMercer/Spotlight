@@ -15,6 +15,7 @@
 		C87650861D2066860092A75A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C87650841D2066860092A75A /* LaunchScreen.storyboard */; };
 		C87650911D2066860092A75A /* SpotlightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87650901D2066860092A75A /* SpotlightTests.swift */; };
 		C876509C1D2066870092A75A /* SpotlightUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876509B1D2066870092A75A /* SpotlightUITests.swift */; };
+		C8D136371D2077760005F018 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D136361D2077760005F018 /* CameraVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		C87650971D2066870092A75A /* SpotlightUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpotlightUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C876509B1D2066870092A75A /* SpotlightUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightUITests.swift; sourceTree = "<group>"; };
 		C876509D1D2066870092A75A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8D136361D2077760005F018 /* CameraVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				C87650781D2066860092A75A /* AppDelegate.swift */,
 				C876507A1D2066860092A75A /* ViewController.swift */,
+				C8D136361D2077760005F018 /* CameraVC.swift */,
 				C876507C1D2066860092A75A /* Main.storyboard */,
 				C87650821D2066860092A75A /* Assets.xcassets */,
 				C87650841D2066860092A75A /* LaunchScreen.storyboard */,
@@ -196,6 +199,7 @@
 				TargetAttributes = {
 					C87650741D2066860092A75A = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = TN363JJW64;
 					};
 					C876508B1D2066860092A75A = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -262,6 +266,7 @@
 				C87650811D2066860092A75A /* Spotlight.xcdatamodeld in Sources */,
 				C876507B1D2066860092A75A /* ViewController.swift in Sources */,
 				C87650791D2066860092A75A /* AppDelegate.swift in Sources */,
+				C8D136371D2077760005F018 /* CameraVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +408,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Spotlight/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spotlightteam.Spotlight;
@@ -414,6 +420,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Spotlight/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spotlightteam.Spotlight;
@@ -486,6 +493,7 @@
 				C87650A21D2066870092A75A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C87650A31D2066870092A75A /* Build configuration list for PBXNativeTarget "SpotlightTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +502,7 @@
 				C87650A51D2066870092A75A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C87650A61D2066870092A75A /* Build configuration list for PBXNativeTarget "SpotlightUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +511,7 @@
 				C87650A81D2066870092A75A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
