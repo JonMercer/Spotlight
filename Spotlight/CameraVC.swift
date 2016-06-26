@@ -11,6 +11,9 @@ import UIKit
 
 class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    @IBOutlet var PhotoView: UIImageView!
+    
+    
     @IBAction func CaptureImage(sender: AnyObject) {
         
         let picker = UIImagePickerController()
@@ -20,6 +23,13 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         
         presentViewController(picker, animated: true, completion: nil)
     }
+    
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        PhotoView.image = info [UIImagePickerControllerOriginalImage] as? UIImage; dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("fffF")

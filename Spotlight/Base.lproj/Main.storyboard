@@ -79,6 +79,9 @@
                     <tabBarItem key="tabBarItem" title="Camera" id="Ea5-Ub-N51"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="PhotoView" destination="Oc4-4W-1QZ" id="fwS-pV-4pE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C5W-UK-OnQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
