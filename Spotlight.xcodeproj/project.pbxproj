@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4FB11901D208C4D001F36F2 /* PhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB118F1D208C4D001F36F2 /* PhotoAlbum.swift */; };
 		C87650791D2066860092A75A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87650781D2066860092A75A /* AppDelegate.swift */; };
 		C876507B1D2066860092A75A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876507A1D2066860092A75A /* ViewController.swift */; };
 		C876507E1D2066860092A75A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C876507C1D2066860092A75A /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A4FB118F1D208C4D001F36F2 /* PhotoAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAlbum.swift; sourceTree = "<group>"; };
 		C87650751D2066860092A75A /* Spotlight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotlight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C87650781D2066860092A75A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C876507A1D2066860092A75A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A4FB11911D208CD4001F36F2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C876507A1D2066860092A75A /* ViewController.swift */,
+				C8D136361D2077760005F018 /* CameraVC.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A4FB11921D208CF3001F36F2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A4FB118F1D208C4D001F36F2 /* PhotoAlbum.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		C876506C1D2066860092A75A = {
 			isa = PBXGroup;
 			children = (
@@ -101,9 +120,9 @@
 		C87650771D2066860092A75A /* Spotlight */ = {
 			isa = PBXGroup;
 			children = (
+				A4FB11921D208CF3001F36F2 /* Models */,
+				A4FB11911D208CD4001F36F2 /* ViewControllers */,
 				C87650781D2066860092A75A /* AppDelegate.swift */,
-				C876507A1D2066860092A75A /* ViewController.swift */,
-				C8D136361D2077760005F018 /* CameraVC.swift */,
 				C876507C1D2066860092A75A /* Main.storyboard */,
 				C87650821D2066860092A75A /* Assets.xcassets */,
 				C87650841D2066860092A75A /* LaunchScreen.storyboard */,
@@ -199,7 +218,7 @@
 				TargetAttributes = {
 					C87650741D2066860092A75A = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = TN363JJW64;
+						DevelopmentTeam = R2392A68YQ;
 					};
 					C876508B1D2066860092A75A = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -264,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C87650811D2066860092A75A /* Spotlight.xcdatamodeld in Sources */,
+				A4FB11901D208C4D001F36F2 /* PhotoAlbum.swift in Sources */,
 				C876507B1D2066860092A75A /* ViewController.swift in Sources */,
 				C87650791D2066860092A75A /* AppDelegate.swift in Sources */,
 				C8D136371D2077760005F018 /* CameraVC.swift in Sources */,
@@ -411,7 +431,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Spotlight/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.spotlightteam.Spotlight;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spotlightteam.Spotlight.tanha12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -423,7 +443,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Spotlight/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.spotlightteam.Spotlight;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spotlightteam.Spotlight.tanha12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
