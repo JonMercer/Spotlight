@@ -11,6 +11,11 @@ import UIKit
 
 class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    let photoAlbum = PhotoAlbum()
+    
+  
+    
+    
     @IBOutlet var PhotoView: UIImageView!
     
     
@@ -23,13 +28,12 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         
         presentViewController(picker, animated: true, completion: nil)
         
-    
-        
     }
     
+    
     @IBAction func SaveButton(sender: AnyObject) {
-        
         saveImage()
+        
     }
     
     
@@ -45,7 +49,8 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("fffF")
+        photoAlbum.createAlbum()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
