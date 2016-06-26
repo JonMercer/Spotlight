@@ -17,6 +17,8 @@ class PhotoAlbum {
     var collection: PHAssetCollection!
     var assetCollectionPlaceholder: PHObjectPlaceholder!
     
+    
+    
     func createAlbum() {
         let fetchOptions = PHFetchOptions()
         fetchOptions.predicate = NSPredicate(format: "title = %@", Constants.albumName)
@@ -24,7 +26,7 @@ class PhotoAlbum {
         
         if (collection.firstObject != nil) {
             self.albumFound = true
-            assetCollection = collection.firstObject as! PHAssetCollection
+            self.assetCollection = collection.firstObject as! PHAssetCollection
         } else {
             PHPhotoLibrary.sharedPhotoLibrary().performChanges({
                 let createAlbumRequest : PHAssetCollectionChangeRequest = PHAssetCollectionChangeRequest.creationRequestForAssetCollectionWithTitle(Constants.albumName)
@@ -38,6 +40,22 @@ class PhotoAlbum {
                         self.assetCollection = collectionFetchResult.firstObject as! PHAssetCollection
                     }
             })
-        }}
+        }
+    }
+    
+    func saveImage(image: UIImage){
+        
+        PHPhotoLibrary.sharedPhotoLibrary().performChanges({
+            let assetRequest = PHAssetChangeRequest.creationRequestForAssetFromImage(image)
+            let assetPlaceholder = assetRequest.placeholderForCreatedAsset
+            let albumChangeRequest = PHAssetCollectionChangeRequest(forAssetCollection: self.assetCollection, assets: self.photosAsset)
+            albumChangeRequest!.addAssets([assetPlaceholder!])
+            }, completionHandler: { success, error in
+                print("added image to album")
+                print(error)
+                
+                //self.showImages()
+        })
+    }
 }
 
