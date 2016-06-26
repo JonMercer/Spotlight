@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A4FB11901D208C4D001F36F2 /* PhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB118F1D208C4D001F36F2 /* PhotoAlbum.swift */; };
+		A4FB11941D20914B001F36F2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB11931D20914B001F36F2 /* Constants.swift */; };
 		C87650791D2066860092A75A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87650781D2066860092A75A /* AppDelegate.swift */; };
 		C876507B1D2066860092A75A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876507A1D2066860092A75A /* ViewController.swift */; };
 		C876507E1D2066860092A75A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C876507C1D2066860092A75A /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		A4FB118F1D208C4D001F36F2 /* PhotoAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAlbum.swift; sourceTree = "<group>"; };
+		A4FB11931D20914B001F36F2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C87650751D2066860092A75A /* Spotlight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotlight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C87650781D2066860092A75A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C876507A1D2066860092A75A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				C87650841D2066860092A75A /* LaunchScreen.storyboard */,
 				C87650871D2066860092A75A /* Info.plist */,
 				C876507F1D2066860092A75A /* Spotlight.xcdatamodeld */,
+				A4FB11931D20914B001F36F2 /* Constants.swift */,
 			);
 			path = Spotlight;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				C876507B1D2066860092A75A /* ViewController.swift in Sources */,
 				C87650791D2066860092A75A /* AppDelegate.swift in Sources */,
 				C8D136371D2077760005F018 /* CameraVC.swift in Sources */,
+				A4FB11941D20914B001F36F2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

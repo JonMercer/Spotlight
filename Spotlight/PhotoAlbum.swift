@@ -10,7 +10,6 @@ import Foundation
 import Photos
 
 class PhotoAlbum {
-    let albumName = "SpotlightM1-v1"
     var assetCollection: PHAssetCollection!
     var albumFound : Bool = false
     var photosAsset: PHFetchResult!
@@ -20,7 +19,7 @@ class PhotoAlbum {
     
     func createAlbum() {
         let fetchOptions = PHFetchOptions()
-        fetchOptions.predicate = NSPredicate(format: "title = %@", albumName)
+        fetchOptions.predicate = NSPredicate(format: "title = %@", Constants.albumName)
         let collection : PHFetchResult = PHAssetCollection.fetchAssetCollectionsWithType(.Album, subtype: .Any, options: fetchOptions)
         
         if (collection.firstObject != nil) {
@@ -28,7 +27,7 @@ class PhotoAlbum {
             assetCollection = collection.firstObject as! PHAssetCollection
         } else {
             PHPhotoLibrary.sharedPhotoLibrary().performChanges({
-                let createAlbumRequest : PHAssetCollectionChangeRequest = PHAssetCollectionChangeRequest.creationRequestForAssetCollectionWithTitle(self.albumName)
+                let createAlbumRequest : PHAssetCollectionChangeRequest = PHAssetCollectionChangeRequest.creationRequestForAssetCollectionWithTitle(Constants.albumName)
                 self.assetCollectionPlaceholder = createAlbumRequest.placeholderForCreatedAssetCollection
                 }, completionHandler: { success, error in
                     self.albumFound = (success ? true: false)
