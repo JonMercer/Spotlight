@@ -17,9 +17,8 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     
     
     @IBOutlet var PhotoView: UIImageView!
-    
     @IBOutlet var PhotoView2: UIImageView!
-    
+
     @IBAction func CaptureImage(sender: AnyObject) {
         
         let picker = UIImagePickerController()
@@ -57,7 +56,7 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         let imageJPEG = UIImageJPEGRepresentation(PhotoView.image!, 1.0)!
         let data = NSData(data: imageJPEG)
         let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first! as String
-        let fileName = "test_path" // temporary file name for testing.  change this later.
+        let fileName = Constants.tempPathName // temporary file name for testing.  change this later.
         let path = (documentsDirectory as NSString).stringByAppendingPathComponent(fileName)
         let success = data.writeToFile(path, atomically: true)
         if !success { print ("Got some error writing to a file!!") }
@@ -75,6 +74,9 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     
     
     override func viewDidLoad() {
+        // set up album in photo roll if empty
+        CustomPhotoAlbum.init()
+
         super.viewDidLoad()
         //photoAlbum.createAlbum()
         

@@ -136,7 +136,7 @@
         <!--Me-->
         <scene sceneID="5SU-hd-qy0">
             <objects>
-                <viewController id="GuB-hR-lYs" sceneMemberID="viewController">
+                <viewController id="GuB-hR-lYs" customClass="MeVC" customModule="Spotlight" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iYC-Ix-9s8"/>
                         <viewControllerLayoutGuide type="bottom" id="3au-XA-VeS"/>
@@ -144,10 +144,35 @@
                     <view key="view" contentMode="scaleToFill" id="FLT-eo-I6S">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7oG-bA-Yrf">
+                                <rect key="frame" x="180" y="135" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="7oc-3y-Tzg"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PO6-j9-2fr">
+                                <rect key="frame" x="235" y="437" width="131" height="30"/>
+                                <state key="normal" title="Load Taken Picture"/>
+                                <connections>
+                                    <action selector="LoadTakenPhoto:" destination="GuB-hR-lYs" eventType="touchUpInside" id="Lju-v0-XBD"/>
+                                    <action selector="LoadTakenPicture:" destination="GuB-hR-lYs" eventType="touchUpInside" id="Xmw-lh-t1r"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7oG-bA-Yrf" firstAttribute="top" secondItem="iYC-Ix-9s8" secondAttribute="bottom" constant="115" id="ESc-9f-jSE"/>
+                            <constraint firstItem="3au-XA-VeS" firstAttribute="top" secondItem="7oG-bA-Yrf" secondAttribute="bottom" constant="176" id="EcW-TI-lAc"/>
+                            <constraint firstItem="7oG-bA-Yrf" firstAttribute="centerX" secondItem="FLT-eo-I6S" secondAttribute="centerX" id="hqF-LK-3C6"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Me" id="Xv9-wQ-roc"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="LoadTakenPicture" destination="PO6-j9-2fr" id="uja-We-gsN"/>
+                        <outlet property="TakenPhotoView" destination="7oG-bA-Yrf" id="3If-gm-hum"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cOm-jj-kZq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

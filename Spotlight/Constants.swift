@@ -11,4 +11,5 @@ import Foundation
 
 enum Constants {
     static let albumName = "Spotlight"
+    static let tempPathName = "test_path"  // temporary path name for testing local storage
 }
