@@ -53,6 +53,7 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         super.viewDidLoad()
         //photoAlbum.createAlbum()
         
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     

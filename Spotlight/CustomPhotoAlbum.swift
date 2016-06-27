@@ -17,13 +17,28 @@ class CustomPhotoAlbum {
     
     init() {
         
+        var status: PHAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
+        if(PHPhotoLibrary.authorizationStatus() == .NotDetermined) {
+            PHPhotoLibrary.requestAuthorization({ (status) in
+                
+                if (status == PHAuthorizationStatus.Authorized) {
+                    // Access has been granted.
+                }
+                    
+                else {
+                    // Access has been denied.
+                }
+            })
+            
+        }
+        
         func fetchAssetCollectionForAlbum() -> PHAssetCollection! {
             
             let fetchOptions = PHFetchOptions()
             fetchOptions.predicate = NSPredicate(format: "title = %@", CustomPhotoAlbum.albumName)
             let collection = PHAssetCollection.fetchAssetCollectionsWithType(.Album, subtype: .Any, options: fetchOptions)
             
-//            if let firstObject: AnyObject = collection.firstObject {
+            //            if let firstObject: AnyObject = collection.firstObject {
             if (collection.firstObject != nil) {
                 return collection.firstObject as! PHAssetCollection
             }
@@ -43,6 +58,10 @@ class CustomPhotoAlbum {
                 self.assetCollection = fetchAssetCollectionForAlbum()
             }
         }
+    }
+    
+    func dummy() {
+        // init
     }
     
     func saveImage(image: UIImage) {
