@@ -27,13 +27,19 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         picker.sourceType = .Camera
         
         presentViewController(picker, animated: true, completion: nil)
-        
     }
     
+    @IBAction func GetImageFromAlbums(sender: AnyObject) {
+        let picker = UIImagePickerController()
+        
+        picker.delegate = self
+        picker.sourceType = .PhotoLibrary
+        
+        presentViewController(picker, animated: true, completion: nil)
+    }
     
     @IBAction func SaveButton(sender: AnyObject) {
         saveImage()
-        
     }
     
     
@@ -43,6 +49,9 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         CustomPhotoAlbum.sharedInstance.saveImage(PhotoView.image!)
     }
     
+    @IBAction func saveLocally(sender: AnyObject) {
+        print("testing this hohhohho");
+    }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         PhotoView.image = info [UIImagePickerControllerOriginalImage] as? UIImage; dismissViewControllerAnimated(true, completion: nil)
