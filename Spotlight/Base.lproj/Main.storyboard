@@ -126,6 +126,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="PhotoView" destination="Oc4-4W-1QZ" id="fwS-pV-4pE"/>
+                        <outlet property="PhotoView2" destination="RE3-gC-gPn" id="fNy-JG-OWk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C5W-UK-OnQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
