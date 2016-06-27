@@ -5,7 +5,6 @@
 //  Created by Odin on 2016-06-26.
 //  Copyright © 2016 SpotlightTeam. All rights reserved.
 //
-
 import Photos
 
 class CustomPhotoAlbum {
@@ -16,18 +15,27 @@ class CustomPhotoAlbum {
     var assetCollection: PHAssetCollection!
     
     init() {
+        var status: PHAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
+        
+        if(PHPhotoLibrary.authorizationStatus() == .NotDetermined) {
+            PHPhotoLibrary.requestAuthorization({ (status) in
+                if (status == PHAuthorizationStatus.Authorized) {
+                    // Access has been granted.
+                }
+                else {
+                    // Access has been denied.
+                }
+            })
+        }
         
         func fetchAssetCollectionForAlbum() -> PHAssetCollection! {
-            
             let fetchOptions = PHFetchOptions()
             fetchOptions.predicate = NSPredicate(format: "title = %@", CustomPhotoAlbum.albumName)
             let collection = PHAssetCollection.fetchAssetCollectionsWithType(.Album, subtype: .Any, options: fetchOptions)
-            
-//            if let firstObject: AnyObject = collection.firstObject {
+            //            if let firstObject: AnyObject = collection.firstObject {
             if (collection.firstObject != nil) {
                 return collection.firstObject as! PHAssetCollection
             }
-            
             return nil
         }
         
@@ -45,8 +53,11 @@ class CustomPhotoAlbum {
         }
     }
     
+    func dummy() {
+        // init
+    }
+    
     func saveImage(image: UIImage) {
-        
         if assetCollection == nil {
             return   // If there was an error upstream, skip the save.
         }
@@ -55,9 +66,8 @@ class CustomPhotoAlbum {
             let assetChangeRequest = PHAssetChangeRequest.creationRequestForAssetFromImage(image)
             let assetPlaceholder = assetChangeRequest.placeholderForCreatedAsset
             let albumChangeRequest = PHAssetCollectionChangeRequest(forAssetCollection: self.assetCollection)
+            
             albumChangeRequest!.addAssets([assetPlaceholder!])
             }, completionHandler: nil)
     }
-    
-    
 }
