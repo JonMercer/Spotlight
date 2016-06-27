@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MeVC: UIViewController {
+class MeVC: UIViewController{
     
     @IBOutlet var TakenPhotoView: UIImageView!
     @IBAction func LoadTakenPhoto(sender: AnyObject) {
@@ -20,7 +20,7 @@ class MeVC: UIViewController {
 
         let dir = NSURL(fileURLWithPath: path)
         let retrievedData = NSData(contentsOfURL: dir)
-        let retrievedImage = UIImage(data:retrievedData!)
+        let retrievedImage = UIImage(data:retrievedData!)!
         TakenPhotoView.image = retrievedImage
     }
     

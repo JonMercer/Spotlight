@@ -145,33 +145,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7oG-bA-Yrf">
-                                <rect key="frame" x="180" y="135" width="240" height="240"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7oG-bA-Yrf">
+                                <rect key="frame" x="180" y="83" width="240" height="240"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="7oc-3y-Tzg"/>
+                                    <constraint firstAttribute="width" constant="240" id="EeI-q7-KWc"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PO6-j9-2fr">
-                                <rect key="frame" x="235" y="437" width="131" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PO6-j9-2fr">
+                                <rect key="frame" x="235" y="371" width="131" height="30"/>
                                 <state key="normal" title="Load Taken Picture"/>
                                 <connections>
                                     <action selector="LoadTakenPhoto:" destination="GuB-hR-lYs" eventType="touchUpInside" id="Lju-v0-XBD"/>
-                                    <action selector="LoadTakenPicture:" destination="GuB-hR-lYs" eventType="touchUpInside" id="Xmw-lh-t1r"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7oG-bA-Yrf" firstAttribute="top" secondItem="iYC-Ix-9s8" secondAttribute="bottom" constant="115" id="ESc-9f-jSE"/>
-                            <constraint firstItem="3au-XA-VeS" firstAttribute="top" secondItem="7oG-bA-Yrf" secondAttribute="bottom" constant="176" id="EcW-TI-lAc"/>
-                            <constraint firstItem="7oG-bA-Yrf" firstAttribute="centerX" secondItem="FLT-eo-I6S" secondAttribute="centerX" id="hqF-LK-3C6"/>
+                            <constraint firstItem="7oG-bA-Yrf" firstAttribute="top" secondItem="iYC-Ix-9s8" secondAttribute="bottom" constant="115" id="LjQ-jf-wsQ"/>
+                            <constraint firstItem="7oG-bA-Yrf" firstAttribute="centerX" secondItem="FLT-eo-I6S" secondAttribute="centerX" id="e4F-qB-imv"/>
+                            <constraint firstItem="7oG-bA-Yrf" firstAttribute="centerX" secondItem="PO6-j9-2fr" secondAttribute="centerX" id="e5L-x1-6Dz"/>
+                            <constraint firstItem="PO6-j9-2fr" firstAttribute="top" secondItem="7oG-bA-Yrf" secondAttribute="bottom" constant="62" id="fv7-TJ-WT0"/>
+                            <constraint firstItem="3au-XA-VeS" firstAttribute="top" secondItem="PO6-j9-2fr" secondAttribute="bottom" constant="84" id="pie-XM-77E"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Me" id="Xv9-wQ-roc"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="LoadTakenPicture" destination="PO6-j9-2fr" id="uja-We-gsN"/>
-                        <outlet property="TakenPhotoView" destination="7oG-bA-Yrf" id="3If-gm-hum"/>
+                        <outlet property="TakenPhotoView" destination="7oG-bA-Yrf" id="2sq-oN-Hmn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cOm-jj-kZq" userLabel="First Responder" sceneMemberID="firstResponder"/>
