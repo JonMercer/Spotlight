@@ -22,10 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
-        // set up album in photo roll if empty
-        CustomPhotoAlbum.init()
-        
+            
         return true
     }
     

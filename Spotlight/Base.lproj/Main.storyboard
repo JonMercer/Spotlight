@@ -70,30 +70,55 @@
                                     <constraint firstAttribute="height" constant="238" id="TUI-fn-iio"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7iE-Ls-EIN">
-                                <rect key="frame" x="137" y="396" width="41" height="30"/>
-                                <state key="normal" title="Photo"/>
-                                <connections>
-                                    <action selector="CaptureImage:" destination="0fN-8s-9Nh" eventType="touchUpInside" id="DfZ-8r-7Fu"/>
-                                </connections>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RE3-gC-gPn">
+                                <rect key="frame" x="37" y="275" width="240" height="128"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6w-y6-aRR">
-                                <rect key="frame" x="140" y="455" width="34" height="30"/>
-                                <state key="normal" title="Save"/>
+                                <rect key="frame" x="24" y="464" width="138" height="30"/>
+                                <state key="normal" title="Save to Camera Roll"/>
                                 <connections>
                                     <action selector="SaveButton:" destination="0fN-8s-9Nh" eventType="touchUpInside" id="bxa-if-IYt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLp-Zj-bPo">
+                                <rect key="frame" x="201" y="464" width="85" height="30"/>
+                                <state key="normal" title="Save Locally"/>
+                                <connections>
+                                    <action selector="saveLocally:" destination="0fN-8s-9Nh" eventType="touchUpInside" id="f7d-VF-WAa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8L-ZE-V0p">
+                                <rect key="frame" x="217" y="426" width="52" height="30"/>
+                                <state key="normal" title="Albums"/>
+                                <connections>
+                                    <action selector="GetImageFromAlbums:" destination="0fN-8s-9Nh" eventType="touchUpInside" id="1PN-M7-HC7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7iE-Ls-EIN">
+                                <rect key="frame" x="66" y="426" width="54" height="30"/>
+                                <state key="normal" title="Camera"/>
+                                <connections>
+                                    <action selector="CaptureImage:" destination="0fN-8s-9Nh" eventType="touchUpInside" id="DfZ-8r-7Fu"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="7iE-Ls-EIN" firstAttribute="baseline" secondItem="V8L-ZE-V0p" secondAttribute="baseline" id="0jy-Hl-mIW"/>
                             <constraint firstItem="Oc4-4W-1QZ" firstAttribute="top" secondItem="bep-RV-wHS" secondAttribute="bottom" id="2Jb-bo-PM7"/>
-                            <constraint firstItem="6q4-FI-EX2" firstAttribute="top" secondItem="s6w-y6-aRR" secondAttribute="bottom" constant="34" id="5nf-Tj-vwQ"/>
-                            <constraint firstItem="7iE-Ls-EIN" firstAttribute="centerX" secondItem="s6w-y6-aRR" secondAttribute="centerX" id="Qvr-eP-YEI"/>
+                            <constraint firstItem="7iE-Ls-EIN" firstAttribute="centerX" secondItem="s6w-y6-aRR" secondAttribute="centerX" id="8w4-Ge-1c1"/>
+                            <constraint firstItem="s6w-y6-aRR" firstAttribute="top" secondItem="7iE-Ls-EIN" secondAttribute="bottom" constant="8" symbolic="YES" id="CGf-b0-w4n"/>
+                            <constraint firstItem="gLp-Zj-bPo" firstAttribute="leading" secondItem="s6w-y6-aRR" secondAttribute="trailing" constant="39" id="Fv4-T8-QJN"/>
+                            <constraint firstItem="RE3-gC-gPn" firstAttribute="centerX" secondItem="Oc4-4W-1QZ" secondAttribute="centerX" id="JH1-3N-gqf"/>
+                            <constraint firstItem="s6w-y6-aRR" firstAttribute="baseline" secondItem="gLp-Zj-bPo" secondAttribute="baseline" id="JwX-65-D4v"/>
+                            <constraint firstItem="V8L-ZE-V0p" firstAttribute="centerX" secondItem="gLp-Zj-bPo" secondAttribute="centerX" id="RPe-C1-MRH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Oc4-4W-1QZ" secondAttribute="trailing" constant="9" id="bTe-Bk-5lC"/>
-                            <constraint firstItem="s6w-y6-aRR" firstAttribute="top" secondItem="7iE-Ls-EIN" secondAttribute="bottom" constant="29" id="dxM-dg-v39"/>
-                            <constraint firstItem="Oc4-4W-1QZ" firstAttribute="centerX" secondItem="7iE-Ls-EIN" secondAttribute="centerX" id="fII-yP-eEe"/>
+                            <constraint firstItem="RE3-gC-gPn" firstAttribute="top" secondItem="Oc4-4W-1QZ" secondAttribute="bottom" constant="17" id="cHZ-bR-J2K"/>
+                            <constraint firstItem="6q4-FI-EX2" firstAttribute="top" secondItem="s6w-y6-aRR" secondAttribute="bottom" constant="25" id="cyN-IF-G0E"/>
+                            <constraint firstItem="7iE-Ls-EIN" firstAttribute="top" secondItem="RE3-gC-gPn" secondAttribute="bottom" constant="23" id="gb0-sc-hR5"/>
                             <constraint firstItem="Oc4-4W-1QZ" firstAttribute="leading" secondItem="1qS-3C-pK8" secondAttribute="leadingMargin" constant="4" id="r62-DA-GCx"/>
+                            <constraint firstItem="RE3-gC-gPn" firstAttribute="leading" secondItem="1qS-3C-pK8" secondAttribute="leadingMargin" constant="21" id="rGI-xy-pce"/>
+                            <constraint firstItem="s6w-y6-aRR" firstAttribute="leading" secondItem="1qS-3C-pK8" secondAttribute="leadingMargin" constant="8" id="u32-bg-1Oy"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Camera" id="Ea5-Ub-N51"/>
@@ -101,6 +126,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="PhotoView" destination="Oc4-4W-1QZ" id="fwS-pV-4pE"/>
+                        <outlet property="PhotoView2" destination="RE3-gC-gPn" id="fNy-JG-OWk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C5W-UK-OnQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -110,7 +136,7 @@
         <!--Me-->
         <scene sceneID="5SU-hd-qy0">
             <objects>
-                <viewController id="GuB-hR-lYs" sceneMemberID="viewController">
+                <viewController id="GuB-hR-lYs" customClass="MeVC" customModule="Spotlight" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iYC-Ix-9s8"/>
                         <viewControllerLayoutGuide type="bottom" id="3au-XA-VeS"/>
@@ -118,10 +144,35 @@
                     <view key="view" contentMode="scaleToFill" id="FLT-eo-I6S">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7oG-bA-Yrf">
+                                <rect key="frame" x="180" y="83" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="EeI-q7-KWc"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PO6-j9-2fr">
+                                <rect key="frame" x="235" y="371" width="131" height="30"/>
+                                <state key="normal" title="Load Taken Picture"/>
+                                <connections>
+                                    <action selector="LoadTakenPhoto:" destination="GuB-hR-lYs" eventType="touchUpInside" id="Lju-v0-XBD"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7oG-bA-Yrf" firstAttribute="top" secondItem="iYC-Ix-9s8" secondAttribute="bottom" constant="115" id="LjQ-jf-wsQ"/>
+                            <constraint firstItem="7oG-bA-Yrf" firstAttribute="centerX" secondItem="FLT-eo-I6S" secondAttribute="centerX" id="e4F-qB-imv"/>
+                            <constraint firstItem="7oG-bA-Yrf" firstAttribute="centerX" secondItem="PO6-j9-2fr" secondAttribute="centerX" id="e5L-x1-6Dz"/>
+                            <constraint firstItem="PO6-j9-2fr" firstAttribute="top" secondItem="7oG-bA-Yrf" secondAttribute="bottom" constant="62" id="fv7-TJ-WT0"/>
+                            <constraint firstItem="3au-XA-VeS" firstAttribute="top" secondItem="PO6-j9-2fr" secondAttribute="bottom" constant="84" id="pie-XM-77E"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Me" id="Xv9-wQ-roc"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="TakenPhotoView" destination="7oG-bA-Yrf" id="2sq-oN-Hmn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cOm-jj-kZq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
