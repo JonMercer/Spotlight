@@ -20,6 +20,7 @@
 		C87650911D2066860092A75A /* SpotlightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87650901D2066860092A75A /* SpotlightTests.swift */; };
 		C876509C1D2066870092A75A /* SpotlightUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876509B1D2066870092A75A /* SpotlightUITests.swift */; };
 		C8BFBE101D23670200246DA1 /* LocalStoragePhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BFBE0F1D23670200246DA1 /* LocalStoragePhotoManager.swift */; };
+		C8BFBE121D23762400246DA1 /* DeviceOwnerPhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BFBE111D23762400246DA1 /* DeviceOwnerPhotoManager.swift */; };
 		C8D136371D2077760005F018 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D136361D2077760005F018 /* CameraVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		C876509B1D2066870092A75A /* SpotlightUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightUITests.swift; sourceTree = "<group>"; };
 		C876509D1D2066870092A75A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8BFBE0F1D23670200246DA1 /* LocalStoragePhotoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStoragePhotoManager.swift; sourceTree = "<group>"; };
+		C8BFBE111D23762400246DA1 /* DeviceOwnerPhotoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceOwnerPhotoManager.swift; sourceTree = "<group>"; };
 		C8D136361D2077760005F018 /* CameraVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +106,7 @@
 				A4FB118F1D208C4D001F36F2 /* PhotoAlbum.swift */,
 				C86CED8A1D209A9100B70FF0 /* CustomPhotoAlbum.swift */,
 				C8BFBE0F1D23670200246DA1 /* LocalStoragePhotoManager.swift */,
+				C8BFBE111D23762400246DA1 /* DeviceOwnerPhotoManager.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			files = (
 				7D9B41C61D2139B800B8389A /* MeVC.swift in Sources */,
 				C87650811D2066860092A75A /* Spotlight.xcdatamodeld in Sources */,
+				C8BFBE121D23762400246DA1 /* DeviceOwnerPhotoManager.swift in Sources */,
 				A4FB11901D208C4D001F36F2 /* PhotoAlbum.swift in Sources */,
 				C876507B1D2066860092A75A /* ViewController.swift in Sources */,
 				C87650791D2066860092A75A /* AppDelegate.swift in Sources */,

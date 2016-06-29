@@ -9,6 +9,7 @@
 import UIKit
 
 class MeVC: UIViewController{
+    let photoManager = DeviceOwnerPhotoManager()
     
     @IBOutlet var TakenPhotoView: UIImageView!
     @IBAction func LoadTakenPhoto(sender: AnyObject) {
@@ -16,21 +17,6 @@ class MeVC: UIViewController{
 //        func getPhotoFilePath()
         // Assume the file is stored in the app's file system.  Now retrieve it and convert it back to an image.
         let fileName = Constants.tempPathName // temporary file name for testing.  change this later.
-
-        do {
-            // Get the directory contents urls (including subfolders urls)
-            let directoryContents = try NSFileManager.defaultManager().contentsOfDirectoryAtURL( FilePathConstants.directoryURLPath, includingPropertiesForKeys: nil, options: [])
-            print(directoryContents)
-            
-            // if you want to filter the directory contents you can do like this:
-            let mp3Files = directoryContents.filter{ $0.pathExtension == "jpg" }
-            print("mp3 urls:",mp3Files)
-            let mp3FileNames = mp3Files.flatMap({$0.URLByDeletingPathExtension?.lastPathComponent})
-            print("mp3 list:", mp3FileNames)
-            
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
         
         
         let filePath = (FilePathConstants.directoryStringPath as NSString).stringByAppendingPathComponent(fileName)
@@ -41,14 +27,18 @@ class MeVC: UIViewController{
     
     
     @IBAction func previousImageButton(sender: AnyObject) {
+        TakenPhotoView.image = photoManager.prevImage()
     }
     
     
     @IBAction func nextImageButton(sender: AnyObject) {
+        TakenPhotoView.image = photoManager.nextImage()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        photoManager.updateImages()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
