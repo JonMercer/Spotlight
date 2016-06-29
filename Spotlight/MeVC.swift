@@ -12,16 +12,17 @@ class MeVC: UIViewController{
     
     @IBOutlet var TakenPhotoView: UIImageView!
     @IBAction func LoadTakenPhoto(sender: AnyObject) {
+        
+//        func getPhotoFilePath()
         // Assume the file is stored in the app's file system.  Now retrieve it and convert it back to an image.
         let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first! as String
+        
         let fileName = Constants.tempPathName // temporary file name for testing.  change this later.
 
-        let path = (documentsDirectory as NSString).stringByAppendingPathComponent(fileName)
+        let filePath = (documentsDirectory as NSString).stringByAppendingPathComponent(fileName)
 
-        let dir = NSURL(fileURLWithPath: path)
-        let retrievedData = NSData(contentsOfURL: dir)
-        let retrievedImage = UIImage(data:retrievedData!)!
-        TakenPhotoView.image = retrievedImage
+        
+        TakenPhotoView.image = LocalStoragePhotoManager.loadLocalImage(filePath)
     }
     
     override func viewDidLoad() {

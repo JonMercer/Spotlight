@@ -8,6 +8,7 @@
 
 import Foundation
 
+typealias FilePath = String
 
 enum Constants {
     static let albumName = "Spotlight"
