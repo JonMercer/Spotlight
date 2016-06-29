@@ -39,6 +39,7 @@ class MeVC: UIViewController{
         super.viewDidLoad()
         photoManager.updateImages()
         
+        TakenPhotoView.image = photoManager.getFirstImage()
         // Do any additional setup after loading the view, typically from a nib.
     }
     

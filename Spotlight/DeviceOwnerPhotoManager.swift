@@ -13,8 +13,12 @@ class DeviceOwnerPhotoManager {
     var imageIndex = 0
     
     var imagePathNames:[String] = []
+
+    // TODO: handle if no if imagePathNames empty
     
-  
+    func getFirstImage() -> UIImage {
+        return LocalStoragePhotoManager.loadLocalImageByName(imagePathNames[0])
+    }
     
     func nextImage() -> UIImage {
         if((imageIndex + 1) < imagePathNames.count) {
