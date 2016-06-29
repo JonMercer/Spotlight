@@ -13,6 +13,7 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     
     let photoAlbum = PhotoAlbum()
     
+    
   
     
     
@@ -52,20 +53,10 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     // Here's the main StackOverFlow page YK used for reference for the following function:
     // http://stackoverflow.com/questions/30671967/storing-images-to-coredata-swift
     @IBAction func saveLocally(sender: AnyObject) {
-        // Convert PhotoView.image into a JPEG representation
-        let imageJPEG = UIImageJPEGRepresentation(PhotoView.image!, 1.0)!
-        let data = NSData(data: imageJPEG)
-        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first! as String
-        let fileName = Constants.tempPathName // temporary file name for testing.  change this later.
-        let path = (documentsDirectory as NSString).stringByAppendingPathComponent(fileName)
-        let success = data.writeToFile(path, atomically: true)
-        if !success { print ("Got some error writing to a file!!") }
         
-        // The file is stored in the app's file system.  Now retrieve it and convert it back to an image.
-        let dir = NSURL(fileURLWithPath: path)
-        let retrievedData = NSData(contentsOfURL: dir)
-        let retrievedImage = UIImage(data:retrievedData!)
-        PhotoView2.image = retrievedImage
+        let filePath = LocalStoragePhotoManager.saveImageLocal(PhotoView.image!)
+
+        PhotoView2.image = LocalStoragePhotoManager.loadLocalImage(filePath)
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
@@ -75,7 +66,7 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     
     override func viewDidLoad() {
         // set up album in photo roll if empty
-        CustomPhotoAlbum.init()
+        
 
         super.viewDidLoad()
         //photoAlbum.createAlbum()

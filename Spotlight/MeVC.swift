@@ -9,23 +9,36 @@
 import UIKit
 
 class MeVC: UIViewController{
+    let photoManager = DeviceOwnerPhotoManager()
     
     @IBOutlet var TakenPhotoView: UIImageView!
     @IBAction func LoadTakenPhoto(sender: AnyObject) {
+        
+//        func getPhotoFilePath()
         // Assume the file is stored in the app's file system.  Now retrieve it and convert it back to an image.
-        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first! as String
         let fileName = Constants.tempPathName // temporary file name for testing.  change this later.
+        
+        
+        let filePath = (FilePathConstants.directoryStringPath as NSString).stringByAppendingPathComponent(fileName)
 
-        let path = (documentsDirectory as NSString).stringByAppendingPathComponent(fileName)
-
-        let dir = NSURL(fileURLWithPath: path)
-        let retrievedData = NSData(contentsOfURL: dir)
-        let retrievedImage = UIImage(data:retrievedData!)!
-        TakenPhotoView.image = retrievedImage
+        
+        TakenPhotoView.image = LocalStoragePhotoManager.loadLocalImage(filePath)
+    }
+    
+    
+    @IBAction func previousImageButton(sender: AnyObject) {
+        TakenPhotoView.image = photoManager.prevImage()
+    }
+    
+    
+    @IBAction func nextImageButton(sender: AnyObject) {
+        TakenPhotoView.image = photoManager.nextImage()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        photoManager.updateImages()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     

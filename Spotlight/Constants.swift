@@ -8,8 +8,15 @@
 
 import Foundation
 
+typealias FilePath = String
 
 enum Constants {
     static let albumName = "Spotlight"
     static let tempPathName = "test_path"  // temporary path name for testing local storage
+}
+
+enum FilePathConstants {
+    static let directoryStringPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first! as String
+    
+    static let directoryURLPath = NSURL(fileURLWithPath: directoryStringPath)
 }
