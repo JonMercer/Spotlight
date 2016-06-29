@@ -40,7 +40,26 @@ class MeVC: UIViewController{
         photoManager.updateImages()
         
         TakenPhotoView.image = photoManager.getFirstImage()
+        
+        let prev = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
+        let next = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
+        
         // Do any additional setup after loading the view, typically from a nib.
+        prev.direction = .Right
+        next.direction = .Left
+        
+        view.addGestureRecognizer(prev)
+        view.addGestureRecognizer(next)
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func handleSwipes(sender:UISwipeGestureRecognizer) {
+        if (sender.direction == .Left) {
+            TakenPhotoView.image = photoManager.nextImage()
+        } else if (sender.direction == .Right) {
+            TakenPhotoView.image = photoManager.prevImage()
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
