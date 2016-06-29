@@ -11,19 +11,20 @@ import Photos
 
 class LocalStoragePhotoManager {
     
+//    var listOfFiles...
     static func saveImageLocal(image: UIImage) -> FilePath {
         // Convert PhotoView.image into a JPEG representation
         let imageJPEG = UIImageJPEGRepresentation(image, 1.0)!
         let data = NSData(data: imageJPEG)
         let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first! as String
         
-//        var formatter = NSDateFormatter()
-//        formatter.dateFormat = "HH-mm-ss"
-//        var dateString = formatter.stringFromDate(NSDate())
+        var formatter = NSDateFormatter()
+        formatter.dateFormat = "HH-mm-ss"
+        var dateString = formatter.stringFromDate(NSDate())
         
         let fileName = Constants.tempPathName // temporary file name for testing.  change this later.
         //TODO: check if each image has a brand new file path
-        let filePath = (documentsDirectory as NSString).stringByAppendingPathComponent(fileName)
+        let filePath = (documentsDirectory as NSString).stringByAppendingPathComponent(dateString+".jpg")
         let success = data.writeToFile(filePath, atomically: true)
         if !success { print ("Got some error writing to a file!!") }
         return filePath
