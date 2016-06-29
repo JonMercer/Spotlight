@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="d9W-T5-tax">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Feedback-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Spotlight" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,11 +17,185 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello World" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9K-L7-1oY">
+                                <rect key="frame" x="256" y="265" width="89" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Feedback" id="xRU-v2-GCL"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1057" y="305"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="5fx-tq-P4a">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="d9W-T5-tax" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="8Er-AD-G81">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="zxs-CY-EhN"/>
+                        <segue destination="0fN-8s-9Nh" kind="relationship" relationship="viewControllers" id="ydG-4G-7F3"/>
+                        <segue destination="GuB-hR-lYs" kind="relationship" relationship="viewControllers" id="w2t-In-8A4"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZHB-As-1b9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="245" y="305"/>
+        </scene>
+        <!--Camera-->
+        <scene sceneID="mYL-CP-8xt">
+            <objects>
+                <viewController id="0fN-8s-9Nh" customClass="CameraVC" customModule="Spotlight" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bep-RV-wHS"/>
+                        <viewControllerLayoutGuide type="bottom" id="6q4-FI-EX2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1qS-3C-pK8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oc4-4W-1QZ">
+                                <rect key="frame" x="20" y="20" width="275" height="238"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="238" id="TUI-fn-iio"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RE3-gC-gPn">
+                                <rect key="frame" x="37" y="275" width="240" height="128"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6w-y6-aRR">
+                                <rect key="frame" x="24" y="464" width="138" height="30"/>
+                                <state key="normal" title="Save to Camera Roll"/>
+                                <connections>
+                                    <action selector="SaveButton:" destination="0fN-8s-9Nh" eventType="touchUpInside" id="bxa-if-IYt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLp-Zj-bPo">
+                                <rect key="frame" x="201" y="464" width="85" height="30"/>
+                                <state key="normal" title="Save Locally"/>
+                                <connections>
+                                    <action selector="saveLocally:" destination="0fN-8s-9Nh" eventType="touchUpInside" id="f7d-VF-WAa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8L-ZE-V0p">
+                                <rect key="frame" x="217" y="426" width="52" height="30"/>
+                                <state key="normal" title="Albums"/>
+                                <connections>
+                                    <action selector="GetImageFromAlbums:" destination="0fN-8s-9Nh" eventType="touchUpInside" id="1PN-M7-HC7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7iE-Ls-EIN">
+                                <rect key="frame" x="66" y="426" width="54" height="30"/>
+                                <state key="normal" title="Camera"/>
+                                <connections>
+                                    <action selector="CaptureImage:" destination="0fN-8s-9Nh" eventType="touchUpInside" id="DfZ-8r-7Fu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7iE-Ls-EIN" firstAttribute="baseline" secondItem="V8L-ZE-V0p" secondAttribute="baseline" id="0jy-Hl-mIW"/>
+                            <constraint firstItem="Oc4-4W-1QZ" firstAttribute="top" secondItem="bep-RV-wHS" secondAttribute="bottom" id="2Jb-bo-PM7"/>
+                            <constraint firstItem="7iE-Ls-EIN" firstAttribute="centerX" secondItem="s6w-y6-aRR" secondAttribute="centerX" id="8w4-Ge-1c1"/>
+                            <constraint firstItem="s6w-y6-aRR" firstAttribute="top" secondItem="7iE-Ls-EIN" secondAttribute="bottom" constant="8" symbolic="YES" id="CGf-b0-w4n"/>
+                            <constraint firstItem="gLp-Zj-bPo" firstAttribute="leading" secondItem="s6w-y6-aRR" secondAttribute="trailing" constant="39" id="Fv4-T8-QJN"/>
+                            <constraint firstItem="RE3-gC-gPn" firstAttribute="centerX" secondItem="Oc4-4W-1QZ" secondAttribute="centerX" id="JH1-3N-gqf"/>
+                            <constraint firstItem="s6w-y6-aRR" firstAttribute="baseline" secondItem="gLp-Zj-bPo" secondAttribute="baseline" id="JwX-65-D4v"/>
+                            <constraint firstItem="V8L-ZE-V0p" firstAttribute="centerX" secondItem="gLp-Zj-bPo" secondAttribute="centerX" id="RPe-C1-MRH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Oc4-4W-1QZ" secondAttribute="trailing" constant="9" id="bTe-Bk-5lC"/>
+                            <constraint firstItem="RE3-gC-gPn" firstAttribute="top" secondItem="Oc4-4W-1QZ" secondAttribute="bottom" constant="17" id="cHZ-bR-J2K"/>
+                            <constraint firstItem="6q4-FI-EX2" firstAttribute="top" secondItem="s6w-y6-aRR" secondAttribute="bottom" constant="25" id="cyN-IF-G0E"/>
+                            <constraint firstItem="7iE-Ls-EIN" firstAttribute="top" secondItem="RE3-gC-gPn" secondAttribute="bottom" constant="23" id="gb0-sc-hR5"/>
+                            <constraint firstItem="Oc4-4W-1QZ" firstAttribute="leading" secondItem="1qS-3C-pK8" secondAttribute="leadingMargin" constant="4" id="r62-DA-GCx"/>
+                            <constraint firstItem="RE3-gC-gPn" firstAttribute="leading" secondItem="1qS-3C-pK8" secondAttribute="leadingMargin" constant="21" id="rGI-xy-pce"/>
+                            <constraint firstItem="s6w-y6-aRR" firstAttribute="leading" secondItem="1qS-3C-pK8" secondAttribute="leadingMargin" constant="8" id="u32-bg-1Oy"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Camera" id="Ea5-Ub-N51"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="PhotoView" destination="Oc4-4W-1QZ" id="fwS-pV-4pE"/>
+                        <outlet property="PhotoView2" destination="RE3-gC-gPn" id="fNy-JG-OWk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C5W-UK-OnQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="217" y="1134"/>
+        </scene>
+        <!--Me-->
+        <scene sceneID="5SU-hd-qy0">
+            <objects>
+                <viewController id="GuB-hR-lYs" customClass="MeVC" customModule="Spotlight" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iYC-Ix-9s8"/>
+                        <viewControllerLayoutGuide type="bottom" id="3au-XA-VeS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FLT-eo-I6S">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7oG-bA-Yrf">
+                                <rect key="frame" x="40" y="83" width="240" height="208"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="EeI-q7-KWc"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PO6-j9-2fr">
+                                <rect key="frame" x="95" y="371" width="131" height="30"/>
+                                <state key="normal" title="Load Taken Picture"/>
+                                <connections>
+                                    <action selector="LoadTakenPhoto:" destination="GuB-hR-lYs" eventType="touchUpInside" id="Lju-v0-XBD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nt3-tv-4RX">
+                                <rect key="frame" x="20" y="441" width="105" height="30"/>
+                                <state key="normal" title="Previous Image"/>
+                                <connections>
+                                    <action selector="previousImageButton:" destination="GuB-hR-lYs" eventType="touchUpInside" id="tap-fw-vw8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cD-fM-qcK">
+                                <rect key="frame" x="171" y="441" width="78" height="30"/>
+                                <state key="normal" title="Next Image"/>
+                                <connections>
+                                    <action selector="nextImageButton:" destination="GuB-hR-lYs" eventType="touchUpInside" id="vpe-Lw-zUT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Nt3-tv-4RX" firstAttribute="baseline" secondItem="7cD-fM-qcK" secondAttribute="baseline" id="0bV-cb-K0C"/>
+                            <constraint firstItem="7oG-bA-Yrf" firstAttribute="top" secondItem="iYC-Ix-9s8" secondAttribute="bottom" constant="63" id="LjQ-jf-wsQ"/>
+                            <constraint firstItem="7oG-bA-Yrf" firstAttribute="centerX" secondItem="FLT-eo-I6S" secondAttribute="centerX" id="e4F-qB-imv"/>
+                            <constraint firstItem="7oG-bA-Yrf" firstAttribute="centerX" secondItem="PO6-j9-2fr" secondAttribute="centerX" id="e5L-x1-6Dz"/>
+                            <constraint firstItem="Nt3-tv-4RX" firstAttribute="leading" secondItem="FLT-eo-I6S" secondAttribute="leadingMargin" id="eiN-Vo-1gB"/>
+                            <constraint firstItem="PO6-j9-2fr" firstAttribute="top" secondItem="7oG-bA-Yrf" secondAttribute="bottom" constant="80" id="fv7-TJ-WT0"/>
+                            <constraint firstItem="3au-XA-VeS" firstAttribute="top" secondItem="PO6-j9-2fr" secondAttribute="bottom" constant="118" id="pie-XM-77E"/>
+                            <constraint firstItem="7cD-fM-qcK" firstAttribute="leading" secondItem="Nt3-tv-4RX" secondAttribute="trailing" constant="46" id="qhO-7T-m99"/>
+                            <constraint firstItem="Nt3-tv-4RX" firstAttribute="top" secondItem="PO6-j9-2fr" secondAttribute="bottom" constant="40" id="w26-Bv-qFm"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Me" id="Xv9-wQ-roc"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="TakenPhotoView" destination="7oG-bA-Yrf" id="2sq-oN-Hmn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cOm-jj-kZq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1057" y="1032"/>
         </scene>
     </scenes>
 </document>

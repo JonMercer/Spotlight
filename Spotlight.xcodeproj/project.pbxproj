@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D9B41C61D2139B800B8389A /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9B41C51D2139B800B8389A /* MeVC.swift */; };
+		A4FB11901D208C4D001F36F2 /* PhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB118F1D208C4D001F36F2 /* PhotoAlbum.swift */; };
+		A4FB11941D20914B001F36F2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB11931D20914B001F36F2 /* Constants.swift */; };
+		C86CED8B1D209A9100B70FF0 /* CustomPhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86CED8A1D209A9100B70FF0 /* CustomPhotoAlbum.swift */; };
 		C87650791D2066860092A75A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87650781D2066860092A75A /* AppDelegate.swift */; };
 		C876507B1D2066860092A75A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876507A1D2066860092A75A /* ViewController.swift */; };
 		C876507E1D2066860092A75A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C876507C1D2066860092A75A /* Main.storyboard */; };
@@ -15,6 +19,9 @@
 		C87650861D2066860092A75A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C87650841D2066860092A75A /* LaunchScreen.storyboard */; };
 		C87650911D2066860092A75A /* SpotlightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87650901D2066860092A75A /* SpotlightTests.swift */; };
 		C876509C1D2066870092A75A /* SpotlightUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876509B1D2066870092A75A /* SpotlightUITests.swift */; };
+		C8BFBE101D23670200246DA1 /* LocalStoragePhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BFBE0F1D23670200246DA1 /* LocalStoragePhotoManager.swift */; };
+		C8BFBE121D23762400246DA1 /* DeviceOwnerPhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BFBE111D23762400246DA1 /* DeviceOwnerPhotoManager.swift */; };
+		C8D136371D2077760005F018 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D136361D2077760005F018 /* CameraVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7D9B41C51D2139B800B8389A /* MeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
+		A4FB118F1D208C4D001F36F2 /* PhotoAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAlbum.swift; sourceTree = "<group>"; };
+		A4FB11931D20914B001F36F2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C86CED8A1D209A9100B70FF0 /* CustomPhotoAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPhotoAlbum.swift; sourceTree = "<group>"; };
 		C87650751D2066860092A75A /* Spotlight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotlight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C87650781D2066860092A75A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C876507A1D2066860092A75A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +60,9 @@
 		C87650971D2066870092A75A /* SpotlightUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpotlightUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C876509B1D2066870092A75A /* SpotlightUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightUITests.swift; sourceTree = "<group>"; };
 		C876509D1D2066870092A75A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8BFBE0F1D23670200246DA1 /* LocalStoragePhotoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStoragePhotoManager.swift; sourceTree = "<group>"; };
+		C8BFBE111D23762400246DA1 /* DeviceOwnerPhotoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceOwnerPhotoManager.swift; sourceTree = "<group>"; };
+		C8D136361D2077760005F018 /* CameraVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +90,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A4FB11911D208CD4001F36F2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C876507A1D2066860092A75A /* ViewController.swift */,
+				C8D136361D2077760005F018 /* CameraVC.swift */,
+				7D9B41C51D2139B800B8389A /* MeVC.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A4FB11921D208CF3001F36F2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A4FB118F1D208C4D001F36F2 /* PhotoAlbum.swift */,
+				C86CED8A1D209A9100B70FF0 /* CustomPhotoAlbum.swift */,
+				C8BFBE0F1D23670200246DA1 /* LocalStoragePhotoManager.swift */,
+				C8BFBE111D23762400246DA1 /* DeviceOwnerPhotoManager.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		C876506C1D2066860092A75A = {
 			isa = PBXGroup;
 			children = (
@@ -99,13 +134,15 @@
 		C87650771D2066860092A75A /* Spotlight */ = {
 			isa = PBXGroup;
 			children = (
+				A4FB11921D208CF3001F36F2 /* Models */,
+				A4FB11911D208CD4001F36F2 /* ViewControllers */,
 				C87650781D2066860092A75A /* AppDelegate.swift */,
-				C876507A1D2066860092A75A /* ViewController.swift */,
 				C876507C1D2066860092A75A /* Main.storyboard */,
 				C87650821D2066860092A75A /* Assets.xcassets */,
 				C87650841D2066860092A75A /* LaunchScreen.storyboard */,
 				C87650871D2066860092A75A /* Info.plist */,
 				C876507F1D2066860092A75A /* Spotlight.xcdatamodeld */,
+				A4FB11931D20914B001F36F2 /* Constants.swift */,
 			);
 			path = Spotlight;
 			sourceTree = "<group>";
@@ -196,6 +233,7 @@
 				TargetAttributes = {
 					C87650741D2066860092A75A = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = R2392A68YQ;
 					};
 					C876508B1D2066860092A75A = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -203,6 +241,7 @@
 					};
 					C87650961D2066870092A75A = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 84DT5V2926;
 						TestTargetID = C87650741D2066860092A75A;
 					};
 				};
@@ -259,9 +298,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D9B41C61D2139B800B8389A /* MeVC.swift in Sources */,
 				C87650811D2066860092A75A /* Spotlight.xcdatamodeld in Sources */,
+				C8BFBE121D23762400246DA1 /* DeviceOwnerPhotoManager.swift in Sources */,
+				A4FB11901D208C4D001F36F2 /* PhotoAlbum.swift in Sources */,
 				C876507B1D2066860092A75A /* ViewController.swift in Sources */,
 				C87650791D2066860092A75A /* AppDelegate.swift in Sources */,
+				C8BFBE101D23670200246DA1 /* LocalStoragePhotoManager.swift in Sources */,
+				C8D136371D2077760005F018 /* CameraVC.swift in Sources */,
+				C86CED8B1D209A9100B70FF0 /* CustomPhotoAlbum.swift in Sources */,
+				A4FB11941D20914B001F36F2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,10 +449,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Spotlight/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.spotlightteam.Spotlight;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spotlightteam.Spotlight.Tanha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -414,10 +463,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Spotlight/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.spotlightteam.Spotlight;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spotlightteam.Spotlight.Tanha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -448,10 +500,13 @@
 		C87650A71D2066870092A75A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SpotlightUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spotlightteam.SpotlightUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_TARGET_NAME = Spotlight;
 			};
 			name = Debug;
@@ -459,10 +514,13 @@
 		C87650A81D2066870092A75A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SpotlightUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.spotlightteam.SpotlightUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_TARGET_NAME = Spotlight;
 			};
 			name = Release;
@@ -486,6 +544,7 @@
 				C87650A21D2066870092A75A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C87650A31D2066870092A75A /* Build configuration list for PBXNativeTarget "SpotlightTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +553,7 @@
 				C87650A51D2066870092A75A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C87650A61D2066870092A75A /* Build configuration list for PBXNativeTarget "SpotlightUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +562,7 @@
 				C87650A81D2066870092A75A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
