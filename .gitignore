@@ -315,3 +315,7 @@ iOSInjectionProject/
 # Debug files
 *.dSYM/
 *.su
+
+# Cocoapods Related
+Podfile.lock
+Pods/*
