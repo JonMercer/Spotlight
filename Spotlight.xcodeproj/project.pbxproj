@@ -12,6 +12,8 @@
 		4776E3D4DC37C333570B7BFB /* Pods_Spotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B115FCEEB53E4B76FEC2A7 /* Pods_Spotlight.framework */; };
 		7D9B41C61D2139B800B8389A /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9B41C51D2139B800B8389A /* MeVC.swift */; };
 		7DADB5481D239EA60042A958 /* FeedbackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DADB5471D239EA60042A958 /* FeedbackVC.swift */; };
+		7DD779B31D24D5C6000C4113 /* SpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD779B21D24D5C6000C4113 /* SpotCell.swift */; };
+		7DD779B61D24D6C7000C4113 /* SpotsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD779B41D24D6C7000C4113 /* SpotsVC.swift */; };
 		A4FB11901D208C4D001F36F2 /* PhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB118F1D208C4D001F36F2 /* PhotoAlbum.swift */; };
 		A4FB11941D20914B001F36F2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB11931D20914B001F36F2 /* Constants.swift */; };
 		C86CED8B1D209A9100B70FF0 /* CustomPhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86CED8A1D209A9100B70FF0 /* CustomPhotoAlbum.swift */; };
@@ -50,6 +52,8 @@
 		7CE10A12DAF0A72D4D878646 /* Pods-Spotlight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spotlight.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Spotlight/Pods-Spotlight.debug.xcconfig"; sourceTree = "<group>"; };
 		7D9B41C51D2139B800B8389A /* MeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
 		7DADB5471D239EA60042A958 /* FeedbackVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackVC.swift; sourceTree = "<group>"; };
+		7DD779B21D24D5C6000C4113 /* SpotCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotCell.swift; sourceTree = "<group>"; };
+		7DD779B41D24D6C7000C4113 /* SpotsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotsVC.swift; sourceTree = "<group>"; };
 		8C7DBB560C64214CA820F1C2 /* Pods-SpotlightTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotlightTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpotlightTests/Pods-SpotlightTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9427546F6B6DBEA23FEA2D6F /* Pods-SpotlightUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotlightUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpotlightUITests/Pods-SpotlightUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A3C54508A40A5D2B23ADCFBF /* Pods-SpotlightTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotlightTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpotlightTests/Pods-SpotlightTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 		A4FB11911D208CD4001F36F2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7DD779B41D24D6C7000C4113 /* SpotsVC.swift */,
+				7DD779B21D24D5C6000C4113 /* SpotCell.swift */,
 				C876507A1D2066860092A75A /* ViewController.swift */,
 				C8D136361D2077760005F018 /* CameraVC.swift */,
 				7DADB5471D239EA60042A958 /* FeedbackVC.swift */,
@@ -475,9 +481,11 @@
 				7D9B41C61D2139B800B8389A /* MeVC.swift in Sources */,
 				7DADB5481D239EA60042A958 /* FeedbackVC.swift in Sources */,
 				C87650811D2066860092A75A /* Spotlight.xcdatamodeld in Sources */,
+				7DD779B31D24D5C6000C4113 /* SpotCell.swift in Sources */,
 				C8BFBE121D23762400246DA1 /* DeviceOwnerPhotoManager.swift in Sources */,
 				A4FB11901D208C4D001F36F2 /* PhotoAlbum.swift in Sources */,
 				C876507B1D2066860092A75A /* ViewController.swift in Sources */,
+				7DD779B61D24D6C7000C4113 /* SpotsVC.swift in Sources */,
 				C87650791D2066860092A75A /* AppDelegate.swift in Sources */,
 				C8BFBE101D23670200246DA1 /* LocalStoragePhotoManager.swift in Sources */,
 				C8D136371D2077760005F018 /* CameraVC.swift in Sources */,
