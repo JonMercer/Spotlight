@@ -62,11 +62,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="350x150" translatesAutoresizingMaskIntoConstraints="NO" id="3oV-he-HVb">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3oV-he-HVb">
                                             <rect key="frame" x="27" y="-27" width="240" height="81"/>
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="spotImageView" destination="3oV-he-HVb" id="mCo-XC-Ad2"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -248,7 +251,4 @@
             <point key="canvasLocation" x="1057" y="1032"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="350x150" width="350" height="150"/>
-    </resources>
 </document>

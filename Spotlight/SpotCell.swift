@@ -10,8 +10,10 @@ import UIKit
 
 class SpotCell: UITableViewCell {
 
+    @IBOutlet weak var spotImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
+        spotImageView.image = UIImage(named: "350")!
         // Initialization code
     }
 
