@@ -42,6 +42,27 @@ class FeedbackVC: UIViewController {
     } else {
       // No user is signed in.
     }
+    
+    let storage = FIRStorage.storage()
+    let storageRef = storage.referenceForURL("gs://spotlight-5a0c3.appspot.com")
+    
+    let imageRef = storageRef.child("images")
+    let spaceRef = storageRef.child("images/space.jpg")
+    
+    
+    let imageData: NSData = UIImagePNGRepresentation(UIImage(named: "100by100")!)!
+    
+    // Upload the file to the path "images/space.jpg"
+    let uploadTask = spaceRef.putData(imageData, metadata: nil) { metadata, error in
+      if (error != nil) {
+        // Uh-oh, an error occurred!
+        print("Error uploading image")
+      } else {
+        // Metadata contains file metadata such as size, content-type, and download URL.
+        let downloadURL = metadata!.downloadURL
+        print("Image uploaded at URL:\(downloadURL)")
+      }
+    }
   }
   
   @IBAction func printTextFromFirebase(sender: AnyObject) {
