@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2C185E49769470915EF38A22 /* Pods_SpotlightTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BC10B1376EFC8E7F2A1052 /* Pods_SpotlightTests.framework */; };
 		37517B4484A684BEBE43687B /* Pods_SpotlightUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 267D881F2BEED43F91DF5568 /* Pods_SpotlightUITests.framework */; };
+		7D4E28661D2CB61500F8E574 /* SingleListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4E28651D2CB61500F8E574 /* SingleListVC.swift */; };
+		7D4E28681D2CB82000F8E574 /* SingleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4E28671D2CB82000F8E574 /* SingleViewCell.swift */; };
 		7D9B41C61D2139B800B8389A /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9B41C51D2139B800B8389A /* MeVC.swift */; };
 		A4FB11901D208C4D001F36F2 /* PhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB118F1D208C4D001F36F2 /* PhotoAlbum.swift */; };
 		A4FB11941D20914B001F36F2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB11931D20914B001F36F2 /* Constants.swift */; };
@@ -55,6 +57,8 @@
 		5DC2903C954E0297B942B5CD /* Pods-Spotlight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spotlight.release.xcconfig"; path = "Pods/Target Support Files/Pods-Spotlight/Pods-Spotlight.release.xcconfig"; sourceTree = "<group>"; };
 		5FFF557477C1B0D686FF3243 /* Pods-SpotlightUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotlightUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpotlightUITests/Pods-SpotlightUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7AB65C32FCF86A353266FFFB /* Pods-SpotlightUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotlightUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpotlightUITests/Pods-SpotlightUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7D4E28651D2CB61500F8E574 /* SingleListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleListVC.swift; sourceTree = "<group>"; };
+		7D4E28671D2CB82000F8E574 /* SingleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleViewCell.swift; sourceTree = "<group>"; };
 		7D9B41C51D2139B800B8389A /* MeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
 		A4FB118F1D208C4D001F36F2 /* PhotoAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAlbum.swift; sourceTree = "<group>"; };
 		A4FB11931D20914B001F36F2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -139,6 +143,8 @@
 				C84FDA6E1D2C975100E66DCD /* FeedbackVC.swift */,
 				C8D136361D2077760005F018 /* CameraVC.swift */,
 				7D9B41C51D2139B800B8389A /* MeVC.swift */,
+				7D4E28651D2CB61500F8E574 /* SingleListVC.swift */,
+				7D4E28671D2CB82000F8E574 /* SingleViewCell.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -483,7 +489,9 @@
 				A4FB11901D208C4D001F36F2 /* PhotoAlbum.swift in Sources */,
 				C876507B1D2066860092A75A /* ViewController.swift in Sources */,
 				C87650791D2066860092A75A /* AppDelegate.swift in Sources */,
+				7D4E28681D2CB82000F8E574 /* SingleViewCell.swift in Sources */,
 				C8BFBE101D23670200246DA1 /* LocalStoragePhotoManager.swift in Sources */,
+				7D4E28661D2CB61500F8E574 /* SingleListVC.swift in Sources */,
 				C8D136371D2077760005F018 /* CameraVC.swift in Sources */,
 				C86CED8B1D209A9100B70FF0 /* CustomPhotoAlbum.swift in Sources */,
 				A4FB11941D20914B001F36F2 /* Constants.swift in Sources */,
