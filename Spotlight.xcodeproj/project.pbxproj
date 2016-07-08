@@ -27,6 +27,8 @@
 		C876509C1D2066870092A75A /* SpotlightUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876509B1D2066870092A75A /* SpotlightUITests.swift */; };
 		C8BFBE101D23670200246DA1 /* LocalStoragePhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BFBE0F1D23670200246DA1 /* LocalStoragePhotoManager.swift */; };
 		C8BFBE121D23762400246DA1 /* DeviceOwnerPhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BFBE111D23762400246DA1 /* DeviceOwnerPhotoManager.swift */; };
+		C8C2153B1D2F3EAC0099FBB3 /* FeedbackViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8C2153A1D2F3EAC0099FBB3 /* FeedbackViewContainer.xib */; };
+		C8C2153D1D2F3F130099FBB3 /* FeedbackViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C2153C1D2F3F130099FBB3 /* FeedbackViewContainer.swift */; };
 		C8D136371D2077760005F018 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D136361D2077760005F018 /* CameraVC.swift */; };
 		E871EFDF2C7FBF5D93D2F2B7 /* Pods_Spotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D61B8302734B230D5E6888B /* Pods_Spotlight.framework */; };
 /* End PBXBuildFile section */
@@ -81,6 +83,8 @@
 		C876509D1D2066870092A75A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8BFBE0F1D23670200246DA1 /* LocalStoragePhotoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStoragePhotoManager.swift; sourceTree = "<group>"; };
 		C8BFBE111D23762400246DA1 /* DeviceOwnerPhotoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceOwnerPhotoManager.swift; sourceTree = "<group>"; };
+		C8C2153A1D2F3EAC0099FBB3 /* FeedbackViewContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackViewContainer.xib; sourceTree = "<group>"; };
+		C8C2153C1D2F3F130099FBB3 /* FeedbackViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewContainer.swift; sourceTree = "<group>"; };
 		C8D136361D2077760005F018 /* CameraVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 		D58281E16EC8DFDE52404CCF /* Pods-SpotlightTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotlightTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpotlightTests/Pods-SpotlightTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -188,6 +192,7 @@
 				A4FB11921D208CF3001F36F2 /* Models */,
 				A4FB11911D208CD4001F36F2 /* ViewControllers */,
 				C87650781D2066860092A75A /* AppDelegate.swift */,
+				C8C215391D2F3DFF0099FBB3 /* Views */,
 				C876507C1D2066860092A75A /* Main.storyboard */,
 				C87650821D2066860092A75A /* Assets.xcassets */,
 				C87650841D2066860092A75A /* LaunchScreen.storyboard */,
@@ -215,6 +220,15 @@
 				C876509D1D2066870092A75A /* Info.plist */,
 			);
 			path = SpotlightUITests;
+			sourceTree = "<group>";
+		};
+		C8C215391D2F3DFF0099FBB3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C8C2153A1D2F3EAC0099FBB3 /* FeedbackViewContainer.xib */,
+				C8C2153C1D2F3F130099FBB3 /* FeedbackViewContainer.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,6 +349,7 @@
 				C8647D9E1D29FAFC00C21A59 /* GoogleService-Info.plist in Resources */,
 				C87650831D2066860092A75A /* Assets.xcassets in Resources */,
 				C876507E1D2066860092A75A /* Main.storyboard in Resources */,
+				C8C2153B1D2F3EAC0099FBB3 /* FeedbackViewContainer.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +504,7 @@
 				A4FB11901D208C4D001F36F2 /* PhotoAlbum.swift in Sources */,
 				C876507B1D2066860092A75A /* ViewController.swift in Sources */,
 				C87650791D2066860092A75A /* AppDelegate.swift in Sources */,
+				C8C2153D1D2F3F130099FBB3 /* FeedbackViewContainer.swift in Sources */,
 				7D4E28681D2CB82000F8E574 /* SingleViewCell.swift in Sources */,
 				C8BFBE101D23670200246DA1 /* LocalStoragePhotoManager.swift in Sources */,
 				7D4E28661D2CB61500F8E574 /* SingleListVC.swift in Sources */,

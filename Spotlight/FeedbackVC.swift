@@ -12,6 +12,32 @@ import Firebase
 class FeedbackVC: UIViewController {
   let name = "joe"
   
+  var container: FeedbackViewContainer?
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    print("Opened FeedbackVC")
+    // Do any additional setup after loading the view, typically from a nib.
+    
+    setupViewContainer()
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
+  
+  //MARK: Helper Functions
+  private func setupViewContainer() {
+    //TODO: use generic to avoid copy paste here
+    container = FeedbackViewContainer.instanceFromNib(
+      CGRectMake(0, 0, view.bounds.width, view.bounds.height))
+    //customView?.delegate = self
+    view.addSubview(container!)
+  }
+  
+  
+  //MARK: - Temporary Buttons
   @IBAction func signInButton(sender: AnyObject) {
     //MARK: Log in
     FIRAuth.auth()?.signInWithEmail("\(name)@g.com", password: "123456") { (user, error) in
@@ -83,18 +109,9 @@ class FeedbackVC: UIViewController {
       print(error.localizedDescription)
     }
   }
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    print("Opened FeedbackVC")
-    // Do any additional setup after loading the view, typically from a nib.
-
-    
-  }
   
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
+  
+
   
   
 }
