@@ -32,7 +32,7 @@ class FeedbackVC: UIViewController {
     //TODO: use generic to avoid copy paste here
     container = FeedbackViewContainer.instanceFromNib(
       CGRectMake(0, 0, view.bounds.width, view.bounds.height))
-    //customView?.delegate = self
+    container?.delegate = self
     view.addSubview(container!)
   }
   
@@ -109,10 +109,12 @@ class FeedbackVC: UIViewController {
       print(error.localizedDescription)
     }
   }
-  
-  
+}
 
-  
-  
+extension FeedbackVC: FeedbackViewContainerDelegate {
+  func plus5(num: Int) -> Int {
+    print("input number is:\(num)")
+    return num + 5
+  }
 }
 
