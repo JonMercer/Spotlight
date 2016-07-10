@@ -36,28 +36,6 @@ class FeedbackVC: UIViewController {
     view.addSubview(container!)
   }
   
-  
-  //MARK: - Temporary Buttons
-  @IBAction func signInButton(sender: AnyObject) {
-    //MARK: Log in
-    FIRAuth.auth()?.signInWithEmail("\(name)@g.com", password: "123456") { (user, error) in
-      if (error != nil) {
-        print("Could not log in creating a user:\(self.name)")
-        
-        //MAKR: Create a user
-        FIRAuth.auth()?.createUserWithEmail("\(self.name)@g.com", password: "123456") { (user, error) in
-          if (error != nil) {
-            print("Could not create a user:\(self.name)")
-          } else {
-            print("Created a user:\(self.name)")
-          }
-        }
-      } else {
-        print("User:\(self.name) logged in")
-      }
-    }
-  }
-  
   @IBAction func sendAnItemButton(sender: AnyObject) {
 
   }
@@ -70,7 +48,7 @@ class FeedbackVC: UIViewController {
       // Get user value
       let messageFromFirebase = snapshot.value!["username"] as! String
       //let user = User.init(username: username)
-      print("Printing \(self.name)'s message: \(messageFromFirebase)")
+      print("Printing \(FIRAuth.auth()?.currentUser?.email)'s message: \(messageFromFirebase)")
       
       // ...
     }) { (error) in
@@ -80,10 +58,31 @@ class FeedbackVC: UIViewController {
 }
 
 extension FeedbackVC: FeedbackViewContainerDelegate {
-  func plus5(num: Int) -> Int {
-    print("input number is:\(num)")
-    return num + 5
-  }
+    func signIn() {
+        var name = "tantan"
+        //MARK: Log in
+        FIRAuth.auth()?.signInWithEmail("\(name)@g.com", password: "123456") { (user, error) in
+            if (error != nil) {
+                print("Could not log in creating a user:\(name)")
+                
+                //MAKR: Create a user
+                FIRAuth.auth()?.createUserWithEmail("\(self.name)@g.com", password: "123456") { (user, error) in
+                    if (error != nil) {
+                        print("Could not create a user:\(name)")
+                    } else {
+                        print("Created a user:\(name)")
+                    }
+                }
+            } else {
+                print("User:\(name) logged in")
+            }
+        }
+    }
+    
+    func plus5(num: Int) -> Int {
+      print("input number is:\(num)")
+      return num + 5
+    }
     
     func storeAnImageInFIR(){
         //MARK: Write to FIR

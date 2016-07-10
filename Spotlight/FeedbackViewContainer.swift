@@ -9,6 +9,7 @@
 import UIKit
 
 protocol FeedbackViewContainerDelegate {
+  func signIn()
   func plus5(num:Int) -> Int
   func storeAnImageInFIR()
 }
@@ -16,11 +17,15 @@ protocol FeedbackViewContainerDelegate {
 class FeedbackViewContainer: UIView {
   
   var delegate: FeedbackViewContainerDelegate?
-
+    
   @IBAction func button(sender: AnyObject) {
     print("\nbutton pressed")
     let num = delegate?.plus5(12)
     print("output number is:\(num)")
+
+    print("\nSigning in a user...")
+    delegate?.signIn()
+    print("\nSigning in a user... DONE")
     
     print("\nStoring an image in FIR (Firebase)...")
     delegate?.storeAnImageInFIR()
