@@ -10,6 +10,7 @@ import UIKit
 
 protocol FeedbackViewContainerDelegate {
   func plus5(num:Int) -> Int
+  func storeAnImageInFIR()
 }
 
 class FeedbackViewContainer: UIView {
@@ -20,6 +21,10 @@ class FeedbackViewContainer: UIView {
     print("\nbutton pressed")
     let num = delegate?.plus5(12)
     print("output number is:\(num)")
+    
+    print("\nStoring an image in FIR (Firebase)...")
+    delegate?.storeAnImageInFIR()
+    print("\nStoring an image in FIR (Firebase)... DONE (Hopefully)")
   }
   
   class func instanceFromNib(frame: CGRect) -> FeedbackViewContainer {

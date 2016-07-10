@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class FeedbackVC: UIViewController {
-  let name = "joe"
+  let name = "tantan"
   
   var container: FeedbackViewContainer?
   
@@ -59,39 +59,7 @@ class FeedbackVC: UIViewController {
   }
   
   @IBAction func sendAnItemButton(sender: AnyObject) {
-    //MARK: Write to FIR
-    let ref = FIRDatabase.database().reference()
-    if let user = FIRAuth.auth()?.currentUser {
-      // User is signed in.
-      ref.child("users").child(user.uid).setValue(["username": "\(self.name) made this"])
-      print("user:\(self.name) created an entry")
-    } else {
-      // No user is signed in.
-    }
-    
-    let storage = FIRStorage.storage()
-    let storageRef = storage.referenceForURL("gs://spotlight-5a0c3.appspot.com")
-    
-    let imageURL = LocalStoragePhotoManager.getImageURLsInDirectory().last!
-    let imageName = LocalStoragePhotoManager.getImageNamesInDirectory().last!
-    
-    let imageRef = storageRef.child(imageName)
-    let spaceRef = storageRef.child("images/\(imageName).jpg")
-    
-    //Uploading Data
-    //let imageData: NSData = UIImagePNGRepresentation(UIImage(named: "100by100")!)!
-    
-    // Upload the file to the path "images/<imageName>.jpg"
-    let uploadTask = spaceRef.putFile(imageURL, metadata: nil) { metadata, error in
-      if (error != nil) {
-        // Uh-oh, an error occurred!
-        print("Error uploading image")
-      } else {
-        // Metadata contains file metadata such as size, content-type, and download URL.
-        let downloadURL = metadata!.downloadURL
-        print("Image uploaded at URL:\(downloadURL().debugDescription)")
-      }
-    }
+
   }
   
   @IBAction func printTextFromFirebase(sender: AnyObject) {
@@ -116,5 +84,44 @@ extension FeedbackVC: FeedbackViewContainerDelegate {
     print("input number is:\(num)")
     return num + 5
   }
+    
+    func storeAnImageInFIR(){
+        //MARK: Write to FIR
+        let ref = FIRDatabase.database().reference()
+        if let user = FIRAuth.auth()?.currentUser {
+            // User is signed in.
+            ref.child("users").child(user.uid).setValue(["username": "\(user.email) made this"])
+            print("user:\(user.email) created an entry")
+        } else {
+            print("user is not signed in.")
+            // No user is signed in.
+        }
+        
+        let storage = FIRStorage.storage()
+        let storageRef = storage.referenceForURL("gs://spotlight-5a0c3.appspot.com")
+        
+        let imageURL = LocalStoragePhotoManager.getImageURLsInDirectory().last!
+        let imageName = LocalStoragePhotoManager.getImageNamesInDirectory().last!
+        
+        // YK commented out the following line-- doesn't seem to be doing anything.
+//        let imageRef = storageRef.child(imageName)
+        let spaceRef = storageRef.child("images/\(imageName).jpg")
+        
+        //Uploading Data
+        //let imageData: NSData = UIImagePNGRepresentation(UIImage(named: "100by100")!)!
+        
+        // Upload the file to the path "images/<imageName>.jpg"
+        let uploadTask = spaceRef.putFile(imageURL, metadata: nil) { metadata, error in
+            if (error != nil) {
+                // Uh-oh, an error occurred!
+                print("Error uploading image")
+            } else {
+                // Metadata contains file metadata such as size, content-type, and download URL.
+                let downloadURL = metadata!.downloadURL
+                print("Image uploaded.")
+//                print("Image uploaded at URL:\(downloadURL().debugDescription)")
+            }
+        }
+    }
 }
 
