@@ -16,10 +16,9 @@ class FeedbackVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    print("Opened FeedbackVC")
-    // Do any additional setup after loading the view, typically from a nib.
     
     setupViewContainer()
+    signIn()
   }
   
   override func didReceiveMemoryWarning() {

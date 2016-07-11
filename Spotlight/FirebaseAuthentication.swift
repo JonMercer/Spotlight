@@ -13,7 +13,7 @@ extension ModelInterface: Authenticate {
     
     func isUserSignedIn(completionHandler: (signedIn: Bool) -> ()) {
         if let user = FIRAuth.auth()?.currentUser {
-            print("user:\(user.email) created an entry")
+            print("user:\(user.email!) created an entry")
             completionHandler(signedIn: true)
         } else {
             print("user is not signed in.")
