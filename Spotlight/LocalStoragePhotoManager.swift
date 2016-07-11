@@ -49,7 +49,7 @@ class LocalStoragePhotoManager {
         do {
             // Get the directory contents urls (including subfolders urls)
             let directoryContents = try NSFileManager.defaultManager().contentsOfDirectoryAtURL( FilePathConstants.directoryURLPath, includingPropertiesForKeys: nil, options: [])
-            print(directoryContents)
+//            print(directoryContents)
             
             // if you want to filter the directory contents you can do like this:
             let jpgFiles = directoryContents.filter{ $0.pathExtension == "jpg" }

@@ -9,17 +9,20 @@
 import UIKit
 
 protocol FeedbackViewContainerDelegate {
-  func plus5(num:Int) -> Int
+  func signIn()
+  func storeAnImageInFIR()
 }
 
 class FeedbackViewContainer: UIView {
   
   var delegate: FeedbackViewContainerDelegate?
-
+    
   @IBAction func button(sender: AnyObject) {
-    print("\nbutton pressed")
-    let num = delegate?.plus5(12)
-    print("output number is:\(num)")
+    //print("\nSigning in a user...")
+    //delegate?.signIn()
+    //print("\nSigning in a user... DONE")
+    
+    delegate?.storeAnImageInFIR()
   }
   
   class func instanceFromNib(frame: CGRect) -> FeedbackViewContainer {

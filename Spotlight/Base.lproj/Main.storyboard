@@ -62,21 +62,14 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GLf-ku-M9z">
-                                <rect key="frame" x="39" y="20" width="47" height="30"/>
-                                <state key="normal" title="Sign In"/>
-                                <connections>
-                                    <action selector="signInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9zG-Pl-DoV"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Lv-yl-Jvf">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Lv-yl-Jvf">
                                 <rect key="frame" x="9" y="80" width="109" height="30"/>
                                 <state key="normal" title="Send text to FIR"/>
                                 <connections>
                                     <action selector="sendAnItemButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X5W-Dj-wT9"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mYw-7n-YTq">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mYw-7n-YTq">
                                 <rect key="frame" x="9" y="129" width="117" height="30"/>
                                 <state key="normal" title="Get text from FIR"/>
                                 <connections>
@@ -88,9 +81,6 @@
                         <constraints>
                             <constraint firstItem="mYw-7n-YTq" firstAttribute="top" secondItem="0Lv-yl-Jvf" secondAttribute="bottom" constant="19" id="A4x-c8-SV7"/>
                             <constraint firstItem="mYw-7n-YTq" firstAttribute="leading" secondItem="0Lv-yl-Jvf" secondAttribute="leading" id="BEz-0c-ciK"/>
-                            <constraint firstItem="0Lv-yl-Jvf" firstAttribute="top" secondItem="GLf-ku-M9z" secondAttribute="bottom" constant="30" id="ItV-XG-06G"/>
-                            <constraint firstItem="GLf-ku-M9z" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="PDJ-ik-Tdy"/>
-                            <constraint firstItem="GLf-ku-M9z" firstAttribute="centerX" secondItem="0Lv-yl-Jvf" secondAttribute="centerX" constant="-1" id="iu3-j5-kxg"/>
                             <constraint firstItem="0Lv-yl-Jvf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-11" id="snp-is-X74"/>
                             <constraint firstItem="f9K-L7-1oY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="245" id="u4f-BO-2Fw"/>
                             <constraint firstItem="f9K-L7-1oY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xed-Jd-UP1"/>
