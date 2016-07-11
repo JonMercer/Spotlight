@@ -16,7 +16,6 @@ class FeedbackVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     setupViewContainer()
     signIn()
   }
@@ -57,6 +56,11 @@ class FeedbackVC: UIViewController {
 }
 
 extension FeedbackVC: FeedbackViewContainerDelegate {
+    func testCompletion(completion: (result: String) -> Void){
+        // I wanted to wait 5 seconds here, but it doesn't seem so simple to implement it.  No need to do it for now.
+        completion(result: "test")
+    }
+    
     func signIn() {
         var name = "tantan"
         //MARK: Log in
