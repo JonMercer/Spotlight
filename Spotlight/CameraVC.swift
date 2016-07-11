@@ -8,8 +8,11 @@
 
 
 import UIKit
+import CoreLocation
 
-class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
+    /// Location manager used to start and stop updating location.
+    let locManager = CLLocationManager()
     
     let photoAlbum = PhotoAlbum()
     
@@ -65,13 +68,19 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     
     
     override func viewDidLoad() {
-        // set up album in photo roll if empty
-        
-
         super.viewDidLoad()
-        //photoAlbum.createAlbum()
+
+        locManager.delegate = self
         
-        // Do any additional setup after loading the view, typically from a nib.
+        locManager.requestWhenInUseAuthorization()
+        
+        locManager.allowsBackgroundLocationUpdates = true
+        
+        locManager.startUpdatingLocation()
+        
+        //For stop
+        //manager.stopUpdatingLocation()
+        //manager.allowsBackgroundLocationUpdates = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -79,6 +88,20 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         // Dispose of any resources that can be recreated.
     }
     
+    /**
+     Increases that location count by the number of locations received by the
+     manager. Updates the batch count with the added locations.
+     */
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        print("printing")
+        print(locations.first?.coordinate.latitude.description)
+
+    }
     
+    /// Log any errors to the console.
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("Error occured: \(error.localizedDescription).")
+    }
 }
 
