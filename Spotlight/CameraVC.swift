@@ -10,15 +10,9 @@
 import UIKit
 import CoreLocation
 
-class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
-    /// Location manager used to start and stop updating location.
-    let locManager = CLLocationManager()
+class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let photoAlbum = PhotoAlbum()
-    
-    
-  
-    
     
     @IBOutlet var PhotoView: UIImageView!
     @IBOutlet var PhotoView2: UIImageView!
@@ -70,13 +64,6 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        locManager.delegate = self
-        
-        locManager.requestWhenInUseAuthorization()
-        
-        locManager.allowsBackgroundLocationUpdates = true
-        
-        locManager.startUpdatingLocation()
         
         //For stop
         //manager.stopUpdatingLocation()
@@ -88,20 +75,7 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         // Dispose of any resources that can be recreated.
     }
     
-    /**
-     Increases that location count by the number of locations received by the
-     manager. Updates the batch count with the added locations.
-     */
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        print("printing")
-        print(locations.first?.coordinate.latitude.description)
-
-    }
     
-    /// Log any errors to the console.
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print("Error occured: \(error.localizedDescription).")
-    }
+    
 }
 
