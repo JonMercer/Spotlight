@@ -13,6 +13,7 @@
 //
 import UIKit
 import Firebase
+import CoreLocation
 
 import CoreData
 @UIApplicationMain
@@ -20,14 +21,29 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    let locManager = CLLocationManager()
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //TODO: put in launch screen
         FIRApp.configure()
         CustomPhotoAlbum.init()
         
+        
+        locManager.delegate = self
+        
+        locManager.requestWhenInUseAuthorization()
+        
+        locManager.allowsBackgroundLocationUpdates = true
+        
+        locManager.startUpdatingLocation()
+
+        
         return true
     }
+    
+
     
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -110,6 +126,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 abort()
             }
         }
+    }
+}
+
+//MARK: - CLLocationManagerDelegate
+extension AppDelegate: CLLocationManagerDelegate {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print(locations.first?.coordinate.latitude.description)
+        
+    }
+    
+    /// Log any errors to the console.
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("Error occured: \(error.localizedDescription).")
     }
 }
 
