@@ -11,6 +11,7 @@ import UIKit
 import CoreLocation
 
 class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    var container: CameraViewContainer?
     
     let photoAlbum = PhotoAlbum()
     
@@ -68,11 +69,22 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         //For stop
         //manager.stopUpdatingLocation()
         //manager.allowsBackgroundLocationUpdates = false
+        
+        setupViewContainer()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: Helper Functions
+    private func setupViewContainer() {
+        //TODO: use generic to avoid copy paste here
+        container = CameraViewContainer.instanceFromNib(
+            CGRectMake(0, 0, view.bounds.width, view.bounds.height))
+        //container?.delegate = self
+        view.addSubview(container!)
     }
     
     
