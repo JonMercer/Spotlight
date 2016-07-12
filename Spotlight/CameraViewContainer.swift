@@ -10,13 +10,19 @@ import UIKit
 
 protocol CameraViewContainerDelegate {
     func goToCameraPicker(picker: UIImagePickerController)
+    func dismissViewControllerAnimated()
 }
 
 
 class CameraViewContainer: UIView {
     var delegate: CameraViewContainerDelegate?
     
+    
     //MARK: - UI Elements
+    
+    @IBOutlet var photoView: UIImageView!
+    @IBOutlet var debuggingPhotoView: UIImageView!
+    
     @IBAction func captureImageFromCameraButtonPressed(sender: AnyObject) {
         let picker = UIImagePickerController()
         picker.delegate = self
@@ -42,7 +48,12 @@ class CameraViewContainer: UIView {
 
 //MARK: - UIImagePickerControllerDelegate
 extension CameraViewContainer: UIImagePickerControllerDelegate {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        photoView.image = info [UIImagePickerControllerOriginalImage] as? UIImage
 
+        //TODO: find a better way of doing this
+        delegate?.dismissViewControllerAnimated()
+    }
 }
 
 

@@ -93,5 +93,9 @@ extension CameraVC: CameraViewContainerDelegate {
     func goToCameraPicker(picker: UIImagePickerController) {
         presentViewController(picker, animated: true, completion: nil)
     }
+    
+    func dismissViewControllerAnimated() {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 }
 

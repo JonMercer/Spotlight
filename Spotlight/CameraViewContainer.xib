@@ -63,6 +63,10 @@
                 <constraint firstItem="P30-KK-msl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="zJB-21-72y"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <connections>
+                <outlet property="debuggingPhotoView" destination="aR3-WV-hV8" id="aJx-Xk-WnV"/>
+                <outlet property="photoView" destination="P30-KK-msl" id="83i-EG-7A2"/>
+            </connections>
         </view>
     </objects>
 </document>
