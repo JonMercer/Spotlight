@@ -24,6 +24,15 @@ class CameraViewContainer: UIView {
 
         delegate?.goToCameraPicker(picker)
     }
+    
+    @IBAction func captureImageFromAlbumButtonPressed(sender: AnyObject) {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.sourceType = .PhotoLibrary
+        
+       delegate?.goToCameraPicker(picker)
+    }
+    
     class func instanceFromNib(frame: CGRect) -> CameraViewContainer {
         let view = UINib(nibName: "CameraViewContainer", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! CameraViewContainer
         view.frame = frame

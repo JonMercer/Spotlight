@@ -31,6 +31,9 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t2Z-ia-p5R">
                     <rect key="frame" x="42" y="410" width="44" height="30"/>
                     <state key="normal" title="Album"/>
+                    <connections>
+                        <action selector="captureImageFromAlbumButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="wTv-u8-dNL"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m38-oB-G5s">
                     <rect key="frame" x="233" y="468" width="51" height="30"/>
