@@ -8,19 +8,11 @@
 
 import UIKit
 
-protocol CameraViewContainerDelegate {
-    func goToCameraPicker(picker: UIImagePickerController)
-    func dismissViewControllerAnimated()
-    func saveToCameraRoll(image: UIImage)
-}
-
-
+//MARK: - CameraViewContainer
 class CameraViewContainer: UIView {
     var delegate: CameraViewContainerDelegate?
-    
-    
+
     //MARK: - UI Elements
-    
     @IBOutlet var photoView: UIImageView!
     @IBOutlet var debuggingPhotoView: UIImageView!
     
@@ -48,6 +40,19 @@ class CameraViewContainer: UIView {
         }
     }
     
+    @IBAction func publishImageButtonPressed(sender: AnyObject) {
+        if let photo = photoView.image {
+            //NOTE: uncomment below when not debugging
+            //delegate?.publishImage(photo)
+            
+            //NOTE: this is for debugging only
+            debuggingPhotoView.image = delegate?.publishImage2(photo)
+        } else {
+            print("ERROR \(NSDate().timeStamp()): image view is empty")
+        }
+    }
+    
+    //MARK: - Helper functions
     class func instanceFromNib(frame: CGRect) -> CameraViewContainer {
         let view = UINib(nibName: "CameraViewContainer", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! CameraViewContainer
         view.frame = frame
@@ -65,8 +70,16 @@ extension CameraViewContainer: UIImagePickerControllerDelegate {
     }
 }
 
-
 //MARK: - UINavigationControllerDelegate
 extension CameraViewContainer: UINavigationControllerDelegate {
     //Had to add this for color picker for some reason
+}
+
+//MARK: - CameraViewContainerDelegate
+protocol CameraViewContainerDelegate {
+    func goToCameraPicker(picker: UIImagePickerController)
+    func dismissViewControllerAnimated()
+    func saveToCameraRoll(image: UIImage)
+    func publishImage(image: UIImage)
+    func publishImage2(image: UIImage) -> UIImage //deprecated
 }

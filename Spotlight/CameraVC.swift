@@ -104,5 +104,16 @@ extension CameraVC: CameraViewContainerDelegate {
         CustomPhotoAlbum.sharedInstance.saveImage(image)
 
     }
+    
+    func publishImage(image: UIImage) {
+        LocalStoragePhotoManager.saveImageLocal(image)
+    }
+    
+    //DEPRACATED: used for debugging
+    func publishImage2(image:UIImage) -> UIImage {
+        let filePath = LocalStoragePhotoManager.saveImageLocal(image)
+        
+        return LocalStoragePhotoManager.loadLocalImage(filePath)
+    }
 }
 
