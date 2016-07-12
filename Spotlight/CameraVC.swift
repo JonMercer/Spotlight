@@ -80,14 +80,18 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     
     //MARK: Helper Functions
     private func setupViewContainer() {
-        //TODO: use generic to avoid copy paste here
         container = CameraViewContainer.instanceFromNib(
             CGRectMake(0, 0, view.bounds.width, view.bounds.height))
-        //container?.delegate = self
+        container?.delegate = self
         view.addSubview(container!)
     }
+}
+
+//MARK: - CameraViewContainerDelegate
+extension CameraVC: CameraViewContainerDelegate {
     
-    
-    
+    func goToCameraPicker(picker: UIImagePickerController) {
+        presentViewController(picker, animated: true, completion: nil)
+    }
 }
 

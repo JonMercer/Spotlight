@@ -8,11 +8,36 @@
 
 import UIKit
 
+protocol CameraViewContainerDelegate {
+    func goToCameraPicker(picker: UIImagePickerController)
+}
+
+
 class CameraViewContainer: UIView {
+    var delegate: CameraViewContainerDelegate?
     
+    //MARK: - UI Elements
+    @IBAction func captureImageFromCameraButtonPressed(sender: AnyObject) {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.sourceType = .Camera
+
+        delegate?.goToCameraPicker(picker)
+    }
     class func instanceFromNib(frame: CGRect) -> CameraViewContainer {
         let view = UINib(nibName: "CameraViewContainer", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! CameraViewContainer
         view.frame = frame
         return view
     }
+}
+
+//MARK: - UIImagePickerControllerDelegate
+extension CameraViewContainer: UIImagePickerControllerDelegate {
+
+}
+
+
+//MARK: - UINavigationControllerDelegate
+extension CameraViewContainer: UINavigationControllerDelegate {
+    //Had to add this for color picker for some reason
 }

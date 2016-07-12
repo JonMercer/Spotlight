@@ -24,6 +24,9 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AeV-w4-fjX">
                     <rect key="frame" x="133" y="410" width="54" height="30"/>
                     <state key="normal" title="Camera"/>
+                    <connections>
+                        <action selector="captureImageFromCameraButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="PUS-Sa-wAg"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t2Z-ia-p5R">
                     <rect key="frame" x="42" y="410" width="44" height="30"/>
