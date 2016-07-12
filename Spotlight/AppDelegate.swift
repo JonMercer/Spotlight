@@ -30,14 +30,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         CustomPhotoAlbum.init()
         
-        
         locManager.delegate = self
-        
         locManager.requestWhenInUseAuthorization()
-        
         locManager.allowsBackgroundLocationUpdates = true
-        
         locManager.startUpdatingLocation()
+        
+        //For stopping location manager
+        //manager.stopUpdatingLocation()
+        //manager.allowsBackgroundLocationUpdates = false
 
         
         return true
