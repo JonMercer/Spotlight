@@ -97,5 +97,12 @@ extension CameraVC: CameraViewContainerDelegate {
     func dismissViewControllerAnimated() {
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    func saveToCameraRoll(image: UIImage) {
+        //TODO: do I actually need to run this line?
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        CustomPhotoAlbum.sharedInstance.saveImage(image)
+
+    }
 }
 

@@ -11,6 +11,7 @@ import UIKit
 protocol CameraViewContainerDelegate {
     func goToCameraPicker(picker: UIImagePickerController)
     func dismissViewControllerAnimated()
+    func saveToCameraRoll(image: UIImage)
 }
 
 
@@ -37,6 +38,14 @@ class CameraViewContainer: UIView {
         picker.sourceType = .PhotoLibrary
         
        delegate?.goToCameraPicker(picker)
+    }
+    
+    @IBAction func saveImageToCameraRollButtonPressed(sender: AnyObject) {
+        if let photo = photoView.image {
+            delegate?.saveToCameraRoll(photo)
+        } else {
+            print("ERROR \(NSDate().timeStamp()): image view is empty")
+        }
     }
     
     class func instanceFromNib(frame: CGRect) -> CameraViewContainer {
