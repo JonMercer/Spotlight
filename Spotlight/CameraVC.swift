@@ -59,6 +59,11 @@ extension CameraVC: CameraViewContainerDelegate {
     
     func publishImage(image: UIImage) {
         LocalStoragePhotoManager.saveImageLocal(image)
+        var urls = LocalStoragePhotoManager.getImageURLsInDirectory()
+        urls.sortInPlace({ $0.lastPathComponent<$1.lastPathComponent })
+        ModelInterface.sharedInstance.uploadPhoto(urls.last!) { (err) in
+            //TODO: handle error
+        }
     }
 }
 

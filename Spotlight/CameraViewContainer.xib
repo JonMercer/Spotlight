@@ -12,31 +12,31 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P30-KK-msl" userLabel="Photo View">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P30-KK-msl" userLabel="Photo View">
                     <rect key="frame" x="8" y="19" width="304" height="304"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AeV-w4-fjX">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AeV-w4-fjX">
                     <rect key="frame" x="133" y="410" width="54" height="30"/>
                     <state key="normal" title="Camera"/>
                     <connections>
                         <action selector="captureImageFromCameraButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="PUS-Sa-wAg"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t2Z-ia-p5R">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t2Z-ia-p5R">
                     <rect key="frame" x="42" y="410" width="44" height="30"/>
                     <state key="normal" title="Album"/>
                     <connections>
                         <action selector="captureImageFromAlbumButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="wTv-u8-dNL"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m38-oB-G5s">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m38-oB-G5s">
                     <rect key="frame" x="233" y="468" width="51" height="30"/>
                     <state key="normal" title="Publish"/>
                     <connections>
                         <action selector="publishImageButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="XXQ-QP-uq3"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLS-Nq-PPa">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLS-Nq-PPa">
                     <rect key="frame" x="8" y="468" width="138" height="30"/>
                     <state key="normal" title="Save to Camera Roll"/>
                     <connections>
@@ -48,7 +48,10 @@
             <constraints>
                 <constraint firstItem="t2Z-ia-p5R" firstAttribute="baseline" secondItem="AeV-w4-fjX" secondAttribute="baseline" id="16N-oW-5Ep"/>
                 <constraint firstItem="m38-oB-G5s" firstAttribute="leading" secondItem="bLS-Nq-PPa" secondAttribute="trailing" constant="87" id="8g0-Cg-fj3"/>
+                <constraint firstItem="P30-KK-msl" firstAttribute="leading" secondItem="bLS-Nq-PPa" secondAttribute="leading" id="GbZ-YY-Rha"/>
                 <constraint firstItem="bLS-Nq-PPa" firstAttribute="top" secondItem="t2Z-ia-p5R" secondAttribute="bottom" constant="28" id="J1f-kE-pgH"/>
+                <constraint firstItem="t2Z-ia-p5R" firstAttribute="top" secondItem="P30-KK-msl" secondAttribute="bottom" constant="87" id="K6K-e1-Li6"/>
+                <constraint firstItem="P30-KK-msl" firstAttribute="centerX" secondItem="AeV-w4-fjX" secondAttribute="centerX" id="N8R-TY-0A3"/>
                 <constraint firstItem="P30-KK-msl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="19" id="P19-ik-9EB"/>
                 <constraint firstItem="bLS-Nq-PPa" firstAttribute="baseline" secondItem="m38-oB-G5s" secondAttribute="baseline" id="QHf-Bt-Pe2"/>
                 <constraint firstItem="AeV-w4-fjX" firstAttribute="leading" secondItem="t2Z-ia-p5R" secondAttribute="trailing" constant="47" id="YYp-0W-quQ"/>
