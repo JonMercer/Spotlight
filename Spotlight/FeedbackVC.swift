@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class FeedbackVC: UIViewController {
-  let name = "tantan"
+  let name = "jojo"
   
   var container: FeedbackViewContainer?
   
@@ -62,7 +62,7 @@ extension FeedbackVC: FeedbackViewContainerDelegate {
     }
     
     func signIn() {
-        var name = "tantan"
+        var name = self.name
         //MARK: Log in
         FIRAuth.auth()?.signInWithEmail("\(name)@g.com", password: "123456") { (user, error) in
             if (error != nil) {

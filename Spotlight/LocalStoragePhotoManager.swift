@@ -19,7 +19,7 @@ class LocalStoragePhotoManager {
         let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first! as String
         
         var formatter = NSDateFormatter()
-        formatter.dateFormat = "HH-mm-ss"
+        formatter.dateFormat = "yyyy-MM-dd-HH-mm-ss"
         var dateString = formatter.stringFromDate(NSDate())
         
         let fileName = Constants.tempPathName // temporary file name for testing.  change this later.

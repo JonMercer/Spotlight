@@ -14,7 +14,6 @@ class CameraViewContainer: UIView {
 
     //MARK: - UI Elements
     @IBOutlet var photoView: UIImageView!
-    @IBOutlet var debuggingPhotoView: UIImageView!
     
     @IBAction func captureImageFromCameraButtonPressed(sender: AnyObject) {
         let picker = UIImagePickerController()
@@ -42,11 +41,7 @@ class CameraViewContainer: UIView {
     
     @IBAction func publishImageButtonPressed(sender: AnyObject) {
         if let photo = photoView.image {
-            //NOTE: uncomment below when not debugging
-            //delegate?.publishImage(photo)
-            
-            //NOTE: this is for debugging only
-            debuggingPhotoView.image = delegate?.publishImage2(photo)
+            delegate?.publishImage(photo)
         } else {
             print("ERROR \(NSDate().timeStamp()): image view is empty")
         }
@@ -81,5 +76,4 @@ protocol CameraViewContainerDelegate {
     func dismissViewControllerAnimated()
     func saveToCameraRoll(image: UIImage)
     func publishImage(image: UIImage)
-    func publishImage2(image: UIImage) -> UIImage //deprecated
 }
