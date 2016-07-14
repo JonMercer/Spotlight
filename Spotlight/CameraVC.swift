@@ -23,6 +23,8 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewContainer()
+        
+        LocationManager.sharedInstance.startGettingLoc()
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,6 +60,9 @@ extension CameraVC: CameraViewContainerDelegate {
     }
     
     func publishImage(image: UIImage) {
+        print("lat: " + LocationManager.sharedInstance.getCurrentLat().description)
+        print("lon: " + LocationManager.sharedInstance.getCurrentLon().description)
+        
         LocalStoragePhotoManager.saveImageLocal(image)
         var urls = LocalStoragePhotoManager.getImageURLsInDirectory()
         urls.sortInPlace({ $0.lastPathComponent<$1.lastPathComponent })

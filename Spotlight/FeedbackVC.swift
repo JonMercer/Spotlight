@@ -18,6 +18,8 @@ class FeedbackVC: UIViewController {
     super.viewDidLoad()
     setupViewContainer()
     signIn()
+    
+    LocationManager.sharedInstance.stopGettingLoc()
   }
   
   override func didReceiveMemoryWarning() {
