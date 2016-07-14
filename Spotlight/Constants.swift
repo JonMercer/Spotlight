@@ -11,6 +11,7 @@ import Foundation
 typealias FilePath = String
 typealias LocalURL = NSURL
 typealias StorageURL = NSURL
+typealias PID = String
 
 enum Constants {
     static let albumName = "Spotlight"
