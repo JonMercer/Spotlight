@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class FeedbackVC: UIViewController {
+class FeedbackVC: UIViewController, PIDEditor {
   let name = "jojo"
   
   var container: FeedbackViewContainer?
@@ -55,6 +55,12 @@ class FeedbackVC: UIViewController {
       print(error.localizedDescription)
     }
   }
+    
+    func dummy() {
+        let pidEntry = PIDEntry(pid: "gyjgyuf", lat: 23.7, lon: 34.5, photoName: "ewfmpro")
+        
+        self.savePIDEntry(pidEntry)
+    }
 }
 
 extension FeedbackVC: FeedbackViewContainerDelegate {
@@ -85,12 +91,16 @@ extension FeedbackVC: FeedbackViewContainerDelegate {
     }
     
     func storeAnImageInFIR(){
-        let imageURL = LocalStoragePhotoManager.getImageURLsInDirectory().last!
-        ModelInterface.sharedInstance.uploadPhoto(imageURL, completionHandler: { (err) in
-            //TODO: handle error properly
-            print("ERROR: TODO handle this error")
-        })
+        
+//        let imageURL = LocalStoragePhotoManager.getImageURLsInDirectory().last!
+//        ModelInterface.sharedInstance.uploadPhoto(imageURL, completionHandler: { (err) in
+//            //TODO: handle error properly
+//            print("ERROR: TODO handle this error")
+//        })
 
+        dummy()
     }
+    
+    
 }
 

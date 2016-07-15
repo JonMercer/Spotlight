@@ -8,17 +8,17 @@
 
 import Foundation
 import CoreLocation
+import Firebase
 
 struct PIDEntry {
     var pid: PID
-    var lat: CLLocationManager
-    var lon: CLLocationManager
+    var lat: CLLocationDegrees
+    var lon: CLLocationDegrees
     var photoName: String
 }
 
 protocol PIDEditor {
 
-    func createNewPIDEntry() -> PID
     func savePIDEntry(pidEntry: PIDEntry) -> PID
     func editLat(pid: PID, lat: CLLocationDegrees)
     func editLon(pid: PID, lon: CLLocationDegrees)
@@ -26,17 +26,26 @@ protocol PIDEditor {
 }
 
 extension PIDEditor {
-    
-    func createNewPIDEntry() -> PID {
-        //TODO:add implementations
-        Log.error("Called a dummy PODEditor")
-        return "you should not be seeing this"
-    }
-    
+
+    //TODO: SL-93
     func savePIDEntry(pidEntry: PIDEntry) -> PID {
-        //TODO:add implementations
-        Log.error("Called a dummy PODEditor")
-        return "you should not be seeing this"
+        let firebaseRef = FIRDatabase.database().reference()
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        
+        let key = firebaseRef.child("PIDs").childByAutoId().key
+        
+        let PID = ["uid": userID!,
+                   "name": pidEntry.photoName,
+                   "lat": pidEntry.lat,
+                   "lon": pidEntry.lon]
+        
+        let childUpdates = ["/PIDs/\(key)": PID,
+                            "/UIDs/\(userID!)/PIDs/\(key)/": PID]
+        
+        // Consider using completionhandler for knowing success
+        firebaseRef.updateChildValues(childUpdates)
+        
+        return key
     }
     
     func editLat(pid: PID, lat: CLLocationDegrees) {
