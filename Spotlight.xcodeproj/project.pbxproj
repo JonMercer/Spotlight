@@ -17,6 +17,7 @@
 		A4ADCDF01D375511002ECF61 /* PIDEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ADCDEF1D375511002ECF61 /* PIDEditor.swift */; };
 		A4FB11901D208C4D001F36F2 /* PhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB118F1D208C4D001F36F2 /* PhotoAlbum.swift */; };
 		A4FB11941D20914B001F36F2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB11931D20914B001F36F2 /* Constants.swift */; };
+		C81E90771D388E270022845B /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E90761D388E270022845B /* Log.swift */; };
 		C825AFE61D330A9E00EE5B0E /* ModelInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C825AFE51D330A9E00EE5B0E /* ModelInterface.swift */; };
 		C825AFEA1D330B9400EE5B0E /* Storable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C825AFE91D330B9400EE5B0E /* Storable.swift */; };
 		C825AFEC1D330F0C00EE5B0E /* FirebaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C825AFEB1D330F0C00EE5B0E /* FirebaseStorage.swift */; };
@@ -78,6 +79,7 @@
 		A4ADCDEF1D375511002ECF61 /* PIDEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PIDEditor.swift; sourceTree = "<group>"; };
 		A4FB118F1D208C4D001F36F2 /* PhotoAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAlbum.swift; sourceTree = "<group>"; };
 		A4FB11931D20914B001F36F2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C81E90761D388E270022845B /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		C825AFE51D330A9E00EE5B0E /* ModelInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelInterface.swift; sourceTree = "<group>"; };
 		C825AFE91D330B9400EE5B0E /* Storable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storable.swift; sourceTree = "<group>"; };
 		C825AFEB1D330F0C00EE5B0E /* FirebaseStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseStorage.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			children = (
 				C8BFBE0F1D23670200246DA1 /* LocalStoragePhotoManager.swift */,
 				C8BFBE111D23762400246DA1 /* DeviceOwnerPhotoManager.swift */,
+				C81E90761D388E270022845B /* Log.swift */,
 				C825AFED1D33127A00EE5B0E /* Util.swift */,
 				A48568D81D37435500097B40 /* Locatable.swift */,
 				A48568DA1D37445200097B40 /* LocationManager.swift */,
@@ -585,6 +588,7 @@
 				C8BFBE121D23762400246DA1 /* DeviceOwnerPhotoManager.swift in Sources */,
 				A4FB11901D208C4D001F36F2 /* PhotoAlbum.swift in Sources */,
 				A4ADCDF01D375511002ECF61 /* PIDEditor.swift in Sources */,
+				C81E90771D388E270022845B /* Log.swift in Sources */,
 				C876507B1D2066860092A75A /* ViewController.swift in Sources */,
 				A48568DB1D37445200097B40 /* LocationManager.swift in Sources */,
 				C825AFEA1D330B9400EE5B0E /* Storable.swift in Sources */,
