@@ -12,6 +12,7 @@ typealias FilePath = String
 typealias LocalURL = NSURL
 typealias StorageURL = NSURL
 typealias PID = String
+typealias ImageName = String
 
 enum Constants {
     static let albumName = "Spotlight"

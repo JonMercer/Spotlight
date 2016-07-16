@@ -19,6 +19,7 @@ struct PIDEntry {
 
 protocol PIDEditor {
 
+    func createPIDEntry(name: ImageName) -> PIDEntry
     func savePIDEntry(pidEntry: PIDEntry) -> PID
     func editLat(pid: PID, lat: CLLocationDegrees)
     func editLon(pid: PID, lon: CLLocationDegrees)
@@ -26,14 +27,17 @@ protocol PIDEditor {
 }
 
 extension PIDEditor {
-
-    //TODO: SL-93
-    func savePIDEntry(pidEntry: PIDEntry) -> PID {
+    
+    func createPIDEntry(name: ImageName) -> PIDEntry {
         let firebaseRef = FIRDatabase.database().reference()
         let userID = FIRAuth.auth()?.currentUser?.uid
         
         let key = firebaseRef.child("PIDs").childByAutoId().key
         
+        let pidEntry = PIDEntry(pid: key,
+                                lat: LocationManager.sharedInstance.getCurrentLat(),
+                                lon: LocationManager.sharedInstance.getCurrentLon(),
+                                photoName: name)
         let PID = ["uid": userID!,
                    "name": pidEntry.photoName,
                    "lat": pidEntry.lat,
@@ -45,7 +49,14 @@ extension PIDEditor {
         // Consider using completionhandler for knowing success
         firebaseRef.updateChildValues(childUpdates)
         
-        return key
+        return pidEntry
+    }
+
+    //TODO: SL-93
+    func savePIDEntry(pidEntry: PIDEntry) -> PID {
+        //TODO:add implementations
+        Log.error("Called a dummy PODEditor")
+        return "shouldn't be called"
     }
     
     func editLat(pid: PID, lat: CLLocationDegrees) {
