@@ -42,7 +42,7 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
 }
 
 //MARK: - CameraViewContainerDelegate, PIDEditor
-extension CameraVC: CameraViewContainerDelegate, PhotoEntityEditor {
+extension CameraVC: CameraViewContainerDelegate, PIDEditor {
     
     func goToCameraPicker(picker: UIImagePickerController) {
         presentViewController(picker, animated: true, completion: nil)
@@ -67,7 +67,7 @@ extension CameraVC: CameraViewContainerDelegate, PhotoEntityEditor {
             //TODO: handle error
         }
         
-        self.createPhotoEntity(urls.last!.lastPathComponent!)
+        self.createPIDEntry(urls.last!.lastPathComponent!)
         
     }
 }
