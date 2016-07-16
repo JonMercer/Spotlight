@@ -14,7 +14,7 @@
 		7D9B41C61D2139B800B8389A /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9B41C51D2139B800B8389A /* MeVC.swift */; };
 		A48568D91D37435500097B40 /* Locatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48568D81D37435500097B40 /* Locatable.swift */; };
 		A48568DB1D37445200097B40 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48568DA1D37445200097B40 /* LocationManager.swift */; };
-		A4ADCDF01D375511002ECF61 /* PIDEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ADCDEF1D375511002ECF61 /* PIDEditor.swift */; };
+		A4ADCDF01D375511002ECF61 /* PhotoEntityEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ADCDEF1D375511002ECF61 /* PhotoEntityEditor.swift */; };
 		A4FB11901D208C4D001F36F2 /* PhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB118F1D208C4D001F36F2 /* PhotoAlbum.swift */; };
 		A4FB11941D20914B001F36F2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB11931D20914B001F36F2 /* Constants.swift */; };
 		C81E90771D388E270022845B /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E90761D388E270022845B /* Log.swift */; };
@@ -76,7 +76,7 @@
 		7D9B41C51D2139B800B8389A /* MeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
 		A48568D81D37435500097B40 /* Locatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Locatable.swift; sourceTree = "<group>"; };
 		A48568DA1D37445200097B40 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		A4ADCDEF1D375511002ECF61 /* PIDEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PIDEditor.swift; sourceTree = "<group>"; };
+		A4ADCDEF1D375511002ECF61 /* PhotoEntityEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoEntityEditor.swift; sourceTree = "<group>"; };
 		A4FB118F1D208C4D001F36F2 /* PhotoAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAlbum.swift; sourceTree = "<group>"; };
 		A4FB11931D20914B001F36F2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C81E90761D388E270022845B /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
@@ -215,7 +215,7 @@
 		C825AFE71D330AD300EE5B0E /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				A4ADCDEF1D375511002ECF61 /* PIDEditor.swift */,
+				A4ADCDEF1D375511002ECF61 /* PhotoEntityEditor.swift */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -587,7 +587,7 @@
 				C87650811D2066860092A75A /* Spotlight.xcdatamodeld in Sources */,
 				C8BFBE121D23762400246DA1 /* DeviceOwnerPhotoManager.swift in Sources */,
 				A4FB11901D208C4D001F36F2 /* PhotoAlbum.swift in Sources */,
-				A4ADCDF01D375511002ECF61 /* PIDEditor.swift in Sources */,
+				A4ADCDF01D375511002ECF61 /* PhotoEntityEditor.swift in Sources */,
 				C81E90771D388E270022845B /* Log.swift in Sources */,
 				C876507B1D2066860092A75A /* ViewController.swift in Sources */,
 				A48568DB1D37445200097B40 /* LocationManager.swift in Sources */,

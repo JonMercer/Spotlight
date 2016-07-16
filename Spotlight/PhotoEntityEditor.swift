@@ -10,41 +10,41 @@ import Foundation
 import CoreLocation
 import Firebase
 
-struct PIDEntry {
+struct PhotoEntity {
     var pid: PID
     var lat: CLLocationDegrees
     var lon: CLLocationDegrees
     var photoName: String
 }
 
-protocol PIDEditor {
+protocol PhotoEntityEditor {
 
-    func createPIDEntry(name: ImageName) -> PIDEntry
-    func savePIDEntry(pidEntry: PIDEntry) -> PID
+    func createPIDEntry(name: ImageName) -> PhotoEntity
+    func savePIDEntry(pidEntry: PhotoEntity) -> PID
     func editLat(pid: PID, lat: CLLocationDegrees)
     func editLon(pid: PID, lon: CLLocationDegrees)
     func editPhotoName(name: String)
 }
 
-extension PIDEditor {
+extension PhotoEntityEditor {
     
-    func createPIDEntry(name: ImageName) -> PIDEntry {
+    func createPhotoEntity(name: ImageName) -> PhotoEntity {
         let firebaseRef = FIRDatabase.database().reference()
         let userID = FIRAuth.auth()?.currentUser?.uid
         
-        let key = firebaseRef.child("PIDs").childByAutoId().key
+        let key = firebaseRef.child("PhotoEntities").childByAutoId().key
         
-        let pidEntry = PIDEntry(pid: key,
-                                lat: LocationManager.sharedInstance.getCurrentLat(),
-                                lon: LocationManager.sharedInstance.getCurrentLon(),
-                                photoName: name)
+        let pidEntry = PhotoEntity(pid: key,
+                                   lat: LocationManager.sharedInstance.getCurrentLat(),
+                                   lon: LocationManager.sharedInstance.getCurrentLon(),
+                                   photoName: name)
         let PID = ["uid": userID!,
                    "name": pidEntry.photoName,
                    "lat": pidEntry.lat,
                    "lon": pidEntry.lon]
         
-        let childUpdates = ["/PIDs/\(key)": PID,
-                            "/UIDs/\(userID!)/PIDs/\(key)/": PID]
+        let childUpdates = ["/PhotoEntities/\(key)": PID,
+                            "/UserEntities/\(userID!)/PhotoEntities/\(key)/": PID]
         
         // Consider using completionhandler for knowing success
         firebaseRef.updateChildValues(childUpdates)
@@ -53,19 +53,19 @@ extension PIDEditor {
     }
 
     //TODO: SL-93
-    func savePIDEntry(pidEntry: PIDEntry) -> PID {
+    func savePhotoEntity(pidEntry: PhotoEntity) -> PID {
         //TODO:add implementations
-        Log.error("Called a dummy PODEditor")
+        Log.error("Called a dummy PhotoEntities")
         return "shouldn't be called"
     }
     
     func editLat(pid: PID, lat: CLLocationDegrees) {
         //TODO:add implementations
-        Log.error("Called a dummy PODEditor")
+        Log.error("Called a dummy PhotoEntities")
     }
     func editLon(pid: PID, lon: CLLocationDegrees) {
         //TODO:add implementations
-        Log.error("Called a dummy PODEditor")
+        Log.error("Called a dummy PhotoEntities")
 
     }
     func editPhotoName(name: String) {
