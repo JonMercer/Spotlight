@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class FeedbackVC: UIViewController, PIDEditor {
+class FeedbackVC: UIViewController {
   let name = "jojo"
   
   var container: FeedbackViewContainer?
@@ -55,12 +55,6 @@ class FeedbackVC: UIViewController, PIDEditor {
       print(error.localizedDescription)
     }
   }
-    
-    func dummy() {
-        let pidEntry = PIDEntry(pid: "gyjgyuf", lat: 23.7, lon: 34.5, photoName: "ewfmpro")
-        
-        self.savePIDEntry(pidEntry)
-    }
 }
 
 extension FeedbackVC: FeedbackViewContainerDelegate {
@@ -98,7 +92,6 @@ extension FeedbackVC: FeedbackViewContainerDelegate {
 //            print("ERROR: TODO handle this error")
 //        })
 
-        dummy()
     }
     
     
