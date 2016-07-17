@@ -11,7 +11,9 @@ import Foundation
 class URLUtil {
     
     static func getNameFromStringPath(stringPath: String) -> String {
-        let url = NSURL(string: stringPath)
+        //URL sees that "+" is a " "
+        let spaceReplacedStringPath = stringPath.stringByReplacingOccurrencesOfString(" ", withString: "+")
+        let url = NSURL(string: spaceReplacedStringPath)
         return url!.lastPathComponent!
     }
     
