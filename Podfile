@@ -4,6 +4,10 @@
 target 'Spotlight' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
+    # Google Maps
+    source 'https://github.com/CocoaPods/Specs.git'
+    pod 'GoogleMaps'
+    # Firebase
     pod 'Firebase'
     pod 'Firebase/Core'
     pod 'Firebase/Database'
@@ -15,6 +19,10 @@ target 'Spotlight' do
   target 'SpotlightTests' do
     inherit! :search_paths
     # Pods for testing
+    # Google Maps
+    source 'https://github.com/CocoaPods/Specs.git'
+    pod 'GoogleMaps'
+    # Firebase
     pod 'Firebase'
     pod 'Firebase/Core'
     pod 'Firebase/Database'
@@ -25,6 +33,10 @@ target 'Spotlight' do
   target 'SpotlightUITests' do
     inherit! :search_paths
     # Pods for testing
+    # Google Maps
+    source 'https://github.com/CocoaPods/Specs.git'
+    pod 'GoogleMaps'
+    # Firebase
     pod 'Firebase'
     pod 'Firebase/Core'
     pod 'Firebase/Database'
