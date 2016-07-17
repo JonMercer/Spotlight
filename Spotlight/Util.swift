@@ -8,6 +8,21 @@
 
 import Foundation
 
+class URLUtil {
+    
+    static func getNameFromStringPath(stringPath: String) -> String {
+        //URL sees that "+" is a " "
+        let spaceReplacedStringPath = stringPath.stringByReplacingOccurrencesOfString(" ", withString: "+")
+        let url = NSURL(string: spaceReplacedStringPath)
+        return url!.lastPathComponent!
+    }
+    
+    static func getNameFromURL(url: NSURL) -> String {
+        return url.lastPathComponent!
+    }
+}
+
+
 extension NSDate {
     
     func hour() -> Int {
@@ -34,10 +49,11 @@ extension NSDate {
     func timeStamp() -> String {
         //Get Short Time String
         let formatter = NSDateFormatter()
-        formatter.timeStyle = .ShortStyle
+        formatter.timeStyle = .LongStyle
         let timeString = formatter.stringFromDate(self)
         
         //Return Short Time String
         return timeString
     }
 }
+

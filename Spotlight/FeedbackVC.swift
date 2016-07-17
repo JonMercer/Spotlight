@@ -85,12 +85,15 @@ extension FeedbackVC: FeedbackViewContainerDelegate {
     }
     
     func storeAnImageInFIR(){
-        let imageURL = LocalStoragePhotoManager.getImageURLsInDirectory().last!
-        ModelInterface.sharedInstance.uploadPhoto(imageURL, completionHandler: { (err) in
-            //TODO: handle error properly
-            print("ERROR: TODO handle this error")
-        })
+        
+//        let imageURL = LocalStoragePhotoManager.getImageURLsInDirectory().last!
+//        ModelInterface.sharedInstance.uploadPhoto(imageURL, completionHandler: { (err) in
+//            //TODO: handle error properly
+//            print("ERROR: TODO handle this error")
+//        })
 
     }
+    
+    
 }
 

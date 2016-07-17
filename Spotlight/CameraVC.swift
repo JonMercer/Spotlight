@@ -41,8 +41,8 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     }
 }
 
-//MARK: - CameraViewContainerDelegate
-extension CameraVC: CameraViewContainerDelegate {
+//MARK: - CameraViewContainerDelegate, PhotoEntityEditor
+extension CameraVC: CameraViewContainerDelegate, PhotoEntityEditor {
     
     func goToCameraPicker(picker: UIImagePickerController) {
         presentViewController(picker, animated: true, completion: nil)
@@ -60,15 +60,15 @@ extension CameraVC: CameraViewContainerDelegate {
     }
     
     func publishImage(image: UIImage) {
-        print("lat: " + LocationManager.sharedInstance.getCurrentLat().description)
-        print("lon: " + LocationManager.sharedInstance.getCurrentLon().description)
-        
         LocalStoragePhotoManager.saveImageLocal(image)
         var urls = LocalStoragePhotoManager.getImageURLsInDirectory()
         urls.sortInPlace({ $0.lastPathComponent<$1.lastPathComponent })
         ModelInterface.sharedInstance.uploadPhoto(urls.last!) { (err) in
             //TODO: handle error
         }
+        
+        self.createPhotoEntity(urls.last!.lastPathComponent!)
+        
     }
 }
 
