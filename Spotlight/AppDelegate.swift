@@ -14,6 +14,7 @@
 import UIKit
 import Firebase
 import CoreLocation
+import GoogleMaps
 
 import CoreData
 @UIApplicationMain
@@ -25,9 +26,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
-        //TODO: put in launch screen
+        // Cocoapods Setup
         FIRApp.configure()
+        GMSServices.provideAPIKey("AIzaSyCqOcABvIB9rBd7AHGP4CgnfC3RiCbMg9g")
+        
+        // Custom Setup
+        //TODO: put in launch screen
         CustomPhotoAlbum.init()
         LocationManager.sharedInstance.customInit()
         
