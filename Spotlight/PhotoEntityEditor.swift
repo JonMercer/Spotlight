@@ -11,7 +11,7 @@ import CoreLocation
 import Firebase
 
 struct PhotoEntity {
-    var pid: PID
+    var photoID: PID
     var lat: CLLocationDegrees
     var lon: CLLocationDegrees
     var photoName: String
@@ -21,8 +21,8 @@ protocol PhotoEntityEditor {
 
     func createPhotoEntity(name: ImageName) -> PhotoEntity
     func savePhotoEntity(photoEntity: PhotoEntity) -> PID
-    func editLat(pid: PID, lat: CLLocationDegrees)
-    func editLon(pid: PID, lon: CLLocationDegrees)
+    func editLat(photoID: PID, lat: CLLocationDegrees)
+    func editLon(photoID: PID, lon: CLLocationDegrees)
     func editPhotoName(name: String)
 }
 
@@ -34,7 +34,7 @@ extension PhotoEntityEditor {
         
         let key = firebaseRef.child("PhotoEntities").childByAutoId().key
         
-        let photoEntity = PhotoEntity(pid: key,
+        let photoEntity = PhotoEntity(photoID: key,
                                 lat: LocationManager.sharedInstance.getCurrentLat(),
                                 lon: LocationManager.sharedInstance.getCurrentLon(),
                                 photoName: name)
@@ -59,11 +59,11 @@ extension PhotoEntityEditor {
         return "shouldn't be called"
     }
     
-    func editLat(pid: PID, lat: CLLocationDegrees) {
+    func editLat(photoID: PID, lat: CLLocationDegrees) {
         //TODO:add implementations
         Log.error("Called a dummy PhotoEntityEditor")
     }
-    func editLon(pid: PID, lon: CLLocationDegrees) {
+    func editLon(photoID: PID, lon: CLLocationDegrees) {
         //TODO:add implementations
         Log.error("Called a dummy PhotoEntityEditor")
 
