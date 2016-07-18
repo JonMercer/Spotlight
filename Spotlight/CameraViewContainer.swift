@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import CoreLocation
 
 //MARK: - CameraViewContainer
 class CameraViewContainer: UIView {
@@ -45,9 +46,19 @@ class CameraViewContainer: UIView {
         if let photo = photoView.image {
             delegate?.publishImage(photo)
             
-            let camera = GMSCameraPosition.cameraWithLatitude(49.26,longitude: -123.24, zoom: 6)
-            mapView.camera = camera
-            mapView.myLocationEnabled = true
+            delegate?.getLocation("-KMu8bC-zjnM4EMkgxdl", completion: { (lat, lon) in
+                let camera = GMSCameraPosition.cameraWithLatitude(lat,longitude: lon, zoom: 6)
+                self.mapView.camera = camera
+                self.mapView.myLocationEnabled = true
+            
+                
+                let marker = GMSMarker()
+                marker.position = CLLocationCoordinate2DMake(lat,lon)
+                marker.title = "Sydney"
+                marker.snippet = "Australia"
+                marker.map = self.mapView
+            })
+            
             
         } else {
             Log.error("Image view is empty")
@@ -83,4 +94,5 @@ protocol CameraViewContainerDelegate {
     func dismissViewControllerAnimated()
     func saveToCameraRoll(image: UIImage)
     func publishImage(image: UIImage)
+    func getLocation(photoID: PhotoID, completion: (lat: CLLocationDegrees, lon: CLLocationDegrees) -> Void)
 }
