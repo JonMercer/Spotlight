@@ -11,7 +11,7 @@ import Foundation
 typealias FilePath = String
 typealias LocalURL = NSURL
 typealias StorageURL = NSURL
-typealias PID = String
+typealias PhotoID = String
 typealias ImageName = String
 
 enum Constants {

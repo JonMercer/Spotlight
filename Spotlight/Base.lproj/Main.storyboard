@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Me-->
         <scene sceneID="0Nb-2d-w1J">
             <objects>
                 <tableViewController id="9Tk-z6-mpe" customClass="SingleListVC" customModule="Spotlight" customModuleProvider="target" sceneMemberID="viewController">
@@ -37,7 +37,7 @@
                             <outlet property="delegate" destination="9Tk-z6-mpe" id="98S-uD-d3y"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="0NY-jC-EU8"/>
+                    <tabBarItem key="tabBarItem" title="Me" id="0NY-jC-EU8"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AVf-of-X1f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -193,7 +193,7 @@
             </objects>
             <point key="canvasLocation" x="217" y="1134"/>
         </scene>
-        <!--Me-->
+        <!--MeDummy-->
         <scene sceneID="5SU-hd-qy0">
             <objects>
                 <viewController id="GuB-hR-lYs" customClass="MeVC" customModule="Spotlight" customModuleProvider="target" sceneMemberID="viewController">
@@ -246,7 +246,7 @@
                             <constraint firstItem="Nt3-tv-4RX" firstAttribute="top" secondItem="PO6-j9-2fr" secondAttribute="bottom" constant="40" id="w26-Bv-qFm"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Me" id="Xv9-wQ-roc"/>
+                    <tabBarItem key="tabBarItem" title="MeDummy" id="Xv9-wQ-roc"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>

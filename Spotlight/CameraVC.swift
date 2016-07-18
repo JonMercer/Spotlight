@@ -25,6 +25,7 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         setupViewContainer()
         
         LocationManager.sharedInstance.startGettingLoc()
+
     }
     
     override func didReceiveMemoryWarning() {
