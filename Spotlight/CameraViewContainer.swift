@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMaps
 
 //MARK: - CameraViewContainer
 class CameraViewContainer: UIView {
@@ -14,6 +15,7 @@ class CameraViewContainer: UIView {
 
     //MARK: - UI Elements
     @IBOutlet var photoView: UIImageView!
+    @IBOutlet var mapView: GMSMapView!
     
     @IBAction func captureImageFromCameraButtonPressed(sender: AnyObject) {
         let picker = UIImagePickerController()
@@ -35,15 +37,20 @@ class CameraViewContainer: UIView {
         if let photo = photoView.image {
             delegate?.saveToCameraRoll(photo)
         } else {
-            print("ERROR \(NSDate().timeStamp()): image view is empty")
+            Log.error("Image view is empty")
         }
     }
     
     @IBAction func publishImageButtonPressed(sender: AnyObject) {
         if let photo = photoView.image {
             delegate?.publishImage(photo)
+            
+            let camera = GMSCameraPosition.cameraWithLatitude(49.26,longitude: -123.24, zoom: 6)
+            mapView.camera = camera
+            mapView.myLocationEnabled = true
+            
         } else {
-            print("ERROR \(NSDate().timeStamp()): image view is empty")
+            Log.error("Image view is empty")
         }
     }
     

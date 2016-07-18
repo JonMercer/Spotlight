@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import GoogleMaps
 
 class FeedbackVC: UIViewController {
   let name = "jojo"
@@ -20,6 +21,7 @@ class FeedbackVC: UIViewController {
     signIn()
     
     LocationManager.sharedInstance.stopGettingLoc()
+    
   }
   
   override func didReceiveMemoryWarning() {
