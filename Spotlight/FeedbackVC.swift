@@ -34,6 +34,7 @@ class FeedbackVC: UIViewController {
     marker.title = "Sydney"
     marker.snippet = "Australia"
     marker.map = mapView
+    
   }
   
   override func didReceiveMemoryWarning() {
