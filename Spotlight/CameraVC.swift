@@ -43,7 +43,7 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
 }
 
 //MARK: - CameraViewContainerDelegate, PhotoEntityEditor
-extension CameraVC: CameraViewContainerDelegate, PhotoEntityEditor {
+extension CameraVC: CameraViewContainerDelegate {
     
     func goToCameraPicker(picker: UIImagePickerController) {
         presentViewController(picker, animated: true, completion: nil)
@@ -71,5 +71,17 @@ extension CameraVC: CameraViewContainerDelegate, PhotoEntityEditor {
         self.createPhotoEntity(urls.last!.lastPathComponent!)
         
     }
+    
+    func getLocation(photoID: PhotoID, completion: (lat: CLLocationDegrees, lon: CLLocationDegrees) -> Void) {
+        self.getPhotoEntity(photoID) { (photoEntity) in
+            completion(lat: photoEntity.getLat(photoID), lon: photoEntity.getLon(photoID))
+        }
+    }
+}
+
+
+//MARK: - PhotoEntityEditor
+extension CameraVC: PhotoEntityEditor {
+    
 }
 
