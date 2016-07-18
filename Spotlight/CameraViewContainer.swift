@@ -48,8 +48,15 @@ class CameraViewContainer: UIView {
             
             delegate?.getLocation("-KMu8bC-zjnM4EMkgxdl", completion: { (lat, lon) in
                 let camera = GMSCameraPosition.cameraWithLatitude(lat,longitude: lon, zoom: 6)
-                mapView.camera = camera
-                mapView.myLocationEnabled = true
+                self.mapView.camera = camera
+                self.mapView.myLocationEnabled = true
+            
+                
+                let marker = GMSMarker()
+                marker.position = CLLocationCoordinate2DMake(lat,lon)
+                marker.title = "Sydney"
+                marker.snippet = "Australia"
+                marker.map = self.mapView
             })
             
             
