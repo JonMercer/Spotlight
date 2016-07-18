@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -36,7 +36,7 @@
                         <action selector="saveImageToCameraRollButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="fm2-4Y-0Rh"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uta-iN-6cU" customClass="GMSMapView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uta-iN-6cU" customClass="GMSMapView">
                     <rect key="frame" x="8" y="325" width="304" height="124"/>
                     <color key="backgroundColor" red="0.36568881469999998" green="0.91762820509999998" blue="0.74261184849999995" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
@@ -55,12 +55,16 @@
                 <constraint firstItem="P30-KK-msl" firstAttribute="leading" secondItem="bLS-Nq-PPa" secondAttribute="leading" constant="-9" id="GbZ-YY-Rha"/>
                 <constraint firstItem="bLS-Nq-PPa" firstAttribute="top" secondItem="t2Z-ia-p5R" secondAttribute="bottom" constant="1" id="J1f-kE-pgH"/>
                 <constraint firstItem="t2Z-ia-p5R" firstAttribute="top" secondItem="P30-KK-msl" secondAttribute="bottom" constant="128" id="K6K-e1-Li6"/>
+                <constraint firstItem="uta-iN-6cU" firstAttribute="top" secondItem="P30-KK-msl" secondAttribute="bottom" constant="2" id="MZ4-I7-GLH"/>
                 <constraint firstItem="P30-KK-msl" firstAttribute="centerX" secondItem="AeV-w4-fjX" secondAttribute="centerX" constant="-57" id="N8R-TY-0A3"/>
                 <constraint firstItem="P30-KK-msl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="19" id="P19-ik-9EB"/>
                 <constraint firstItem="bLS-Nq-PPa" firstAttribute="baseline" secondItem="m38-oB-G5s" secondAttribute="baseline" id="QHf-Bt-Pe2"/>
                 <constraint firstItem="AeV-w4-fjX" firstAttribute="leading" secondItem="t2Z-ia-p5R" secondAttribute="trailing" constant="82" id="YYp-0W-quQ"/>
+                <constraint firstItem="AeV-w4-fjX" firstAttribute="top" secondItem="uta-iN-6cU" secondAttribute="bottom" constant="2" id="d23-LM-0Cs"/>
+                <constraint firstItem="uta-iN-6cU" firstAttribute="trailing" secondItem="P30-KK-msl" secondAttribute="trailing" id="dCi-3L-wha"/>
                 <constraint firstAttribute="bottom" secondItem="bLS-Nq-PPa" secondAttribute="bottom" constant="56" id="jSh-7F-WzC"/>
                 <constraint firstItem="P30-KK-msl" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="nb9-Ud-BxX"/>
+                <constraint firstItem="uta-iN-6cU" firstAttribute="leading" secondItem="P30-KK-msl" secondAttribute="leading" id="nbS-0y-DjY"/>
                 <constraint firstItem="P30-KK-msl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="zJB-21-72y"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
