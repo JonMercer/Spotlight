@@ -6,6 +6,17 @@
 //  Copyright © 2016 SpotlightTeam. All rights reserved.
 //
 
+/*
+
+ ___     _      _
+ /   \___| | ___| |_ ___   _ __ ___   ___
+ / /\ / _ \ |/ _ \ __/ _ \ | '_ ` _ \ / _ \
+ / /_//  __/ |  __/ ||  __/ | | | | | |  __/
+ /___,' \___|_|\___|\__\___| |_| |_| |_|\___|
+ 
+
+ */
+
 import UIKit
 
 class MeVC: UIViewController{

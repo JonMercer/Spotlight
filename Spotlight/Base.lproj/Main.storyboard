@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="d9W-T5-tax">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="d9W-T5-tax">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -193,10 +193,10 @@
             </objects>
             <point key="canvasLocation" x="217" y="1134"/>
         </scene>
-        <!--MeDummy-->
+        <!--Near Me-->
         <scene sceneID="5SU-hd-qy0">
             <objects>
-                <viewController id="GuB-hR-lYs" customClass="MeVC" customModule="Spotlight" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="GuB-hR-lYs" customClass="NearMeVC" customModule="Spotlight" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iYC-Ix-9s8"/>
                         <viewControllerLayoutGuide type="bottom" id="3au-XA-VeS"/>
@@ -204,54 +204,11 @@
                     <view key="view" contentMode="scaleToFill" id="FLT-eo-I6S">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7oG-bA-Yrf">
-                                <rect key="frame" x="40" y="83" width="240" height="208"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="EeI-q7-KWc"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PO6-j9-2fr">
-                                <rect key="frame" x="95" y="371" width="131" height="30"/>
-                                <state key="normal" title="Load Taken Picture"/>
-                                <connections>
-                                    <action selector="LoadTakenPhoto:" destination="GuB-hR-lYs" eventType="touchUpInside" id="Lju-v0-XBD"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nt3-tv-4RX">
-                                <rect key="frame" x="20" y="441" width="105" height="30"/>
-                                <state key="normal" title="Previous Image"/>
-                                <connections>
-                                    <action selector="previousImageButton:" destination="GuB-hR-lYs" eventType="touchUpInside" id="tap-fw-vw8"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cD-fM-qcK">
-                                <rect key="frame" x="171" y="441" width="78" height="30"/>
-                                <state key="normal" title="Next Image"/>
-                                <connections>
-                                    <action selector="nextImageButton:" destination="GuB-hR-lYs" eventType="touchUpInside" id="vpe-Lw-zUT"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Nt3-tv-4RX" firstAttribute="baseline" secondItem="7cD-fM-qcK" secondAttribute="baseline" id="0bV-cb-K0C"/>
-                            <constraint firstItem="7oG-bA-Yrf" firstAttribute="top" secondItem="iYC-Ix-9s8" secondAttribute="bottom" constant="63" id="LjQ-jf-wsQ"/>
-                            <constraint firstItem="7oG-bA-Yrf" firstAttribute="centerX" secondItem="FLT-eo-I6S" secondAttribute="centerX" id="e4F-qB-imv"/>
-                            <constraint firstItem="7oG-bA-Yrf" firstAttribute="centerX" secondItem="PO6-j9-2fr" secondAttribute="centerX" id="e5L-x1-6Dz"/>
-                            <constraint firstItem="Nt3-tv-4RX" firstAttribute="leading" secondItem="FLT-eo-I6S" secondAttribute="leadingMargin" id="eiN-Vo-1gB"/>
-                            <constraint firstItem="PO6-j9-2fr" firstAttribute="top" secondItem="7oG-bA-Yrf" secondAttribute="bottom" constant="80" id="fv7-TJ-WT0"/>
-                            <constraint firstItem="3au-XA-VeS" firstAttribute="top" secondItem="PO6-j9-2fr" secondAttribute="bottom" constant="118" id="pie-XM-77E"/>
-                            <constraint firstItem="7cD-fM-qcK" firstAttribute="leading" secondItem="Nt3-tv-4RX" secondAttribute="trailing" constant="46" id="qhO-7T-m99"/>
-                            <constraint firstItem="Nt3-tv-4RX" firstAttribute="top" secondItem="PO6-j9-2fr" secondAttribute="bottom" constant="40" id="w26-Bv-qFm"/>
-                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="MeDummy" id="Xv9-wQ-roc"/>
+                    <tabBarItem key="tabBarItem" title="Near Me" id="Xv9-wQ-roc"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="TakenPhotoView" destination="7oG-bA-Yrf" id="2sq-oN-Hmn"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cOm-jj-kZq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
