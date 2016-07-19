@@ -9,15 +9,27 @@
 import UIKit
 
 class NearMeVC: UIViewController {
+    var container: NearMeViewContainer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+        setupViewContainer()
+    } 
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    //MARK: Helper Functions
+    private func setupViewContainer() {
+        container = NearMeViewContainer.instanceFromNib(
+            CGRectMake(0, 0, view.bounds.width, view.bounds.height))
+        container?.delegate = self
+        view.addSubview(container!)
+    }
+}
+
+//MARK: - NearMeViewContainerDelegate
+extension NearMeVC: NearMeViewContainerDelegate {
 }
