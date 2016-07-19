@@ -40,6 +40,7 @@
 		C8C2153B1D2F3EAC0099FBB3 /* FeedbackViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8C2153A1D2F3EAC0099FBB3 /* FeedbackViewContainer.xib */; };
 		C8C2153D1D2F3F130099FBB3 /* FeedbackViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C2153C1D2F3F130099FBB3 /* FeedbackViewContainer.swift */; };
 		C8D136371D2077760005F018 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D136361D2077760005F018 /* CameraVC.swift */; };
+		C8D8FD851D3DCFFD003C9F16 /* NearMeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D8FD841D3DCFFD003C9F16 /* NearMeVC.swift */; };
 		C8E3428E1D348EC800D7F9D6 /* CameraViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8E3428D1D348EC800D7F9D6 /* CameraViewContainer.xib */; };
 		C8E342901D348EDC00D7F9D6 /* CameraViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E3428F1D348EDC00D7F9D6 /* CameraViewContainer.swift */; };
 		E871EFDF2C7FBF5D93D2F2B7 /* Pods_Spotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D61B8302734B230D5E6888B /* Pods_Spotlight.framework */; };
@@ -108,6 +109,7 @@
 		C8C2153A1D2F3EAC0099FBB3 /* FeedbackViewContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackViewContainer.xib; sourceTree = "<group>"; };
 		C8C2153C1D2F3F130099FBB3 /* FeedbackViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewContainer.swift; sourceTree = "<group>"; };
 		C8D136361D2077760005F018 /* CameraVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
+		C8D8FD841D3DCFFD003C9F16 /* NearMeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearMeVC.swift; sourceTree = "<group>"; };
 		C8E3428D1D348EC800D7F9D6 /* CameraViewContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraViewContainer.xib; sourceTree = "<group>"; };
 		C8E3428F1D348EDC00D7F9D6 /* CameraViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewContainer.swift; sourceTree = "<group>"; };
 		D58281E16EC8DFDE52404CCF /* Pods-SpotlightTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotlightTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpotlightTests/Pods-SpotlightTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				C84FDA6E1D2C975100E66DCD /* FeedbackVC.swift */,
 				C8D136361D2077760005F018 /* CameraVC.swift */,
 				7D9B41C51D2139B800B8389A /* MeVC.swift */,
+				C8D8FD841D3DCFFD003C9F16 /* NearMeVC.swift */,
 				7D4E28651D2CB61500F8E574 /* SingleListVC.swift */,
 				7D4E28671D2CB82000F8E574 /* SingleViewCell.swift */,
 			);
@@ -587,6 +590,7 @@
 				C87650811D2066860092A75A /* Spotlight.xcdatamodeld in Sources */,
 				C8BFBE121D23762400246DA1 /* DeviceOwnerPhotoManager.swift in Sources */,
 				A4FB11901D208C4D001F36F2 /* PhotoAlbum.swift in Sources */,
+				C8D8FD851D3DCFFD003C9F16 /* NearMeVC.swift in Sources */,
 				A4ADCDF01D375511002ECF61 /* PhotoEntityEditor.swift in Sources */,
 				C81E90771D388E270022845B /* Log.swift in Sources */,
 				C876507B1D2066860092A75A /* ViewController.swift in Sources */,
