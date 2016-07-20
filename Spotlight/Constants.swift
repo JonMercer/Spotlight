@@ -17,6 +17,7 @@ typealias ImageName = String
 enum Constants {
     static let albumName = "Spotlight"
     static let tempPathName = "test_path"  // temporary path name for testing local storage
+    static let keySupposedToBeInFIR = "-KN5f_uUIqsw-mbdkNvL"
 }
 
 enum FilePathConstants {

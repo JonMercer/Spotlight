@@ -22,9 +22,27 @@ class LocationManagerTest: XCTestCase {
     }
     
     func testExample() {
-        let foo = LocationManager()
+        XCTAssertEqual(0.000, LocationManager.sharedInstance.getLocationBlock(0.003))
+        XCTAssertEqual(0.005, LocationManager.sharedInstance.getLocationBlock(0.005))
+        XCTAssertEqual(0.005, LocationManager.sharedInstance.getLocationBlock(0.007))
+        XCTAssertEqual(-0.005, LocationManager.sharedInstance.getLocationBlock(-0.003))
+        XCTAssertEqual(-0.010, LocationManager.sharedInstance.getLocationBlock(-0.006))
+        XCTAssertEqual(-0.010, LocationManager.sharedInstance.getLocationBlock(-0.005))
+        XCTAssertEqual(0.000, LocationManager.sharedInstance.getLocationBlock(0))
         
-        //LocationManager.sharedInstance.getLocationBlock(5.5)
+        XCTAssertEqual(89.450, LocationManager.sharedInstance.getLocationBlock(89.453678))
+        XCTAssertEqual(89.455, LocationManager.sharedInstance.getLocationBlock(89.455876))
+        XCTAssertEqual(89.455, LocationManager.sharedInstance.getLocationBlock(89.457123))
+        XCTAssertEqual(-89.455, LocationManager.sharedInstance.getLocationBlock(-89.453768))
+        XCTAssertEqual(-89.460, LocationManager.sharedInstance.getLocationBlock(-89.456456))
+        XCTAssertEqual(-89.460, LocationManager.sharedInstance.getLocationBlock(-89.455987))
+        
+        XCTAssertEqual(189.450, LocationManager.sharedInstance.getLocationBlock(189.453678))
+        XCTAssertEqual(189.455, LocationManager.sharedInstance.getLocationBlock(189.455876))
+        XCTAssertEqual(189.455, LocationManager.sharedInstance.getLocationBlock(189.457123))
+        XCTAssertEqual(-189.455, LocationManager.sharedInstance.getLocationBlock(-189.453768))
+        XCTAssertEqual(-189.460, LocationManager.sharedInstance.getLocationBlock(-189.456456))
+        XCTAssertEqual(-189.460, LocationManager.sharedInstance.getLocationBlock(-189.455987))
     }
     
     func testPerformanceExample() {

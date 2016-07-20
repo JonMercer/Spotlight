@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 class URLUtil {
     
@@ -20,8 +21,8 @@ class URLUtil {
     static func getNameFromURL(url: NSURL) -> String {
         return url.lastPathComponent!
     }
+    
 }
-
 
 extension NSDate {
     

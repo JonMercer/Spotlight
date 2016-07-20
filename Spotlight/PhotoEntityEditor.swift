@@ -45,7 +45,7 @@ struct PhotoEntity {
 
 protocol PhotoEntityEditor {
     
-    func createPhotoEntity(name: ImageName) -> PhotoEntity
+    func createPhotoEntity(name: ImageName, completion: (photoEntity: PhotoEntity) -> Void)
     func savePhotoEntity(photoEntity: PhotoEntity) -> PhotoID
     func editLat(photoID: PhotoID, lat: CLLocationDegrees)
     func editLon(photoID: PhotoID, lon: CLLocationDegrees)
@@ -62,28 +62,28 @@ extension PhotoEntityEditor {
         let key = firebaseRef.child("PhotoEntities").childByAutoId().key
         
         let imageTimeStamp = NSDate().fireBaseImageTimeStamp()
+        let lat = LocationManager.sharedInstance.getCurrentLat()
+        let lon = LocationManager.sharedInstance.getCurrentLon()
+        let latKey: Int = Int(LocationManager.sharedInstance.getLocationBlockKey(lat))
+        let lonKey: Int = Int(LocationManager.sharedInstance.getLocationBlockKey(lon))
         
         let photoEntity = PhotoEntity(photoID: key,
-                                      lat: LocationManager.sharedInstance.getCurrentLat(),
-                                      lon: LocationManager.sharedInstance.getCurrentLon(),
+                                      lat: lat,
+                                      lon: lon,
                                       photoName: name,
                                       timeStamp: imageTimeStamp)
-        
-        
-        
- 
-        
         
         let photoEntityToUpload = ["userID": userID!,
                        "name": photoEntity.photoName,
                        "lat": photoEntity.lat,
                        "lon": photoEntity.lon,
+                       "latBlock": LocationManager.sharedInstance.getLocationBlock(photoEntity.lat),
+                       "lonBlock": LocationManager.sharedInstance.getLocationBlock(photoEntity.lon),
                        "timeStamp": photoEntity.timeStamp]
-        
         
         let childUpdates = ["/PhotoEntities/\(key)": photoEntityToUpload,
                             "/UserEntities/\(userID!)/PhotoEntities/\(key)/": photoEntityToUpload,
-                            "/LatLon/20/30/\(key)": photoEntity.timeStamp]
+                            "/LatLon/\(latKey)/\(lonKey)/\(key)": photoEntity.timeStamp]
         
         firebaseRef.updateChildValues(childUpdates, withCompletionBlock: {(error,ref) in
             if(error != nil) {
@@ -91,40 +91,8 @@ extension PhotoEntityEditor {
             } else {
                 completion(photoEntity: photoEntity)
             }
-            
         })
-        
-//        (error:NSError?, ref:Firebase!) in
-//        if (error != nil) {
-//            println("Data could not be saved.")
-//        } else {
-//            println("Data saved successfully!")
-//        }
-//        
     }
-    //    func createPhotoEntity(name: ImageName) -> PhotoEntity {
-    //        let firebaseRef = FIRDatabase.database().reference()
-    //        let userID = FIRAuth.auth()?.currentUser?.uid
-    //
-    //        let key = firebaseRef.child("PhotoEntities").childByAutoId().key
-    //
-    //        let photoEntity = PhotoEntity(photoID: key,
-    //                                lat: LocationManager.sharedInstance.getCurrentLat(),
-    //                                lon: LocationManager.sharedInstance.getCurrentLon(),
-    //                                photoName: name)
-    //        let PhotoID = ["userID": userID!,
-    //                   "name": photoEntity.photoName,
-    //                   "lat": photoEntity.lat,
-    //                   "lon": photoEntity.lon]
-    //
-    //        let childUpdates = ["/PhotoEntities/\(key)": PhotoID,
-    //                            "/UserEntities/\(userID!)/PhotoEntities/\(key)/": PhotoID]
-    //
-    //        // Consider using completionhandler for knowing success
-    //        firebaseRef.updateChildValues(childUpdates)
-    //
-    //        return photoEntity
-    //    }
     
     //TODO: SL-93
     func savePhotoEntity(photoEntity: PhotoEntity) -> PhotoID {
@@ -155,9 +123,10 @@ extension PhotoEntityEditor {
             let name = snapshot.value!["name"] as! String
             let lat = snapshot.value!["lat"] as! CLLocationDegrees
             let lon = snapshot.value!["lon"] as! CLLocationDegrees
+            let time = snapshot.value!["timeStamp"] as! String
             
             
-            let photo = PhotoEntity(photoID: photoID, lat: lat, lon: lon, photoName: name)
+            let photo = PhotoEntity(photoID: photoID, lat: lat, lon: lon, photoName: name, timeStamp: time)
             completion(photoEntity: photo)
             
         }) { (error) in

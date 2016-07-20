@@ -19,12 +19,6 @@ class SingleListVC: UITableViewController, PhotoEntityEditor {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        
-        self.getPhotoEntity("-KMu8BVxoZt6VhEN03qz"){
-            (photoEntity: PhotoEntity) in
-            Log.debug(photoEntity.debugDescription())
-        }
     }
 
     override func didReceiveMemoryWarning() {
