@@ -66,7 +66,12 @@ class LocationManager: NSObject, Locatable {
     
     func getLocationBlockKey(loc: CLLocationDegrees) -> String {
         // Needed to multiply by 1000 because keys cannot contain '.'
-        return Int(getLocationBlock(loc) * 1000).description
+        let roundedLoc = Int(round(getLocationBlock(loc) * 1000))
+        if roundedLoc < 0 {
+            return String(format: "%07d", roundedLoc)
+        } else {
+            return String(format: "%06d", roundedLoc)
+        }
     }
 }
 
