@@ -46,6 +46,8 @@ class LocationManager: NSObject, Locatable {
     //                 -1.12345 = -1.12500
     //                 -1.23879 = -1.24000
     func getLocationBlock(loc: CLLocationDegrees) -> CLLocationDegrees {
+        //SL-114
+        Log.warn("Make sure that the value from this call is rounded on the receiving end")
         if(loc >= 0) {
             let blockEdge = (loc % 0.01) * 1000
             if(blockEdge < 5) {
@@ -64,6 +66,7 @@ class LocationManager: NSObject, Locatable {
         }
     }
     
+    //SL-114
     func getLocationBlockKey(loc: CLLocationDegrees) -> String {
         // Needed to multiply by 1000 because keys cannot contain '.'
         let roundedLoc = Int(round(getLocationBlock(loc) * 1000))
