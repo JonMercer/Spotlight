@@ -64,8 +64,8 @@ extension PhotoEntityEditor {
         let imageTimeStamp = NSDate().fireBaseImageTimeStamp()
         let lat = LocationManager.sharedInstance.getCurrentLat()
         let lon = LocationManager.sharedInstance.getCurrentLon()
-        let latKey: Int = Int(LocationManager.sharedInstance.getLocationBlockKey(lat))
-        let lonKey: Int = Int(LocationManager.sharedInstance.getLocationBlockKey(lon))
+        let latKey: String = LocationManager.sharedInstance.getLocationBlockKey(lat)
+        let lonKey: String = LocationManager.sharedInstance.getLocationBlockKey(lon)
         
         let photoEntity = PhotoEntity(photoID: key,
                                       lat: lat,

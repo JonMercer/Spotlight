@@ -64,9 +64,9 @@ class LocationManager: NSObject, Locatable {
         }
     }
     
-    func getLocationBlockKey(loc: CLLocationDegrees) -> Double {
+    func getLocationBlockKey(loc: CLLocationDegrees) -> String {
         // Needed to multiply by 1000 because keys cannot contain '.'
-        return getLocationBlock(loc) * 1000
+        return Int(getLocationBlock(loc) * 1000).description
     }
 }
 
