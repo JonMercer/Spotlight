@@ -15,9 +15,10 @@ struct PhotoEntity {
     var lat: CLLocationDegrees = 99999999.99
     var lon: CLLocationDegrees = 99999999.99
     var photoName: String = "####################"
+    var timeStamp: String = "1111-11-11 11:11:11"
     
     func debugDescription() -> String {
-        return "photoID: \(photoID), lat: \(lat.description), lon: \(lon.description), photoName: \(photoName)"
+        return "photoID: \(photoID), lat: \(lat.description), lon: \(lon.description), photoName: \(photoName), timeStamp: \(timeStamp)"
     }
     
     //TODO: SL-99
@@ -36,10 +37,14 @@ struct PhotoEntity {
     func getPhotoName() -> String {
         return photoName
     }
+    
+    func getTimeStamp() -> String {
+        return timeStamp
+    }
 }
 
 protocol PhotoEntityEditor {
-
+    
     func createPhotoEntity(name: ImageName) -> PhotoEntity
     func savePhotoEntity(photoEntity: PhotoEntity) -> PhotoID
     func editLat(photoID: PhotoID, lat: CLLocationDegrees)
@@ -50,30 +55,77 @@ protocol PhotoEntityEditor {
 
 extension PhotoEntityEditor {
     
-    func createPhotoEntity(name: ImageName) -> PhotoEntity {
+    func createPhotoEntity(name: ImageName, completion: (photoEntity: PhotoEntity) -> Void) {
         let firebaseRef = FIRDatabase.database().reference()
         let userID = FIRAuth.auth()?.currentUser?.uid
         
         let key = firebaseRef.child("PhotoEntities").childByAutoId().key
         
+        let imageTimeStamp = NSDate().fireBaseImageTimeStamp()
+        
         let photoEntity = PhotoEntity(photoID: key,
-                                lat: LocationManager.sharedInstance.getCurrentLat(),
-                                lon: LocationManager.sharedInstance.getCurrentLon(),
-                                photoName: name)
-        let PhotoID = ["userID": userID!,
-                   "name": photoEntity.photoName,
-                   "lat": photoEntity.lat,
-                   "lon": photoEntity.lon]
+                                      lat: LocationManager.sharedInstance.getCurrentLat(),
+                                      lon: LocationManager.sharedInstance.getCurrentLon(),
+                                      photoName: name,
+                                      timeStamp: imageTimeStamp)
         
-        let childUpdates = ["/PhotoEntities/\(key)": PhotoID,
-                            "/UserEntities/\(userID!)/PhotoEntities/\(key)/": PhotoID]
         
-        // Consider using completionhandler for knowing success
-        firebaseRef.updateChildValues(childUpdates)
         
-        return photoEntity
+ 
+        
+        
+        let photoEntityToUpload = ["userID": userID!,
+                       "name": photoEntity.photoName,
+                       "lat": photoEntity.lat,
+                       "lon": photoEntity.lon,
+                       "timeStamp": photoEntity.timeStamp]
+        
+        
+        let childUpdates = ["/PhotoEntities/\(key)": photoEntityToUpload,
+                            "/UserEntities/\(userID!)/PhotoEntities/\(key)/": photoEntityToUpload,
+                            "/LatLon/20/30/\(key)": photoEntity.timeStamp]
+        
+        firebaseRef.updateChildValues(childUpdates, withCompletionBlock: {(error,ref) in
+            if(error != nil) {
+                Log.error("Could not update image metadata of image:\(name)")
+            } else {
+                completion(photoEntity: photoEntity)
+            }
+            
+        })
+        
+//        (error:NSError?, ref:Firebase!) in
+//        if (error != nil) {
+//            println("Data could not be saved.")
+//        } else {
+//            println("Data saved successfully!")
+//        }
+//        
     }
-
+    //    func createPhotoEntity(name: ImageName) -> PhotoEntity {
+    //        let firebaseRef = FIRDatabase.database().reference()
+    //        let userID = FIRAuth.auth()?.currentUser?.uid
+    //
+    //        let key = firebaseRef.child("PhotoEntities").childByAutoId().key
+    //
+    //        let photoEntity = PhotoEntity(photoID: key,
+    //                                lat: LocationManager.sharedInstance.getCurrentLat(),
+    //                                lon: LocationManager.sharedInstance.getCurrentLon(),
+    //                                photoName: name)
+    //        let PhotoID = ["userID": userID!,
+    //                   "name": photoEntity.photoName,
+    //                   "lat": photoEntity.lat,
+    //                   "lon": photoEntity.lon]
+    //
+    //        let childUpdates = ["/PhotoEntities/\(key)": PhotoID,
+    //                            "/UserEntities/\(userID!)/PhotoEntities/\(key)/": PhotoID]
+    //
+    //        // Consider using completionhandler for knowing success
+    //        firebaseRef.updateChildValues(childUpdates)
+    //
+    //        return photoEntity
+    //    }
+    
     //TODO: SL-93
     func savePhotoEntity(photoEntity: PhotoEntity) -> PhotoID {
         //TODO:add implementations
@@ -88,14 +140,14 @@ extension PhotoEntityEditor {
     func editLon(photoID: PhotoID, lon: CLLocationDegrees) {
         //TODO:add implementations
         Log.error("Called a dummy PhotoEntityEditor")
-
+        
     }
     func editPhotoName(name: String) {
         //TODO:add implementations
         Log.error("Called a dummy PhotoEntityEditor")
     }
-
-    func getPhotoEntity (photoID: PhotoID, completion: (photoEntity: PhotoEntity) -> Void) {
+    
+    func getPhotoEntity(photoID: PhotoID, completion: (photoEntity: PhotoEntity) -> Void) {
         let firebaseRef = FIRDatabase.database().reference()
         
         firebaseRef.child("PhotoEntities").child(photoID).observeSingleEventOfType(.Value, withBlock: { (snapshot) in

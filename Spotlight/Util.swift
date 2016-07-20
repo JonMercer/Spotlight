@@ -51,5 +51,11 @@ extension NSDate {
         formatter.dateFormat = "HH:mm:ss.SSS"
         return formatter.stringFromDate(self)
     }
+    
+    func fireBaseImageTimeStamp() -> String {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return formatter.stringFromDate(self)
+    }
 }
 

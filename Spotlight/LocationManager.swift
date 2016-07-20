@@ -39,6 +39,24 @@ class LocationManager: NSObject, Locatable {
         locManager.allowsBackgroundLocationUpdates = false
         locManager.stopUpdatingLocation()
     }
+    
+    func getLocationBlock(loc: CLLocationDegrees) -> CLLocationDegrees {
+        if(loc > 0) {
+            let blockEdge = (loc%0.01)*1000
+            if(blockEdge < 5) {
+                return ((floor(loc*100)*10)+0)/1000
+            } else {
+                return ((floor(loc*100)*10)+5)/1000
+            }
+        } else {
+            let blockEdge = (loc%0.01)*1000
+            if(blockEdge > 5) {
+                return ((floor(loc*100)*10)+0)/1000
+            } else {
+                return ((floor(loc*100)*10)+5)/1000
+            }
+        }
+    }
 }
 
 
