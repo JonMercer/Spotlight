@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 class URLUtil {
     
@@ -20,8 +21,8 @@ class URLUtil {
     static func getNameFromURL(url: NSURL) -> String {
         return url.lastPathComponent!
     }
+    
 }
-
 
 extension NSDate {
     
@@ -49,6 +50,12 @@ extension NSDate {
     func timeStamp() -> String {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "HH:mm:ss.SSS"
+        return formatter.stringFromDate(self)
+    }
+    
+    func fireBaseImageTimeStamp() -> String {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         return formatter.stringFromDate(self)
     }
 }

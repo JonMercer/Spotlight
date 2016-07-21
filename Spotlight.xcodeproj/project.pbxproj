@@ -22,6 +22,7 @@
 		A4FB11901D208C4D001F36F2 /* PhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB118F1D208C4D001F36F2 /* PhotoAlbum.swift */; };
 		A4FB11941D20914B001F36F2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB11931D20914B001F36F2 /* Constants.swift */; };
 		C81E90771D388E270022845B /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E90761D388E270022845B /* Log.swift */; };
+		C81FEBBA1D3F2E250002127F /* LocationManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81FEBB91D3F2E250002127F /* LocationManagerTest.swift */; };
 		C825AFE61D330A9E00EE5B0E /* ModelInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C825AFE51D330A9E00EE5B0E /* ModelInterface.swift */; };
 		C825AFEA1D330B9400EE5B0E /* Storable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C825AFE91D330B9400EE5B0E /* Storable.swift */; };
 		C825AFEC1D330F0C00EE5B0E /* FirebaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C825AFEB1D330F0C00EE5B0E /* FirebaseStorage.swift */; };
@@ -89,6 +90,7 @@
 		A4FB118F1D208C4D001F36F2 /* PhotoAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAlbum.swift; sourceTree = "<group>"; };
 		A4FB11931D20914B001F36F2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C81E90761D388E270022845B /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		C81FEBB91D3F2E250002127F /* LocationManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManagerTest.swift; sourceTree = "<group>"; };
 		C825AFE51D330A9E00EE5B0E /* ModelInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelInterface.swift; sourceTree = "<group>"; };
 		C825AFE91D330B9400EE5B0E /* Storable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storable.swift; sourceTree = "<group>"; };
 		C825AFEB1D330F0C00EE5B0E /* FirebaseStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseStorage.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 			children = (
 				C87650901D2066860092A75A /* SpotlightTests.swift */,
 				C87650921D2066860092A75A /* Info.plist */,
+				C81FEBB91D3F2E250002127F /* LocationManagerTest.swift */,
 			);
 			path = SpotlightTests;
 			sourceTree = "<group>";
@@ -633,6 +636,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C81FEBBA1D3F2E250002127F /* LocationManagerTest.swift in Sources */,
 				C87650911D2066860092A75A /* SpotlightTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

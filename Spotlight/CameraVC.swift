@@ -68,7 +68,10 @@ extension CameraVC: CameraViewContainerDelegate {
             //TODO: handle error
         }
         
-        self.createPhotoEntity(urls.last!.lastPathComponent!)
+        self.createPhotoEntity(urls.last!.lastPathComponent!) {
+            (photoEntity: PhotoEntity) in
+            //TODO: handle
+        }
         
     }
     

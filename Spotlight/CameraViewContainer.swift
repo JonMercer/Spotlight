@@ -46,7 +46,7 @@ class CameraViewContainer: UIView {
         if let photo = photoView.image {
             delegate?.publishImage(photo)
             
-            delegate?.getLocation("-KMu8bC-zjnM4EMkgxdl", completion: { (lat, lon) in
+            delegate?.getLocation(Constants.keySupposedToBeInFIR, completion: { (lat, lon) in
                 let camera = GMSCameraPosition.cameraWithLatitude(lat,longitude: lon, zoom: 6)
                 self.mapView.camera = camera
                 self.mapView.myLocationEnabled = true

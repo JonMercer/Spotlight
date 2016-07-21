@@ -39,6 +39,43 @@ class LocationManager: NSObject, Locatable {
         locManager.allowsBackgroundLocationUpdates = false
         locManager.stopUpdatingLocation()
     }
+    
+    // PURPOSE: We wanted to split up the world in 0.005 (lat lon) increments.
+    //          ex: So 1.12345 = 1.12000
+    //                 1.23879 = 1.23500
+    //                 -1.12345 = -1.12500
+    //                 -1.23879 = -1.24000
+    func getLocationBlock(loc: CLLocationDegrees) -> CLLocationDegrees {
+        //SL-114
+        Log.warn("Make sure that the value from this call is rounded on the receiving end")
+        if(loc >= 0) {
+            let blockEdge = (loc % 0.01) * 1000
+            if(blockEdge < 5) {
+                return ((floor(loc * 100) * 10) + 0) / 1000
+            } else {
+                return ((floor(loc * 100) * 10) + 5) / 1000
+            }
+        } else {
+            let positiveLoc = loc * -1
+            let blockEdge = (positiveLoc % 0.01) * 1000
+            if(blockEdge < 5) {
+                return ((((floor(positiveLoc * 100) * 10) + 0) / 1000) + 0.005) * -1
+            } else {
+                return ((((floor(positiveLoc * 100) * 10) + 5) / 1000) + 0.005) * -1
+            }
+        }
+    }
+    
+    //SL-114
+    func getLocationBlockKey(loc: CLLocationDegrees) -> String {
+        // Needed to multiply by 1000 because keys cannot contain '.'
+        let roundedLoc = Int(round(getLocationBlock(loc) * 1000))
+        if roundedLoc < 0 {
+            return String(format: "%07d", roundedLoc)
+        } else {
+            return String(format: "%06d", roundedLoc)
+        }
+    }
 }
 
 
