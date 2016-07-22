@@ -10,8 +10,14 @@ import UIKit
 
 class NearMeViewContainer: UIView {
     var delegate: NearMeViewContainerDelegate?
+    var cell: NearMeViewContainerCell?
     
     @IBOutlet var gridView: UICollectionView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        Log.debug("Near me container is loaded")
+    }
     
     //MARK: - Helper functions
     class func instanceFromNib(frame: CGRect) -> NearMeViewContainer {
@@ -26,13 +32,14 @@ class NearMeViewContainer: UIView {
 
 //MARK: - NearMeViewContainerDelegate
 protocol NearMeViewContainerDelegate {
+    func populateImage(cellImage: UIImageView)
 }
 
 //MARK: - UICollectionViewDelegate
 extension NearMeViewContainer: UICollectionViewDelegate {
     //TODO: does this function belong in this extension?
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return 2
     }
 }
 
@@ -43,6 +50,9 @@ extension NearMeViewContainer: UICollectionViewDataSource {
         let cellView = UINib(nibName: "NearMeViewContainerCell", bundle: nil)
         gridView.registerNib(cellView, forCellWithReuseIdentifier: "nearMeCell")
         let nearMeCell = self.gridView.dequeueReusableCellWithReuseIdentifier("nearMeCell", forIndexPath: indexPath) as! NearMeViewContainerCell
+
+        delegate!.populateImage(nearMeCell.cellImage)
+        //cell = nearMeCell
         
         return nearMeCell
 

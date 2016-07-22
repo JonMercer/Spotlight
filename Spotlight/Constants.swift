@@ -31,4 +31,5 @@ enum FirebaseConstants {
 
 enum StorageError: ErrorType {
     case FailedUpload
+    case FailedDownload
 }

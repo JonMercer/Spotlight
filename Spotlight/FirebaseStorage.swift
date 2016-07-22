@@ -38,8 +38,26 @@ extension ModelInterface: Storable {
             }
         })
     }
-    func downloadPhoto(foo: StorageURL) -> UIImage {
-        return UIImage()
+    
+    func downloadPhoto(url: StorageURL, completionHandler: (err: ErrorType, image: UIImage) -> ()) {
+        let storage = FIRStorage.storage()
+        let storageRef = storage.referenceForURL(FirebaseConstants.storageURL)
+        
+        let imageName = "2016-07-17-11-37-51.jpg"
+        
+        // Create a reference to the file you want to download
+        let islandRef = storageRef.child("images/\(imageName)")
+        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+        islandRef.dataWithMaxSize(7 * 1024 * 1024) { (data, error) -> Void in
+            if (error != nil) {
+                Log.error("download image:\(imageName) failed")
+            } else {
+                // Data for "images/island.jpg" is returned
+                let downloadedImage: UIImage! = UIImage(data: data!)
+                
+                completionHandler(err: StorageError.FailedDownload, image: downloadedImage)
+            }
+        }
     }
     
 }

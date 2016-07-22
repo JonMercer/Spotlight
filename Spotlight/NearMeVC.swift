@@ -14,7 +14,9 @@ class NearMeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewContainer()
-    } 
+        
+
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -32,4 +34,10 @@ class NearMeVC: UIViewController {
 
 //MARK: - NearMeViewContainerDelegate
 extension NearMeVC: NearMeViewContainerDelegate {
+    func populateImage(cellImage: UIImageView) {
+        ModelInterface.sharedInstance.downloadPhoto(NSURL(string: "fff")!) { (err, image) in
+            //TODO: handle error
+            cellImage.image = image
+        }
+    }
 }
