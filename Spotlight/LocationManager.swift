@@ -76,6 +76,15 @@ class LocationManager: NSObject, Locatable {
             return String(format: "%06d", roundedLoc)
         }
     }
+    
+    func getBigGeoBlockKey(loc: CLLocationDegrees) -> String {
+        let roundedLoc = Int(floor(getLocationBlock(loc)))
+        if roundedLoc < 0 {
+            return String(format: "%04d", roundedLoc)
+        } else {
+            return String(format: "%03d", roundedLoc)
+        }
+    }
 }
 
 

@@ -403,7 +403,7 @@
 				TargetAttributes = {
 					C87650741D2066860092A75A = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = R2392A68YQ;
+						DevelopmentTeam = TN363JJW64;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -776,7 +776,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Spotlight/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.spotlightteam.Spotlight.Tanha;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spotlightteam.Spotlight.Jon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -791,7 +791,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Spotlight/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.spotlightteam.Spotlight.Tanha;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spotlightteam.Spotlight.Jon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

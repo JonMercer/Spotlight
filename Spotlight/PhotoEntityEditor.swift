@@ -56,18 +56,21 @@ protocol PhotoEntityEditor {
 extension PhotoEntityEditor {
     
     func createPhotoEntity(name: ImageName, completion: (photoEntity: PhotoEntity) -> Void) {
+        //SL-118
         let firebaseRef = FIRDatabase.database().reference()
         let userID = FIRAuth.auth()?.currentUser?.uid
         
-        let key = firebaseRef.child("PhotoEntities").childByAutoId().key
+        let photoKey = firebaseRef.child("PhotoEntities").childByAutoId().key
         
         let imageTimeStamp = NSDate().fireBaseImageTimeStamp()
         let lat = LocationManager.sharedInstance.getCurrentLat()
         let lon = LocationManager.sharedInstance.getCurrentLon()
-        let latKey: String = LocationManager.sharedInstance.getLocationBlockKey(lat)
-        let lonKey: String = LocationManager.sharedInstance.getLocationBlockKey(lon)
+        let geoBlockLatKey: String = LocationManager.sharedInstance.getLocationBlockKey(lat)
+        let geoBlockLonKey: String = LocationManager.sharedInstance.getLocationBlockKey(lon)
+        let bigGeoBlockLatKey: String = LocationManager.sharedInstance.getBigGeoBlockKey(lat)
+        let bigGeoBlockLonKey: String = LocationManager.sharedInstance.getBigGeoBlockKey(lon)
         
-        let photoEntity = PhotoEntity(photoID: key,
+        let photoEntity = PhotoEntity(photoID: photoKey,
                                       lat: lat,
                                       lon: lon,
                                       photoName: name,
@@ -81,9 +84,10 @@ extension PhotoEntityEditor {
                        "lonBlock": LocationManager.sharedInstance.getLocationBlock(photoEntity.lon),
                        "timeStamp": photoEntity.timeStamp]
         
-        let childUpdates = ["/PhotoEntities/\(key)": photoEntityToUpload,
-                            "/UserEntities/\(userID!)/PhotoEntities/\(key)/": photoEntityToUpload,
-                            "/LatLon/\(latKey)/\(lonKey)/\(key)": photoEntity.timeStamp]
+        let childUpdates = ["/PhotoEntities/\(photoKey)": photoEntityToUpload,
+                            "/UserEntities/\(userID!)/PhotoEntities/\(photoKey)/": photoEntityToUpload,
+                            "/BigGeoBlock/\(bigGeoBlockLatKey)_\(bigGeoBlockLonKey)/\(geoBlockLatKey)_\(geoBlockLonKey)": 1,
+                            "/GeoBlock/\(geoBlockLatKey)_\(geoBlockLonKey)/\(photoKey)": photoEntity.timeStamp]
         
         firebaseRef.updateChildValues(childUpdates, withCompletionBlock: {(error,ref) in
             if(error != nil) {
