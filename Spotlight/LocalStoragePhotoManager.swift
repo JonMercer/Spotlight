@@ -13,8 +13,10 @@ class LocalStoragePhotoManager {
     
 //    var listOfFiles...
     static func saveImageLocal(image: UIImage) -> FilePath {
+        let compressedImage = self.resizeImage(image, newWidth: CGFloat(Constants.compressedImageWidth))
+        
         // Convert PhotoView.image into a JPEG representation
-        let imageJPEG = UIImageJPEGRepresentation(image, 1.0)!
+        let imageJPEG = UIImageJPEGRepresentation(compressedImage, 1.0)!
         let data = NSData(data: imageJPEG)
         let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first! as String
         
@@ -65,5 +67,16 @@ class LocalStoragePhotoManager {
     
     static func getImageNamesInDirectory() -> [String] {
         return self.getImageURLsInDirectory().flatMap({$0.URLByDeletingPathExtension?.lastPathComponent})
+    }
+    
+    static func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+        let scale = newWidth / image.size.width
+        let newHeight = image.size.height * scale
+        UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight))
+        image.drawInRect(CGRectMake(0, 0, newWidth, newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
     }
 }

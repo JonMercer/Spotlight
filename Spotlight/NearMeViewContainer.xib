@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="mzx-EA-U7g">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="mzx-EA-U7g">
                     <rect key="frame" x="0.0" y="23" width="320" height="545"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qwm-m3-7cf">
                         <size key="itemSize" width="100" height="100"/>
@@ -25,6 +25,12 @@
                     </connections>
                 </collectionView>
             </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="mzx-EA-U7g" secondAttribute="bottom" id="2Fj-A5-wAA"/>
+                <constraint firstItem="mzx-EA-U7g" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6Ag-XC-OTg"/>
+                <constraint firstAttribute="trailing" secondItem="mzx-EA-U7g" secondAttribute="trailing" id="ezE-hE-Mvl"/>
+                <constraint firstItem="mzx-EA-U7g" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="23" id="smc-Iw-sFF"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <connections>
                 <outlet property="gridView" destination="mzx-EA-U7g" id="U0X-ga-gud"/>
