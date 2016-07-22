@@ -12,5 +12,5 @@ import Photos
 protocol Storable {
     
     func uploadPhoto(url: LocalURL, completionHandler: (err: ErrorType) -> ())
-    func downloadPhoto(foo: StorageURL) -> UIImage
+    func downloadPhoto(url: StorageURL, completionHandler: (err: ErrorType, image: UIImage) -> ())
 }
