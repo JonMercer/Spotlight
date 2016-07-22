@@ -13,7 +13,7 @@ class LocalStoragePhotoManager {
     
 //    var listOfFiles...
     static func saveImageLocal(image: UIImage) -> FilePath {
-        let compressedImage = self.resizeImage(image, newWidth: 100.0)
+        let compressedImage = self.resizeImage(image, newWidth: CGFloat(Constants.compressedImageWidth))
         
         // Convert PhotoView.image into a JPEG representation
         let imageJPEG = UIImageJPEGRepresentation(compressedImage, 1.0)!
