@@ -43,7 +43,7 @@ extension ModelInterface: Storable {
         let storage = FIRStorage.storage()
         let storageRef = storage.referenceForURL(FirebaseConstants.storageURL)
         
-        let imageName = "2016-07-17-11-37-51.jpg"
+        let imageName = "2016-07-21-21-41-27.jpg"
         
         // Create a reference to the file you want to download
         let islandRef = storageRef.child("images/\(imageName)")
