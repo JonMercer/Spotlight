@@ -75,6 +75,31 @@ class LocationManagerTest: XCTestCase {
         XCTAssertEqual("-189460", LocationManager.sharedInstance.getLocationBlockKey(-189.455987))
     }
     
+    func testGetBigGeoBlockKey() {
+        //SL-114
+        XCTAssertEqual("000", LocationManager.sharedInstance.getBigGeoBlockKey(0.003))
+        XCTAssertEqual("000", LocationManager.sharedInstance.getBigGeoBlockKey(0.005))
+        XCTAssertEqual("000", LocationManager.sharedInstance.getBigGeoBlockKey(0.007))
+        XCTAssertEqual("-001", LocationManager.sharedInstance.getBigGeoBlockKey(-0.003))
+        XCTAssertEqual("-001", LocationManager.sharedInstance.getBigGeoBlockKey(-0.006))
+        XCTAssertEqual("-001", LocationManager.sharedInstance.getBigGeoBlockKey(-0.005))
+        XCTAssertEqual("000", LocationManager.sharedInstance.getBigGeoBlockKey(0))
+        
+        XCTAssertEqual("089", LocationManager.sharedInstance.getBigGeoBlockKey(89.453678))
+        XCTAssertEqual("089", LocationManager.sharedInstance.getBigGeoBlockKey(89.455876))
+        XCTAssertEqual("089", LocationManager.sharedInstance.getBigGeoBlockKey(89.457123))
+        XCTAssertEqual("-090", LocationManager.sharedInstance.getBigGeoBlockKey(-89.453763))
+        XCTAssertEqual("-090", LocationManager.sharedInstance.getBigGeoBlockKey(-89.456456))
+        XCTAssertEqual("-090", LocationManager.sharedInstance.getBigGeoBlockKey(-89.455987))
+        
+        XCTAssertEqual("189", LocationManager.sharedInstance.getBigGeoBlockKey(189.453678))
+        XCTAssertEqual("189", LocationManager.sharedInstance.getBigGeoBlockKey(189.455876))
+        XCTAssertEqual("189", LocationManager.sharedInstance.getBigGeoBlockKey(189.457123))
+        XCTAssertEqual("-190", LocationManager.sharedInstance.getBigGeoBlockKey(-189.453763))
+        XCTAssertEqual("-190", LocationManager.sharedInstance.getBigGeoBlockKey(-189.456456))
+        XCTAssertEqual("-190", LocationManager.sharedInstance.getBigGeoBlockKey(-189.455987))
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock {
