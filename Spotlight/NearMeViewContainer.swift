@@ -39,7 +39,7 @@ protocol NearMeViewContainerDelegate {
 extension NearMeViewContainer: UICollectionViewDelegate {
     //TODO: does this function belong in this extension?
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return 2
     }
 }
 
