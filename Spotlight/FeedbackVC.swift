@@ -20,7 +20,10 @@ class FeedbackVC: UIViewController {
     setupViewContainer()
     signIn()
     
-    //LocationManager.sharedInstance.stopGettingLoc()
+    //TODO:delete this
+    getBigGeoBlockContent("000_000") { (listOfGeoBlockKeys) in
+        Log.debug(listOfGeoBlockKeys.debugDescription)
+    }
     
   }
   
@@ -96,6 +99,10 @@ extension FeedbackVC: FeedbackViewContainerDelegate {
 
     }
     
+    
+}
+
+extension FeedbackVC: BigGeoBlockEditor {
     
 }
 

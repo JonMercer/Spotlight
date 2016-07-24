@@ -36,7 +36,6 @@ extension GeoBlockEditor {
         }) { (error) in
             Log.error(error.localizedDescription)
         }
-
     }
     
     func getGeoBlockKeyByLatLon(lat: CLLocationDegrees, lon: CLLocationDegrees) -> GeoBlockKey {

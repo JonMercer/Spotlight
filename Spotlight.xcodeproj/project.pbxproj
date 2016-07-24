@@ -42,6 +42,7 @@
 		C87650911D2066860092A75A /* SpotlightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87650901D2066860092A75A /* SpotlightTests.swift */; };
 		C876509C1D2066870092A75A /* SpotlightUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876509B1D2066870092A75A /* SpotlightUITests.swift */; };
 		C8A6E0A51D453EB1000649A0 /* PhotoEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A6E0A41D453EB1000649A0 /* PhotoEntities.swift */; };
+		C8A6E0A71D456FEB000649A0 /* BigGeoBlockEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A6E0A61D456FEB000649A0 /* BigGeoBlockEditor.swift */; };
 		C8BFBE101D23670200246DA1 /* LocalStoragePhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BFBE0F1D23670200246DA1 /* LocalStoragePhotoManager.swift */; };
 		C8BFBE121D23762400246DA1 /* DeviceOwnerPhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BFBE111D23762400246DA1 /* DeviceOwnerPhotoManager.swift */; };
 		C8C2153B1D2F3EAC0099FBB3 /* FeedbackViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8C2153A1D2F3EAC0099FBB3 /* FeedbackViewContainer.xib */; };
@@ -118,6 +119,7 @@
 		C876509B1D2066870092A75A /* SpotlightUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightUITests.swift; sourceTree = "<group>"; };
 		C876509D1D2066870092A75A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8A6E0A41D453EB1000649A0 /* PhotoEntities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoEntities.swift; sourceTree = "<group>"; };
+		C8A6E0A61D456FEB000649A0 /* BigGeoBlockEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigGeoBlockEditor.swift; sourceTree = "<group>"; };
 		C8BFBE0F1D23670200246DA1 /* LocalStoragePhotoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStoragePhotoManager.swift; sourceTree = "<group>"; };
 		C8BFBE111D23762400246DA1 /* DeviceOwnerPhotoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceOwnerPhotoManager.swift; sourceTree = "<group>"; };
 		C8C2153A1D2F3EAC0099FBB3 /* FeedbackViewContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackViewContainer.xib; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				A4ADCDEF1D375511002ECF61 /* PhotoEntityEditor.swift */,
 				C8A6E0A41D453EB1000649A0 /* PhotoEntities.swift */,
 				A451D9D31D455B4900436F1E /* GeoBlockEditor.swift */,
+				C8A6E0A61D456FEB000649A0 /* BigGeoBlockEditor.swift */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 				C825AFE61D330A9E00EE5B0E /* ModelInterface.swift in Sources */,
 				7D4E28681D2CB82000F8E574 /* SingleViewCell.swift in Sources */,
 				C8BFBE101D23670200246DA1 /* LocalStoragePhotoManager.swift in Sources */,
+				C8A6E0A71D456FEB000649A0 /* BigGeoBlockEditor.swift in Sources */,
 				7D4E28661D2CB61500F8E574 /* SingleListVC.swift in Sources */,
 				C8D136371D2077760005F018 /* CameraVC.swift in Sources */,
 				C8A6E0A51D453EB1000649A0 /* PhotoEntities.swift in Sources */,
