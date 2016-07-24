@@ -35,12 +35,12 @@ class NearMeVC: UIViewController {
 //MARK: - NearMeViewContainerDelegate
 extension NearMeVC: NearMeViewContainerDelegate {
     func populateImage(cellImage: UIImageView, index: Int) {
-        grabKeysOfAllEntities { (photoEntityKeys) in
-            if(index >= photoEntityKeys.count) {
+        getKeysInGeoBlock(getGeoBlockKeyByCurrentLatLon()) { (listOfPhotoEntities) in
+            if(index >= listOfPhotoEntities.count) {
                 //TODO: if we reach, we grab more pics
                 cellImage.image = UIImage()
             } else {
-                self.getPhotoEntity(photoEntityKeys[index], completion: { (photoEntity) in
+                self.getPhotoEntity(listOfPhotoEntities[index], completion: { (photoEntity) in
                     ModelInterface.sharedInstance.downloadPhotoByName(photoEntity.getPhotoName()) { (err, image) in
                         cellImage.image = image
                     }
@@ -50,8 +50,8 @@ extension NearMeVC: NearMeViewContainerDelegate {
     }
 }
 
-//MARK: - PhotoEntities
-extension NearMeVC: PhotoEntities {
+//MARK: - GeoBlockEditor
+extension NearMeVC: GeoBlockEditor {
     
 }
 
