@@ -20,7 +20,7 @@ class FeedbackVC: UIViewController {
     setupViewContainer()
     signIn()
     
-    LocationManager.sharedInstance.stopGettingLoc()
+    //LocationManager.sharedInstance.stopGettingLoc()
     
   }
   

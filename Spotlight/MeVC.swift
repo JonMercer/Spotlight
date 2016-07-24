@@ -48,7 +48,7 @@ class MeVC: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        LocationManager.sharedInstance.stopGettingLoc()
+        //LocationManager.sharedInstance.stopGettingLoc()
         photoManager.updateImages()
         
         TakenPhotoView.image = photoManager.getFirstImage()

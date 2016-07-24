@@ -14,8 +14,6 @@ class NearMeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewContainer()
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
