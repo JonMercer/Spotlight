@@ -43,6 +43,7 @@
 		C876509C1D2066870092A75A /* SpotlightUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876509B1D2066870092A75A /* SpotlightUITests.swift */; };
 		C8A6E0A51D453EB1000649A0 /* PhotoEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A6E0A41D453EB1000649A0 /* PhotoEntities.swift */; };
 		C8A6E0A71D456FEB000649A0 /* BigGeoBlockEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A6E0A61D456FEB000649A0 /* BigGeoBlockEditor.swift */; };
+		C8A6E0A91D457666000649A0 /* GeoUtilTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A6E0A81D457666000649A0 /* GeoUtilTest.swift */; };
 		C8BFBE101D23670200246DA1 /* LocalStoragePhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BFBE0F1D23670200246DA1 /* LocalStoragePhotoManager.swift */; };
 		C8BFBE121D23762400246DA1 /* DeviceOwnerPhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BFBE111D23762400246DA1 /* DeviceOwnerPhotoManager.swift */; };
 		C8C2153B1D2F3EAC0099FBB3 /* FeedbackViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8C2153A1D2F3EAC0099FBB3 /* FeedbackViewContainer.xib */; };
@@ -120,6 +121,7 @@
 		C876509D1D2066870092A75A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8A6E0A41D453EB1000649A0 /* PhotoEntities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoEntities.swift; sourceTree = "<group>"; };
 		C8A6E0A61D456FEB000649A0 /* BigGeoBlockEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigGeoBlockEditor.swift; sourceTree = "<group>"; };
+		C8A6E0A81D457666000649A0 /* GeoUtilTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoUtilTest.swift; sourceTree = "<group>"; };
 		C8BFBE0F1D23670200246DA1 /* LocalStoragePhotoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStoragePhotoManager.swift; sourceTree = "<group>"; };
 		C8BFBE111D23762400246DA1 /* DeviceOwnerPhotoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceOwnerPhotoManager.swift; sourceTree = "<group>"; };
 		C8C2153A1D2F3EAC0099FBB3 /* FeedbackViewContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackViewContainer.xib; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 				C87650901D2066860092A75A /* SpotlightTests.swift */,
 				C87650921D2066860092A75A /* Info.plist */,
 				C81FEBB91D3F2E250002127F /* LocationManagerTest.swift */,
+				C8A6E0A81D457666000649A0 /* GeoUtilTest.swift */,
 			);
 			path = SpotlightTests;
 			sourceTree = "<group>";
@@ -650,6 +653,7 @@
 			files = (
 				C81FEBBA1D3F2E250002127F /* LocationManagerTest.swift in Sources */,
 				C87650911D2066860092A75A /* SpotlightTests.swift in Sources */,
+				C8A6E0A91D457666000649A0 /* GeoUtilTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

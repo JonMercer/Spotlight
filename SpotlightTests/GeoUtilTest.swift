@@ -1,0 +1,66 @@
+//
+//  GeoUtilTest.swift
+//  Spotlight
+//
+//  Created by Odin on 2016-07-24.
+//  Copyright © 2016 SpotlightTeam. All rights reserved.
+//
+
+import XCTest
+@testable import Spotlight
+
+
+class GeoUtilTest: XCTestCase {
+    
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+    
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+    
+    func testCalculateGeoRadius() {
+        XCTAssertEqual(3, GeoUtil.calculateGeoRadius((0,0), b:(0,3)))
+        XCTAssertEqual(0, GeoUtil.calculateGeoRadius((0,0), b:(0,0)))
+        XCTAssertEqual(2, GeoUtil.calculateGeoRadius((-1,-1), b:(-3,-1)))
+        XCTAssertEqual(3, GeoUtil.calculateGeoRadius((0,0), b:(0,-3)))
+        XCTAssertEqual(3, GeoUtil.calculateGeoRadius((0,0), b:(-3,3)))
+        XCTAssertEqual(4, GeoUtil.calculateGeoRadius((-1,-1), b:(-5,-5)))
+        XCTAssertEqual(10, GeoUtil.calculateGeoRadius((10,5), b:(0,3)))
+        XCTAssertEqual(360, GeoUtil.calculateGeoRadius((-180,0), b:(180,0)))
+    }
+    
+    func testExtractGeoBlockKeyLatLon() {
+        XCTAssertEqual(1, GeoUtil.extractGeoBlockKeyLatLon("1_1").0)
+        XCTAssertEqual(1, GeoUtil.extractGeoBlockKeyLatLon("1_1").1)
+        
+        XCTAssertEqual(123, GeoUtil.extractGeoBlockKeyLatLon("123_123").0)
+        XCTAssertEqual(123, GeoUtil.extractGeoBlockKeyLatLon("123_123").1)
+        
+        XCTAssertEqual(-167, GeoUtil.extractGeoBlockKeyLatLon("-167_167").0)
+        XCTAssertEqual(167, GeoUtil.extractGeoBlockKeyLatLon("-167_167").1)
+        
+        XCTAssertEqual(0, GeoUtil.extractGeoBlockKeyLatLon("0_0").0)
+        XCTAssertEqual(0, GeoUtil.extractGeoBlockKeyLatLon("0_0").1)
+        
+        XCTAssertEqual(-180, GeoUtil.extractGeoBlockKeyLatLon("-180_-180").0)
+        XCTAssertEqual(-180, GeoUtil.extractGeoBlockKeyLatLon("-180_-180").1)
+        
+        XCTAssertEqual(-180, GeoUtil.extractGeoBlockKeyLatLon("-00180_-00180").0)
+        XCTAssertEqual(-180, GeoUtil.extractGeoBlockKeyLatLon("-00180_-00180").1)
+        
+        XCTAssertEqual(123, GeoUtil.extractGeoBlockKeyLatLon("00123_00123").0)
+        XCTAssertEqual(123, GeoUtil.extractGeoBlockKeyLatLon("00123_00123").1)
+    }
+    
+    func testPerformanceExample() {
+        // This is an example of a performance test case.
+        self.measureBlock {
+            // Put the code you want to measure the time of here.
+        }
+    }
+    
+}

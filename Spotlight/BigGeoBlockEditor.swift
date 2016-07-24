@@ -37,6 +37,19 @@ extension BigGeoBlockEditor {
     }
     
     func sortGeoBlocks(listOfGeoBlockKeys: [GeoBlockKey], completion: (sortedListOfGeoBlockKey: [GeoBlockKey])-> ()) {
+        var geoBlockDictionary = [String: String]()
         
+        let currentGeoBlockKey = GeoUtil.getGeoBlockKeyByCurrentLatLon()
+        
+        //Populate
+        let max = GeoUtil.calculateGeoRadius(GeoUtil.extractGeoBlockKeyLatLon(currentGeoBlockKey),
+                                             b: GeoUtil.extractGeoBlockKeyLatLon(listOfGeoBlockKeys[0]))
+        
+        Log.debug(max.description)
+        
+        //Sort
+        
+        //Make a list again
+
     }
 }

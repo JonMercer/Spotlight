@@ -23,6 +23,11 @@ class FeedbackVC: UIViewController {
     //TODO:delete this
     getBigGeoBlockContent("000_000") { (listOfGeoBlockKeys) in
         Log.debug(listOfGeoBlockKeys.debugDescription)
+        
+        self.sortGeoBlocks(listOfGeoBlockKeys) { (sortedListOfGeoBlockKey) in
+            Log.debug("sorted block completion")
+        }
+
     }
     
   }
