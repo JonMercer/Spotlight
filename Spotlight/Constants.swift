@@ -13,6 +13,7 @@ typealias LocalURL = NSURL
 typealias StorageURL = NSURL
 typealias ImageName = String
 typealias PhotoEntityKey = String
+typealias GeoBlockKey = String
 
 enum Constants {
     static let albumName = "Spotlight"

@@ -12,7 +12,7 @@ class SingleListVC: UITableViewController, PhotoEntityEditor {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        LocationManager.sharedInstance.stopGettingLoc()
+        //LocationManager.sharedInstance.stopGettingLoc()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

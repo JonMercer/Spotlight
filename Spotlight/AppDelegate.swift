@@ -35,6 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         CustomPhotoAlbum.init()
         LocationManager.sharedInstance.customInit()
         
+        LocationManager.sharedInstance.startGettingLoc()
+        
         
         //For stopping location manager
         //manager.stopUpdatingLocation()
