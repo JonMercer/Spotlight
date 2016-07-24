@@ -39,18 +39,16 @@ extension ModelInterface: Storable {
         })
     }
     
-    func downloadPhoto(url: StorageURL, completionHandler: (err: ErrorType, image: UIImage) -> ()) {
+    func downloadPhotoByName(name: ImageName, completionHandler: (err: ErrorType, image: UIImage) -> ()) {
         let storage = FIRStorage.storage()
         let storageRef = storage.referenceForURL(FirebaseConstants.storageURL)
         
-        let imageName = "2016-07-21-21-41-27.jpg"
-        
         // Create a reference to the file you want to download
-        let islandRef = storageRef.child("images/\(imageName)")
+        let islandRef = storageRef.child("images/\(name)")
         // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
         islandRef.dataWithMaxSize(7 * 1024 * 1024) { (data, error) -> Void in
             if (error != nil) {
-                Log.error("download image:\(imageName) failed")
+                Log.error("download image:\(name) failed")
             } else {
                 // Data for "images/island.jpg" is returned
                 let downloadedImage: UIImage! = UIImage(data: data!)

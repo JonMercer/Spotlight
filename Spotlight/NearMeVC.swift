@@ -15,21 +15,14 @@ class NearMeVC: UIViewController {
         super.viewDidLoad()
         setupViewContainer()
         
-        grabKeysOfAllEntities { (photoEntityKeys) in
-            for photoEntityKey in photoEntityKeys {
-                self.getPhotoEntity(photoEntityKey, completion: { (photoEntity) in
-                    Log.debug("\(photoEntity.debugDescription())")
-                    
-                })
-            }
-        }
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     //MARK: Helper Functions
     private func setupViewContainer() {
         container = NearMeViewContainer.instanceFromNib(
@@ -41,10 +34,18 @@ class NearMeVC: UIViewController {
 
 //MARK: - NearMeViewContainerDelegate
 extension NearMeVC: NearMeViewContainerDelegate {
-    func populateImage(cellImage: UIImageView) {
-        ModelInterface.sharedInstance.downloadPhoto(NSURL(string: "fff")!) { (err, image) in
-            //TODO: handle error
-            cellImage.image = image
+    func populateImage(cellImage: UIImageView, index: Int) {
+        grabKeysOfAllEntities { (photoEntityKeys) in
+            if(index >= photoEntityKeys.count) {
+                //TODO: if we reach, we grab more pics
+                cellImage.image = UIImage()
+            } else {
+                self.getPhotoEntity(photoEntityKeys[index], completion: { (photoEntity) in
+                    ModelInterface.sharedInstance.downloadPhotoByName(photoEntity.getPhotoName()) { (err, image) in
+                        cellImage.image = image
+                    }
+                })
+            }
         }
     }
 }
