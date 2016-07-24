@@ -75,7 +75,7 @@ extension CameraVC: CameraViewContainerDelegate {
         
     }
     
-    func getLocation(photoID: PhotoID, completion: (lat: CLLocationDegrees, lon: CLLocationDegrees) -> Void) {
+    func getLocation(photoID: PhotoEntityKey, completion: (lat: CLLocationDegrees, lon: CLLocationDegrees) -> Void) {
         self.getPhotoEntity(photoID) { (photoEntity) in
             completion(lat: photoEntity.getLat(photoID), lon: photoEntity.getLon(photoID))
         }
@@ -87,4 +87,9 @@ extension CameraVC: CameraViewContainerDelegate {
 extension CameraVC: PhotoEntityEditor {
     
 }
+
+extension CameraVC: PhotoEntities {
+    
+}
+
 
