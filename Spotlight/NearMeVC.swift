@@ -15,7 +15,14 @@ class NearMeVC: UIViewController {
         super.viewDidLoad()
         setupViewContainer()
         
-
+        grabKeysOfAllEntities { (photoEntityKeys) in
+            for photoEntityKey in photoEntityKeys {
+                self.getPhotoEntity(photoEntityKey, completion: { (photoEntity) in
+                    Log.debug("\(photoEntity.debugDescription())")
+                    
+                })
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -40,4 +47,14 @@ extension NearMeVC: NearMeViewContainerDelegate {
             cellImage.image = image
         }
     }
+}
+
+//MARK: - PhotoEntities
+extension NearMeVC: PhotoEntities {
+    
+}
+
+//MARK: - PhotoEntityEditor
+extension NearMeVC: PhotoEntityEditor {
+    
 }

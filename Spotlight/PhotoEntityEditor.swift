@@ -11,7 +11,7 @@ import CoreLocation
 import Firebase
 
 struct PhotoEntity {
-    var photoID: PhotoID = "#####################"
+    var photoID: PhotoEntityKey = "#####################"
     var lat: CLLocationDegrees = 99999999.99
     var lon: CLLocationDegrees = 99999999.99
     var photoName: String = "####################"
@@ -22,15 +22,15 @@ struct PhotoEntity {
     }
     
     //TODO: SL-99
-    func getPhotoID() -> PhotoID {
+    func getPhotoID() -> PhotoEntityKey {
         return photoID
     }
     
-    func getLat(photoID: PhotoID) -> CLLocationDegrees {
+    func getLat(photoID: PhotoEntityKey) -> CLLocationDegrees {
         return lat
     }
     
-    func getLon(photoID: PhotoID) -> CLLocationDegrees {
+    func getLon(photoID: PhotoEntityKey) -> CLLocationDegrees {
         return lon
     }
     
@@ -46,11 +46,11 @@ struct PhotoEntity {
 protocol PhotoEntityEditor {
     
     func createPhotoEntity(name: ImageName, completion: (photoEntity: PhotoEntity) -> Void)
-    func savePhotoEntity(photoEntity: PhotoEntity) -> PhotoID
-    func editLat(photoID: PhotoID, lat: CLLocationDegrees)
-    func editLon(photoID: PhotoID, lon: CLLocationDegrees)
+    func savePhotoEntity(photoEntity: PhotoEntity) -> PhotoEntityKey
+    func editLat(photoID: PhotoEntityKey, lat: CLLocationDegrees)
+    func editLon(photoID: PhotoEntityKey, lon: CLLocationDegrees)
     func editPhotoName(name: String)
-    func getPhotoEntity (photoID: PhotoID, completion: (photoEntity: PhotoEntity) -> Void)
+    func getPhotoEntity (photoID: PhotoEntityKey, completion: (photoEntity: PhotoEntity) -> Void)
 }
 
 extension PhotoEntityEditor {
@@ -99,17 +99,17 @@ extension PhotoEntityEditor {
     }
     
     //TODO: SL-93
-    func savePhotoEntity(photoEntity: PhotoEntity) -> PhotoID {
+    func savePhotoEntity(photoEntity: PhotoEntity) -> PhotoEntityKey {
         //TODO:add implementations
         Log.error("Called a dummy PhotoEntityEditor")
         return "shouldn't be called"
     }
     
-    func editLat(photoID: PhotoID, lat: CLLocationDegrees) {
+    func editLat(photoID: PhotoEntityKey, lat: CLLocationDegrees) {
         //TODO:add implementations
         Log.error("Called a dummy PhotoEntityEditor")
     }
-    func editLon(photoID: PhotoID, lon: CLLocationDegrees) {
+    func editLon(photoID: PhotoEntityKey, lon: CLLocationDegrees) {
         //TODO:add implementations
         Log.error("Called a dummy PhotoEntityEditor")
         
@@ -119,7 +119,7 @@ extension PhotoEntityEditor {
         Log.error("Called a dummy PhotoEntityEditor")
     }
     
-    func getPhotoEntity(photoID: PhotoID, completion: (photoEntity: PhotoEntity) -> Void) {
+    func getPhotoEntity(photoID: PhotoEntityKey, completion: (photoEntity: PhotoEntity) -> Void) {
         let firebaseRef = FIRDatabase.database().reference()
         
         firebaseRef.child("PhotoEntities").child(photoID).observeSingleEventOfType(.Value, withBlock: { (snapshot) in

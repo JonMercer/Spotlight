@@ -51,7 +51,7 @@ extension NearMeViewContainer: UICollectionViewDataSource {
         gridView.registerNib(cellView, forCellWithReuseIdentifier: "nearMeCell")
         let nearMeCell = self.gridView.dequeueReusableCellWithReuseIdentifier("nearMeCell", forIndexPath: indexPath) as! NearMeViewContainerCell
 
-        delegate!.populateImage(nearMeCell.cellImage)
+        ////delegate!.populateImage(nearMeCell.cellImage)
         //cell = nearMeCell
         
         return nearMeCell

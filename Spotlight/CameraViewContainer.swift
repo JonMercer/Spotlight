@@ -94,5 +94,5 @@ protocol CameraViewContainerDelegate {
     func dismissViewControllerAnimated()
     func saveToCameraRoll(image: UIImage)
     func publishImage(image: UIImage)
-    func getLocation(photoID: PhotoID, completion: (lat: CLLocationDegrees, lon: CLLocationDegrees) -> Void)
+    func getLocation(photoID: PhotoEntityKey, completion: (lat: CLLocationDegrees, lon: CLLocationDegrees) -> Void)
 }
