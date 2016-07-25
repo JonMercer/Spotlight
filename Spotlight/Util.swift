@@ -48,6 +48,20 @@ class GeoUtil {
         
         return (Int(geoBlocksLocs[0])!,Int(geoBlocksLocs[1])!)
     }
+    
+    static func getBigGeoBlockKeyByLatLon(lat: CLLocationDegrees, lon: CLLocationDegrees) -> BigGeoBlockKey {
+        let bigGeoBlockLatKey: String = LocationManager.sharedInstance.getBigGeoBlockKey(lat)
+        let bigGeoBlockLonKey: String = LocationManager.sharedInstance.getBigGeoBlockKey(lon)
+        
+        return "\(bigGeoBlockLatKey)_\(bigGeoBlockLonKey)"
+    }
+    
+    static func getBigGeoBlockKeyByCurrentLatLon() -> BigGeoBlockKey {
+        let lat = LocationManager.sharedInstance.getCurrentLat()
+        let lon = LocationManager.sharedInstance.getCurrentLon()
+        
+        return getBigGeoBlockKeyByLatLon(lat, lon: lon)
+    }
 }
 
 extension NSDate {

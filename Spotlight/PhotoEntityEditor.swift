@@ -66,8 +66,7 @@ extension PhotoEntityEditor {
         let lat = LocationManager.sharedInstance.getCurrentLat()
         let lon = LocationManager.sharedInstance.getCurrentLon()
         let geoBlockKey = GeoUtil.getGeoBlockKeyByCurrentLatLon()
-        let bigGeoBlockLatKey: String = LocationManager.sharedInstance.getBigGeoBlockKey(lat)
-        let bigGeoBlockLonKey: String = LocationManager.sharedInstance.getBigGeoBlockKey(lon)
+        let bigGeoBlockKey: String = GeoUtil.getBigGeoBlockKeyByCurrentLatLon()
         
         let photoEntity = PhotoEntity(photoID: photoKey,
                                       lat: lat,
@@ -85,7 +84,7 @@ extension PhotoEntityEditor {
         
         let childUpdates = ["/PhotoEntities/\(photoKey)": photoEntityToUpload,
                             "/UserEntities/\(userID!)/PhotoEntities/\(photoKey)/": photoEntityToUpload,
-                            "/BigGeoBlock/\(bigGeoBlockLatKey)_\(bigGeoBlockLonKey)/\(geoBlockKey)": 1,
+                            "/BigGeoBlock/\(bigGeoBlockKey)/\(geoBlockKey)": 1,
                             "/GeoBlock/\(geoBlockKey)/\(photoKey)": photoEntity.timeStamp]
         
         firebaseRef.updateChildValues(childUpdates, withCompletionBlock: {(error,ref) in
