@@ -13,6 +13,7 @@ target 'Spotlight' do
     pod 'Firebase/Database'
     pod 'Firebase/Auth'
     pod 'Firebase/Storage'
+    pod 'Firebase/AdMob'
 
   # Pods for Spotlight
 
@@ -28,6 +29,7 @@ target 'Spotlight' do
     pod 'Firebase/Database'
     pod 'Firebase/Auth'
     pod 'Firebase/Storage'
+    pod 'Firebase/AdMob'
   end
 
   target 'SpotlightUITests' do
@@ -42,6 +44,7 @@ target 'Spotlight' do
     pod 'Firebase/Database'
     pod 'Firebase/Auth'
     pod 'Firebase/Storage'
+    pod 'Firebase/AdMob'
   end
 
 end
