@@ -87,7 +87,6 @@ extension BigGeoBlockEditor {
         var counter: Int = 0
         for bigGeoBlockKey in neighbouringBigGeoBlocks {
             self.getBigGeoBlockContent(bigGeoBlockKey, completion: { (listOfGeoBlockKeys) in
-                Log.debug(listOfGeoBlockKeys.description)
                 geoBlockKeysInNeighbouringBigBlocksToReturn.appendContentsOf(listOfGeoBlockKeys)
                 counter = counter + 1
                 
