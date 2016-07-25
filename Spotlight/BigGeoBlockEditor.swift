@@ -12,6 +12,8 @@ import Firebase
 protocol BigGeoBlockEditor {
     func getBigGeoBlockContent(bigGeoBlock: BigGeoBlockKey, completion: (listOfGeoBlockKeys: [GeoBlockKey]) -> ())
     func sortGeoBlocks(listOfGeoBlockKeys: [GeoBlockKey], currentGeoBlockKey: GeoBlockKey, completion: (sortedListOfGeoBlockKey: [GeoBlockKey])-> ())
+    func getNeighbouringBigGeoBlockContent(currentBigGeoBlockKey: BigGeoBlockKey, completion: (listOfGeoBlockKeys: [GeoBlockKey]) -> ())
+    
 }
 
 extension BigGeoBlockEditor {
@@ -20,7 +22,7 @@ extension BigGeoBlockEditor {
         
         firebaseRef.child("BigGeoBlock").child(bigGeoBlock).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             
-            var listOfKeys = [PhotoEntityKey]()
+            var listOfKeys = [GeoBlockKey]()
             for child in snapshot.children {
                 listOfKeys.append(child.key)
             }
@@ -29,6 +31,9 @@ extension BigGeoBlockEditor {
                 completion(listOfGeoBlockKeys: listOfKeys)
             } else {
                 Log.error("List of children is empty")
+                let emptyList = [GeoBlockKey]()
+
+                completion(listOfGeoBlockKeys: emptyList)
             }
             
         }) { (error) in
@@ -38,6 +43,7 @@ extension BigGeoBlockEditor {
 
     func sortGeoBlocks(listOfGeoBlockKeys: [GeoBlockKey], currentGeoBlockKey: GeoBlockKey, completion: (sortedListOfGeoBlockKey: [GeoBlockKey])-> ()) {
         
+        // [Radius (manhattan distance from the center): list of geoBlocks]
         var geoBlockDictionary = [Int: [GeoBlockKey]]()
 
         //Populate
@@ -73,4 +79,24 @@ extension BigGeoBlockEditor {
         completion(sortedListOfGeoBlockKey: sortedGeoBlockKeysToReturn)
     }
     
+    func getNeighbouringBigGeoBlockContent(currentBigGeoBlockKey: BigGeoBlockKey, completion: (listOfGeoBlockKeys: [GeoBlockKey]) -> ()) {
+        var geoBlockKeysInNeighbouringBigBlocksToReturn = [GeoBlockKey]()
+        
+        let neighbouringBigGeoBlocks = GeoUtil.getNeighbouringBigGeoBlockKeys(currentBigGeoBlockKey)
+        
+        var counter: Int = 0
+        for bigGeoBlockKey in neighbouringBigGeoBlocks {
+            self.getBigGeoBlockContent(bigGeoBlockKey, completion: { (listOfGeoBlockKeys) in
+                Log.debug(listOfGeoBlockKeys.description)
+                geoBlockKeysInNeighbouringBigBlocksToReturn.appendContentsOf(listOfGeoBlockKeys)
+                counter = counter + 1
+                
+                if counter == neighbouringBigGeoBlocks.count {
+                    self.sortGeoBlocks(geoBlockKeysInNeighbouringBigBlocksToReturn, currentGeoBlockKey: currentBigGeoBlockKey) { (sortedListOfGeoBlockKey) in
+                        completion(listOfGeoBlockKeys: sortedListOfGeoBlockKey)
+                    }
+                }
+            })
+        }
+    }
 }

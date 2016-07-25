@@ -36,6 +36,8 @@ class GeoUtil {
         return "\(geoBlockLatKey)_\(geoBlockLonKey)"
     }
     
+    
+    
     static func getGeoBlockKeyByCurrentLatLon() -> GeoBlockKey {
         let lat = LocationManager.sharedInstance.getCurrentLat()
         let lon = LocationManager.sharedInstance.getCurrentLon()
@@ -61,6 +63,36 @@ class GeoUtil {
         let lon = LocationManager.sharedInstance.getCurrentLon()
         
         return getBigGeoBlockKeyByLatLon(lat, lon: lon)
+    }
+    
+    static func getBigGeoBlockKeyByNums(lat: Int, lon: Int) -> BigGeoBlockKey {
+        return "\(prependZerosForBigGeoBlock(lat))_\(prependZerosForBigGeoBlock(lon))"
+    }
+    
+    static private func prependZerosForBigGeoBlock(loc: Int) -> String {
+        if loc < 0 {
+            return String(format: "%04d", loc)
+        } else {
+            return String(format: "%03d", loc)
+        }
+    }
+    
+    static func getNeighbouringBigGeoBlockKeys(bigGeoBlockKey: BigGeoBlockKey) -> [BigGeoBlockKey] {
+        let bigGeoBlockLatLon = extractGeoBlockKeyLatLon(bigGeoBlockKey)
+        var neighbouringBigGeoBlocks = [BigGeoBlockKey]()
+        
+        for i in -1...1 {
+            for j in -1...1 {
+                let lat = bigGeoBlockLatLon.0 + i
+                let lon = bigGeoBlockLatLon.1 + j
+                
+                let bigBlockKey = self.getBigGeoBlockKeyByNums(lat, lon: lon)
+                
+                neighbouringBigGeoBlocks.append(bigBlockKey)
+            }
+        }
+        
+        return neighbouringBigGeoBlocks
     }
 }
 
