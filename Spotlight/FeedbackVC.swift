@@ -29,12 +29,9 @@ class FeedbackVC: UIViewController {
 //        }
 //
 //    }
-//    
-//    
-//    
-    self.sortGeoBlocks(["-1_-3", "1_2", "4_-5"]) { (sortedListOfGeoBlockKey) in
-    
-    }
+//    self.sortGeoBlocks(["-1_-3", "1_2", "4_-5"], currentGeoBlockKey: "0_0") { (sortedListOfGeoBlockKey) in
+//        Log.debug(sortedListOfGeoBlockKey.description)
+//    }
     
   }
   

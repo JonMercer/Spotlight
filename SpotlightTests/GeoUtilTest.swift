@@ -58,16 +58,28 @@ class GeoUtilTest: XCTestCase {
     }
     
     func testSortGeoBlocks() {
-        self.sortGeoBlocks(["-1_-3", "1_2", "4_-5"]) { (sortedListOfGeoBlockKey) in
+        self.sortGeoBlocks(["-1_-3", "1_2", "4_-5"], currentGeoBlockKey: "0_0") { (sortedListOfGeoBlockKey) in
             XCTAssertEqual(["1_2", "-1_-3", "4_-5"], sortedListOfGeoBlockKey)
         }
         
-        self.sortGeoBlocks(["1_1", "0_1", "-1_-1", "1_-1"]) { (sortedListOfGeoBlockKey) in
+        self.sortGeoBlocks(["1_1", "0_1", "-1_-1", "1_-1"], currentGeoBlockKey: "0_0") { (sortedListOfGeoBlockKey) in
             XCTAssertEqual(["-1_-1", "0_1", "1_-1", "1_1"], sortedListOfGeoBlockKey)
         }
         
-        self.sortGeoBlocks(["-1_-3", "1_2", "3_2"]) { (sortedListOfGeoBlockKey) in
+        self.sortGeoBlocks(["-1_-3", "1_2", "3_2"], currentGeoBlockKey: "0_0") { (sortedListOfGeoBlockKey) in
             XCTAssertEqual(["1_2", "-1_-3", "3_2"], sortedListOfGeoBlockKey)
+        }
+        
+        self.sortGeoBlocks(["-001_-003", "001_002", "004_-005"], currentGeoBlockKey: "0_0") { (sortedListOfGeoBlockKey) in
+            XCTAssertEqual(["001_002", "-001_-003", "004_-005"], sortedListOfGeoBlockKey)
+        }
+        
+        self.sortGeoBlocks(["001_001", "000_001", "-001_-001", "001_-001"], currentGeoBlockKey: "0_0") { (sortedListOfGeoBlockKey) in
+            XCTAssertEqual(["-001_-001", "000_001", "001_-001", "001_001"], sortedListOfGeoBlockKey)
+        }
+        
+        self.sortGeoBlocks(["-001_-003", "001_002", "003_002"], currentGeoBlockKey: "0_0") { (sortedListOfGeoBlockKey) in
+            XCTAssertEqual(["001_002", "-001_-003", "003_002"], sortedListOfGeoBlockKey)
         }
     }
     

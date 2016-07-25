@@ -11,7 +11,7 @@ import Firebase
 
 protocol BigGeoBlockEditor {
     func getBigGeoBlockContent(bigGeoBlock: BigGeoBlockKey, completion: (listOfGeoBlockKeys: [GeoBlockKey]) -> ())
-//    func sortGeoBlocks(listOfGeoBlockKeys: [GeoBlockKey], completion: (sortedListOfGeoBlockKey: [GeoBlockKey])-> ())
+    func sortGeoBlocks(listOfGeoBlockKeys: [GeoBlockKey], currentGeoBlockKey: GeoBlockKey, completion: (sortedListOfGeoBlockKey: [GeoBlockKey])-> ())
 }
 
 extension BigGeoBlockEditor {
@@ -36,15 +36,13 @@ extension BigGeoBlockEditor {
         }
     }
 
-    func sortGeoBlocks(listOfGeoBlockKeys: [GeoBlockKey], completion: (sortedListOfGeoBlockKey: [GeoBlockKey])-> ()) {
+    func sortGeoBlocks(listOfGeoBlockKeys: [GeoBlockKey], currentGeoBlockKey: GeoBlockKey, completion: (sortedListOfGeoBlockKey: [GeoBlockKey])-> ()) {
         
         var geoBlockDictionary = [Int: [GeoBlockKey]]()
 
-        let geoBlockThatYoureInKey = GeoUtil.getGeoBlockKeyByCurrentLatLon()
-
         //Populate
         for geoBlockKey in listOfGeoBlockKeys {
-            let geoBlockRadius = GeoUtil.calculateGeoRadius(GeoUtil.extractGeoBlockKeyLatLon(geoBlockThatYoureInKey),
+            let geoBlockRadius = GeoUtil.calculateGeoRadius(GeoUtil.extractGeoBlockKeyLatLon(currentGeoBlockKey),
                                                  b: GeoUtil.extractGeoBlockKeyLatLon(geoBlockKey))
             
             if geoBlockDictionary[geoBlockRadius] == nil {
@@ -73,6 +71,6 @@ extension BigGeoBlockEditor {
         }
         
         completion(sortedListOfGeoBlockKey: sortedGeoBlockKeysToReturn)
-
     }
+    
 }
