@@ -47,11 +47,11 @@ class NearMeVC: UIViewController {
     
     func addFullScreenAd() {
         Log.debug("run")
-//        if interstitial.isReady {
-//            interstitial.presentFromRootViewController(self)
-//        } else {
-//            Log.error("Ad wasn't ready")
-//        }
+        if interstitial.isReady {
+            interstitial.presentFromRootViewController(self)
+        } else {
+            Log.error("Ad wasn't ready")
+        }
     }
 }
 

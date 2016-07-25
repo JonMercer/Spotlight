@@ -15,6 +15,7 @@ import UIKit
 import Firebase
 import CoreLocation
 import GoogleMaps
+import GoogleMobileAds
 
 import CoreData
 @UIApplicationMain
@@ -36,8 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         LocationManager.sharedInstance.customInit()
         
         LocationManager.sharedInstance.startGettingLoc()
-        
-        
+
+        //GADMobileAds.configureWithApplicationID("ca-app-pub-5958828933999537~6451639903");
         //For stopping location manager
         //manager.stopUpdatingLocation()
         //manager.allowsBackgroundLocationUpdates = false
