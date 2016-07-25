@@ -88,6 +88,7 @@ extension CameraVC: PhotoEntityEditor {
     
 }
 
+//MARK: - PhotoEntities (might delete)
 extension CameraVC: PhotoEntities {
     
 }

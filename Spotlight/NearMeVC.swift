@@ -33,7 +33,7 @@ class NearMeVC: UIViewController {
 //MARK: - NearMeViewContainerDelegate
 extension NearMeVC: NearMeViewContainerDelegate {
     func populateImage(cellImage: UIImageView, index: Int) {
-        getKeysInGeoBlock(getGeoBlockKeyByCurrentLatLon()) { (listOfPhotoEntities) in
+        getKeysInGeoBlock(GeoUtil.getGeoBlockKeyByCurrentLatLon()) { (listOfPhotoEntities) in
             if(index >= listOfPhotoEntities.count) {
                 //TODO: if we reach, we grab more pics
                 cellImage.image = UIImage()

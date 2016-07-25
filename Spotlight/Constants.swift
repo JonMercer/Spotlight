@@ -14,11 +14,12 @@ typealias StorageURL = NSURL
 typealias ImageName = String
 typealias PhotoEntityKey = String
 typealias GeoBlockKey = String
+typealias BigGeoBlockKey = String
 
 enum Constants {
     static let albumName = "Spotlight"
     static let tempPathName = "test_path"  // temporary path name for testing local storage
-    static let keySupposedToBeInFIR = "-KN5f_uUIqsw-mbdkNvL"
+    static let keySupposedToBeInFIR = "-KNTV2k38RB04hISRBl9"
     static let compressedImageWidth = 400.0
 }
 

@@ -20,7 +20,18 @@ class FeedbackVC: UIViewController {
     setupViewContainer()
     signIn()
     
-    //LocationManager.sharedInstance.stopGettingLoc()
+    //TODO:delete this
+//    getBigGeoBlockContent("000_000") { (listOfGeoBlockKeys) in
+//        Log.debug(listOfGeoBlockKeys.debugDescription)
+//        
+//        self.sortGeoBlocks(listOfGeoBlockKeys) { (sortedListOfGeoBlockKey) in
+//            Log.debug("sorted block completion")
+//        }
+//
+//    }
+//    self.sortGeoBlocks(["-1_-3", "1_2", "4_-5"], currentGeoBlockKey: "0_0") { (sortedListOfGeoBlockKey) in
+//        Log.debug(sortedListOfGeoBlockKey.description)
+//    }
     
   }
   
@@ -97,5 +108,8 @@ extension FeedbackVC: FeedbackViewContainerDelegate {
     }
     
     
+}
+
+extension FeedbackVC: BigGeoBlockEditor {
 }
 

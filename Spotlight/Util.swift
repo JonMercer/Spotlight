@@ -24,6 +24,32 @@ class URLUtil {
     
 }
 
+class GeoUtil {
+    static func calculateGeoRadius(a: (Int, Int), b: (Int, Int)) -> Int {
+        return max(abs(a.0-b.0), abs(a.1-b.1))
+    }
+    
+    static func getGeoBlockKeyByLatLon(lat: CLLocationDegrees, lon: CLLocationDegrees) -> GeoBlockKey {
+        let geoBlockLatKey: String = LocationManager.sharedInstance.getLocationBlockKey(lat)
+        let geoBlockLonKey: String = LocationManager.sharedInstance.getLocationBlockKey(lon)
+        
+        return "\(geoBlockLatKey)_\(geoBlockLonKey)"
+    }
+    
+    static func getGeoBlockKeyByCurrentLatLon() -> GeoBlockKey {
+        let lat = LocationManager.sharedInstance.getCurrentLat()
+        let lon = LocationManager.sharedInstance.getCurrentLon()
+        
+        return getGeoBlockKeyByLatLon(lat, lon: lon)
+    }
+    
+    static func extractGeoBlockKeyLatLon(geoBlockKey: GeoBlockKey) -> (Int, Int) {
+        let geoBlocksLocs = geoBlockKey.componentsSeparatedByString("_")
+        
+        return (Int(geoBlocksLocs[0])!,Int(geoBlocksLocs[1])!)
+    }
+}
+
 extension NSDate {
     
     func hour() -> Int {

@@ -12,8 +12,6 @@ import CoreLocation
 
 protocol GeoBlockEditor {
     func getKeysInGeoBlock(geoBlock: GeoBlockKey, completion: (listOfPhotoEntities: [PhotoEntityKey]) -> ())
-    func getGeoBlockKeyByCurrentLatLon() -> GeoBlockKey
-    func getGeoBlockKeyByLatLon(lat: CLLocationDegrees, lon: CLLocationDegrees) -> GeoBlockKey
 }
 
 extension GeoBlockEditor {
@@ -36,20 +34,6 @@ extension GeoBlockEditor {
         }) { (error) in
             Log.error(error.localizedDescription)
         }
+    }
 
-    }
-    
-    func getGeoBlockKeyByLatLon(lat: CLLocationDegrees, lon: CLLocationDegrees) -> GeoBlockKey {
-        let geoBlockLatKey: String = LocationManager.sharedInstance.getLocationBlockKey(lat)
-        let geoBlockLonKey: String = LocationManager.sharedInstance.getLocationBlockKey(lon)
-        
-        return "\(geoBlockLatKey)_\(geoBlockLonKey)"
-    }
-    
-    func getGeoBlockKeyByCurrentLatLon() -> GeoBlockKey {
-        let lat = LocationManager.sharedInstance.getCurrentLat()
-        let lon = LocationManager.sharedInstance.getCurrentLon()
-        
-        return getGeoBlockKeyByLatLon(lat, lon: lon)
-    }
 }
