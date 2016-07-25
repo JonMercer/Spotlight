@@ -11,7 +11,7 @@ import Firebase
 
 protocol BigGeoBlockEditor {
     func getBigGeoBlockContent(bigGeoBlock: BigGeoBlockKey, completion: (listOfGeoBlockKeys: [GeoBlockKey]) -> ())
-    func sortGeoBlocks(listOfGeoBlockKeys: [GeoBlockKey], completion: (sortedListOfGeoBlockKey: [GeoBlockKey])-> ())
+//    func sortGeoBlocks(listOfGeoBlockKeys: [GeoBlockKey], completion: (sortedListOfGeoBlockKey: [GeoBlockKey])-> ())
 }
 
 extension BigGeoBlockEditor {
@@ -35,21 +35,44 @@ extension BigGeoBlockEditor {
             Log.error(error.localizedDescription)
         }
     }
-    
+
     func sortGeoBlocks(listOfGeoBlockKeys: [GeoBlockKey], completion: (sortedListOfGeoBlockKey: [GeoBlockKey])-> ()) {
-        var geoBlockDictionary = [String: String]()
         
-        let currentGeoBlockKey = GeoUtil.getGeoBlockKeyByCurrentLatLon()
-        
+        var geoBlockDictionary = [Int: [GeoBlockKey]]()
+
+        let geoBlockThatYoureInKey = GeoUtil.getGeoBlockKeyByCurrentLatLon()
+
         //Populate
-        let max = GeoUtil.calculateGeoRadius(GeoUtil.extractGeoBlockKeyLatLon(currentGeoBlockKey),
-                                             b: GeoUtil.extractGeoBlockKeyLatLon(listOfGeoBlockKeys[0]))
-        
-        Log.debug(max.description)
+        for geoBlockKey in listOfGeoBlockKeys {
+            let geoBlockRadius = GeoUtil.calculateGeoRadius(GeoUtil.extractGeoBlockKeyLatLon(geoBlockThatYoureInKey),
+                                                 b: GeoUtil.extractGeoBlockKeyLatLon(geoBlockKey))
+            
+            if geoBlockDictionary[geoBlockRadius] == nil {
+                geoBlockDictionary[geoBlockRadius] = [GeoBlockKey]()
+            }
+            
+            var listAtGeoBlockRadius = geoBlockDictionary[geoBlockRadius]
+            listAtGeoBlockRadius?.append(geoBlockKey)
+            
+            geoBlockDictionary[geoBlockRadius] = listAtGeoBlockRadius
+
+        }
         
         //Sort
+        var sortedGeoBlockRadii = geoBlockDictionary.keys.sort()
+        var sortedGeoBlockKeysToReturn = [GeoBlockKey]()
         
-        //Make a list again
+        for geoBlockRadius in sortedGeoBlockRadii {
+            var geoBlocksWithinRadius = geoBlockDictionary[geoBlockRadius]
+            geoBlocksWithinRadius?.sortInPlace()
+            if geoBlocksWithinRadius != nil {
+                sortedGeoBlockKeysToReturn += geoBlocksWithinRadius!
+            } else {
+                Log.error("GeoBlockRadius: \(geoBlockRadius) is not supposed to be nil in dictionary")
+            }
+        }
+        
+        completion(sortedListOfGeoBlockKey: sortedGeoBlockKeysToReturn)
 
     }
 }

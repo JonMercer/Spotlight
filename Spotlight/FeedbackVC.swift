@@ -21,13 +21,19 @@ class FeedbackVC: UIViewController {
     signIn()
     
     //TODO:delete this
-    getBigGeoBlockContent("000_000") { (listOfGeoBlockKeys) in
-        Log.debug(listOfGeoBlockKeys.debugDescription)
-        
-        self.sortGeoBlocks(listOfGeoBlockKeys) { (sortedListOfGeoBlockKey) in
-            Log.debug("sorted block completion")
-        }
-
+//    getBigGeoBlockContent("000_000") { (listOfGeoBlockKeys) in
+//        Log.debug(listOfGeoBlockKeys.debugDescription)
+//        
+//        self.sortGeoBlocks(listOfGeoBlockKeys) { (sortedListOfGeoBlockKey) in
+//            Log.debug("sorted block completion")
+//        }
+//
+//    }
+//    
+//    
+//    
+    self.sortGeoBlocks(["-1_-3", "1_2", "4_-5"]) { (sortedListOfGeoBlockKey) in
+    
     }
     
   }
@@ -108,6 +114,5 @@ extension FeedbackVC: FeedbackViewContainerDelegate {
 }
 
 extension FeedbackVC: BigGeoBlockEditor {
-    
 }
 
