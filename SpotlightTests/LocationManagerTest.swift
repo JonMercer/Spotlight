@@ -48,6 +48,10 @@ class LocationManagerTest: XCTestCase {
         //XCTAssertEqual(-189.455, LocationManager.sharedInstance.getLocationBlock(-189.453763))
         XCTAssertEqual(-189.460, LocationManager.sharedInstance.getLocationBlock(-189.456456))
         XCTAssertEqual(-189.460, LocationManager.sharedInstance.getLocationBlock(-189.455987))
+        
+        //TODO: we expect this to pass but rounding problems
+        //XCTAssertEqual(-1.005, LocationManager.sharedInstance.getLocationBlock(-1.000))
+        XCTAssertEqual(-1.005, LocationManager.sharedInstance.getLocationBlock(-1.0001))
     }
     
     func testGetLocationBlockKety() {
