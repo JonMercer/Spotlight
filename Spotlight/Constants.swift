@@ -21,6 +21,7 @@ enum Constants {
     static let tempPathName = "test_path"  // temporary path name for testing local storage
     static let keySupposedToBeInFIR = "-KNVFMbkvuWGHrf0HzZE"
     static let compressedImageWidth = 400.0
+    static let AdmobID = "ca-app-pub-5958828933999537~6451639903"
 }
 
 enum FilePathConstants {

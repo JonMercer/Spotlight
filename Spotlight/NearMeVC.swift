@@ -7,13 +7,19 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class NearMeVC: UIViewController {
     var container: NearMeViewContainer?
+    var interstitial: GADInterstitial!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewContainer()
+        
+        createAndLoadInterstitial()
+        // play ad every 5 minutes
+        NSTimer.scheduledTimerWithTimeInterval(300, target: self, selector: #selector(NearMeVC.addFullScreenAd), userInfo: nil, repeats: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -27,6 +33,25 @@ class NearMeVC: UIViewController {
             CGRectMake(0, 0, view.bounds.width, view.bounds.height))
         container?.delegate = self
         view.addSubview(container!)
+    }
+    
+    // for ads
+    private func createAndLoadInterstitial() {
+        interstitial = GADInterstitial(adUnitID: Constants.AdmobID)
+        let request = GADRequest()
+        // Request test ads on devices you specify. Your test device ID is printed to the console when
+        // an ad request is made.
+        request.testDevices = [ kGADSimulatorID, "2077ef9a63d2b398840261c8221a0c9b" ]
+        interstitial.loadRequest(request)
+    }
+    
+    func addFullScreenAd() {
+        Log.debug("run")
+//        if interstitial.isReady {
+//            interstitial.presentFromRootViewController(self)
+//        } else {
+//            Log.error("Ad wasn't ready")
+//        }
     }
 }
 
