@@ -11,6 +11,7 @@ import UIKit
 import CoreLocation
 
 class MapViewContainer: UIView {
+    var delegate: MapViewContainerDelegate?
     
     @IBOutlet weak var singleMapView: UIView!
     
@@ -24,5 +25,10 @@ class MapViewContainer: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+}
+
+//MARK: - MapViewContainerDelegate
+protocol MapViewContainerDelegate {
+    
 }
 

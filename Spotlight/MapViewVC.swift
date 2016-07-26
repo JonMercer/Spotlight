@@ -30,7 +30,24 @@ class MapViewVC: UIViewController {
     private func setupViewContainer() {
         container = MapViewContainer.instanceFromNib(
             CGRectMake(0, 0, view.bounds.width, view.bounds.height))
-        //container?.delegate = self
+        container?.delegate = self
         view.addSubview(container!)
     }
+    
+    func setUpLatLonOfMap(photoEntityKey: PhotoEntityKey) {
+        self.getPhotoEntity(photoEntityKey, completion: { (photoEntity) in
+            self.lat = photoEntity.lat
+            self.lon = photoEntity.lon
+            
+            Log.debug("lat: \(self.lat) lon: \(self.lon)")
+        })
+    }
+}
+
+//MARK: - MapViewContainerDelegate
+extension MapViewVC: MapViewContainerDelegate {
+}
+
+//MARK: - PhotoEntityEditor
+extension MapViewVC: PhotoEntityEditor {
 }

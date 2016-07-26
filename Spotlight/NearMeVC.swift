@@ -60,13 +60,9 @@ class NearMeVC: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == Segues.toSingleMap {
             let singleMapView = segue.destinationViewController as! MapViewVC
+            let index = selectedCellIndexPath!.row
             
-            self.getPhotoEntity(photoEntitiesInGrid[selectedCellIndexPath!.row], completion: { (photoEntity) in
-                singleMapView.lat = photoEntity.lat
-                singleMapView.lon = photoEntity.lon
-                
-                Log.debug("index path = \(self.selectedCellIndexPath!.row)")
-            })
+            singleMapView.setUpLatLonOfMap(photoEntitiesInGrid[index])
             
         }
     }
