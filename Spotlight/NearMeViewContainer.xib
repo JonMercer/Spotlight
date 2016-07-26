@@ -12,7 +12,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="mzx-EA-U7g">
-                    <rect key="frame" x="0.0" y="23" width="320" height="496"/>
+                    <rect key="frame" x="0.0" y="74" width="320" height="445"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="445" id="gTr-Dc-MiH"/>
+                    </constraints>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="0.0" id="Qwm-m3-7cf">
                         <size key="itemSize" width="100" height="100"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -24,12 +27,18 @@
                         <outlet property="delegate" destination="-1" id="ScK-kG-ZMi"/>
                     </connections>
                 </collectionView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PokeSpotLogo" translatesAutoresizingMaskIntoConstraints="NO" id="3IU-a3-yZy">
+                    <rect key="frame" x="0.0" y="18" width="320" height="66"/>
+                </imageView>
             </subviews>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="mzx-EA-U7g" secondAttribute="bottom" constant="49" id="2Fj-A5-wAA"/>
-                <constraint firstItem="mzx-EA-U7g" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6Ag-XC-OTg"/>
-                <constraint firstAttribute="trailing" secondItem="mzx-EA-U7g" secondAttribute="trailing" id="ezE-hE-Mvl"/>
-                <constraint firstItem="mzx-EA-U7g" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="23" id="smc-Iw-sFF"/>
+                <constraint firstItem="3IU-a3-yZy" firstAttribute="trailing" secondItem="mzx-EA-U7g" secondAttribute="trailing" id="Csw-TB-Rf2"/>
+                <constraint firstItem="3IU-a3-yZy" firstAttribute="leading" secondItem="mzx-EA-U7g" secondAttribute="leading" id="Hkl-6U-ToS"/>
+                <constraint firstItem="3IU-a3-yZy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="18" id="Qng-8h-kx7"/>
+                <constraint firstItem="mzx-EA-U7g" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="VBW-Z3-4HB"/>
+                <constraint firstAttribute="trailing" secondItem="mzx-EA-U7g" secondAttribute="trailing" id="gYm-07-5hP"/>
+                <constraint firstAttribute="bottom" secondItem="mzx-EA-U7g" secondAttribute="bottom" constant="49" id="jX0-QF-KIa"/>
+                <constraint firstItem="mzx-EA-U7g" firstAttribute="top" secondItem="3IU-a3-yZy" secondAttribute="bottom" constant="-10" id="odj-Uy-ick"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <connections>
@@ -37,4 +46,7 @@
             </connections>
         </view>
     </objects>
+    <resources>
+        <image name="PokeSpotLogo" width="1200" height="485"/>
+    </resources>
 </document>

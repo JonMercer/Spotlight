@@ -21,9 +21,6 @@
                         <action selector="captureImageFromAlbumButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="J7h-YP-Lae"/>
                     </connections>
                 </button>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qRA-Rd-5mS">
-                    <rect key="frame" x="0.0" y="62" width="320" height="320"/>
-                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j8C-Oe-WDE">
                     <rect key="frame" x="164" y="448" width="156" height="30"/>
                     <state key="normal" title="Post Pokemon"/>
@@ -31,16 +28,28 @@
                         <action selector="publishImageButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="WJx-iK-oSL"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PokeSpotLogo" translatesAutoresizingMaskIntoConstraints="NO" id="5hV-wz-Y6I">
+                    <rect key="frame" x="0.0" y="18" width="320" height="66"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="66" id="2PV-hG-8aU"/>
+                    </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qRA-Rd-5mS">
+                    <rect key="frame" x="0.0" y="74" width="320" height="320"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="5hV-wz-Y6I" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="18" id="2wt-lr-Z2N"/>
                 <constraint firstItem="qRA-Rd-5mS" firstAttribute="trailing" secondItem="j8C-Oe-WDE" secondAttribute="trailing" id="JSJ-5r-VFT"/>
+                <constraint firstItem="5hV-wz-Y6I" firstAttribute="leading" secondItem="qRA-Rd-5mS" secondAttribute="leading" id="NUn-9q-Rwi"/>
                 <constraint firstItem="qRA-Rd-5mS" firstAttribute="leading" secondItem="Ksd-RF-9z1" secondAttribute="leading" id="YeE-bN-peS"/>
                 <constraint firstItem="Ksd-RF-9z1" firstAttribute="top" secondItem="qRA-Rd-5mS" secondAttribute="bottom" constant="66" id="Yfj-KF-zC0"/>
                 <constraint firstItem="qRA-Rd-5mS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ijQ-sn-9MT"/>
                 <constraint firstAttribute="trailing" secondItem="qRA-Rd-5mS" secondAttribute="trailing" id="kZY-dv-5jb"/>
                 <constraint firstItem="Ksd-RF-9z1" firstAttribute="baseline" secondItem="j8C-Oe-WDE" secondAttribute="baseline" id="myb-41-l8u"/>
                 <constraint firstItem="j8C-Oe-WDE" firstAttribute="leading" secondItem="Ksd-RF-9z1" secondAttribute="trailing" constant="8" symbolic="YES" id="qNW-r8-87v"/>
+                <constraint firstItem="5hV-wz-Y6I" firstAttribute="trailing" secondItem="qRA-Rd-5mS" secondAttribute="trailing" id="tqA-g9-gnn"/>
                 <constraint firstItem="qRA-Rd-5mS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="62" id="x0M-lk-ke1"/>
                 <constraint firstAttribute="bottom" secondItem="Ksd-RF-9z1" secondAttribute="bottom" constant="90" id="xFi-AJ-Q9e"/>
             </constraints>
@@ -50,4 +59,7 @@
             </connections>
         </view>
     </objects>
+    <resources>
+        <image name="PokeSpotLogo" width="1200" height="485"/>
+    </resources>
 </document>
