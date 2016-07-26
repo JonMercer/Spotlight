@@ -12,13 +12,15 @@ import GoogleMobileAds
 class NearMeVC: UIViewController {
     var container: NearMeViewContainer?
     var interstitial: GADInterstitial!
-    var photoEntitiesInGrid: [PhotoEntityKey] = []
+    var photoEntitiesInGrid: [PhotoEntityKey]?
     
     var selectedCellIndexPath: NSIndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViewContainer()
+        grabPhotoEntityKeysInBigGeoBlocks {
+            self.setupViewContainer()
+        }
         
         createAndLoadInterstitial()
         // play ad every 5 minutes
@@ -64,8 +66,11 @@ class NearMeVC: UIViewController {
             let singleMapView = segue.destinationViewController as! MapViewVC
             let index = selectedCellIndexPath!.row
             
-            singleMapView.setUpLatLonOfMap(photoEntitiesInGrid[index])
-            
+            if(photoEntitiesInGrid != nil) {
+                singleMapView.setUpLatLonOfMap(photoEntitiesInGrid![index])
+            } else {
+                Log.error("photoEntitiesInGrid was not set and shouldn't have been empty")
+            }
         }
     }
 }
@@ -73,30 +78,35 @@ class NearMeVC: UIViewController {
 //MARK: - NearMeViewContainerDelegate
 extension NearMeVC: NearMeViewContainerDelegate {
     func populateImage(cellImage: UIImageView, index: Int) {
+        if(self.photoEntitiesInGrid != nil) {
+            self.getPhotoEntity(self.photoEntitiesInGrid![index], completion: { (photoEntity) in
+                ModelInterface.sharedInstance.downloadPhotoByName(photoEntity.getPhotoName()) { (err, image) in
+                    cellImage.image = image
+                }
+            })
+        }
+    }
+    
+    func grabPhotoEntityKeysInBigGeoBlocks(completion: () -> ()) {
         let currentBigBlockKey = GeoUtil.getBigGeoBlockKeyByCurrentLatLon()
         Log.debug(currentBigBlockKey)
         getNeighbouringBigGeoBlockContent(currentBigBlockKey) { (listOfGeoBlockKeys) in
             self.getPhotoKeysInGeoBlocks(listOfGeoBlockKeys, completion: { (listOfPhotoEntities) in
                 self.photoEntitiesInGrid = listOfPhotoEntities
-                
-                if(index >= listOfPhotoEntities.count) {
-                    //TODO: if we reach, we grab more pics
-                    cellImage.image = UIImage()
-                } else {
-                    self.getPhotoEntity(listOfPhotoEntities[index], completion: { (photoEntity) in
-                        ModelInterface.sharedInstance.downloadPhotoByName(photoEntity.getPhotoName()) { (err, image) in
-                            cellImage.image = image
-                        }
-                    })
-                }
+                completion()
             })
         }
+    }
+    
+    func getNumberOfCellImages() -> Int {
+        return self.photoEntitiesInGrid!.count
     }
     
     func collectionIndexSelected(index: NSIndexPath) {
         self.selectedCellIndexPath = index
         self.performSegueWithIdentifier(Segues.toSingleMap, sender: self)
     }
+    
 }
 
 //MARK: - GeoBlockEditor
