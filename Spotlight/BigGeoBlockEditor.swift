@@ -48,8 +48,7 @@ extension BigGeoBlockEditor {
 
         //Populate
         for geoBlockKey in listOfGeoBlockKeys {
-            let geoBlockRadius = GeoUtil.calculateGeoRadius(GeoUtil.extractGeoBlockKeyLatLon(currentGeoBlockKey),
-                                                 b: GeoUtil.extractGeoBlockKeyLatLon(geoBlockKey))
+            let geoBlockRadius = GeoUtil.calculateGeoRadius(GeoUtil.extractGeoBlockKeyLatLon(currentGeoBlockKey), b: GeoUtil.extractGeoBlockKeyLatLon(geoBlockKey))
             
             if geoBlockDictionary[geoBlockRadius] == nil {
                 geoBlockDictionary[geoBlockRadius] = [GeoBlockKey]()

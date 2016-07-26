@@ -209,10 +209,35 @@
                     <tabBarItem key="tabBarItem" title="Near Me" id="Xv9-wQ-roc"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="Jjb-LD-kda" kind="show" identifier="segueToSingleMap" id="wgY-BJ-UHE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cOm-jj-kZq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1057" y="1032"/>
+            <point key="canvasLocation" x="1105" y="1074"/>
+        </scene>
+        <!--MapViewController-->
+        <scene sceneID="O6E-KY-Kml">
+            <objects>
+                <viewController title="MapViewController" id="Jjb-LD-kda" customClass="MapViewVC" customModule="Spotlight" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="t33-Pe-kcY"/>
+                        <viewControllerLayoutGuide type="bottom" id="o7e-dS-M1x"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eM5-3a-H5I">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="d9W-T5-tax" kind="show" identifier="segueToGridView" id="tey-1b-eDg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D97-oq-Jrc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1613" y="953"/>
         </scene>
     </scenes>
 </document>

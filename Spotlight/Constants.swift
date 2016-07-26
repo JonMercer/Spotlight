@@ -22,6 +22,7 @@ enum Constants {
     static let keySupposedToBeInFIR = "-KNVFMbkvuWGHrf0HzZE"
     static let compressedImageWidth = 400.0
     static let AdmobID = "ca-app-pub-5958828933999537/7928373101"
+    static let zoomLevel: Float = 15.0
 }
 
 enum FilePathConstants {
@@ -36,4 +37,9 @@ enum FirebaseConstants {
 enum StorageError: ErrorType {
     case FailedUpload
     case FailedDownload
+}
+
+enum Segues {
+    static let toSingleMap = "segueToSingleMap"
+    static let toGridView = "segueToGridView"
 }

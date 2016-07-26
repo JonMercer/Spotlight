@@ -33,6 +33,7 @@ class NearMeViewContainer: UIView {
 //MARK: - NearMeViewContainerDelegate
 protocol NearMeViewContainerDelegate {
     func populateImage(cellImage: UIImageView, index: Int)
+    func collectionIndexSelected(index: NSIndexPath)
 }
 
 //MARK: - UICollectionViewDelegate
@@ -43,6 +44,12 @@ extension NearMeViewContainer: UICollectionViewDelegate {
         // grab count of images in bigGeoBlock and neighbours
         return 300
     }
+    
+    //TODO: does this function belong in this extension?
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        delegate!.collectionIndexSelected(indexPath)
+    }
+    
 }
 
 //MARK: - UICollectionViewDataSource

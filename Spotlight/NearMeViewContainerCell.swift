@@ -11,4 +11,5 @@ import UIKit
 class NearMeViewContainerCell: UICollectionViewCell {
     
     @IBOutlet weak var cellImage: UIImageView!
+    
 }
