@@ -34,6 +34,8 @@ class NearMeViewContainer: UIView {
 protocol NearMeViewContainerDelegate {
     func populateImage(cellImage: UIImageView, index: Int)
     func collectionIndexSelected(index: NSIndexPath)
+    func getNumberOfCellImages() -> Int
+    func grabPhotoEntityKeysInBigGeoBlocks(completion: () -> ())
 }
 
 //MARK: - UICollectionViewDelegate
@@ -42,7 +44,7 @@ extension NearMeViewContainer: UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //TODO: don't hardcore this
         // grab count of images in bigGeoBlock and neighbours
-        return 300
+        return delegate!.getNumberOfCellImages()
     }
     
     //TODO: does this function belong in this extension?
