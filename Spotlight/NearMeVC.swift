@@ -28,6 +28,8 @@ class NearMeVC: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+        Log.error("memory warning!!")
     }
     
     //MARK: Helper Functions

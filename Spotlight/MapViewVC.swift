@@ -12,18 +12,17 @@ import CoreLocation
 
 class MapViewVC: UIViewController {
     var container: MapViewContainer?
-    var lat: CLLocationDegrees = 0.0
-    var lon: CLLocationDegrees = 0.0
+    var selectedImagePhotoEntityKey: PhotoEntityKey?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewContainer()
-        Log.debug("lat: \(lat) lon: \(lon)")
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
+        Log.error("memory warning!!")
     }
     
     //MARK: Helper Functions
@@ -35,17 +34,19 @@ class MapViewVC: UIViewController {
     }
     
     func setUpLatLonOfMap(photoEntityKey: PhotoEntityKey) {
-        self.getPhotoEntity(photoEntityKey, completion: { (photoEntity) in
-            self.lat = photoEntity.lat
-            self.lon = photoEntity.lon
-            
-            Log.debug("lat: \(self.lat) lon: \(self.lon)")
-        })
+        selectedImagePhotoEntityKey = photoEntityKey
     }
 }
 
 //MARK: - MapViewContainerDelegate
 extension MapViewVC: MapViewContainerDelegate {
+    func getMapLocation(completion: (lat: CLLocationDegrees, lon: CLLocationDegrees) -> ()) {
+        Log.debug("delegate call")
+        self.getPhotoEntity(self.selectedImagePhotoEntityKey!, completion: { (photoEntity) in
+            Log.debug("getting lat lon")
+            completion(lat: photoEntity.lat, lon: photoEntity.lon)
+        })
+    }
 }
 
 //MARK: - PhotoEntityEditor
