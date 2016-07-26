@@ -30,7 +30,7 @@ class MapViewContainer: UIView {
     func loadLatLonOnMap() {
         delegate?.getMapLocation({ (lat, lon) in
             Log.debug("lat: \(lat) lon: \(lon)")
-            let camera = GMSCameraPosition.cameraWithLatitude(lat,longitude: lon, zoom: 6)
+            let camera = GMSCameraPosition.cameraWithLatitude(lat,longitude: lon, zoom: Constants.zoomLevel)
             self.singleMapView.camera = camera
             self.singleMapView.myLocationEnabled = true
             
