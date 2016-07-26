@@ -16,22 +16,22 @@ class PokeCameraViewContainer: UIView {
     
 //    //MARK: - UI Elements
     @IBOutlet var photoView: UIImageView!
-//    
-//    @IBAction func captureImageFromAlbumButtonPressed(sender: AnyObject) {
-//        let picker = UIImagePickerController()
-//        picker.delegate = self
-//        picker.sourceType = .PhotoLibrary
-//        
-//        delegate?.goToCameraPicker(picker)
-//    }
-//    
-//    @IBAction func publishImageButtonPressed(sender: AnyObject) {
-//        if let photo = photoView.image {
-//            delegate?.publishImage(photo)
-//        } else {
-//            Log.error("Image view is empty")
-//        }
-//    }
+    
+    @IBAction func captureImageFromAlbumButtonPressed(sender: AnyObject) {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.sourceType = .PhotoLibrary
+        
+        delegate?.goToCameraPicker(picker)
+    }
+    
+    @IBAction func publishImageButtonPressed(sender: AnyObject) {
+        if let photo = photoView.image {
+            delegate?.publishImage(photo)
+        } else {
+            Log.error("Image view is empty")
+        }
+    }
     
     //MARK: - Helper functions
     class func instanceFromNib(frame: CGRect) -> PokeCameraViewContainer {

@@ -11,10 +11,23 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ksd-RF-9z1">
-                    <rect key="frame" x="19" y="417" width="46" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ksd-RF-9z1">
+                    <rect key="frame" x="50" y="499" width="46" height="30"/>
                     <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="captureImageFromAlbumButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="J7h-YP-Lae"/>
+                    </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j8C-Oe-WDE">
+                    <rect key="frame" x="248" y="499" width="46" height="30"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="publishImageButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="WJx-iK-oSL"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qRA-Rd-5mS">
+                    <rect key="frame" x="32" y="48" width="240" height="128"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -22,6 +35,9 @@
                 <constraint firstItem="Ksd-RF-9z1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="19" id="742-sy-7h7"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <connections>
+                <outlet property="photoView" destination="qRA-Rd-5mS" id="SYc-aI-qRa"/>
+            </connections>
         </view>
     </objects>
 </document>
