@@ -52,6 +52,10 @@ extension NearMeViewContainer: UICollectionViewDelegate {
         delegate!.collectionIndexSelected(indexPath)
     }
     
+    //TODO: does this function belong in this extension?
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSize(width: gridView.frame.width * 0.33, height: gridView.frame.width * 0.33)
+    }
 }
 
 //MARK: - UICollectionViewDataSource
