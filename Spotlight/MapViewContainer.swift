@@ -14,6 +14,7 @@ import GoogleMaps
 class MapViewContainer: UIView {
     var delegate: MapViewContainerDelegate?
     
+    @IBOutlet weak var backButton: UIButton!
     @IBAction func backButton(sender: AnyObject) {
         delegate?.goBackGridView()
     }
@@ -29,6 +30,12 @@ class MapViewContainer: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    override func willMoveToSuperview(newSuperview: UIView?) {
+        backButton.layer.cornerRadius = 8
+        backButton.layer.borderWidth = CGFloat(1.2)
+        backButton.layer.borderColor = backButton.titleLabel?.textColor.CGColor
     }
     
     func loadLatLonOnMap() {

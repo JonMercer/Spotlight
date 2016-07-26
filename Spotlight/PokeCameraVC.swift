@@ -11,6 +11,7 @@ import CoreLocation
 
 class PokeCameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     var container: PokeCameraViewContainer?
+    var photoEntityLastUploaded: PhotoEntity?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,14 @@ class PokeCameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         container?.delegate = self
         view.addSubview(container!)
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == Segues.toSingleMap {
+            let singleMapView = segue.destinationViewController as! MapViewVC
+            
+            singleMapView.setUpLatLonOfMap(photoEntityLastUploaded!.getPhotoID())
+        }
+    }
 }
 
 //MARK: - CameraViewContainerDelegate, PhotoEntityEditor
@@ -45,24 +54,18 @@ extension PokeCameraVC: PokeCameraViewContainerDelegate {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func saveToCameraRoll(image: UIImage) {
-        //TODO: do I actually need to run this line?
-        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-        CustomPhotoAlbum.sharedInstance.saveImage(image)
-        
-    }
-    
-    func publishImage(image: UIImage) {
+    func publishImage(image: UIImage, completion: () -> ()) {
         LocalStoragePhotoManager.saveImageLocal(image)
         var urls = LocalStoragePhotoManager.getImageURLsInDirectory()
         urls.sortInPlace({ $0.lastPathComponent<$1.lastPathComponent })
+        Log.debug("\(urls.last!.lastPathComponent)")
         ModelInterface.sharedInstance.uploadPhoto(urls.last!) { (err) in
             //TODO: handle error
         }
-        
         self.createPhotoEntity(urls.last!.lastPathComponent!) {
             (photoEntity: PhotoEntity) in
-            //TODO: handle
+            self.photoEntityLastUploaded = photoEntity
+            completion()
         }
         
     }
@@ -71,6 +74,14 @@ extension PokeCameraVC: PokeCameraViewContainerDelegate {
         self.getPhotoEntity(photoID) { (photoEntity) in
             completion(lat: photoEntity.getLat(photoID), lon: photoEntity.getLon(photoID))
         }
+    }
+    
+    func goBackGridView() {
+        performSegueWithIdentifier(Segues.toGridView, sender: self)
+    }
+    
+    func goToSingleMapView() {
+        performSegueWithIdentifier(Segues.toSingleMap, sender: self)
     }
 }
 
