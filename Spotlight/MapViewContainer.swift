@@ -25,8 +25,9 @@ class MapViewContainer: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        Log.debug("awoke")
+    }
+    
+    func loadLatLonOnMap() {
         delegate?.getMapLocation({ (lat, lon) in
             Log.debug("lat: \(lat) lon: \(lon)")
             let camera = GMSCameraPosition.cameraWithLatitude(lat,longitude: lon, zoom: 6)

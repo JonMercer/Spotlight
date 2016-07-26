@@ -17,6 +17,7 @@ class MapViewVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewContainer()
+        container?.loadLatLonOnMap()
     }
     
     override func didReceiveMemoryWarning() {
@@ -41,9 +42,7 @@ class MapViewVC: UIViewController {
 //MARK: - MapViewContainerDelegate
 extension MapViewVC: MapViewContainerDelegate {
     func getMapLocation(completion: (lat: CLLocationDegrees, lon: CLLocationDegrees) -> ()) {
-        Log.debug("delegate call")
         self.getPhotoEntity(self.selectedImagePhotoEntityKey!, completion: { (photoEntity) in
-            Log.debug("getting lat lon")
             completion(lat: photoEntity.lat, lon: photoEntity.lon)
         })
     }
