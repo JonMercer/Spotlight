@@ -231,6 +231,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="d9W-T5-tax" kind="show" identifier="segueToGridView" id="tey-1b-eDg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D97-oq-Jrc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

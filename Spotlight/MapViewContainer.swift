@@ -14,6 +14,10 @@ import GoogleMaps
 class MapViewContainer: UIView {
     var delegate: MapViewContainerDelegate?
     
+    @IBAction func backButton(sender: AnyObject) {
+        delegate?.goBackGridView()
+    }
+    
     @IBOutlet weak var singleMapView: GMSMapView!
     
     //MARK: - Helper functions
@@ -47,5 +51,6 @@ class MapViewContainer: UIView {
 //MARK: - MapViewContainerDelegate
 protocol MapViewContainerDelegate {
     func getMapLocation(completion: (lat: CLLocationDegrees, lon: CLLocationDegrees) -> ())
+    func goBackGridView()
 }
 

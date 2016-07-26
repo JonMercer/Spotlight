@@ -46,6 +46,10 @@ extension MapViewVC: MapViewContainerDelegate {
             completion(lat: photoEntity.lat, lon: photoEntity.lon)
         })
     }
+    
+    func goBackGridView() {
+        performSegueWithIdentifier(Segues.toGridView, sender: self)
+    }
 }
 
 //MARK: - PhotoEntityEditor
