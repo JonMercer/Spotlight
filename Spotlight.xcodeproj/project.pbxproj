@@ -12,6 +12,9 @@
 		7D4E28661D2CB61500F8E574 /* SingleListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4E28651D2CB61500F8E574 /* SingleListVC.swift */; };
 		7D4E28681D2CB82000F8E574 /* SingleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4E28671D2CB82000F8E574 /* SingleViewCell.swift */; };
 		7D9B41C61D2139B800B8389A /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9B41C51D2139B800B8389A /* MeVC.swift */; };
+		A451696E1D46F9C80004D1A7 /* MapViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = A451696D1D46F9C80004D1A7 /* MapViewContainer.xib */; };
+		A45169701D46F9E60004D1A7 /* MapViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451696F1D46F9E60004D1A7 /* MapViewContainer.swift */; };
+		A45169721D46FA4A0004D1A7 /* MapViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45169711D46FA4A0004D1A7 /* MapViewVC.swift */; };
 		A451D9D41D455B4900436F1E /* GeoBlockEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451D9D31D455B4900436F1E /* GeoBlockEditor.swift */; };
 		A48568D91D37435500097B40 /* Locatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48568D81D37435500097B40 /* Locatable.swift */; };
 		A48568DB1D37445200097B40 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48568DA1D37445200097B40 /* LocationManager.swift */; };
@@ -84,6 +87,9 @@
 		7D4E28651D2CB61500F8E574 /* SingleListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleListVC.swift; sourceTree = "<group>"; };
 		7D4E28671D2CB82000F8E574 /* SingleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleViewCell.swift; sourceTree = "<group>"; };
 		7D9B41C51D2139B800B8389A /* MeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
+		A451696D1D46F9C80004D1A7 /* MapViewContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewContainer.xib; sourceTree = "<group>"; };
+		A451696F1D46F9E60004D1A7 /* MapViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewContainer.swift; sourceTree = "<group>"; };
+		A45169711D46FA4A0004D1A7 /* MapViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewVC.swift; sourceTree = "<group>"; };
 		A451D9D31D455B4900436F1E /* GeoBlockEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoBlockEditor.swift; sourceTree = "<group>"; };
 		A48568D81D37435500097B40 /* Locatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Locatable.swift; sourceTree = "<group>"; };
 		A48568DA1D37445200097B40 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -194,6 +200,7 @@
 				C8D8FD841D3DCFFD003C9F16 /* NearMeVC.swift */,
 				7D4E28651D2CB61500F8E574 /* SingleListVC.swift */,
 				7D4E28671D2CB82000F8E574 /* SingleViewCell.swift */,
+				A45169711D46FA4A0004D1A7 /* MapViewVC.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -335,6 +342,8 @@
 				A4E7D3D31D3DD36600609A1E /* NearMeViewContainer.swift */,
 				A4E7D3D51D3DE28800609A1E /* NearMeViewContainerCell.xib */,
 				A4E7D3D71D3DE2DD00609A1E /* NearMeViewContainerCell.swift */,
+				A451696D1D46F9C80004D1A7 /* MapViewContainer.xib */,
+				A451696F1D46F9E60004D1A7 /* MapViewContainer.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -466,6 +475,7 @@
 				C876507E1D2066860092A75A /* Main.storyboard in Resources */,
 				C8C2153B1D2F3EAC0099FBB3 /* FeedbackViewContainer.xib in Resources */,
 				C8E3428E1D348EC800D7F9D6 /* CameraViewContainer.xib in Resources */,
+				A451696E1D46F9C80004D1A7 /* MapViewContainer.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,11 +636,13 @@
 				C876507B1D2066860092A75A /* ViewController.swift in Sources */,
 				A4E7D3D81D3DE2DD00609A1E /* NearMeViewContainerCell.swift in Sources */,
 				A48568DB1D37445200097B40 /* LocationManager.swift in Sources */,
+				A45169701D46F9E60004D1A7 /* MapViewContainer.swift in Sources */,
 				A4E7D3D41D3DD36600609A1E /* NearMeViewContainer.swift in Sources */,
 				C825AFEA1D330B9400EE5B0E /* Storable.swift in Sources */,
 				C8E342901D348EDC00D7F9D6 /* CameraViewContainer.swift in Sources */,
 				C87650791D2066860092A75A /* AppDelegate.swift in Sources */,
 				C8C2153D1D2F3F130099FBB3 /* FeedbackViewContainer.swift in Sources */,
+				A45169721D46FA4A0004D1A7 /* MapViewVC.swift in Sources */,
 				C825AFE61D330A9E00EE5B0E /* ModelInterface.swift in Sources */,
 				7D4E28681D2CB82000F8E574 /* SingleViewCell.swift in Sources */,
 				C8BFBE101D23670200246DA1 /* LocalStoragePhotoManager.swift in Sources */,

@@ -12,6 +12,9 @@ import GoogleMobileAds
 class NearMeVC: UIViewController {
     var container: NearMeViewContainer?
     var interstitial: GADInterstitial!
+    var photoEntitiesInGrid: [PhotoEntityKey] = []
+    
+    var selectedCellIndexPath: NSIndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +56,20 @@ class NearMeVC: UIViewController {
             Log.error("Ad wasn't ready")
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == Segues.toSingleMap {
+            let singleMapView = segue.destinationViewController as! MapViewVC
+            
+            self.getPhotoEntity(photoEntitiesInGrid[selectedCellIndexPath!.row], completion: { (photoEntity) in
+                singleMapView.lat = photoEntity.lat
+                singleMapView.lon = photoEntity.lon
+                
+                Log.debug("index path = \(self.selectedCellIndexPath!.row)")
+            })
+            
+        }
+    }
 }
 
 //MARK: - NearMeViewContainerDelegate
@@ -62,6 +79,8 @@ extension NearMeVC: NearMeViewContainerDelegate {
         Log.debug(currentBigBlockKey)
         getNeighbouringBigGeoBlockContent(currentBigBlockKey) { (listOfGeoBlockKeys) in
             self.getPhotoKeysInGeoBlocks(listOfGeoBlockKeys, completion: { (listOfPhotoEntities) in
+                self.photoEntitiesInGrid = listOfPhotoEntities
+                
                 if(index >= listOfPhotoEntities.count) {
                     //TODO: if we reach, we grab more pics
                     cellImage.image = UIImage()
@@ -74,6 +93,11 @@ extension NearMeVC: NearMeViewContainerDelegate {
                 }
             })
         }
+    }
+    
+    func collectionIndexSelected(index: NSIndexPath) {
+        self.selectedCellIndexPath = index
+        self.performSegueWithIdentifier(Segues.toSingleMap, sender: self)
     }
 }
 

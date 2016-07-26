@@ -37,3 +37,7 @@ enum StorageError: ErrorType {
     case FailedUpload
     case FailedDownload
 }
+
+enum Segues {
+    static let toSingleMap = "segueToSingleMap"
+}
