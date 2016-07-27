@@ -12,17 +12,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ksd-RF-9z1">
-                    <rect key="frame" x="40" y="448" width="102" height="30"/>
+                    <rect key="frame" x="0.0" y="448" width="156" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="156" id="Bya-ft-cnV"/>
+                    </constraints>
                     <state key="normal" title="Grab Pokemon"/>
                     <connections>
                         <action selector="captureImageFromAlbumButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="J7h-YP-Lae"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qRA-Rd-5mS">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qRA-Rd-5mS">
                     <rect key="frame" x="0.0" y="62" width="320" height="320"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j8C-Oe-WDE">
-                    <rect key="frame" x="173" y="448" width="99" height="30"/>
+                    <rect key="frame" x="164" y="448" width="156" height="30"/>
                     <state key="normal" title="Post Pokemon"/>
                     <connections>
                         <action selector="publishImageButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="WJx-iK-oSL"/>
@@ -31,16 +34,15 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="j8C-Oe-WDE" firstAttribute="top" secondItem="qRA-Rd-5mS" secondAttribute="bottom" constant="66" id="4gr-bJ-HZZ"/>
-                <constraint firstAttribute="bottom" secondItem="Ksd-RF-9z1" secondAttribute="bottom" constant="90" id="4vR-w5-Acf"/>
-                <constraint firstAttribute="trailing" secondItem="qRA-Rd-5mS" secondAttribute="trailing" id="BFg-X5-0hG"/>
-                <constraint firstItem="Ksd-RF-9z1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="Qau-2T-jDc"/>
-                <constraint firstItem="j8C-Oe-WDE" firstAttribute="top" secondItem="qRA-Rd-5mS" secondAttribute="bottom" constant="66" id="Ucw-8z-50Q"/>
-                <constraint firstItem="j8C-Oe-WDE" firstAttribute="leading" secondItem="Ksd-RF-9z1" secondAttribute="trailing" constant="31" id="UsR-VU-UFH"/>
-                <constraint firstItem="qRA-Rd-5mS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="62" id="VF6-RD-adt"/>
-                <constraint firstItem="Ksd-RF-9z1" firstAttribute="baseline" secondItem="j8C-Oe-WDE" secondAttribute="baseline" id="Yj2-wk-65G"/>
-                <constraint firstItem="qRA-Rd-5mS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ZHm-t8-h40"/>
-                <constraint firstItem="Ksd-RF-9z1" firstAttribute="top" secondItem="qRA-Rd-5mS" secondAttribute="bottom" constant="66" id="yWV-1h-jLh"/>
+                <constraint firstItem="qRA-Rd-5mS" firstAttribute="trailing" secondItem="j8C-Oe-WDE" secondAttribute="trailing" id="JSJ-5r-VFT"/>
+                <constraint firstItem="qRA-Rd-5mS" firstAttribute="leading" secondItem="Ksd-RF-9z1" secondAttribute="leading" id="YeE-bN-peS"/>
+                <constraint firstItem="Ksd-RF-9z1" firstAttribute="top" secondItem="qRA-Rd-5mS" secondAttribute="bottom" constant="66" id="Yfj-KF-zC0"/>
+                <constraint firstItem="qRA-Rd-5mS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ijQ-sn-9MT"/>
+                <constraint firstAttribute="trailing" secondItem="qRA-Rd-5mS" secondAttribute="trailing" id="kZY-dv-5jb"/>
+                <constraint firstItem="Ksd-RF-9z1" firstAttribute="baseline" secondItem="j8C-Oe-WDE" secondAttribute="baseline" id="myb-41-l8u"/>
+                <constraint firstItem="j8C-Oe-WDE" firstAttribute="leading" secondItem="Ksd-RF-9z1" secondAttribute="trailing" constant="8" symbolic="YES" id="qNW-r8-87v"/>
+                <constraint firstItem="qRA-Rd-5mS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="62" id="x0M-lk-ke1"/>
+                <constraint firstAttribute="bottom" secondItem="Ksd-RF-9z1" secondAttribute="bottom" constant="90" id="xFi-AJ-Q9e"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <connections>
