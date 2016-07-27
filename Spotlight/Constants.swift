@@ -42,4 +42,5 @@ enum StorageError: ErrorType {
 enum Segues {
     static let toSingleMap = "segueToSingleMap"
     static let toGridView = "segueToGridView"
+    static let toTabView = "segueToTabView"
 }

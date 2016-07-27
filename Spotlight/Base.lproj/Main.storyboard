@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="d9W-T5-tax">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zZU-FF-hKm">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -91,6 +91,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1897" y="-859"/>
+        </scene>
+        <!--Loading-->
+        <scene sceneID="MnP-do-xGM">
+            <objects>
+                <viewController id="zZU-FF-hKm" userLabel="Loading" customClass="LoadingVC" customModule="Spotlight" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9Sc-7Z-EvL"/>
+                        <viewControllerLayoutGuide type="bottom" id="OTl-z4-C6G"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oBV-ck-Ddm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PokeSpotLogo" translatesAutoresizingMaskIntoConstraints="NO" id="CY9-yR-k7a">
+                                <rect key="frame" x="40" y="20" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="FQr-jp-xcA"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Loading..." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pvE-yw-K84">
+                                <rect key="frame" x="34" y="139" width="240" height="56"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="VvA-fT-BQt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Tip: Upload screenshots of spotted Pokemons using the &quot;Spotted&quot; tab" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="esh-L0-l3a">
+                                <rect key="frame" x="34" y="322" width="240" height="184"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="184" id="jJf-Gx-FI4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pvE-yw-K84" firstAttribute="leading" secondItem="esh-L0-l3a" secondAttribute="leading" id="LOr-2k-gOn"/>
+                            <constraint firstItem="pvE-yw-K84" firstAttribute="trailing" secondItem="esh-L0-l3a" secondAttribute="trailing" id="NeX-p4-qUu"/>
+                            <constraint firstItem="CY9-yR-k7a" firstAttribute="leading" secondItem="oBV-ck-Ddm" secondAttribute="leadingMargin" constant="24" id="NsF-oR-JxG"/>
+                            <constraint firstItem="CY9-yR-k7a" firstAttribute="top" secondItem="9Sc-7Z-EvL" secondAttribute="bottom" id="SGt-PZ-39Z"/>
+                            <constraint firstItem="pvE-yw-K84" firstAttribute="top" secondItem="9Sc-7Z-EvL" secondAttribute="bottom" constant="119" id="bc9-aY-WDX"/>
+                            <constraint firstItem="CY9-yR-k7a" firstAttribute="centerX" secondItem="oBV-ck-Ddm" secondAttribute="centerX" id="dM4-bf-jrD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pvE-yw-K84" secondAttribute="trailing" constant="30" id="eUJ-D0-8LQ"/>
+                            <constraint firstItem="OTl-z4-C6G" firstAttribute="top" secondItem="esh-L0-l3a" secondAttribute="bottom" constant="62" id="g9C-DW-qb8"/>
+                            <constraint firstItem="pvE-yw-K84" firstAttribute="leading" secondItem="oBV-ck-Ddm" secondAttribute="leadingMargin" constant="18" id="lug-O0-Lpp"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="d9W-T5-tax" kind="show" identifier="segueToTabView" id="aeP-M8-OSB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nhx-Lj-08L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-379" y="271"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="5fx-tq-P4a">
@@ -266,9 +325,10 @@
     <resources>
         <image name="CameraTab" width="30" height="24"/>
         <image name="NearMeTab" width="30" height="30"/>
+        <image name="PokeSpotLogo" width="400" height="113"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="P6N-XF-oWu"/>
+        <segue reference="aeP-M8-OSB"/>
         <segue reference="oMN-ap-Ke9"/>
     </inferredMetricsTieBreakers>
 </document>
