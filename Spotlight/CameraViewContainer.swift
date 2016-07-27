@@ -31,7 +31,7 @@ class CameraViewContainer: UIView {
         picker.delegate = self
         picker.sourceType = .PhotoLibrary
         
-       delegate?.goToCameraPicker(picker)
+        delegate?.goToCameraPicker(picker)
     }
     
     @IBAction func saveImageToCameraRollButtonPressed(sender: AnyObject) {

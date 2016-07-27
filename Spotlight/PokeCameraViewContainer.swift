@@ -16,18 +16,18 @@ class PokeCameraViewContainer: UIView {
     
 //    //MARK: - UI Elements
     @IBOutlet var photoView: UIImageView!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var publishButton: UIButton!
     
-    @IBAction func captureImageFromAlbumButtonPressed(sender: AnyObject) {
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        picker.sourceType = .PhotoLibrary
-        
-        delegate?.goToCameraPicker(picker)
+    @IBAction func cancelButton(sender: AnyObject) {
+        delegate?.goBackGridView()
     }
     
     @IBAction func publishImageButtonPressed(sender: AnyObject) {
         if let photo = photoView.image {
-            delegate?.publishImage(photo)
+            delegate?.publishImage(photo, completion: {
+                self.delegate?.goToSingleMapView()
+            })
         } else {
             Log.error("Image view is empty")
         }
@@ -39,6 +39,23 @@ class PokeCameraViewContainer: UIView {
         view.frame = frame
         return view
     }
+    
+    override func willMoveToSuperview(newSuperview: UIView?) {
+        cancelButton.layer.cornerRadius = 8
+        cancelButton.layer.borderWidth = CGFloat(1.2)
+        cancelButton.layer.borderColor = cancelButton.titleLabel?.textColor.CGColor
+        
+        publishButton.layer.cornerRadius = 8
+        publishButton.layer.borderWidth = CGFloat(1.2)
+        publishButton.layer.borderColor = publishButton.titleLabel?.textColor.CGColor
+        
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.sourceType = .PhotoLibrary
+        
+        delegate?.goToCameraPicker(picker)
+    }
+    
 }
 
 //MARK: - UIImagePickerControllerDelegate
@@ -60,7 +77,8 @@ extension PokeCameraViewContainer: UINavigationControllerDelegate {
 protocol PokeCameraViewContainerDelegate {
     func goToCameraPicker(picker: UIImagePickerController)
     func dismissViewControllerAnimated()
-    func saveToCameraRoll(image: UIImage)
-    func publishImage(image: UIImage)
+    func publishImage(image: UIImage, completion: () -> ())
     func getLocation(photoID: PhotoEntityKey, completion: (lat: CLLocationDegrees, lon: CLLocationDegrees) -> Void)
+    func goBackGridView()
+    func goToSingleMapView()
 }

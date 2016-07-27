@@ -110,10 +110,10 @@
             </objects>
             <point key="canvasLocation" x="245" y="305"/>
         </scene>
-        <!--PokeCamera-->
+        <!--Spotted-->
         <scene sceneID="DRZ-kl-hqJ">
             <objects>
-                <viewController id="zUw-Ua-Tps" userLabel="PokeCamera" customClass="PokeCameraVC" customModule="Spotlight" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zUw-Ua-Tps" userLabel="Spotted" customClass="PokeCameraVC" customModule="Spotlight" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FHG-JY-y9k"/>
                         <viewControllerLayoutGuide type="bottom" id="KD9-sE-GgE"/>
@@ -126,10 +126,14 @@
                     <tabBarItem key="tabBarItem" title="Spotted" image="CameraTab" id="jRP-2r-wsd"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="d9W-T5-tax" kind="show" identifier="segueToGridView" id="P6N-XF-oWu"/>
+                        <segue destination="Jjb-LD-kda" kind="show" identifier="segueToSingleMap" id="oMN-ap-Ke9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o7H-H3-EJT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="759" y="170"/>
+            <point key="canvasLocation" x="819" y="-144"/>
         </scene>
         <!--Camera-->
         <scene sceneID="mYL-CP-8xt">
@@ -210,7 +214,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C5W-UK-OnQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="899" y="-792"/>
+            <point key="canvasLocation" x="933" y="-875"/>
         </scene>
         <!--Near Me-->
         <scene sceneID="5SU-hd-qy0">
@@ -234,7 +238,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cOm-jj-kZq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1105" y="1074"/>
+            <point key="canvasLocation" x="753" y="1164"/>
         </scene>
         <!--MapViewController-->
         <scene sceneID="O6E-KY-Kml">
@@ -256,11 +260,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D97-oq-Jrc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1613" y="953"/>
+            <point key="canvasLocation" x="1201" y="529"/>
         </scene>
     </scenes>
     <resources>
         <image name="CameraTab" width="30" height="24"/>
         <image name="NearMeTab" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="P6N-XF-oWu"/>
+        <segue reference="oMN-ap-Ke9"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -53,8 +53,8 @@ class MeVC: UIViewController{
         
         TakenPhotoView.image = photoManager.getFirstImage()
         
-        let prev = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
-        let next = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
+        let prev = UISwipeGestureRecognizer(target: self, action: #selector(MeVC.handleSwipes(_:)))
+        let next = UISwipeGestureRecognizer(target: self, action: #selector(MeVC.handleSwipes(_:)))
         
         // Do any additional setup after loading the view, typically from a nib.
         prev.direction = .Right
