@@ -41,6 +41,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         LocationManager.sharedInstance.customInit()
         
         LocationManager.sharedInstance.startGettingLoc()
+        
+        signIn()
 
         //GADMobileAds.configureWithApplicationID("ca-app-pub-5958828933999537~6451639903");
         //For stopping location manager
@@ -49,6 +51,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         
         return true
+    }
+    
+    func signIn() {
+        let identifier: String = UIDevice.currentDevice().identifierForVendor!.UUIDString
+        //MARK: Log in
+        FIRAuth.auth()?.signInWithEmail("\(identifier)@pokespot.com", password: "123456") { (user, error) in
+            if (error != nil) {
+                Log.error("Could not log in creating a user:\(identifier)")
+                
+                //MARK: Create a user
+                FIRAuth.auth()?.createUserWithEmail("\(identifier)@pokespot.com", password: "123456") { (user, error) in
+                    if (error != nil) {
+                        Log.error("Could not create a user:\(identifier)")
+                    } else {
+                        Log.debug("Created a user:\(identifier)")
+                    }
+                }
+            } else {
+                Log.debug("User:\(identifier) logged in")
+            }
+        }
     }
     
 

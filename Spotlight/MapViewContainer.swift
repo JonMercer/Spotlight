@@ -47,6 +47,7 @@ class MapViewContainer: UIView {
             
             
             let marker = GMSMarker()
+            marker.icon = UIImage(named: "PokeMarker")
             marker.position = CLLocationCoordinate2DMake(lat,lon)
             //marker.title = "Sydney"
             //marker.snippet = "Australia"
