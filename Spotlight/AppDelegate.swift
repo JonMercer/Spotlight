@@ -27,6 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Custom UI Change
+        UITabBar.appearance().tintColor = UIColor.redColor()
+        
         // Cocoapods Setup
         FIRApp.configure()
         GMSServices.provideAPIKey("AIzaSyCqOcABvIB9rBd7AHGP4CgnfC3RiCbMg9g")
