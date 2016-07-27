@@ -14,10 +14,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PokeSpotLogo" translatesAutoresizingMaskIntoConstraints="NO" id="5hV-wz-Y6I">
-                    <rect key="frame" x="0.0" y="18" width="320" height="66"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="66" id="2PV-hG-8aU"/>
-                    </constraints>
+                    <rect key="frame" x="0.0" y="31" width="320" height="40"/>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qRA-Rd-5mS">
                     <rect key="frame" x="0.0" y="74" width="320" height="320"/>
@@ -49,18 +46,19 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="5hV-wz-Y6I" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6Bp-q7-xSd"/>
-                <constraint firstAttribute="trailing" secondItem="5hV-wz-Y6I" secondAttribute="trailing" id="7H9-0P-K92"/>
+                <constraint firstItem="5hV-wz-Y6I" firstAttribute="leading" secondItem="qRA-Rd-5mS" secondAttribute="leading" id="85G-TT-kis"/>
+                <constraint firstAttribute="trailing" secondItem="5hV-wz-Y6I" secondAttribute="trailing" id="97X-E9-hyo"/>
                 <constraint firstAttribute="trailing" secondItem="j8C-Oe-WDE" secondAttribute="trailing" constant="32" id="BRr-kM-HyV"/>
                 <constraint firstItem="v3b-g3-gMh" firstAttribute="top" secondItem="j8C-Oe-WDE" secondAttribute="top" id="CHF-t8-IiI"/>
-                <constraint firstItem="5hV-wz-Y6I" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="18" id="Cuz-VW-5Vv"/>
-                <constraint firstItem="qRA-Rd-5mS" firstAttribute="trailing" secondItem="5hV-wz-Y6I" secondAttribute="trailing" id="R2c-U7-ZjZ"/>
+                <constraint firstItem="5hV-wz-Y6I" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="31" id="HZb-It-W6l"/>
                 <constraint firstItem="qRA-Rd-5mS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="74" id="R9r-Qc-gCL"/>
-                <constraint firstItem="qRA-Rd-5mS" firstAttribute="leading" secondItem="5hV-wz-Y6I" secondAttribute="leading" id="YI7-6D-eDk"/>
+                <constraint firstItem="qRA-Rd-5mS" firstAttribute="top" secondItem="5hV-wz-Y6I" secondAttribute="bottom" constant="3" id="VcB-Ee-2LX"/>
+                <constraint firstItem="5hV-wz-Y6I" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="XZY-FC-BlC"/>
                 <constraint firstItem="j8C-Oe-WDE" firstAttribute="top" secondItem="qRA-Rd-5mS" secondAttribute="bottom" constant="33" id="Z4a-jy-jzq"/>
                 <constraint firstItem="v3b-g3-gMh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="k1Y-oh-sS3"/>
                 <constraint firstItem="j8C-Oe-WDE" firstAttribute="leading" secondItem="v3b-g3-gMh" secondAttribute="trailing" constant="14" id="kaE-yQ-p9Y"/>
                 <constraint firstItem="v3b-g3-gMh" firstAttribute="firstBaseline" secondItem="j8C-Oe-WDE" secondAttribute="baseline" id="l8C-ie-Ft5"/>
+                <constraint firstItem="5hV-wz-Y6I" firstAttribute="trailing" secondItem="qRA-Rd-5mS" secondAttribute="trailing" id="t0r-iZ-xBp"/>
                 <constraint firstItem="v3b-g3-gMh" firstAttribute="baseline" secondItem="j8C-Oe-WDE" secondAttribute="firstBaseline" id="yFh-oX-Kfi"/>
                 <constraint firstAttribute="bottom" secondItem="v3b-g3-gMh" secondAttribute="bottom" constant="91" id="z3t-22-gzT"/>
             </constraints>
@@ -73,6 +71,6 @@
         </view>
     </objects>
     <resources>
-        <image name="PokeSpotLogo" width="1200" height="485"/>
+        <image name="PokeSpotLogo" width="400" height="113"/>
     </resources>
 </document>
