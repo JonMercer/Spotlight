@@ -33,6 +33,9 @@
 		C825AFEE1D33127A00EE5B0E /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C825AFED1D33127A00EE5B0E /* Util.swift */; };
 		C825AFF11D3317A000EE5B0E /* Authenticate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C825AFF01D3317A000EE5B0E /* Authenticate.swift */; };
 		C825AFF31D3318D300EE5B0E /* FirebaseAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C825AFF21D3318D300EE5B0E /* FirebaseAuthentication.swift */; };
+		C83780B21D472779008690E0 /* PokeCameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83780B11D472779008690E0 /* PokeCameraVC.swift */; };
+		C83780B41D47280D008690E0 /* PokeCameraViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = C83780B31D47280D008690E0 /* PokeCameraViewContainer.xib */; };
+		C83780B61D47281D008690E0 /* PokeCameraViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83780B51D47281D008690E0 /* PokeCameraViewContainer.swift */; };
 		C84FDA6F1D2C975100E66DCD /* FeedbackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84FDA6E1D2C975100E66DCD /* FeedbackVC.swift */; };
 		C8647D9E1D29FAFC00C21A59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8647D9D1D29FAFC00C21A59 /* GoogleService-Info.plist */; };
 		C86CED8B1D209A9100B70FF0 /* CustomPhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86CED8A1D209A9100B70FF0 /* CustomPhotoAlbum.swift */; };
@@ -108,6 +111,9 @@
 		C825AFED1D33127A00EE5B0E /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		C825AFF01D3317A000EE5B0E /* Authenticate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authenticate.swift; sourceTree = "<group>"; };
 		C825AFF21D3318D300EE5B0E /* FirebaseAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAuthentication.swift; sourceTree = "<group>"; };
+		C83780B11D472779008690E0 /* PokeCameraVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeCameraVC.swift; sourceTree = "<group>"; };
+		C83780B31D47280D008690E0 /* PokeCameraViewContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PokeCameraViewContainer.xib; sourceTree = "<group>"; };
+		C83780B51D47281D008690E0 /* PokeCameraViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeCameraViewContainer.swift; sourceTree = "<group>"; };
 		C84FDA6E1D2C975100E66DCD /* FeedbackVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackVC.swift; sourceTree = "<group>"; };
 		C8647D9D1D29FAFC00C21A59 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C86CED8A1D209A9100B70FF0 /* CustomPhotoAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPhotoAlbum.swift; sourceTree = "<group>"; };
@@ -194,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				C876507A1D2066860092A75A /* ViewController.swift */,
+				C83780B11D472779008690E0 /* PokeCameraVC.swift */,
 				C84FDA6E1D2C975100E66DCD /* FeedbackVC.swift */,
 				C8D136361D2077760005F018 /* CameraVC.swift */,
 				7D9B41C51D2139B800B8389A /* MeVC.swift */,
@@ -338,6 +345,8 @@
 				C8C2153C1D2F3F130099FBB3 /* FeedbackViewContainer.swift */,
 				C8E3428F1D348EDC00D7F9D6 /* CameraViewContainer.swift */,
 				C8E3428D1D348EC800D7F9D6 /* CameraViewContainer.xib */,
+				C83780B51D47281D008690E0 /* PokeCameraViewContainer.swift */,
+				C83780B31D47280D008690E0 /* PokeCameraViewContainer.xib */,
 				A4E7D3D11D3DD33200609A1E /* NearMeViewContainer.xib */,
 				A4E7D3D31D3DD36600609A1E /* NearMeViewContainer.swift */,
 				A4E7D3D51D3DE28800609A1E /* NearMeViewContainerCell.xib */,
@@ -467,6 +476,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C83780B41D47280D008690E0 /* PokeCameraViewContainer.xib in Resources */,
 				C87650861D2066860092A75A /* LaunchScreen.storyboard in Resources */,
 				A4E7D3D21D3DD33200609A1E /* NearMeViewContainer.xib in Resources */,
 				A4E7D3D61D3DE28800609A1E /* NearMeViewContainerCell.xib in Resources */,
@@ -628,6 +638,7 @@
 				C825AFEE1D33127A00EE5B0E /* Util.swift in Sources */,
 				C84FDA6F1D2C975100E66DCD /* FeedbackVC.swift in Sources */,
 				C87650811D2066860092A75A /* Spotlight.xcdatamodeld in Sources */,
+				C83780B61D47281D008690E0 /* PokeCameraViewContainer.swift in Sources */,
 				C8BFBE121D23762400246DA1 /* DeviceOwnerPhotoManager.swift in Sources */,
 				A4FB11901D208C4D001F36F2 /* PhotoAlbum.swift in Sources */,
 				C8D8FD851D3DCFFD003C9F16 /* NearMeVC.swift in Sources */,
@@ -653,6 +664,7 @@
 				C825AFF11D3317A000EE5B0E /* Authenticate.swift in Sources */,
 				C825AFF31D3318D300EE5B0E /* FirebaseAuthentication.swift in Sources */,
 				C825AFEC1D330F0C00EE5B0E /* FirebaseStorage.swift in Sources */,
+				C83780B21D472779008690E0 /* PokeCameraVC.swift in Sources */,
 				C86CED8B1D209A9100B70FF0 /* CustomPhotoAlbum.swift in Sources */,
 				A4FB11941D20914B001F36F2 /* Constants.swift in Sources */,
 				A48568D91D37435500097B40 /* Locatable.swift in Sources */,
