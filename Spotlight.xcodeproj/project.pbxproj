@@ -198,7 +198,7 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		A4FB11911D208CD4001F36F2 /* ViewControllers */ = {
+		A4FB11911D208CD4001F36F2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				C876507A1D2066860092A75A /* ViewController.swift */,
@@ -212,7 +212,7 @@
 				7D4E28671D2CB82000F8E574 /* SingleViewCell.swift */,
 				A45169711D46FA4A0004D1A7 /* MapViewVC.swift */,
 			);
-			name = ViewControllers;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		A4FB11921D208CF3001F36F2 /* Models */ = {
@@ -222,7 +222,6 @@
 				C825AFE81D330B1200EE5B0E /* Storage */,
 				C825AFE71D330AD300EE5B0E /* Database */,
 				C825AFE41D3309A000EE5B0E /* Photo */,
-				C825AFE21D33096C00EE5B0E /* Util */,
 				C825AFE51D330A9E00EE5B0E /* ModelInterface.swift */,
 			);
 			name = Models;
@@ -231,6 +230,7 @@
 		C825AFE21D33096C00EE5B0E /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				A4FB11931D20914B001F36F2 /* Constants.swift */,
 				C8BFBE0F1D23670200246DA1 /* LocalStoragePhotoManager.swift */,
 				C8BFBE111D23762400246DA1 /* DeviceOwnerPhotoManager.swift */,
 				C81E90761D388E270022845B /* Log.swift */,
@@ -279,6 +279,44 @@
 			name = Authentication;
 			sourceTree = "<group>";
 		};
+		C83B72661D4ECDC10055E689 /* FeedbackView */ = {
+			isa = PBXGroup;
+			children = (
+				C8C2153C1D2F3F130099FBB3 /* FeedbackViewContainer.swift */,
+				C8C2153A1D2F3EAC0099FBB3 /* FeedbackViewContainer.xib */,
+			);
+			name = FeedbackView;
+			sourceTree = "<group>";
+		};
+		C83B72671D4ECDD80055E689 /* CameraView */ = {
+			isa = PBXGroup;
+			children = (
+				C8E3428F1D348EDC00D7F9D6 /* CameraViewContainer.swift */,
+				C8E3428D1D348EC800D7F9D6 /* CameraViewContainer.xib */,
+			);
+			name = CameraView;
+			sourceTree = "<group>";
+		};
+		C83B72681D4ECDF80055E689 /* NearMeView */ = {
+			isa = PBXGroup;
+			children = (
+				A4E7D3D11D3DD33200609A1E /* NearMeViewContainer.xib */,
+				A4E7D3D31D3DD36600609A1E /* NearMeViewContainer.swift */,
+				A4E7D3D51D3DE28800609A1E /* NearMeViewContainerCell.xib */,
+				A4E7D3D71D3DE2DD00609A1E /* NearMeViewContainerCell.swift */,
+			);
+			name = NearMeView;
+			sourceTree = "<group>";
+		};
+		C83B72691D4ECE160055E689 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				A451696D1D46F9C80004D1A7 /* MapViewContainer.xib */,
+				A451696F1D46F9E60004D1A7 /* MapViewContainer.swift */,
+			);
+			name = MapView;
+			sourceTree = "<group>";
+		};
 		C876506C1D2066860092A75A = {
 			isa = PBXGroup;
 			children = (
@@ -306,17 +344,17 @@
 		C87650771D2066860092A75A /* Spotlight */ = {
 			isa = PBXGroup;
 			children = (
+				C825AFE21D33096C00EE5B0E /* Util */,
 				A4FB11921D208CF3001F36F2 /* Models */,
-				A4FB11911D208CD4001F36F2 /* ViewControllers */,
-				C87650781D2066860092A75A /* AppDelegate.swift */,
+				A4FB11911D208CD4001F36F2 /* Controllers */,
 				C8C215391D2F3DFF0099FBB3 /* Views */,
+				C87650781D2066860092A75A /* AppDelegate.swift */,
 				C876507C1D2066860092A75A /* Main.storyboard */,
-				C87650821D2066860092A75A /* Assets.xcassets */,
 				C87650841D2066860092A75A /* LaunchScreen.storyboard */,
 				C87650871D2066860092A75A /* Info.plist */,
-				C876507F1D2066860092A75A /* Spotlight.xcdatamodeld */,
-				A4FB11931D20914B001F36F2 /* Constants.swift */,
 				C8647D9D1D29FAFC00C21A59 /* GoogleService-Info.plist */,
+				C876507F1D2066860092A75A /* Spotlight.xcdatamodeld */,
+				C87650821D2066860092A75A /* Assets.xcassets */,
 			);
 			path = Spotlight;
 			sourceTree = "<group>";
@@ -344,18 +382,12 @@
 		C8C215391D2F3DFF0099FBB3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C8C2153A1D2F3EAC0099FBB3 /* FeedbackViewContainer.xib */,
-				C8C2153C1D2F3F130099FBB3 /* FeedbackViewContainer.swift */,
-				C8E3428F1D348EDC00D7F9D6 /* CameraViewContainer.swift */,
-				C8E3428D1D348EC800D7F9D6 /* CameraViewContainer.xib */,
+				C83B72691D4ECE160055E689 /* MapView */,
+				C83B72681D4ECDF80055E689 /* NearMeView */,
+				C83B72671D4ECDD80055E689 /* CameraView */,
+				C83B72661D4ECDC10055E689 /* FeedbackView */,
 				C83780B51D47281D008690E0 /* PokeCameraViewContainer.swift */,
 				C83780B31D47280D008690E0 /* PokeCameraViewContainer.xib */,
-				A4E7D3D11D3DD33200609A1E /* NearMeViewContainer.xib */,
-				A4E7D3D31D3DD36600609A1E /* NearMeViewContainer.swift */,
-				A4E7D3D51D3DE28800609A1E /* NearMeViewContainerCell.xib */,
-				A4E7D3D71D3DE2DD00609A1E /* NearMeViewContainerCell.swift */,
-				A451696D1D46F9C80004D1A7 /* MapViewContainer.xib */,
-				A451696F1D46F9E60004D1A7 /* MapViewContainer.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
