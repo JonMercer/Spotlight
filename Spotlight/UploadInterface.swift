@@ -33,13 +33,13 @@ extension ModelInterface: UploadInterfaceProtocol {
             // we should consider using uploadTask to pause and resume upload
             photoRef.putData(imageData!, metadata: nil) { metadata, error in
                 if (error != nil) {
-                    Log.debug("\(onlinePath) failed to upload!")
+                    Log.error("\(onlinePath) failed to upload!")
                     completed(err: UploadError.FailedUploadPhoto)
                 } else {
                     if metadata!.size <= 2 {
                         Log.error("image was not uploaded properly")
                     }
-                    Log.debug("uploaded an image: \(onlinePath)")
+                    Log.info("uploaded an image: \(onlinePath)")
                     completed(err: nil)
                 }
             }

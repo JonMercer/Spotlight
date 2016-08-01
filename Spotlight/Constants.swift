@@ -61,3 +61,20 @@ enum FirebaseConstants {
 enum PermanentConstants {
     static let onlineStoragePhotoFolder = "images/"
 }
+
+// MARK: - Logging
+/**
+ A log level of debug will print out all levels above it.
+ So a log level of WARN will print out WARN, ERROR, and TEST
+ */
+enum LogLevel {
+    static let lvl = LogLevelChoices.ERROR
+}
+
+enum LogLevelChoices {
+    static let DEBUG = 1
+    static let INFO = 2
+    static let WARN = 3
+    static let ERROR = 4
+    static let TEST = 5
+}
