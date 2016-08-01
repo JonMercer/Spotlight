@@ -34,7 +34,7 @@ struct PhotoInfo {
         if self.name == nil {
             Log.error("photo name should never be nil")
         }
-        return "\(PermanentConstants.onlineStoragePhotoFolder)\(self.name).jpg"
+        return "\(PermanentConstants.onlineStoragePhotoFolder)\(self.name!).jpg"
     }
 }
 
