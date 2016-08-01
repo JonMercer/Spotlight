@@ -15,6 +15,7 @@ typealias ImageName = String
 typealias PhotoEntityKey = String
 typealias GeoBlockKey = String
 typealias BigGeoBlockKey = String
+typealias OnlineStoragePath = String
 
 typealias PhotoInfoKey = String
 
@@ -32,9 +33,7 @@ enum FilePathConstants {
     static let directoryURLPath = NSURL(fileURLWithPath: directoryStringPath)
 }
 
-enum FirebaseConstants {
-    static let storageURL = "gs://spotlight-5a0c3.appspot.com"
-}
+
 
 enum StorageError: ErrorType {
     case FailedUpload
@@ -51,4 +50,14 @@ enum Segues {
     static let toSingleMap = "segueToSingleMap"
     static let toGridView = "segueToGridView"
     static let toTabView = "segueToTabView"
+}
+
+// MARK: - Changeable backend information
+enum FirebaseConstants {
+    static let storageURL = "gs://spotlight-5a0c3.appspot.com"
+}
+
+// MARK: - Constants that should not be changed
+enum PermanentConstants {
+    static let onlineStoragePhotoFolder = "images/"
 }

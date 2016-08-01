@@ -15,6 +15,7 @@ struct PhotoInfo {
     var lat: CLLocationDegrees
     var lon: CLLocationDegrees
     var timeStamp: String
+    var onlineStoragePath: OnlineStoragePath?
     
     init(key: PhotoInfoKey, lat: CLLocationDegrees, lon: CLLocationDegrees, timeStamp: String) {
         self.key = key
@@ -22,10 +23,18 @@ struct PhotoInfo {
         self.lon = lon
         self.timeStamp = timeStamp
         self.name = generateName()
+        self.onlineStoragePath = generateOnlineStoragePath()
     }
     
-    func generateName() -> String{
-        return "\(timeStamp)-\(String.locationToString(lat.description))-\(String.locationToString(lon.description)).jpg"
+    private func generateName() -> String{
+        return "\(timeStamp)-\(String.locationToString(lat.description))-\(String.locationToString(lon.description))"
+    }
+    
+    private func generateOnlineStoragePath() -> String {
+        if self.name == nil {
+            Log.error("photo name should never be nil")
+        }
+        return "\(PermanentConstants.onlineStoragePhotoFolder)\(self.name).jpg"
     }
 }
 

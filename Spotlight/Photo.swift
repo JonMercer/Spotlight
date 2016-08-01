@@ -22,7 +22,8 @@ class Photo {
 
 extension Photo: PhotoInfoEditable {
     func createPhotoInfo() {
-        <#code#>
+        //TODO: hardcoded get rid off
+        photoInfo = PhotoInfo(key: "test", lat: 0.0, lon: 0.0, timeStamp: NSDate().fireBaseImageTimeStamp())
     }
     
 }
