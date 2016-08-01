@@ -16,6 +16,8 @@ typealias PhotoEntityKey = String
 typealias GeoBlockKey = String
 typealias BigGeoBlockKey = String
 
+typealias PhotoInfoKey = String
+
 enum Constants {
     static let albumName = "Spotlight"
     static let tempPathName = "test_path"  // temporary path name for testing local storage
@@ -37,6 +39,12 @@ enum FirebaseConstants {
 enum StorageError: ErrorType {
     case FailedUpload
     case FailedDownload
+}
+
+// MARK: - Interface Errors
+enum UploadError: ErrorType {
+    case FailedUploadPhoto
+    case FailedUploadPhotoInfo
 }
 
 enum Segues {

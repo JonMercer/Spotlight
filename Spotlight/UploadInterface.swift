@@ -10,11 +10,18 @@ import Foundation
 import Photos
 
 protocol UploadInterfaceProtocol {
-    func uploadPhoto()
+    func uploadPhoto(photo: Photo, completed: (err: ErrorType?) -> ())
+    func uploadPhotoInfo(photo: Photo, completed: (err: ErrorType?) -> ())
 }
 
 extension ModelInterface: UploadInterfaceProtocol {
-    func uploadPhoto(image: UIImage, completionHandler: (err: ErrorType) -> ()) {
-        //dfef
+    func uploadPhoto(photo: Photo, completed: (err: ErrorType?) -> ()) {
+        //upload image
+        
+        //add the imageName to photoInfo
+    }
+    
+    func uploadPhotoInfo(photo: Photo, completed: (err: ErrorType?) -> ()) {
+        //save the info to database
     }
 }
