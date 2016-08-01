@@ -36,6 +36,7 @@
 		C83780B21D472779008690E0 /* PokeCameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83780B11D472779008690E0 /* PokeCameraVC.swift */; };
 		C83780B41D47280D008690E0 /* PokeCameraViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = C83780B31D47280D008690E0 /* PokeCameraViewContainer.xib */; };
 		C83780B61D47281D008690E0 /* PokeCameraViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83780B51D47281D008690E0 /* PokeCameraViewContainer.swift */; };
+		C83B726B1D4ED4290055E689 /* UploadInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83B726A1D4ED4290055E689 /* UploadInterface.swift */; };
 		C84FDA6F1D2C975100E66DCD /* FeedbackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84FDA6E1D2C975100E66DCD /* FeedbackVC.swift */; };
 		C8647D9E1D29FAFC00C21A59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8647D9D1D29FAFC00C21A59 /* GoogleService-Info.plist */; };
 		C86CEA4B1D486BD5002C406A /* LoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86CEA4A1D486BD5002C406A /* LoadingVC.swift */; };
@@ -115,6 +116,7 @@
 		C83780B11D472779008690E0 /* PokeCameraVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeCameraVC.swift; sourceTree = "<group>"; };
 		C83780B31D47280D008690E0 /* PokeCameraViewContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PokeCameraViewContainer.xib; sourceTree = "<group>"; };
 		C83780B51D47281D008690E0 /* PokeCameraViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeCameraViewContainer.swift; sourceTree = "<group>"; };
+		C83B726A1D4ED4290055E689 /* UploadInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadInterface.swift; sourceTree = "<group>"; };
 		C84FDA6E1D2C975100E66DCD /* FeedbackVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackVC.swift; sourceTree = "<group>"; };
 		C8647D9D1D29FAFC00C21A59 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C86CEA4A1D486BD5002C406A /* LoadingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingVC.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				C825AFE71D330AD300EE5B0E /* Database */,
 				C825AFE41D3309A000EE5B0E /* Photo */,
 				C825AFE51D330A9E00EE5B0E /* ModelInterface.swift */,
+				C83B726A1D4ED4290055E689 /* UploadInterface.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -678,6 +681,7 @@
 				A4FB11901D208C4D001F36F2 /* PhotoAlbum.swift in Sources */,
 				C8D8FD851D3DCFFD003C9F16 /* NearMeVC.swift in Sources */,
 				A4ADCDF01D375511002ECF61 /* PhotoEntityEditor.swift in Sources */,
+				C83B726B1D4ED4290055E689 /* UploadInterface.swift in Sources */,
 				C81E90771D388E270022845B /* Log.swift in Sources */,
 				C876507B1D2066860092A75A /* ViewController.swift in Sources */,
 				A4E7D3D81D3DE2DD00609A1E /* NearMeViewContainerCell.swift in Sources */,
