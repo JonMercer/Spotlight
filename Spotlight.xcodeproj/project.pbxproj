@@ -43,6 +43,7 @@
 		C858A75C1D5189B400140222 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C858A75B1D5189B400140222 /* Location.swift */; };
 		C858A75E1D5196FB00140222 /* GeoBlockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C858A75D1D5196FB00140222 /* GeoBlockable.swift */; };
 		C858A7601D51972A00140222 /* Locatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C858A75F1D51972A00140222 /* Locatable.swift */; };
+		C858A7621D519F3800140222 /* LocationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C858A7611D519F3800140222 /* LocationTest.swift */; };
 		C8647D9E1D29FAFC00C21A59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8647D9D1D29FAFC00C21A59 /* GoogleService-Info.plist */; };
 		C86CEA4B1D486BD5002C406A /* LoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86CEA4A1D486BD5002C406A /* LoadingVC.swift */; };
 		C86CED8B1D209A9100B70FF0 /* CustomPhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86CED8A1D209A9100B70FF0 /* CustomPhotoAlbum.swift */; };
@@ -128,6 +129,7 @@
 		C858A75B1D5189B400140222 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		C858A75D1D5196FB00140222 /* GeoBlockable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoBlockable.swift; sourceTree = "<group>"; };
 		C858A75F1D51972A00140222 /* Locatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Locatable.swift; sourceTree = "<group>"; };
+		C858A7611D519F3800140222 /* LocationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTest.swift; sourceTree = "<group>"; };
 		C8647D9D1D29FAFC00C21A59 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C86CEA4A1D486BD5002C406A /* LoadingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingVC.swift; sourceTree = "<group>"; };
 		C86CED8A1D209A9100B70FF0 /* CustomPhotoAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPhotoAlbum.swift; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 				C87650921D2066860092A75A /* Info.plist */,
 				C81FEBB91D3F2E250002127F /* LocationManagerTest.swift */,
 				C8A6E0A81D457666000649A0 /* GeoUtilTest.swift */,
+				C858A7611D519F3800140222 /* LocationTest.swift */,
 			);
 			path = SpotlightTests;
 			sourceTree = "<group>";
@@ -745,6 +748,7 @@
 			files = (
 				C81FEBBA1D3F2E250002127F /* LocationManagerTest.swift in Sources */,
 				C87650911D2066860092A75A /* SpotlightTests.swift in Sources */,
+				C858A7621D519F3800140222 /* LocationTest.swift in Sources */,
 				C8A6E0A91D457666000649A0 /* GeoUtilTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

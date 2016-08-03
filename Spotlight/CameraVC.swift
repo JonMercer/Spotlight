@@ -25,6 +25,7 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         setupViewContainer()
         
         Location.sharedInstance.startGettingLoc()
+        Location.sharedInstance.getGeoBlock(0.0)
         
         
         //TODO: authenticate user sign in

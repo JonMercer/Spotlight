@@ -16,6 +16,7 @@ typealias PhotoEntityKey = String
 typealias GeoBlockKey = String
 typealias BigGeoBlockKey = String
 typealias OnlineStoragePath = String
+typealias CLLocationIntegers = Int //CLLocationDegress x 1000
 
 typealias PhotoInfoKey = String
 
