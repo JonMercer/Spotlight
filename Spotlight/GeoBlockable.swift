@@ -30,75 +30,41 @@ extension GeoBlockable {
     //                 -1.23879 = -1.24000
     func getGeoBlock(loc: CLLocationDegrees) -> CLLocationIntegers {
         //did not want to work with doubles because -4.5 is technically -4.50000000001
-        var locInt = Int(loc * 1000)
+        let locInt = Int(loc * 1000)
         
-        if (locInt % 5) == 0 {
+        if (loc % 5) == 0 {
             return locInt
         }
         
+        //if the number is close to x.xx5xxx
+        if (locInt % 5) == 0 && locInt > 0 {
+            return locInt
+        }
+        
+        //if the number is close to -x.xx50000 and -x.xx50001. This is here because of ceiling problems
+        if (locInt % 5) == 0 && locInt < 0 && (Double(locInt) - (loc * 1000) < 0.0000001) {
+            return locInt
+        }
+        
+        //this is the '#' in 123.45#789
         let lastDigit = (locInt % 10)
         
-    
-        let fourthDigit = abs(Int(loc * 10000) % 10)
-        
+        //positive numbers are floored such that the last digit is a 0 or a 5
         if locInt > 0 {
             if lastDigit >= 0 && lastDigit < 5 {
                 return locInt - lastDigit
             } else {
                 return locInt - lastDigit + 5
             }
-        } else {
+        }
+        //negative numbers are ceilinged such that the last digit is a 0 or a 5
+        else {
+            //if the number ends in a 5, assume that its not 0.00500000
             if lastDigit < 0 && lastDigit > -5 {
                 return locInt - lastDigit - 5
             } else {
                 return locInt - lastDigit - 10
             }
-            
-//            locInt = abs(locInt)
-            
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-//        //SL-114
-//        Log.warn("Make sure that the value from this call is rounded on the receiving end")
-//        if(loc >= 0) {
-//            let blockEdge = (loc % 0.01) * 1000
-//            if(blockEdge < 5) {
-//                return ((floor(loc * 100) * 10) + 0) / 1000
-//            } else {
-//                return ((floor(loc * 100) * 10) + 5) / 1000
-//            }
-//        } else {
-//            let positiveLoc = loc * -1
-//            let blockEdge = (positiveLoc % 0.01) * 1000
-//            if(blockEdge < 5) {
-//                return ((((floor(positiveLoc * 100) * 10) + 0) / 1000) + 0.005) * -1
-//            } else {
-//                return ((((floor(positiveLoc * 100) * 10) + 5) / 1000) + 0.005) * -1
-//            }
-//        }
     }
 }
