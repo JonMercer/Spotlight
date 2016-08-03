@@ -10,27 +10,18 @@ import Foundation
 import CoreLocation
 
 protocol Locatable {
-    var lat: CLLocationDegrees { get }
-    var lon: CLLocationDegrees { get }
-    
-    func getCurrentLat() -> CLLocationDegrees
-    func getCurrentLon() -> CLLocationDegrees
+    var currentLat: CLLocationDegrees { get set }
+    var currentLon: CLLocationDegrees { get set }
 }
 
 extension Locatable {
-    func getCurrentLat() -> CLLocationDegrees {
-        return 42.0
-    }
-    func getCurrentLon() -> CLLocationDegrees {
-        return 42.0
-    }
 }
 
 extension Locatable where Self: GeoBlockable {
     func getGeoBlockKey() -> GeoBlockKey {
-        return getGeoBlockKey(getCurrentLat(), lon: getCurrentLon())
+        return getGeoBlockKey(currentLat, lon: currentLon)
     }
     func getBigGeoBlockKey() -> BigGeoBlockKey {
-        return getBigGeoBlockKey(getCurrentLat(), lon: getCurrentLon())
+        return getBigGeoBlockKey(currentLat, lon: currentLon)
     }
 }

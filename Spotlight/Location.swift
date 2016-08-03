@@ -10,9 +10,17 @@ import Foundation
 import CoreLocation
 
 class Location: NSObject {
-    var lat: CLLocationDegrees = 0
-    var lon: CLLocationDegrees = 0
-
+    //TODO: don't hardcode 0,0
+    var currentLat: CLLocationDegrees = 0.0
+    var currentLon: CLLocationDegrees = 0.0
+    var locManager = CLLocationManager()
+    static let sharedInstance = Location()
+    
+    override init() {
+        super.init()
+        locManager.delegate = self
+        locManager.requestWhenInUseAuthorization()
+    }
 }
 
 //MARK: - Locatable
@@ -20,20 +28,29 @@ extension Location: Locatable {
     
 }
 
-//MARK: - Locatable
+//MARK: - GeoBlockable
 extension Location: GeoBlockable {
     
 }
 //MARK: - CLLocationManagerDelegate
 extension Location: CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        lat = (locations.first?.coordinate.latitude)!
-        lon = (locations.first?.coordinate.longitude)!
-        
+        currentLat = (locations.first?.coordinate.latitude)!
+        currentLon = (locations.first?.coordinate.longitude)!
     }
     
     /// Log any errors to the console.
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print("Error occured: \(error.localizedDescription).")
+        Log.error("Location error:\(error.localizedDescription).")
+    }
+    
+    func startGettingLoc() {
+        locManager.allowsBackgroundLocationUpdates = true
+        locManager.startUpdatingLocation()
+    }
+    
+    func stopGettingLoc() {
+        locManager.allowsBackgroundLocationUpdates = false
+        locManager.stopUpdatingLocation()
     }
 }
