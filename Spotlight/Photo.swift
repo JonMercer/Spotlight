@@ -17,7 +17,6 @@ class Photo {
     init(image: UIImage) {
         photoImage = image
     }
-    
 }
 
 extension Photo: PhotoInfoEditable {

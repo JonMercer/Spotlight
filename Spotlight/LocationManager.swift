@@ -9,6 +9,7 @@
 import Foundation
 import CoreLocation
 
+/// DEPRECATE
 class LocationManager: NSObject, Locatable {
     var lat: CLLocationDegrees = 0.0
     var lon: CLLocationDegrees = 0.0

@@ -11,11 +11,9 @@ import Photos
 import Firebase
 
 protocol UploadInterfaceProtocol {
-    /**
-     Uploads a photo to online storage.
-     - Requires: the user must be signed in
-     - Postcondition: completion returns error or nil
-     */
+    /// Uploads a photo to online storage.
+    /// - Requires: the user must be signed in
+    /// - Postcondition: completion returns error or nil
     func uploadPhoto(photo: Photo, completed: (err: ErrorType?) -> ())
     func uploadPhotoInfo(photo: Photo, completed: (err: ErrorType?) -> ())
 }
@@ -48,7 +46,58 @@ extension ModelInterface: UploadInterfaceProtocol {
     }
     
     func uploadPhotoInfo(photo: Photo, completed: (err: ErrorType?) -> ()) {
-        //save the info to database
+        guard photo.photoInfo?.onlineStoragePath != nil else {
+            Log.error("photo info you tried to upload has no storage name/path")
+            completed(err: UploadError.FailedUploadPhotoInfo)
+            return
+        }
+        
+        Log.debug("about to upload: \(photo.photoInfo?.onlineStoragePath)")
+        
+        let firebaseRef = FIRDatabase.database().reference()
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        
+        let photoKey = firebaseRef.child(PermanentConstants.realTimeDatabasePhotoInfo).childByAutoId().key
+        let imageTimeStamp = NSDate().fireBaseImageTimeStamp()
+        
+        
+        
+        
+        //Refactor below...
+        let lat = LocationManager.sharedInstance.getCurrentLat()
+        let lon = LocationManager.sharedInstance.getCurrentLon()
+        let geoBlockKey = GeoUtil.getGeoBlockKeyByCurrentLatLon()
+        let bigGeoBlockKey: String = GeoUtil.getBigGeoBlockKeyByCurrentLatLon()
+        
+        let photoEntity = PhotoEntity(photoID: photoKey,
+                                      lat: lat,
+                                      lon: lon,
+                                      photoName: (photo.photoInfo?.onlineStoragePath)!,
+                                      timeStamp: imageTimeStamp)
+        
+        let photoEntityToUpload = ["userID": userID!,
+                                   "name": photoEntity.photoName,
+                                   "lat": photoEntity.lat,
+                                   "lon": photoEntity.lon,
+                                   "latBlock": LocationManager.sharedInstance.getLocationBlock(photoEntity.lat),
+                                   "lonBlock": LocationManager.sharedInstance.getLocationBlock(photoEntity.lon),
+                                   "timeStamp": photoEntity.timeStamp]
+        
+        let childUpdates = ["/PhotoEntities/\(photoKey)": photoEntityToUpload,
+                            "/UserEntities/\(userID!)/PhotoEntities/\(photoKey)/": photoEntityToUpload,
+                            "/BigGeoBlock/\(bigGeoBlockKey)/\(geoBlockKey)": 1,
+                            "/GeoBlock/\(geoBlockKey)/\(photoKey)": photoEntity.timeStamp]
+        
+        firebaseRef.updateChildValues(childUpdates, withCompletionBlock: {(error,ref) in
+            if(error != nil) {
+                Log.error("Could not update image metadata of image:\(photo.photoInfo?.name)")
+            } else {
+                //TODO: return photo
+                //completed(photoEntity: photoEntity)
+            }
+        })
+        
+        
     }
 }
 

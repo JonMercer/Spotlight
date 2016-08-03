@@ -16,7 +16,6 @@
 		A45169701D46F9E60004D1A7 /* MapViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451696F1D46F9E60004D1A7 /* MapViewContainer.swift */; };
 		A45169721D46FA4A0004D1A7 /* MapViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45169711D46FA4A0004D1A7 /* MapViewVC.swift */; };
 		A451D9D41D455B4900436F1E /* GeoBlockEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451D9D31D455B4900436F1E /* GeoBlockEditor.swift */; };
-		A48568D91D37435500097B40 /* Locatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48568D81D37435500097B40 /* Locatable.swift */; };
 		A48568DB1D37445200097B40 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48568DA1D37445200097B40 /* LocationManager.swift */; };
 		A4ADCDF01D375511002ECF61 /* PhotoEntityEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ADCDEF1D375511002ECF61 /* PhotoEntityEditor.swift */; };
 		A4E7D3D21D3DD33200609A1E /* NearMeViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4E7D3D11D3DD33200609A1E /* NearMeViewContainer.xib */; };
@@ -41,6 +40,9 @@
 		C83B72701D4EDD1F0055E689 /* PhotoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83B726F1D4EDD1F0055E689 /* PhotoInfo.swift */; };
 		C83B72721D4EEEA20055E689 /* StringUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83B72711D4EEEA10055E689 /* StringUtil.swift */; };
 		C84FDA6F1D2C975100E66DCD /* FeedbackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84FDA6E1D2C975100E66DCD /* FeedbackVC.swift */; };
+		C858A75C1D5189B400140222 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C858A75B1D5189B400140222 /* Location.swift */; };
+		C858A75E1D5196FB00140222 /* GeoBlockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C858A75D1D5196FB00140222 /* GeoBlockable.swift */; };
+		C858A7601D51972A00140222 /* Locatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C858A75F1D51972A00140222 /* Locatable.swift */; };
 		C8647D9E1D29FAFC00C21A59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8647D9D1D29FAFC00C21A59 /* GoogleService-Info.plist */; };
 		C86CEA4B1D486BD5002C406A /* LoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86CEA4A1D486BD5002C406A /* LoadingVC.swift */; };
 		C86CED8B1D209A9100B70FF0 /* CustomPhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86CED8A1D209A9100B70FF0 /* CustomPhotoAlbum.swift */; };
@@ -99,7 +101,6 @@
 		A451696F1D46F9E60004D1A7 /* MapViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewContainer.swift; sourceTree = "<group>"; };
 		A45169711D46FA4A0004D1A7 /* MapViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewVC.swift; sourceTree = "<group>"; };
 		A451D9D31D455B4900436F1E /* GeoBlockEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoBlockEditor.swift; sourceTree = "<group>"; };
-		A48568D81D37435500097B40 /* Locatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Locatable.swift; sourceTree = "<group>"; };
 		A48568DA1D37445200097B40 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		A4ADCDEF1D375511002ECF61 /* PhotoEntityEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoEntityEditor.swift; sourceTree = "<group>"; };
 		A4E7D3D11D3DD33200609A1E /* NearMeViewContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearMeViewContainer.xib; sourceTree = "<group>"; };
@@ -124,6 +125,9 @@
 		C83B726F1D4EDD1F0055E689 /* PhotoInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoInfo.swift; sourceTree = "<group>"; };
 		C83B72711D4EEEA10055E689 /* StringUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtil.swift; sourceTree = "<group>"; };
 		C84FDA6E1D2C975100E66DCD /* FeedbackVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackVC.swift; sourceTree = "<group>"; };
+		C858A75B1D5189B400140222 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		C858A75D1D5196FB00140222 /* GeoBlockable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoBlockable.swift; sourceTree = "<group>"; };
+		C858A75F1D51972A00140222 /* Locatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Locatable.swift; sourceTree = "<group>"; };
 		C8647D9D1D29FAFC00C21A59 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C86CEA4A1D486BD5002C406A /* LoadingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingVC.swift; sourceTree = "<group>"; };
 		C86CED8A1D209A9100B70FF0 /* CustomPhotoAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPhotoAlbum.swift; sourceTree = "<group>"; };
@@ -245,8 +249,10 @@
 				C8BFBE111D23762400246DA1 /* DeviceOwnerPhotoManager.swift */,
 				C81E90761D388E270022845B /* Log.swift */,
 				C825AFED1D33127A00EE5B0E /* Util.swift */,
-				A48568D81D37435500097B40 /* Locatable.swift */,
 				A48568DA1D37445200097B40 /* LocationManager.swift */,
+				C858A75B1D5189B400140222 /* Location.swift */,
+				C858A75F1D51972A00140222 /* Locatable.swift */,
+				C858A75D1D5196FB00140222 /* GeoBlockable.swift */,
 				C83B72711D4EEEA10055E689 /* StringUtil.swift */,
 			);
 			name = Utils;
@@ -690,6 +696,7 @@
 			files = (
 				A451D9D41D455B4900436F1E /* GeoBlockEditor.swift in Sources */,
 				7D9B41C61D2139B800B8389A /* MeVC.swift in Sources */,
+				C858A75C1D5189B400140222 /* Location.swift in Sources */,
 				C825AFEE1D33127A00EE5B0E /* Util.swift in Sources */,
 				C84FDA6F1D2C975100E66DCD /* FeedbackVC.swift in Sources */,
 				C87650811D2066860092A75A /* Spotlight.xcdatamodeld in Sources */,
@@ -720,14 +727,15 @@
 				C8A6E0A51D453EB1000649A0 /* PhotoEntities.swift in Sources */,
 				C83B72701D4EDD1F0055E689 /* PhotoInfo.swift in Sources */,
 				C825AFF11D3317A000EE5B0E /* Authenticate.swift in Sources */,
+				C858A7601D51972A00140222 /* Locatable.swift in Sources */,
 				C83B72721D4EEEA20055E689 /* StringUtil.swift in Sources */,
 				C86CEA4B1D486BD5002C406A /* LoadingVC.swift in Sources */,
+				C858A75E1D5196FB00140222 /* GeoBlockable.swift in Sources */,
 				C825AFF31D3318D300EE5B0E /* FirebaseAuthentication.swift in Sources */,
 				C825AFEC1D330F0C00EE5B0E /* FirebaseStorage.swift in Sources */,
 				C83780B21D472779008690E0 /* PokeCameraVC.swift in Sources */,
 				C86CED8B1D209A9100B70FF0 /* CustomPhotoAlbum.swift in Sources */,
 				A4FB11941D20914B001F36F2 /* Constants.swift in Sources */,
-				A48568D91D37435500097B40 /* Locatable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

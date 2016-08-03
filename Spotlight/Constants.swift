@@ -60,6 +60,7 @@ enum FirebaseConstants {
 // MARK: - Constants that should not be changed
 enum PermanentConstants {
     static let onlineStoragePhotoFolder = "images/"
+    static let realTimeDatabasePhotoInfo = "PhotoInfo"
 }
 
 // MARK: - Logging
