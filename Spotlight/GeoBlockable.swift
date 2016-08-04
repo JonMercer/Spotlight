@@ -24,7 +24,9 @@ extension GeoBlockable {
     }
     
     func getBigGeoBlockKey(lat: CLLocationDegrees, lon: CLLocationDegrees) -> BigGeoBlockKey {
-        return "fff"
+        let bigLatString = formatBigGeoBlockKey(getGeoBlock(lat))
+        let bigLonString = formatBigGeoBlockKey(getGeoBlock(lon))
+        return "\(bigLatString)_\(bigLonString)"
     }
     
     // PURPOSE: We wanted to split up the world in 0.005 (lat lon) increments.
@@ -77,6 +79,15 @@ extension GeoBlockable {
             return String(format: "%07d", locInt)
         } else {
             return String(format: "%06d", locInt)
+        }
+    }
+    
+    private func formatBigGeoBlockKey(locInt: CLLocationIntegers) -> String {
+        let roundedLoc = Int(floor(Double(locInt)/1000))
+        if roundedLoc < 0 {
+            return String(format: "%04d", roundedLoc)
+        } else {
+            return String(format: "%03d", roundedLoc)
         }
     }
 }

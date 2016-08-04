@@ -96,6 +96,22 @@ class LocationTest: XCTestCase {
         XCTAssertEqual("189455_-189455", Location.sharedInstance.getGeoBlockKey(189.457123, lon: -189.453763))
         XCTAssertEqual("-189460_-189460", Location.sharedInstance.getGeoBlockKey(-189.456456, lon: -189.455987))
     }
+    
+    func testGetBigGeoBlockKey() {
+        XCTAssertEqual("000_000", Location.sharedInstance.getBigGeoBlockKey(0.0, lon: 0.0))
+        
+        XCTAssertEqual("000_000", Location.sharedInstance.getBigGeoBlockKey(0.003, lon: 0.005))
+        XCTAssertEqual("000_-001", Location.sharedInstance.getBigGeoBlockKey(0.007, lon: -0.003))
+        XCTAssertEqual("-001_-001", Location.sharedInstance.getBigGeoBlockKey(-0.006, lon: -0.005))
+        
+        XCTAssertEqual("089_089", Location.sharedInstance.getBigGeoBlockKey(89.453678, lon: 89.455876))
+        XCTAssertEqual("089_-090", Location.sharedInstance.getBigGeoBlockKey(89.457123, lon: -89.453763))
+        XCTAssertEqual("-090_-090", Location.sharedInstance.getBigGeoBlockKey(-89.456456, lon: -89.455987))
+        
+        XCTAssertEqual("189_189", Location.sharedInstance.getBigGeoBlockKey(189.453678, lon: 189.455876))
+        XCTAssertEqual("189_-190", Location.sharedInstance.getBigGeoBlockKey(189.457123, lon: -189.453763))
+        XCTAssertEqual("-190_-190", Location.sharedInstance.getBigGeoBlockKey(-189.456456, lon: -189.455987))
+    }
 
     func testPerformanceExample() {
         self.measureBlock {
