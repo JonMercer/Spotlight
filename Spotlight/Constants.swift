@@ -14,6 +14,7 @@ typealias StorageURL = NSURL
 typealias ImageName = String
 typealias PhotoEntityKey = String //DEPRECATE
 typealias PhotoInfoKey = String
+typealias UserKey = String
 typealias GeoBlockKey = String
 typealias BigGeoBlockKey = String
 typealias OnlineStoragePath = String
@@ -62,6 +63,9 @@ enum FirebaseConstants {
 enum PermanentConstants {
     static let onlineStoragePhotoFolder = "images/"
     static let realTimeDatabasePhotoInfo = "PhotoInfo"
+    static let realTimeDatabaseUserInfo = "UserInfo"
+    static let realTimeDatabaseBigGeoBlock = "BigGeoBlock"
+    static let realTimeDatabaseGeoBlock = "GeoBlock"
 }
 
 // MARK: - Logging

@@ -10,29 +10,21 @@ import Foundation
 import CoreLocation
 
 struct PhotoInfo {
-    var key: PhotoInfoKey?
-    var name: ImageName?
+    var userKey: UserKey
+    var key: PhotoInfoKey
     var lat: CLLocationDegrees
     var lon: CLLocationDegrees
-    var timeStamp: String
-    var onlineStoragePath: OnlineStoragePath?
+    var timeStamp: TimeStampString
+    let name: String
+    let onlineStoragePath: OnlineStoragePath
     
-    init(lat: CLLocationDegrees, lon: CLLocationDegrees, timeStamp: TimeStampString) {
+    init(userKey: UserKey, photoInfoKey: PhotoInfoKey, lat: CLLocationDegrees, lon: CLLocationDegrees, timeStamp: TimeStampString) {
         self.lat = lat
         self.lon = lon
         self.timeStamp = timeStamp
-        self.name = generateName()
-        self.onlineStoragePath = generateOnlineStoragePath()
-    }
-    
-    private func generateName() -> String {
-        return "\(timeStamp)-\(String.locationToString(lat.description))-\(String.locationToString(lon.description))"
-    }
-    
-    private func generateOnlineStoragePath() -> String {
-        if self.name == nil {
-            Log.error("photo name should never be nil")
-        }
-        return "\(PermanentConstants.onlineStoragePhotoFolder)\(self.name!).jpg"
+        self.key = photoInfoKey
+        self.userKey = userKey
+        self.name = "\(timeStamp)-\(userKey)-\(key)-\(timeStamp)-\(String.locationToString(lat.description))-\(String.locationToString(lon.description))"
+        self.onlineStoragePath = "\(PermanentConstants.onlineStoragePhotoFolder)\(self.name).jpg"
     }
 }

@@ -65,13 +65,8 @@ extension CameraVC: CameraViewContainerDelegate {
     }
     
     func publishImage(image: UIImage) {
-        
-        //What a photo needs: image, timstamp, lat, lon
-        let photo = Photo(
-            image: image,
-            lat: Location.sharedInstance.currentLat,
-            lon: Location.sharedInstance.currentLon,
-            timeStamp: NSDate().fireBaseImageTimeStamp())
+        let photo = Photo(image: image)
+        photo.photoInfo = ModelInterface.sharedInstance.createPhotoInfo()
         
         ModelInterface.sharedInstance.uploadPhoto(photo) { (err) in
             if err != nil {
@@ -84,12 +79,6 @@ extension CameraVC: CameraViewContainerDelegate {
                 })
             }
         }
-        
-//        self.createPhotoEntity(urls.last!.lastPathComponent!) {
-//            (photoEntity: PhotoEntity) in
-//            //TODO: handle
-//        }
-        
     }
     
     func getLocation(photoID: PhotoEntityKey, completion: (lat: CLLocationDegrees, lon: CLLocationDegrees) -> Void) {

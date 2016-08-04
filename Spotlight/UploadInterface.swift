@@ -16,6 +16,7 @@ protocol UploadInterfaceProtocol {
     /// - Postcondition: completion returns error or nil
     func uploadPhoto(photo: Photo, completed: (err: ErrorType?) -> ())
     func uploadPhotoInfo(photo: Photo, completed: (err: ErrorType?) -> ())
+    func createPhotoInfo() -> PhotoInfo
 }
 
 extension ModelInterface: UploadInterfaceProtocol {
@@ -44,35 +45,32 @@ extension ModelInterface: UploadInterfaceProtocol {
             completed(err: UploadError.FailedUploadPhoto)
         }
     }
-    
+
     func uploadPhotoInfo(photo: Photo, completed: (err: ErrorType?) -> ()) {
-        guard photo.photoInfo?.onlineStoragePath != nil else {
-            Log.error("photo info you tried to upload has no storage name/path")
+        guard photo.photoInfo != nil else {
+            Log.error("photo info you tried to upload has photoPath")
             completed(err: UploadError.FailedUploadPhotoInfo)
             return
         }
         
-        Log.debug("about to upload: \(photo.photoInfo?.onlineStoragePath)")
+        Log.debug("about to upload: \(photo.photoInfo!.onlineStoragePath)")
         
         let firebaseRef = FIRDatabase.database().reference()
-        let userID = FIRAuth.auth()?.currentUser?.uid
-        let photoInfoKey = firebaseRef.child(PermanentConstants.realTimeDatabasePhotoInfo).childByAutoId().key
         
-        photo.photoInfo?.key = photoInfoKey
         
         let geoBlockKey = Location.sharedInstance.getGeoBlockKey()
         let bigGeoBlockKey = Location.sharedInstance.getBigGeoBlockKey()
         
-        let photoInfoToUpload = ["userID": userID!,
-                                   "name": (photo.photoInfo?.name)!,
-                                   "lat": (photo.photoInfo?.lat)!,
-                                   "lon": (photo.photoInfo?.lon)!,
-                                   "timeStamp": (photo.photoInfo?.timeStamp)!]
+        let photoInfoToUpload = ["userID": photo.photoInfo!.userKey,
+                                   "name": photo.photoInfo!.name,
+                                   "lat": photo.photoInfo!.lat,
+                                   "lon": photo.photoInfo!.lon,
+                                   "timeStamp": photo.photoInfo!.timeStamp]
         
-        let childUpdates = ["/PhotoEntities/\(photoInfoKey)": photoInfoToUpload,
-                            "/UserEntities/\(userID!)/PhotoEntities/\(photoInfoKey)/": photoInfoToUpload,
-                            "/BigGeoBlock/\(bigGeoBlockKey)/\(geoBlockKey)": 1,
-                            "/GeoBlock/\(geoBlockKey)/\(photoInfoKey)": (photo.photoInfo?.timeStamp)!]
+        let childUpdates = ["/\(PermanentConstants.realTimeDatabasePhotoInfo)/\(photo.photoInfo!.userKey)": photoInfoToUpload,
+                            "/\(PermanentConstants.realTimeDatabaseUserInfo)/\(photo.photoInfo!.userKey)/\(PermanentConstants.realTimeDatabasePhotoInfo)/\(photo.photoInfo!.userKey)/": 1,
+                            "/\(PermanentConstants.realTimeDatabaseBigGeoBlock)/\(bigGeoBlockKey)/\(geoBlockKey)": 1,
+                            "/\(PermanentConstants.realTimeDatabaseGeoBlock)/\(geoBlockKey)/\(photo.photoInfo!.userKey)": (photo.photoInfo?.timeStamp)!]
         
         firebaseRef.updateChildValues(childUpdates, withCompletionBlock: {(error,ref) in
             if(error != nil) {
@@ -82,8 +80,14 @@ extension ModelInterface: UploadInterfaceProtocol {
                 //completed(photoEntity: photoEntity)
             }
         })
+    }
+    
+    func createPhotoInfo() -> PhotoInfo {
+        let firebaseRef = FIRDatabase.database().reference()
+        let photoInfoKey = firebaseRef.child(PermanentConstants.realTimeDatabasePhotoInfo).childByAutoId().key
+        let userKey = FIRAuth.auth()?.currentUser?.uid
         
-        
+         return PhotoInfo(userKey: userKey!, photoInfoKey: photoInfoKey, lat: Location.sharedInstance.currentLat, lon: Location.sharedInstance.currentLat, timeStamp: NSDate().fireBaseImageTimeStamp())
     }
 }
 
