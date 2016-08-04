@@ -17,8 +17,12 @@ protocol GeoBlockable {
 
 extension GeoBlockable {
     func getGeoBlockKey(lat: CLLocationDegrees, lon: CLLocationDegrees) -> GeoBlockKey {
-        return "fff"
+        // Needed to multiply by 1000 because keys cannot contain '.'
+        let latString = formatGeoBlockKey(getGeoBlock(lat))
+        let lonString = formatGeoBlockKey(getGeoBlock(lon))
+        return "\(latString)_\(lonString)"
     }
+    
     func getBigGeoBlockKey(lat: CLLocationDegrees, lon: CLLocationDegrees) -> BigGeoBlockKey {
         return "fff"
     }
@@ -28,7 +32,7 @@ extension GeoBlockable {
     //                 1.23879 = 1.23500
     //                 -1.12345 = -1.12500
     //                 -1.23879 = -1.24000
-    func getGeoBlock(loc: CLLocationDegrees) -> CLLocationIntegers {
+    func getGeoBlock(loc: CLLocationDegrees) -> Int {
         //did not want to work with doubles because -4.5 is technically -4.50000000001
         let locInt = Int(loc * 1000)
         
@@ -50,21 +54,29 @@ extension GeoBlockable {
         let lastDigit = (locInt % 10)
         
         //positive numbers are floored such that the last digit is a 0 or a 5
-        if locInt > 0 {
+        if loc >= 0 {
             if lastDigit >= 0 && lastDigit < 5 {
                 return locInt - lastDigit
             } else {
                 return locInt - lastDigit + 5
             }
         }
-        //negative numbers are ceilinged such that the last digit is a 0 or a 5
+            //negative numbers are ceilinged such that the last digit is a 0 or a 5
         else {
             //if the number ends in a 5, assume that its not 0.00500000
-            if lastDigit < 0 && lastDigit > -5 {
+            if lastDigit <= 0 && lastDigit > -5 {
                 return locInt - lastDigit - 5
             } else {
                 return locInt - lastDigit - 10
             }
+        }
+    }
+    
+    private func formatGeoBlockKey(locInt: CLLocationIntegers) -> String {
+        if locInt < 0 {
+            return String(format: "%07d", locInt)
+        } else {
+            return String(format: "%06d", locInt)
         }
     }
 }
