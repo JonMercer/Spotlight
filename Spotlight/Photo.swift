@@ -14,15 +14,8 @@ class Photo {
     var photoInfo: PhotoInfo?
     var photoImage: UIImage
     
-    init(image: UIImage) {
+    init(image: UIImage, lat: CLLocationDegrees, lon: CLLocationDegrees, timeStamp: TimeStampString) {
         photoImage = image
+        photoInfo = PhotoInfo(lat: lat, lon: lon, timeStamp: timeStamp)
     }
-}
-
-extension Photo: PhotoInfoEditable {
-    func createPhotoInfo() {
-        //TODO: hardcoded get rid off
-        photoInfo = PhotoInfo(key: "test", lat: 0.0, lon: 0.0, timeStamp: NSDate().fireBaseImageTimeStamp())
-    }
-    
 }

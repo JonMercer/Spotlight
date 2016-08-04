@@ -56,37 +56,23 @@ extension ModelInterface: UploadInterfaceProtocol {
         
         let firebaseRef = FIRDatabase.database().reference()
         let userID = FIRAuth.auth()?.currentUser?.uid
+        let photoInfoKey = firebaseRef.child(PermanentConstants.realTimeDatabasePhotoInfo).childByAutoId().key
         
-        let photoKey = firebaseRef.child(PermanentConstants.realTimeDatabasePhotoInfo).childByAutoId().key
-        let imageTimeStamp = NSDate().fireBaseImageTimeStamp()
+        photo.photoInfo?.key = photoInfoKey
         
+        let geoBlockKey = Location.sharedInstance.getGeoBlockKey()
+        let bigGeoBlockKey = Location.sharedInstance.getBigGeoBlockKey()
         
+        let photoInfoToUpload = ["userID": userID!,
+                                   "name": (photo.photoInfo?.name)!,
+                                   "lat": (photo.photoInfo?.lat)!,
+                                   "lon": (photo.photoInfo?.lon)!,
+                                   "timeStamp": (photo.photoInfo?.timeStamp)!]
         
-        
-        //Refactor below...
-        let lat = LocationManager.sharedInstance.getCurrentLat()
-        let lon = LocationManager.sharedInstance.getCurrentLon()
-        let geoBlockKey = GeoUtil.getGeoBlockKeyByCurrentLatLon()
-        let bigGeoBlockKey: String = GeoUtil.getBigGeoBlockKeyByCurrentLatLon()
-        
-        let photoEntity = PhotoEntity(photoID: photoKey,
-                                      lat: lat,
-                                      lon: lon,
-                                      photoName: (photo.photoInfo?.onlineStoragePath)!,
-                                      timeStamp: imageTimeStamp)
-        
-        let photoEntityToUpload = ["userID": userID!,
-                                   "name": photoEntity.photoName,
-                                   "lat": photoEntity.lat,
-                                   "lon": photoEntity.lon,
-                                   "latBlock": LocationManager.sharedInstance.getLocationBlock(photoEntity.lat),
-                                   "lonBlock": LocationManager.sharedInstance.getLocationBlock(photoEntity.lon),
-                                   "timeStamp": photoEntity.timeStamp]
-        
-        let childUpdates = ["/PhotoEntities/\(photoKey)": photoEntityToUpload,
-                            "/UserEntities/\(userID!)/PhotoEntities/\(photoKey)/": photoEntityToUpload,
+        let childUpdates = ["/PhotoEntities/\(photoInfoKey)": photoInfoToUpload,
+                            "/UserEntities/\(userID!)/PhotoEntities/\(photoInfoKey)/": photoInfoToUpload,
                             "/BigGeoBlock/\(bigGeoBlockKey)/\(geoBlockKey)": 1,
-                            "/GeoBlock/\(geoBlockKey)/\(photoKey)": photoEntity.timeStamp]
+                            "/GeoBlock/\(geoBlockKey)/\(photoInfoKey)": (photo.photoInfo?.timeStamp)!]
         
         firebaseRef.updateChildValues(childUpdates, withCompletionBlock: {(error,ref) in
             if(error != nil) {

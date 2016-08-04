@@ -12,13 +12,13 @@ typealias FilePath = String
 typealias LocalURL = NSURL
 typealias StorageURL = NSURL
 typealias ImageName = String
-typealias PhotoEntityKey = String
+typealias PhotoEntityKey = String //DEPRECATE
+typealias PhotoInfoKey = String
 typealias GeoBlockKey = String
 typealias BigGeoBlockKey = String
 typealias OnlineStoragePath = String
 typealias CLLocationIntegers = Int //CLLocationDegress x 1000
-
-typealias PhotoInfoKey = String
+typealias TimeStampString = String
 
 enum Constants {
     static let albumName = "Spotlight"

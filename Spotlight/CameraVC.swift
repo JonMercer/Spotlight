@@ -65,15 +65,21 @@ extension CameraVC: CameraViewContainerDelegate {
     }
     
     func publishImage(image: UIImage) {
-        let photo = Photo(image: image)
-        photo.createPhotoInfo()
+        
+        //What a photo needs: image, timstamp, lat, lon
+        let photo = Photo(
+            image: image,
+            lat: Location.sharedInstance.currentLat,
+            lon: Location.sharedInstance.currentLon,
+            timeStamp: NSDate().fireBaseImageTimeStamp())
+        
         ModelInterface.sharedInstance.uploadPhoto(photo) { (err) in
             if err != nil {
-                //TODO: let the user know IPA-168
+                //TODO: let the user know SL-168
                 Log.error(err.debugDescription)
             } else {
                 ModelInterface.sharedInstance.uploadPhotoInfo(photo, completed: { (err) in
-                    //TODO: let the user know IPA-168
+                    //TODO: let the user know SL-168
                     Log.error(err.debugDescription)
                 })
             }
