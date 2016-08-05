@@ -63,14 +63,20 @@ extension ModelInterface: UploadInterfaceProtocol {
         
         let photoInfoToUpload = ["userID": photo.photoInfo!.userKey,
                                    "name": photo.photoInfo!.name,
-                                   "lat": photo.photoInfo!.lat,
-                                   "lon": photo.photoInfo!.lon,
-                                   "timeStamp": photo.photoInfo!.timeStamp]
+                                    "lat": photo.photoInfo!.lat,
+                                    "lon": photo.photoInfo!.lon,
+                              "timeStamp": photo.photoInfo!.timeStamp]
         
-        let childUpdates = ["/\(PermanentConstants.realTimeDatabasePhotoInfo)/\(photo.photoInfo!.key)": photoInfoToUpload,
-                            "/\(PermanentConstants.realTimeDatabaseUserInfo)/\(photo.photoInfo!.userKey)/\(PermanentConstants.realTimeDatabasePhotoInfo)/\(photo.photoInfo!.key)/": 1,
-                            "/\(PermanentConstants.realTimeDatabaseBigGeoBlock)/\(bigGeoBlockKey)/\(geoBlockKey)": 1,
-                            "/\(PermanentConstants.realTimeDatabaseGeoBlock)/\(geoBlockKey)/\(photo.photoInfo!.key)": (photo.photoInfo?.timeStamp)!]
+        //SL-171
+        let photoInfoAddress = "/\(PermanentConstants.realTimeDatabasePhotoInfo)/\(photo.photoInfo!.key)"
+        let userIndoAddress = "/\(PermanentConstants.realTimeDatabaseUserInfo)/\(photo.photoInfo!.userKey)/\(PermanentConstants.realTimeDatabasePhotoInfo)/\(photo.photoInfo!.key)/"
+        let bigGeoBlockAddress = "/\(PermanentConstants.realTimeDatabaseBigGeoBlock)/\(bigGeoBlockKey)/\(geoBlockKey)"
+        let geoBlockAddress = "/\(PermanentConstants.realTimeDatabaseGeoBlock)/\(geoBlockKey)/\(photo.photoInfo!.key)"
+        
+        let childUpdates = [photoInfoAddress: photoInfoToUpload,
+                            userIndoAddress: 1,
+                            bigGeoBlockAddress: 1,
+                            geoBlockAddress: (photo.photoInfo?.timeStamp)!]
         
         firebaseRef.updateChildValues(childUpdates, withCompletionBlock: {(error,ref) in
             if(error != nil) {
