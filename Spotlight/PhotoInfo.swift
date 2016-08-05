@@ -24,7 +24,7 @@ struct PhotoInfo {
         self.timeStamp = timeStamp
         self.key = photoInfoKey
         self.userKey = userKey
-        self.name = "\(timeStamp)-\(userKey)-\(key)-\(timeStamp)-\(String.locationToString(lat.description))-\(String.locationToString(lon.description))"
+        self.name = "\(timeStamp)-\(userKey)-\(key)-\(String.locationToString(lat.description))-\(String.locationToString(lon.description))"
         self.onlineStoragePath = "\(PermanentConstants.onlineStoragePhotoFolder)\(self.name).jpg"
     }
 }

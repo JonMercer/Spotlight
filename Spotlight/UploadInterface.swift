@@ -67,10 +67,10 @@ extension ModelInterface: UploadInterfaceProtocol {
                                    "lon": photo.photoInfo!.lon,
                                    "timeStamp": photo.photoInfo!.timeStamp]
         
-        let childUpdates = ["/\(PermanentConstants.realTimeDatabasePhotoInfo)/\(photo.photoInfo!.userKey)": photoInfoToUpload,
-                            "/\(PermanentConstants.realTimeDatabaseUserInfo)/\(photo.photoInfo!.userKey)/\(PermanentConstants.realTimeDatabasePhotoInfo)/\(photo.photoInfo!.userKey)/": 1,
+        let childUpdates = ["/\(PermanentConstants.realTimeDatabasePhotoInfo)/\(photo.photoInfo!.key)": photoInfoToUpload,
+                            "/\(PermanentConstants.realTimeDatabaseUserInfo)/\(photo.photoInfo!.userKey)/\(PermanentConstants.realTimeDatabasePhotoInfo)/\(photo.photoInfo!.key)/": 1,
                             "/\(PermanentConstants.realTimeDatabaseBigGeoBlock)/\(bigGeoBlockKey)/\(geoBlockKey)": 1,
-                            "/\(PermanentConstants.realTimeDatabaseGeoBlock)/\(geoBlockKey)/\(photo.photoInfo!.userKey)": (photo.photoInfo?.timeStamp)!]
+                            "/\(PermanentConstants.realTimeDatabaseGeoBlock)/\(geoBlockKey)/\(photo.photoInfo!.key)": (photo.photoInfo?.timeStamp)!]
         
         firebaseRef.updateChildValues(childUpdates, withCompletionBlock: {(error,ref) in
             if(error != nil) {
