@@ -59,9 +59,9 @@ extension PokeCameraVC: PokeCameraViewContainerDelegate {
         var urls = LocalStoragePhotoManager.getImageURLsInDirectory()
         urls.sortInPlace({ $0.lastPathComponent<$1.lastPathComponent })
         Log.debug("\(urls.last!.lastPathComponent)")
-        ModelInterface.sharedInstance.uploadPhoto(urls.last!) { (err) in
+        //ModelInterface.sharedInstance.uploadPhoto(urls.last!) { (err) in
             //TODO: handle error
-        }
+        //}
         self.createPhotoEntity(urls.last!.lastPathComponent!) {
             (photoEntity: PhotoEntity) in
             self.photoEntityLastUploaded = photoEntity

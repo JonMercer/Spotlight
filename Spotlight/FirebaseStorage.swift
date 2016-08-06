@@ -12,33 +12,6 @@ import Firebase
 
 extension ModelInterface: Storable {
     
-    func uploadPhoto(url: LocalURL, completionHandler: (err: ErrorType) -> ()) {
-        //"{(signedIn) in" is the same as "completionHandler: {(signedIn) in"
-        ModelInterface.sharedInstance.isUserSignedIn({(signedIn) in
-            if(!signedIn) {
-                //TODO: handle this
-            }
-            let storage = FIRStorage.storage()
-            let storageRef = storage.referenceForURL(FirebaseConstants.storageURL)
-            
-            let photoRef = storageRef.child("images/\(url.lastPathComponent!)")
-            
-            let uploadTask = photoRef.putFile(url, metadata: nil) { metadata, error in
-                if (error != nil) {
-                    print("ERROR \(NSDate().timeStamp()): Uploading image:\(url.lastPathComponent!) failed")
-                    completionHandler(err: StorageError.FailedUpload)
-                } else {
-                    // Metadata contains file metadata such as size, content-type, and download URL.
-                    
-                    //TODO:save this URL into FIR database
-                    let downloadURL = metadata!.downloadURL
-                    
-                    print("DEBUG \(NSDate().timeStamp()): Image:\(url.lastPathComponent!) uploaded.")
-                }
-            }
-        })
-    }
-    
     func downloadPhotoByName(name: ImageName, completionHandler: (err: ErrorType, image: UIImage) -> ()) {
         let storage = FIRStorage.storage()
         let storageRef = storage.referenceForURL(FirebaseConstants.storageURL)
