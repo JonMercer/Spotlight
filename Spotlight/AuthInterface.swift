@@ -10,6 +10,7 @@ import Foundation
 import Firebase
 
 /// Handles all of the user authentication
+/// - Todo: consider changing authentication method to phone numbers or Facebook
 protocol AuthInterfaceProtocol {
     /// Signs in the user on this device
     func signIn(completed: (err: ErrorType) -> ())
