@@ -18,11 +18,7 @@ class ModelInterface {
   static let sharedInstance = ModelInterface()
 }
 
-protocol DownloadInterfaceProtocol {
-    func getPhotosNearMe()
-    func getPhoto()
-    func getMyPhotos()
-}
+
 
 protocol EditInterfaceProtocol {
     func editPhotoDescription()
