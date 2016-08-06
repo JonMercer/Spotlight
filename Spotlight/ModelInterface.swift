@@ -18,13 +18,6 @@ class ModelInterface {
   static let sharedInstance = ModelInterface()
 }
 
-protocol AuthInterfaceProtocol {
-    func signIn()
-    func createUser()
-    func singOut()
-    func setUsername()
-}
-
 protocol DownloadInterfaceProtocol {
     func getPhotosNearMe()
     func getPhoto()

@@ -38,43 +38,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //TODO: put in launch screen
         CustomPhotoAlbum.init()
         
-        LocationManager.sharedInstance.customInit()
-        LocationManager.sharedInstance.startGettingLoc()
-        
         Location.sharedInstance.startGettingLoc()
-        signIn()
+        
+        ModelInterface.sharedInstance.signIn { (err) in
+            ModelInterface.sharedInstance.createUser({ (err) in
+                Log.error("Could not create a new user!")
+            })
+            
+            //TODO: consider creating username here
+        }
 
         //GADMobileAds.configureWithApplicationID("ca-app-pub-5958828933999537~6451639903");
-        //For stopping location manager
-        //manager.stopUpdatingLocation()
-        //manager.allowsBackgroundLocationUpdates = false
 
         
         return true
     }
-    
-    func signIn() {
-        let identifier: String = UIDevice.currentDevice().identifierForVendor!.UUIDString
-        //MARK: Log in
-        FIRAuth.auth()?.signInWithEmail("\(identifier)@pokespot.com", password: "123456") { (user, error) in
-            if (error != nil) {
-                Log.error("Could not log in creating a user:\(identifier)")
-                
-                //MARK: Create a user
-                FIRAuth.auth()?.createUserWithEmail("\(identifier)@pokespot.com", password: "123456") { (user, error) in
-                    if (error != nil) {
-                        Log.error("Could not create a user:\(identifier)")
-                    } else {
-                        Log.debug("Created a user:\(identifier)")
-                    }
-                }
-            } else {
-                Log.debug("User:\(identifier) logged in")
-            }
-        }
-    }
-    
-
     
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

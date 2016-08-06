@@ -60,6 +60,7 @@ extension ModelInterface: UploadInterfaceProtocol {
     
     func uploadPhotoInfo(photo: Photo, completed: (err: ErrorType?) -> ()) {
         guard photo.photoInfo != nil else {
+            //TODO: SL-167
             Log.error("photo info you tried to upload has photoPath")
             completed(err: UploadError.FailedUploadPhotoInfo)
             return
@@ -92,10 +93,12 @@ extension ModelInterface: UploadInterfaceProtocol {
         
         firebaseRef.updateChildValues(childUpdates, withCompletionBlock: {(error,ref) in
             if(error != nil) {
+                //TODO: SL-167
                 Log.error("Could not update image metadata of image:\(photo.photoInfo?.name)")
+                completed(err: UploadError.FailedUploadPhotoInfo)
             } else {
                 //TODO: return photo
-                //completed(photoEntity: photoEntity)
+                //completed(photo: photo)
             }
         })
     }

@@ -16,6 +16,7 @@
 		A45169701D46F9E60004D1A7 /* MapViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451696F1D46F9E60004D1A7 /* MapViewContainer.swift */; };
 		A45169721D46FA4A0004D1A7 /* MapViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45169711D46FA4A0004D1A7 /* MapViewVC.swift */; };
 		A451D9D41D455B4900436F1E /* GeoBlockEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451D9D31D455B4900436F1E /* GeoBlockEditor.swift */; };
+		A47148411D5697A500E5AE78 /* AuthInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47148401D5697A500E5AE78 /* AuthInterface.swift */; };
 		A48568DB1D37445200097B40 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48568DA1D37445200097B40 /* LocationManager.swift */; };
 		A4ADCDF01D375511002ECF61 /* PhotoEntityEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ADCDEF1D375511002ECF61 /* PhotoEntityEditor.swift */; };
 		A4E7D3D21D3DD33200609A1E /* NearMeViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4E7D3D11D3DD33200609A1E /* NearMeViewContainer.xib */; };
@@ -102,6 +103,7 @@
 		A451696F1D46F9E60004D1A7 /* MapViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewContainer.swift; sourceTree = "<group>"; };
 		A45169711D46FA4A0004D1A7 /* MapViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewVC.swift; sourceTree = "<group>"; };
 		A451D9D31D455B4900436F1E /* GeoBlockEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoBlockEditor.swift; sourceTree = "<group>"; };
+		A47148401D5697A500E5AE78 /* AuthInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthInterface.swift; sourceTree = "<group>"; };
 		A48568DA1D37445200097B40 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		A4ADCDEF1D375511002ECF61 /* PhotoEntityEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoEntityEditor.swift; sourceTree = "<group>"; };
 		A4E7D3D11D3DD33200609A1E /* NearMeViewContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearMeViewContainer.xib; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 			children = (
 				C825AFE51D330A9E00EE5B0E /* ModelInterface.swift */,
 				C83B726A1D4ED4290055E689 /* UploadInterface.swift */,
+				A47148401D5697A500E5AE78 /* AuthInterface.swift */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
@@ -713,6 +716,7 @@
 				C83B726E1D4ED5FE0055E689 /* Photo.swift in Sources */,
 				C876507B1D2066860092A75A /* ViewController.swift in Sources */,
 				A4E7D3D81D3DE2DD00609A1E /* NearMeViewContainerCell.swift in Sources */,
+				A47148411D5697A500E5AE78 /* AuthInterface.swift in Sources */,
 				A48568DB1D37445200097B40 /* LocationManager.swift in Sources */,
 				A45169701D46F9E60004D1A7 /* MapViewContainer.swift in Sources */,
 				A4E7D3D41D3DD36600609A1E /* NearMeViewContainer.swift in Sources */,

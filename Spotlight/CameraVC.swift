@@ -29,6 +29,14 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         
         
         //TODO: authenticate user sign in
+        let signedIn = ModelInterface.sharedInstance.isSignedIn()
+        
+        if(!signedIn) {
+            ModelInterface.sharedInstance.signIn({ (err) in
+                Log.error("Couldn't sign in user")
+                //TODO: handle
+            })
+        }
 
     }
     
