@@ -24,7 +24,11 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         super.viewDidLoad()
         setupViewContainer()
         
-        LocationManager.sharedInstance.startGettingLoc()
+        Location.sharedInstance.startGettingLoc()
+        Location.sharedInstance.getGeoBlock(0.0)
+        
+        
+        //TODO: authenticate user sign in
 
     }
     
@@ -61,18 +65,20 @@ extension CameraVC: CameraViewContainerDelegate {
     }
     
     func publishImage(image: UIImage) {
-        LocalStoragePhotoManager.saveImageLocal(image)
-        var urls = LocalStoragePhotoManager.getImageURLsInDirectory()
-        urls.sortInPlace({ $0.lastPathComponent<$1.lastPathComponent })
-        ModelInterface.sharedInstance.uploadPhoto(urls.last!) { (err) in
-            //TODO: handle error
-        }
+        let photo = Photo(image: image)
+        photo.photoInfo = ModelInterface.sharedInstance.createPhotoInfo()
         
-        self.createPhotoEntity(urls.last!.lastPathComponent!) {
-            (photoEntity: PhotoEntity) in
-            //TODO: handle
+        ModelInterface.sharedInstance.uploadPhoto(photo) { (err) in
+            if err != nil {
+                //TODO: let the user know SL-168
+                Log.error(err.debugDescription)
+            } else {
+                ModelInterface.sharedInstance.uploadPhotoInfo(photo, completed: { (err) in
+                    //TODO: let the user know SL-168
+                    Log.error(err.debugDescription)
+                })
+            }
         }
-        
     }
     
     func getLocation(photoID: PhotoEntityKey, completion: (lat: CLLocationDegrees, lon: CLLocationDegrees) -> Void) {

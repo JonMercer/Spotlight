@@ -46,18 +46,19 @@ class CameraViewContainer: UIView {
         if let photo = photoView.image {
             delegate?.publishImage(photo)
             
-            delegate?.getLocation(Constants.keySupposedToBeInFIR, completion: { (lat, lon) in
-                let camera = GMSCameraPosition.cameraWithLatitude(lat,longitude: lon, zoom: 6)
-                self.mapView.camera = camera
-                self.mapView.myLocationEnabled = true
-            
-                
-                let marker = GMSMarker()
-                marker.position = CLLocationCoordinate2DMake(lat,lon)
-                marker.title = "Sydney"
-                marker.snippet = "Australia"
-                marker.map = self.mapView
-            })
+            //TODO: this crashes the app. Should re-do it
+//            delegate?.getLocation(Constants.keySupposedToBeInFIR, completion: { (lat, lon) in
+//                let camera = GMSCameraPosition.cameraWithLatitude(lat,longitude: lon, zoom: 6)
+//                self.mapView.camera = camera
+//                self.mapView.myLocationEnabled = true
+//            
+//                
+//                let marker = GMSMarker()
+//                marker.position = CLLocationCoordinate2DMake(lat,lon)
+//                marker.title = "Sydney"
+//                marker.snippet = "Australia"
+//                marker.map = self.mapView
+//            })
             
             
         } else {

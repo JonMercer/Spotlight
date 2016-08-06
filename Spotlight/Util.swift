@@ -127,8 +127,16 @@ extension NSDate {
     
     func fireBaseImageTimeStamp() -> String {
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        formatter.dateFormat = "yyyy-MM-dd_HH_mm_ss"
         return formatter.stringFromDate(self)
+    }
+}
+
+extension Double {
+    /// Rounds the double to decimal places value
+    func roundToPlaces(places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return round(self * divisor) / divisor
     }
 }
 

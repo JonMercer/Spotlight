@@ -12,9 +12,14 @@ typealias FilePath = String
 typealias LocalURL = NSURL
 typealias StorageURL = NSURL
 typealias ImageName = String
-typealias PhotoEntityKey = String
+typealias PhotoEntityKey = String //DEPRECATE
+typealias PhotoInfoKey = String
+typealias UserKey = String
 typealias GeoBlockKey = String
 typealias BigGeoBlockKey = String
+typealias OnlineStoragePath = String
+typealias CLLocationIntegers = Int //CLLocationDegress x 1000
+typealias TimeStampString = String
 
 enum Constants {
     static let albumName = "Spotlight"
@@ -30,17 +35,52 @@ enum FilePathConstants {
     static let directoryURLPath = NSURL(fileURLWithPath: directoryStringPath)
 }
 
-enum FirebaseConstants {
-    static let storageURL = "gs://spotlight-5a0c3.appspot.com"
-}
+
 
 enum StorageError: ErrorType {
     case FailedUpload
     case FailedDownload
 }
 
+// MARK: - Interface Errors
+enum UploadError: ErrorType {
+    case FailedUploadPhoto
+    case FailedUploadPhotoInfo
+}
+
 enum Segues {
     static let toSingleMap = "segueToSingleMap"
     static let toGridView = "segueToGridView"
     static let toTabView = "segueToTabView"
+}
+
+// MARK: - Changeable backend information
+enum FirebaseConstants {
+    static let storageURL = "gs://spotlight-5a0c3.appspot.com"
+}
+
+// MARK: - Constants that should not be changed
+enum PermanentConstants {
+    static let onlineStoragePhotoFolder = "images/"
+    static let realTimeDatabasePhotoInfo = "PhotoInfo"
+    static let realTimeDatabaseUserInfo = "UserInfo"
+    static let realTimeDatabaseBigGeoBlock = "BigGeoBlock"
+    static let realTimeDatabaseGeoBlock = "GeoBlock"
+}
+
+// MARK: - Logging
+/**
+ A log level of debug will print out all levels above it.
+ So a log level of WARN will print out WARN, ERROR, and TEST
+ */
+enum LogLevel {
+    static let lvl = LogLevelChoices.DEBUG
+}
+
+enum LogLevelChoices {
+    static let DEBUG = 1
+    static let INFO = 2
+    static let WARN = 3
+    static let ERROR = 4
+    static let TEST = 5
 }

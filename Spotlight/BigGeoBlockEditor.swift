@@ -30,7 +30,7 @@ extension BigGeoBlockEditor {
             if !listOfKeys.isEmpty {
                 completion(listOfGeoBlockKeys: listOfKeys)
             } else {
-                Log.error("List of children is empty")
+                Log.debug("List of children is empty")
                 let emptyList = [GeoBlockKey]()
 
                 completion(listOfGeoBlockKeys: emptyList)

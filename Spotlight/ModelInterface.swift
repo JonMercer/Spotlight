@@ -17,3 +17,48 @@ import Foundation
 class ModelInterface {
   static let sharedInstance = ModelInterface()
 }
+
+protocol AuthInterfaceProtocol {
+    func signIn()
+    func createUser()
+    func singOut()
+    func setUsername()
+}
+
+protocol DownloadInterfaceProtocol {
+    func getPhotosNearMe()
+    func getPhoto()
+    func getMyPhotos()
+}
+
+protocol EditInterfaceProtocol {
+    func editPhotoDescription()
+    func editComment()
+}
+
+protocol OSResourcesInterfaceProtocol {
+    func savePhotoLocally()
+    func getLocation()
+    func getCurrentTime()
+}
+
+protocol CommunityInterfaceProtocol {
+    func addComment()
+    func thumbsUp()
+    func undoThumbsUp()
+    func deleteComment()
+    func flag()
+    func undoFlag()
+}
+
+protocol DeletionInterfaceProtocol {
+    func deletePhoto()
+    func deleteUser()
+}
+
+
+//extension ModelInterface:  {
+//    func uploadPhoto(<#parameters#>) -> <#return type#> {
+//        <#function body#>
+//    }
+//}

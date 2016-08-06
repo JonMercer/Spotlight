@@ -172,7 +172,7 @@
         <!--Spotted-->
         <scene sceneID="DRZ-kl-hqJ">
             <objects>
-                <viewController id="zUw-Ua-Tps" userLabel="Spotted" customClass="PokeCameraVC" customModule="Spotlight" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zUw-Ua-Tps" userLabel="Spotted" customClass="CameraVC" customModule="Spotlight" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FHG-JY-y9k"/>
                         <viewControllerLayoutGuide type="bottom" id="KD9-sE-GgE"/>
@@ -328,7 +328,7 @@
         <image name="PokeSpotLogo" width="400" height="113"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aeP-M8-OSB"/>
         <segue reference="oMN-ap-Ke9"/>
+        <segue reference="P6N-XF-oWu"/>
     </inferredMetricsTieBreakers>
 </document>
