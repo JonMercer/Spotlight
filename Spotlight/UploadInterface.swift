@@ -11,7 +11,7 @@ import Photos
 import Firebase
 
 /// Everything needed to upload to the database and storage. This includes key generation.
-/// - Attention: this class is tighly linked to Photo and PhotoInfo classes
+/// - Attention: this class is tightly linked to Photo and PhotoInfo classes
 protocol UploadInterfaceProtocol {
     /// Uploads a photo to online storage.
     /// - Requires: the user must be signed in
@@ -27,7 +27,7 @@ protocol UploadInterfaceProtocol {
     
     /// Generates a new photo info.
     /// This is here so that we can get firebase related stuff like keys
-    /// - Returns: PhotoIfo with names, keys, timestamp, lat, and lon
+    /// - Returns: PhotoInfo with names, keys, timestamp, lat, and lon
     func createPhotoInfo() -> PhotoInfo
 }
 
@@ -81,12 +81,12 @@ extension ModelInterface: UploadInterfaceProtocol {
         
         //SL-171
         let photoInfoAddress = "/\(PermanentConstants.realTimeDatabasePhotoInfo)/\(photo.photoInfo!.key)"
-        let userIndoAddress = "/\(PermanentConstants.realTimeDatabaseUserInfo)/\(photo.photoInfo!.userKey)/\(PermanentConstants.realTimeDatabasePhotoInfo)/\(photo.photoInfo!.key)/"
+        let userInfoAddress = "/\(PermanentConstants.realTimeDatabaseUserInfo)/\(photo.photoInfo!.userKey)/\(PermanentConstants.realTimeDatabasePhotoInfo)/\(photo.photoInfo!.key)/"
         let bigGeoBlockAddress = "/\(PermanentConstants.realTimeDatabaseBigGeoBlock)/\(bigGeoBlockKey)/\(geoBlockKey)"
         let geoBlockAddress = "/\(PermanentConstants.realTimeDatabaseGeoBlock)/\(geoBlockKey)/\(photo.photoInfo!.key)"
         
         let childUpdates = [photoInfoAddress: photoInfoToUpload,
-                            userIndoAddress: 1,
+                            userInfoAddress: 1,
                             bigGeoBlockAddress: 1,
                             geoBlockAddress: (photo.photoInfo?.timeStamp)!]
         

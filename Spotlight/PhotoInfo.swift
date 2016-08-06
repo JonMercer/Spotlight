@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-/// The everything needed to represent a photo's data according to the databse.
+/// The everything needed to represent a photo's data according to the database.
 /// This class should not include photo metadata like shutter speed.
 /// - Attention: this class is tighly coupled with UploadInterface. 
 /// - Todo: Consider creating a protocol to uphold a contract. SL-172
