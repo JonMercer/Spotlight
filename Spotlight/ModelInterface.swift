@@ -25,12 +25,6 @@ protocol EditInterfaceProtocol {
     func editComment()
 }
 
-protocol OSResourcesInterfaceProtocol {
-    func savePhotoLocally()
-    func getLocation()
-    func getCurrentTime()
-}
-
 protocol CommunityInterfaceProtocol {
     func addComment()
     func thumbsUp()

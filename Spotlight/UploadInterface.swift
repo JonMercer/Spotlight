@@ -38,7 +38,7 @@ extension ModelInterface: UploadInterfaceProtocol {
         
         if let onlinePath = photo.photoInfo?.onlineStoragePath {
             let photoRef = storageRef.child(onlinePath)
-            let imageData = UIImageJPEGRepresentation(photo.photoImage, 0.1)
+            let imageData = UIImageJPEGRepresentation(photo.photoImage, Constants.imageCompressionRatio)
             let metaData = FIRStorageMetadata()
             metaData.contentType = "image/jpeg"
             

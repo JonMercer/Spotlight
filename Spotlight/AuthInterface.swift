@@ -75,8 +75,6 @@ extension ModelInterface: AuthInterfaceProtocol {
         
         firebaseRef.updateChildValues(update, withCompletionBlock: {(error,ref) in
             if(error != nil) {
-                //TODO: SL-167
-                Log.error("Could not update username:\(name)")
                 completed(err: AuthError.FailedSetUsername)
             } else {
                 //TODO: return username

@@ -34,7 +34,7 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         if(!signedIn) {
             ModelInterface.sharedInstance.signIn({ (err) in
                 Log.error("Couldn't sign in user")
-                //TODO: handle
+                //TODO: handle error
             })
         }
 
@@ -75,6 +75,7 @@ extension CameraVC: CameraViewContainerDelegate {
     func publishImage(image: UIImage) {
         let photo = Photo(image: image)
         photo.photoInfo = ModelInterface.sharedInstance.createPhotoInfo()
+        photo.resizeImage()
         
         ModelInterface.sharedInstance.uploadPhoto(photo) { (err) in
             if err != nil {
