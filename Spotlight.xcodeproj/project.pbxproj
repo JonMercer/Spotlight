@@ -17,6 +17,8 @@
 		A45169721D46FA4A0004D1A7 /* MapViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45169711D46FA4A0004D1A7 /* MapViewVC.swift */; };
 		A451D9D41D455B4900436F1E /* GeoBlockEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451D9D31D455B4900436F1E /* GeoBlockEditor.swift */; };
 		A47148411D5697A500E5AE78 /* AuthInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47148401D5697A500E5AE78 /* AuthInterface.swift */; };
+		A47148451D56AEB100E5AE78 /* OSResourcesInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47148441D56AEB100E5AE78 /* OSResourcesInterface.swift */; };
+		A47148471D56B0E500E5AE78 /* NSDateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47148461D56B0E500E5AE78 /* NSDateUtil.swift */; };
 		A48568DB1D37445200097B40 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48568DA1D37445200097B40 /* LocationManager.swift */; };
 		A4ADCDF01D375511002ECF61 /* PhotoEntityEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ADCDEF1D375511002ECF61 /* PhotoEntityEditor.swift */; };
 		A4E7D3D21D3DD33200609A1E /* NearMeViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4E7D3D11D3DD33200609A1E /* NearMeViewContainer.xib */; };
@@ -102,6 +104,8 @@
 		A45169711D46FA4A0004D1A7 /* MapViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewVC.swift; sourceTree = "<group>"; };
 		A451D9D31D455B4900436F1E /* GeoBlockEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoBlockEditor.swift; sourceTree = "<group>"; };
 		A47148401D5697A500E5AE78 /* AuthInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthInterface.swift; sourceTree = "<group>"; };
+		A47148441D56AEB100E5AE78 /* OSResourcesInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSResourcesInterface.swift; sourceTree = "<group>"; };
+		A47148461D56B0E500E5AE78 /* NSDateUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateUtil.swift; sourceTree = "<group>"; };
 		A48568DA1D37445200097B40 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		A4ADCDEF1D375511002ECF61 /* PhotoEntityEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoEntityEditor.swift; sourceTree = "<group>"; };
 		A4E7D3D11D3DD33200609A1E /* NearMeViewContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearMeViewContainer.xib; sourceTree = "<group>"; };
@@ -253,6 +257,7 @@
 				C858A75F1D51972A00140222 /* Locatable.swift */,
 				C858A75D1D5196FB00140222 /* GeoBlockable.swift */,
 				C83B72711D4EEEA10055E689 /* StringUtil.swift */,
+				A47148461D56B0E500E5AE78 /* NSDateUtil.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 				C825AFE51D330A9E00EE5B0E /* ModelInterface.swift */,
 				C83B726A1D4ED4290055E689 /* UploadInterface.swift */,
 				A47148401D5697A500E5AE78 /* AuthInterface.swift */,
+				A47148441D56AEB100E5AE78 /* OSResourcesInterface.swift */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
@@ -711,6 +717,7 @@
 				C87650791D2066860092A75A /* AppDelegate.swift in Sources */,
 				C8C2153D1D2F3F130099FBB3 /* FeedbackViewContainer.swift in Sources */,
 				A45169721D46FA4A0004D1A7 /* MapViewVC.swift in Sources */,
+				A47148471D56B0E500E5AE78 /* NSDateUtil.swift in Sources */,
 				C825AFE61D330A9E00EE5B0E /* ModelInterface.swift in Sources */,
 				7D4E28681D2CB82000F8E574 /* SingleViewCell.swift in Sources */,
 				C8BFBE101D23670200246DA1 /* LocalStoragePhotoManager.swift in Sources */,
@@ -723,6 +730,7 @@
 				C83B72721D4EEEA20055E689 /* StringUtil.swift in Sources */,
 				C86CEA4B1D486BD5002C406A /* LoadingVC.swift in Sources */,
 				C858A75E1D5196FB00140222 /* GeoBlockable.swift in Sources */,
+				A47148451D56AEB100E5AE78 /* OSResourcesInterface.swift in Sources */,
 				C825AFEC1D330F0C00EE5B0E /* FirebaseStorage.swift in Sources */,
 				C83780B21D472779008690E0 /* PokeCameraVC.swift in Sources */,
 				C86CED8B1D209A9100B70FF0 /* CustomPhotoAlbum.swift in Sources */,
