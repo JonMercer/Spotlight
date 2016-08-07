@@ -83,7 +83,7 @@ enum PermanentConstants {
  So a log level of WARN will print out WARN, ERROR, and TEST
  */
 enum LogLevel {
-    static let lvl = LogLevelChoices.TEST
+    static let lvl = LogLevelChoices.DEBUG
 }
 
 enum LogLevelChoices {
