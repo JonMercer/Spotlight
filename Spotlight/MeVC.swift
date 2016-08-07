@@ -33,7 +33,7 @@ class MeVC: UIViewController{
         let filePath = (FilePathConstants.directoryStringPath as NSString).stringByAppendingPathComponent(fileName)
 
         
-        TakenPhotoView.image = LocalStoragePhotoManager.loadLocalImage(filePath)
+        TakenPhotoView.image = ModelInterface.sharedInstance.loadLocalImage(filePath)
     }
     
     

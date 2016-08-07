@@ -17,7 +17,7 @@ class DeviceOwnerPhotoManager {
     // TODO: handle if no if imagePathNames empty
     
     func getFirstImage() -> UIImage {
-        return LocalStoragePhotoManager.loadLocalImageByName(imagePathNames[0])
+        return ModelInterface.sharedInstance.loadLocalImageByName(imagePathNames[0])
     }
     
     func nextImage() -> UIImage {
@@ -25,7 +25,7 @@ class DeviceOwnerPhotoManager {
             imageIndex += 1
         }
         
-        return LocalStoragePhotoManager.loadLocalImageByName(imagePathNames[imageIndex])
+        return ModelInterface.sharedInstance.loadLocalImageByName(imagePathNames[imageIndex])
     }
     
     func prevImage() -> UIImage {
@@ -33,12 +33,12 @@ class DeviceOwnerPhotoManager {
             imageIndex -= 1
         }
         
-        return LocalStoragePhotoManager.loadLocalImageByName(imagePathNames[imageIndex])
+        return ModelInterface.sharedInstance.loadLocalImageByName(imagePathNames[imageIndex])
     }
     
     func updateImages() {
         //TODO check emptyness
-        imagePathNames = LocalStoragePhotoManager.getImageNamesInDirectory()
+        imagePathNames = ModelInterface.sharedInstance.getImageNamesInDirectory()
     }
     
 }
