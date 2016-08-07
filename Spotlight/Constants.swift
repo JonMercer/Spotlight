@@ -20,6 +20,7 @@ typealias BigGeoBlockKey = String
 typealias OnlineStoragePath = String
 typealias CLLocationIntegers = Int //CLLocationDegress x 1000
 typealias TimeStampString = String
+typealias Username = String
 
 enum Constants {
     static let albumName = "Spotlight"
@@ -48,6 +49,13 @@ enum UploadError: ErrorType {
     case FailedUploadPhotoInfo
 }
 
+enum AuthError: ErrorType {
+    case FailedSignIn
+    case FailedUserCreation
+    case FailedSignOut
+    case FailedSetUsername
+}
+
 enum Segues {
     static let toSingleMap = "segueToSingleMap"
     static let toGridView = "segueToGridView"
@@ -57,6 +65,7 @@ enum Segues {
 // MARK: - Changeable backend information
 enum FirebaseConstants {
     static let storageURL = "gs://spotlight-5a0c3.appspot.com"
+    static let emailDomain = "@spotlight.com"
 }
 
 // MARK: - Constants that should not be changed
