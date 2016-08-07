@@ -55,8 +55,10 @@ extension PokeCameraVC: PokeCameraViewContainerDelegate {
     }
     
     func publishImage(image: UIImage, completion: () -> ()) {
-        LocalStoragePhotoManager.saveImageLocal(image)
-        var urls = LocalStoragePhotoManager.getImageURLsInDirectory()
+        ModelInterface.sharedInstance.savePhotoLocally(Photo(image: image), completed: { (err) in
+            //TODO delete this
+        })
+        var urls = ModelInterface.sharedInstance.getImageURLsInDirectory()
         urls.sortInPlace({ $0.lastPathComponent<$1.lastPathComponent })
         Log.debug("\(urls.last!.lastPathComponent)")
         //ModelInterface.sharedInstance.uploadPhoto(urls.last!) { (err) in

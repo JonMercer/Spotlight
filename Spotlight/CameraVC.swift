@@ -75,6 +75,7 @@ extension CameraVC: CameraViewContainerDelegate {
     func publishImage(image: UIImage) {
         let photo = Photo(image: image)
         photo.photoInfo = ModelInterface.sharedInstance.createPhotoInfo()
+        photo.resizeImage()
         
         ModelInterface.sharedInstance.uploadPhoto(photo) { (err) in
             if err != nil {

@@ -12,11 +12,14 @@
 		7D4E28661D2CB61500F8E574 /* SingleListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4E28651D2CB61500F8E574 /* SingleListVC.swift */; };
 		7D4E28681D2CB82000F8E574 /* SingleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4E28671D2CB82000F8E574 /* SingleViewCell.swift */; };
 		7D9B41C61D2139B800B8389A /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9B41C51D2139B800B8389A /* MeVC.swift */; };
+		A400BFA81D57C59F00AE20D7 /* Photoshopable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A400BFA71D57C59F00AE20D7 /* Photoshopable.swift */; };
 		A451696E1D46F9C80004D1A7 /* MapViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = A451696D1D46F9C80004D1A7 /* MapViewContainer.xib */; };
 		A45169701D46F9E60004D1A7 /* MapViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451696F1D46F9E60004D1A7 /* MapViewContainer.swift */; };
 		A45169721D46FA4A0004D1A7 /* MapViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45169711D46FA4A0004D1A7 /* MapViewVC.swift */; };
 		A451D9D41D455B4900436F1E /* GeoBlockEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451D9D31D455B4900436F1E /* GeoBlockEditor.swift */; };
 		A47148411D5697A500E5AE78 /* AuthInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47148401D5697A500E5AE78 /* AuthInterface.swift */; };
+		A47148451D56AEB100E5AE78 /* OSResourcesInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47148441D56AEB100E5AE78 /* OSResourcesInterface.swift */; };
+		A47148471D56B0E500E5AE78 /* NSDateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47148461D56B0E500E5AE78 /* NSDateUtil.swift */; };
 		A48568DB1D37445200097B40 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48568DA1D37445200097B40 /* LocationManager.swift */; };
 		A4ADCDF01D375511002ECF61 /* PhotoEntityEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ADCDEF1D375511002ECF61 /* PhotoEntityEditor.swift */; };
 		A4E7D3D21D3DD33200609A1E /* NearMeViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4E7D3D11D3DD33200609A1E /* NearMeViewContainer.xib */; };
@@ -57,7 +60,6 @@
 		C8A6E0A51D453EB1000649A0 /* PhotoEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A6E0A41D453EB1000649A0 /* PhotoEntities.swift */; };
 		C8A6E0A71D456FEB000649A0 /* BigGeoBlockEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A6E0A61D456FEB000649A0 /* BigGeoBlockEditor.swift */; };
 		C8A6E0A91D457666000649A0 /* GeoUtilTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A6E0A81D457666000649A0 /* GeoUtilTest.swift */; };
-		C8BFBE101D23670200246DA1 /* LocalStoragePhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BFBE0F1D23670200246DA1 /* LocalStoragePhotoManager.swift */; };
 		C8BFBE121D23762400246DA1 /* DeviceOwnerPhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BFBE111D23762400246DA1 /* DeviceOwnerPhotoManager.swift */; };
 		C8C2153B1D2F3EAC0099FBB3 /* FeedbackViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8C2153A1D2F3EAC0099FBB3 /* FeedbackViewContainer.xib */; };
 		C8C2153D1D2F3F130099FBB3 /* FeedbackViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C2153C1D2F3F130099FBB3 /* FeedbackViewContainer.swift */; };
@@ -97,11 +99,14 @@
 		7D4E28651D2CB61500F8E574 /* SingleListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleListVC.swift; sourceTree = "<group>"; };
 		7D4E28671D2CB82000F8E574 /* SingleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleViewCell.swift; sourceTree = "<group>"; };
 		7D9B41C51D2139B800B8389A /* MeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
+		A400BFA71D57C59F00AE20D7 /* Photoshopable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photoshopable.swift; sourceTree = "<group>"; };
 		A451696D1D46F9C80004D1A7 /* MapViewContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewContainer.xib; sourceTree = "<group>"; };
 		A451696F1D46F9E60004D1A7 /* MapViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewContainer.swift; sourceTree = "<group>"; };
 		A45169711D46FA4A0004D1A7 /* MapViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewVC.swift; sourceTree = "<group>"; };
 		A451D9D31D455B4900436F1E /* GeoBlockEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoBlockEditor.swift; sourceTree = "<group>"; };
 		A47148401D5697A500E5AE78 /* AuthInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthInterface.swift; sourceTree = "<group>"; };
+		A47148441D56AEB100E5AE78 /* OSResourcesInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSResourcesInterface.swift; sourceTree = "<group>"; };
+		A47148461D56B0E500E5AE78 /* NSDateUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateUtil.swift; sourceTree = "<group>"; };
 		A48568DA1D37445200097B40 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		A4ADCDEF1D375511002ECF61 /* PhotoEntityEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoEntityEditor.swift; sourceTree = "<group>"; };
 		A4E7D3D11D3DD33200609A1E /* NearMeViewContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearMeViewContainer.xib; sourceTree = "<group>"; };
@@ -148,7 +153,6 @@
 		C8A6E0A41D453EB1000649A0 /* PhotoEntities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoEntities.swift; sourceTree = "<group>"; };
 		C8A6E0A61D456FEB000649A0 /* BigGeoBlockEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigGeoBlockEditor.swift; sourceTree = "<group>"; };
 		C8A6E0A81D457666000649A0 /* GeoUtilTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoUtilTest.swift; sourceTree = "<group>"; };
-		C8BFBE0F1D23670200246DA1 /* LocalStoragePhotoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStoragePhotoManager.swift; sourceTree = "<group>"; };
 		C8BFBE111D23762400246DA1 /* DeviceOwnerPhotoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceOwnerPhotoManager.swift; sourceTree = "<group>"; };
 		C8C2153A1D2F3EAC0099FBB3 /* FeedbackViewContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackViewContainer.xib; sourceTree = "<group>"; };
 		C8C2153C1D2F3F130099FBB3 /* FeedbackViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewContainer.swift; sourceTree = "<group>"; };
@@ -244,7 +248,6 @@
 			isa = PBXGroup;
 			children = (
 				A4FB11931D20914B001F36F2 /* Constants.swift */,
-				C8BFBE0F1D23670200246DA1 /* LocalStoragePhotoManager.swift */,
 				C8BFBE111D23762400246DA1 /* DeviceOwnerPhotoManager.swift */,
 				C81E90761D388E270022845B /* Log.swift */,
 				C825AFED1D33127A00EE5B0E /* Util.swift */,
@@ -253,6 +256,8 @@
 				C858A75F1D51972A00140222 /* Locatable.swift */,
 				C858A75D1D5196FB00140222 /* GeoBlockable.swift */,
 				C83B72711D4EEEA10055E689 /* StringUtil.swift */,
+				A47148461D56B0E500E5AE78 /* NSDateUtil.swift */,
+				A400BFA71D57C59F00AE20D7 /* Photoshopable.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 				C825AFE51D330A9E00EE5B0E /* ModelInterface.swift */,
 				C83B726A1D4ED4290055E689 /* UploadInterface.swift */,
 				A47148401D5697A500E5AE78 /* AuthInterface.swift */,
+				A47148441D56AEB100E5AE78 /* OSResourcesInterface.swift */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
@@ -700,6 +706,7 @@
 				C83B726B1D4ED4290055E689 /* UploadInterface.swift in Sources */,
 				C81E90771D388E270022845B /* Log.swift in Sources */,
 				C83B726E1D4ED5FE0055E689 /* Photo.swift in Sources */,
+				A400BFA81D57C59F00AE20D7 /* Photoshopable.swift in Sources */,
 				C876507B1D2066860092A75A /* ViewController.swift in Sources */,
 				A4E7D3D81D3DE2DD00609A1E /* NearMeViewContainerCell.swift in Sources */,
 				A47148411D5697A500E5AE78 /* AuthInterface.swift in Sources */,
@@ -711,9 +718,9 @@
 				C87650791D2066860092A75A /* AppDelegate.swift in Sources */,
 				C8C2153D1D2F3F130099FBB3 /* FeedbackViewContainer.swift in Sources */,
 				A45169721D46FA4A0004D1A7 /* MapViewVC.swift in Sources */,
+				A47148471D56B0E500E5AE78 /* NSDateUtil.swift in Sources */,
 				C825AFE61D330A9E00EE5B0E /* ModelInterface.swift in Sources */,
 				7D4E28681D2CB82000F8E574 /* SingleViewCell.swift in Sources */,
-				C8BFBE101D23670200246DA1 /* LocalStoragePhotoManager.swift in Sources */,
 				C8A6E0A71D456FEB000649A0 /* BigGeoBlockEditor.swift in Sources */,
 				7D4E28661D2CB61500F8E574 /* SingleListVC.swift in Sources */,
 				C8D136371D2077760005F018 /* CameraVC.swift in Sources */,
@@ -723,6 +730,7 @@
 				C83B72721D4EEEA20055E689 /* StringUtil.swift in Sources */,
 				C86CEA4B1D486BD5002C406A /* LoadingVC.swift in Sources */,
 				C858A75E1D5196FB00140222 /* GeoBlockable.swift in Sources */,
+				A47148451D56AEB100E5AE78 /* OSResourcesInterface.swift in Sources */,
 				C825AFEC1D330F0C00EE5B0E /* FirebaseStorage.swift in Sources */,
 				C83780B21D472779008690E0 /* PokeCameraVC.swift in Sources */,
 				C86CED8B1D209A9100B70FF0 /* CustomPhotoAlbum.swift in Sources */,
