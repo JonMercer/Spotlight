@@ -10,21 +10,22 @@ import Foundation
 import CoreLocation
 import Photos
 
+/// Contains most of the functionality for hardware related actions
+/// - Attention: Does not handle location nor time
+/// - Todo: Add collecting phone numbers and refactor last few functions
 protocol OSResourcesInterfaceProtocol {
     func savePhotoLocally(photo: Photo, completed: (err: ErrorType) -> ())
-    func getLocation() -> (lat: CLLocationDegrees, lon: CLLocationDegrees)
-    func getCurrentTime()
 }
 
 extension ModelInterface: OSResourcesInterfaceProtocol {
     func savePhotoLocally(photo: Photo, completed: (err: ErrorType) -> ()) {
-        let compressedImage = self.resizeImage(photo.photoImage, newWidth: CGFloat(Constants.compressedImageWidth))
+        photo.resizeImage()
    
         // Convert PhotoView.image into a JPEG representation with full resolution
-        let imageJPEG = UIImageJPEGRepresentation(compressedImage, 1.0)!
+        let imageJPEG = UIImageJPEGRepresentation(photo.photoImage, 1.0)!
         let imageData = NSData(data: imageJPEG)
         
-        //TODO: simplify
+        //TODO: simplify (try logging this to figure out)
         let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first! as String
         
         let dateString = NSDate().fireBaseImageTimeStamp()
@@ -38,27 +39,44 @@ extension ModelInterface: OSResourcesInterfaceProtocol {
         }
     }
     
-    func getLocation() -> (lat: CLLocationDegrees, lon: CLLocationDegrees) {
-        let lat = Location.sharedInstance.currentLat;
-        let lon = Location.sharedInstance.currentLon;
+    
+    
+    
+    //MARK: - TODO: refactor below
+    func loadLocalImage(path: FilePath) -> UIImage {
+        // The file is stored in the app's file system.  Now retrieve it and convert it back to an image.
         
-        return (lat: lat, lon: lon)
+        //TODO use constant?
+        let dir = NSURL(fileURLWithPath: path)
+        let retrievedData = NSData(contentsOfURL: dir)
+        return UIImage(data:retrievedData!)!
     }
     
-    func getCurrentTime() {
-        
+    func loadLocalImageByName(fileName: String) -> UIImage {
+        let filePath = (FilePathConstants.directoryStringPath as NSString).stringByAppendingPathComponent(fileName+".jpg")
+        return self.loadLocalImage(filePath)
     }
     
-    private func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
-        let scale = newWidth / image.size.width
-        let newHeight = image.size.height * scale
-        
-        UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight))
-        image.drawInRect(CGRectMake(0, 0, newWidth, newHeight))
-        
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return newImage
+    func getImageURLsInDirectory() -> [NSURL] {
+        do {
+            // Get the directory contents urls (including subfolders urls)
+            let directoryContents = try NSFileManager.defaultManager().contentsOfDirectoryAtURL( FilePathConstants.directoryURLPath, includingPropertiesForKeys: nil, options: [])
+            //            print(directoryContents)
+            
+            // if you want to filter the directory contents you can do like this:
+            let jpgFiles = directoryContents.filter{ $0.pathExtension == "jpg" }
+            //print("image(jpg) urls:",jpgFiles)
+            
+            return jpgFiles;
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        //TODO: fix this. It should return something meaningful or throw an error
+        return [NSURL()]
     }
+    
+    func getImageNamesInDirectory() -> [String] {
+        return self.getImageURLsInDirectory().flatMap({$0.URLByDeletingPathExtension?.lastPathComponent})
+    }
+    
 }

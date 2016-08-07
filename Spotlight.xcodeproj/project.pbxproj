@@ -12,6 +12,7 @@
 		7D4E28661D2CB61500F8E574 /* SingleListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4E28651D2CB61500F8E574 /* SingleListVC.swift */; };
 		7D4E28681D2CB82000F8E574 /* SingleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4E28671D2CB82000F8E574 /* SingleViewCell.swift */; };
 		7D9B41C61D2139B800B8389A /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9B41C51D2139B800B8389A /* MeVC.swift */; };
+		A400BFA81D57C59F00AE20D7 /* Photoshopable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A400BFA71D57C59F00AE20D7 /* Photoshopable.swift */; };
 		A451696E1D46F9C80004D1A7 /* MapViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = A451696D1D46F9C80004D1A7 /* MapViewContainer.xib */; };
 		A45169701D46F9E60004D1A7 /* MapViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451696F1D46F9E60004D1A7 /* MapViewContainer.swift */; };
 		A45169721D46FA4A0004D1A7 /* MapViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45169711D46FA4A0004D1A7 /* MapViewVC.swift */; };
@@ -99,6 +100,7 @@
 		7D4E28651D2CB61500F8E574 /* SingleListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleListVC.swift; sourceTree = "<group>"; };
 		7D4E28671D2CB82000F8E574 /* SingleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleViewCell.swift; sourceTree = "<group>"; };
 		7D9B41C51D2139B800B8389A /* MeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
+		A400BFA71D57C59F00AE20D7 /* Photoshopable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photoshopable.swift; sourceTree = "<group>"; };
 		A451696D1D46F9C80004D1A7 /* MapViewContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewContainer.xib; sourceTree = "<group>"; };
 		A451696F1D46F9E60004D1A7 /* MapViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewContainer.swift; sourceTree = "<group>"; };
 		A45169711D46FA4A0004D1A7 /* MapViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewVC.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				C858A75D1D5196FB00140222 /* GeoBlockable.swift */,
 				C83B72711D4EEEA10055E689 /* StringUtil.swift */,
 				A47148461D56B0E500E5AE78 /* NSDateUtil.swift */,
+				A400BFA71D57C59F00AE20D7 /* Photoshopable.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -706,6 +709,7 @@
 				C83B726B1D4ED4290055E689 /* UploadInterface.swift in Sources */,
 				C81E90771D388E270022845B /* Log.swift in Sources */,
 				C83B726E1D4ED5FE0055E689 /* Photo.swift in Sources */,
+				A400BFA81D57C59F00AE20D7 /* Photoshopable.swift in Sources */,
 				C876507B1D2066860092A75A /* ViewController.swift in Sources */,
 				A4E7D3D81D3DE2DD00609A1E /* NearMeViewContainerCell.swift in Sources */,
 				A47148411D5697A500E5AE78 /* AuthInterface.swift in Sources */,
