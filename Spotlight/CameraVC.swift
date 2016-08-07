@@ -34,7 +34,7 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         if(!signedIn) {
             ModelInterface.sharedInstance.signIn({ (err) in
                 Log.error("Couldn't sign in user")
-                //TODO: handle
+                //TODO: handle error
             })
         }
 
