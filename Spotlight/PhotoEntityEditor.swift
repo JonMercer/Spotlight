@@ -63,10 +63,10 @@ extension PhotoEntityEditor {
         let photoKey = firebaseRef.child("PhotoEntities").childByAutoId().key
         
         let imageTimeStamp = NSDate().fireBaseImageTimeStamp()
-        let lat = LocationManager.sharedInstance.getCurrentLat()
-        let lon = LocationManager.sharedInstance.getCurrentLon()
-        let geoBlockKey = GeoUtil.getGeoBlockKeyByCurrentLatLon()
-        let bigGeoBlockKey: String = GeoUtil.getBigGeoBlockKeyByCurrentLatLon()
+        let lat = Location.sharedInstance.currentLat
+        let lon = Location.sharedInstance.currentLon
+        let geoBlockKey = Location.sharedInstance.getGeoBlockKey()
+        let bigGeoBlockKey: String = Location.sharedInstance.getBigGeoBlockKey()
         
         let photoEntity = PhotoEntity(photoID: photoKey,
                                       lat: lat,
@@ -78,8 +78,8 @@ extension PhotoEntityEditor {
                        "name": photoEntity.photoName,
                        "lat": photoEntity.lat,
                        "lon": photoEntity.lon,
-                       "latBlock": LocationManager.sharedInstance.getLocationBlock(photoEntity.lat),
-                       "lonBlock": LocationManager.sharedInstance.getLocationBlock(photoEntity.lon),
+                       "latBlock": Location.sharedInstance.getGeoBlock(photoEntity.lat),
+                       "lonBlock": Location.sharedInstance.getGeoBlock(photoEntity.lon),
                        "timeStamp": photoEntity.timeStamp]
         
         let childUpdates = ["/PhotoEntities/\(photoKey)": photoEntityToUpload,

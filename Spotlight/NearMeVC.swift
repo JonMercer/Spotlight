@@ -110,15 +110,6 @@ extension NearMeVC: NearMeViewContainerDelegate {
     
 }
 
-//MARK: - GeoBlockEditor
-extension NearMeVC: GeoBlockEditor {
-    
-}
-
-//MARK: - BigGeoBlockEditor
-extension NearMeVC: BigGeoBlockEditor {
-    
-}
 
 //MARK: - PhotoEntityEditor
 extension NearMeVC: PhotoEntityEditor {
