@@ -78,24 +78,25 @@ class NearMeVC: UIViewController {
 //MARK: - NearMeViewContainerDelegate
 extension NearMeVC: NearMeViewContainerDelegate {
     func populateImage(cellImage: UIImageView, index: Int) {
-        if(self.photoEntitiesInGrid != nil) {
-            self.getPhotoEntity(self.photoEntitiesInGrid![index], completion: { (photoEntity) in
-                ModelInterface.sharedInstance.downloadPhotoByName(photoEntity.getPhotoName()) { (err, image) in
-                    cellImage.image = image
-                }
-            })
-        }
+//        if(self.photoEntitiesInGrid != nil) {
+//            self.getPhotoEntity(self.photoEntitiesInGrid![index], completion: { (photoEntity) in
+//                ModelInterface.sharedInstance.downloadPhotoByName(photoEntity.getPhotoName()) { (err, image) in
+//                    cellImage.image = image
+//                }
+//            })
+//        }
+        
     }
     
     func grabPhotoEntityKeysInBigGeoBlocks(completion: () -> ()) {
-        let currentBigBlockKey = GeoUtil.getBigGeoBlockKeyByCurrentLatLon()
-        Log.debug(currentBigBlockKey)
-        getNeighbouringBigGeoBlockContent(currentBigBlockKey) { (listOfGeoBlockKeys) in
-            self.getPhotoKeysInGeoBlocks(listOfGeoBlockKeys, completion: { (listOfPhotoEntities) in
-                self.photoEntitiesInGrid = listOfPhotoEntities
-                completion()
-            })
-        }
+//        let currentBigBlockKey = GeoUtil.getBigGeoBlockKeyByCurrentLatLon()
+//        Log.debug(currentBigBlockKey)
+//        getNeighbouringBigGeoBlockContent(currentBigBlockKey) { (listOfGeoBlockKeys) in
+//            self.getPhotoKeysInGeoBlocks(listOfGeoBlockKeys, completion: { (listOfPhotoEntities) in
+//                self.photoEntitiesInGrid = listOfPhotoEntities
+//                completion()
+//            })
+//        }
     }
     
     func getNumberOfCellImages() -> Int {
@@ -109,15 +110,6 @@ extension NearMeVC: NearMeViewContainerDelegate {
     
 }
 
-//MARK: - GeoBlockEditor
-extension NearMeVC: GeoBlockEditor {
-    
-}
-
-//MARK: - BigGeoBlockEditor
-extension NearMeVC: BigGeoBlockEditor {
-    
-}
 
 //MARK: - PhotoEntityEditor
 extension NearMeVC: PhotoEntityEditor {

@@ -61,7 +61,7 @@ extension ModelInterface: UploadInterfaceProtocol {
     func uploadPhotoInfo(photo: Photo, completed: (err: ErrorType?) -> ()) {
         guard photo.photoInfo != nil else {
             //TODO: SL-167
-            Log.error("photo info you tried to upload has photoPath")
+            Log.debug("photo info you tried to upload has photoPath")
             completed(err: UploadError.FailedUploadPhotoInfo)
             return
         }
@@ -74,11 +74,12 @@ extension ModelInterface: UploadInterfaceProtocol {
         let geoBlockKey = Location.sharedInstance.getGeoBlockKey()
         let bigGeoBlockKey = Location.sharedInstance.getBigGeoBlockKey()
         
-        let photoInfoToUpload = ["userID": photo.photoInfo!.userKey,
-                                 "name": photo.photoInfo!.name,
-                                 "lat": photo.photoInfo!.lat,
-                                 "lon": photo.photoInfo!.lon,
-                                 "timeStamp": photo.photoInfo!.timeStamp]
+        // WARN: hardcoded photo info keys
+        let photoInfoToUpload = [PermanentConstants.photoInfoUserKey: photo.photoInfo!.userKey,
+                                 PermanentConstants.photoInfoName: photo.photoInfo!.name,
+                                 PermanentConstants.photoInfoLat: photo.photoInfo!.lat,
+                                 PermanentConstants.photoInfoLon: photo.photoInfo!.lon,
+                                 PermanentConstants.photoInfoTimeStamp: photo.photoInfo!.timeStamp]
         
         //SL-171
         let photoInfoAddress = "/\(PermanentConstants.realTimeDatabasePhotoInfo)/\(photo.photoInfo!.key)"
@@ -94,7 +95,7 @@ extension ModelInterface: UploadInterfaceProtocol {
         firebaseRef.updateChildValues(childUpdates, withCompletionBlock: {(error,ref) in
             if(error != nil) {
                 //TODO: SL-167
-                Log.error("Could not update image metadata of image:\(photo.photoInfo?.name)")
+                Log.debug("Could not update image metadata of image:\(photo.photoInfo?.name)")
                 completed(err: UploadError.FailedUploadPhotoInfo)
             } else {
                 //TODO: return photo

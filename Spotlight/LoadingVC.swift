@@ -13,7 +13,7 @@ class LoadingVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        LocationManager.sharedInstance.startGettingLoc()
+        Location.sharedInstance.startGettingLoc()
 
         // play ad every 5 minutes
         NSTimer.scheduledTimerWithTimeInterval(4, target: self, selector: #selector(LoadingVC.goToTabView), userInfo: nil, repeats: true)

@@ -62,6 +62,15 @@ enum ResourceError: ErrorType {
     case FailedSavePhotoLocally
 }
 
+enum DownloadError: ErrorType {
+    case FailedDownloadPhoto
+    case FailedDownloadPhotoInfo
+    case FailedDownloadPhotoImage
+    case FailedDownloadPhotoInfoKeys
+    case EmptyGeoBlock
+    case EmptyGeoBlockRadius
+}
+
 enum Segues {
     static let toSingleMap = "segueToSingleMap"
     static let toGridView = "segueToGridView"
@@ -72,6 +81,7 @@ enum Segues {
 enum FirebaseConstants {
     static let storageURL = "gs://spotlight-5a0c3.appspot.com"
     static let emailDomain = "@spotlight.com"
+    static let maxDownloadByteSize: Int64 = 7 * 1024 * 1024 // 7 MB
 }
 
 // MARK: - Constants that should not be changed
@@ -81,7 +91,14 @@ enum PermanentConstants {
     static let realTimeDatabaseUserInfo = "UserInfo"
     static let realTimeDatabaseBigGeoBlock = "BigGeoBlock"
     static let realTimeDatabaseGeoBlock = "GeoBlock"
+    
+    static let photoInfoUserKey = "userKey"
+    static let photoInfoName = "name"
+    static let photoInfoLat = "lat"
+    static let photoInfoLon = "lon"
+    static let photoInfoTimeStamp = "timeStamp"
 }
+
 
 // MARK: - Logging
 /**

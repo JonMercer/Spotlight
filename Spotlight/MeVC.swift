@@ -63,6 +63,7 @@ class MeVC: UIViewController{
         view.addGestureRecognizer(prev)
         view.addGestureRecognizer(next)
         // Do any additional setup after loading the view, typically from a nib.
+        
     }
     
     func handleSwipes(sender:UISwipeGestureRecognizer) {

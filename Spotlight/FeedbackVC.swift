@@ -35,10 +35,6 @@ class FeedbackVC: UIViewController {
         //        Log.debug(sortedListOfGeoBlockKey.description)
         //    }
         
-        getNeighbouringBigGeoBlockContent("001_001") { (listOfGeoBlockKeys) in
-            Log.debug(listOfGeoBlockKeys.description)
-        }
-        
     }
     
     func fakeGeoBlocks() {
@@ -48,8 +44,8 @@ class FeedbackVC: UIViewController {
         for i in 0...30 {
             let lat = 0 + Double(i)/10
             let lon = 0 + Double(i)/10
-            let geoBlockKey = GeoUtil.getGeoBlockKeyByLatLon(lat, lon: lon)
-            let bigGeoBlockKey: String = GeoUtil.getBigGeoBlockKeyByLatLon(lat, lon: lon)
+            let geoBlockKey = Location.sharedInstance.getGeoBlockKey(lat, lon: lon)
+            let bigGeoBlockKey: String = Location.sharedInstance.getBigGeoBlockKey(lat, lon: lon)
             
             let childUpdates = ["/BigGeoBlock/\(bigGeoBlockKey)/\(geoBlockKey)": 1,
                                 "/GeoBlock/\(geoBlockKey)/\(i)": "dummy"]
@@ -137,6 +133,4 @@ extension FeedbackVC: FeedbackViewContainerDelegate {
     
 }
 
-extension FeedbackVC: BigGeoBlockEditor {
-}
 

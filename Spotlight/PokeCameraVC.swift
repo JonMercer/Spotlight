@@ -17,7 +17,7 @@ class PokeCameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         super.viewDidLoad()
         setupViewContainer()
         
-        LocationManager.sharedInstance.startGettingLoc()
+        Location.sharedInstance.startGettingLoc()
         
     }
     
