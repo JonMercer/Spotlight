@@ -43,7 +43,7 @@ extension GeoBlockable {
     //                 -1.23879 = -1.24000
     func getGeoBlock(loc: CLLocationDegrees) -> Int {
         //did not want to work with doubles because -4.5 is technically -4.50000000001
-        let locInt = Int(loc * 1000)
+        let locInt = Int(loc * 10000)
         
         if (loc % 5) == 0 {
             return locInt
@@ -55,12 +55,12 @@ extension GeoBlockable {
         }
         
         //if the number is close to -x.xx50000 and -x.xx50001. This is here because of ceiling problems
-        if (locInt % 5) == 0 && locInt < 0 && (Double(locInt) - (loc * 1000) < 0.0000001) {
+        if (locInt % 5) == 0 && locInt < 0 && (Double(locInt) - (loc * 10000) < 0.0000001) {
             return locInt
         }
         
         //this is the '#' in 123.45#789
-        let lastDigit = (locInt % 10)
+        let lastDigit = (locInt % 100)
         
         //positive numbers are floored such that the last digit is a 0 or a 5
         if loc >= 0 {
@@ -176,14 +176,14 @@ extension GeoBlockable {
     
     private func formatGeoBlockKey(locInt: CLLocationIntegers) -> String {
         if locInt < 0 {
-            return String(format: "%07d", locInt)
+            return String(format: "%08d", locInt)
         } else {
-            return String(format: "%06d", locInt)
+            return String(format: "%07d", locInt)
         }
     }
     
     private func formatBigGeoBlockKey(locInt: CLLocationIntegers) -> String {
-        let roundedLoc = Int(floor(Double(locInt)/1000))
+        let roundedLoc = Int(floor(Double(locInt)/10000))
         if roundedLoc < 0 {
             return String(format: "%04d", roundedLoc)
         } else {
@@ -258,7 +258,7 @@ extension GeoBlockable {
     
     
     private func calculateGeoRadius(a: (Int, Int), b: (Int, Int)) -> Int {
-        return max(abs(a.0-b.0), abs(a.1-b.1))
+        return max(abs(a.0 - b.0), abs(a.1 - b.1))
     }
     
     private func extractGeoBlockKeyLatLon(geoBlockKey: GeoBlockKey) -> (Int, Int) {
