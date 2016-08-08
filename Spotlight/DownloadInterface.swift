@@ -12,19 +12,38 @@ import Photos
 import CoreLocation
 
 protocol DownloadInterfaceProtocol {
-    func downloadPhotoKeysNear(lat: CLLocationDegrees, lon: CLLocationDegrees, completed: (photoInfoKeys: [PhotoInfoKey], err: ErrorType?) -> ())
-    //func getPhotoKeysNearMe() -> [PhotoInfoKey]
+    func downloadPhotoKeysNear(lat: CLLocationDegrees, lon: CLLocationDegrees, completed: (photoInfoKeys: [PhotoInfoKey]?, err: ErrorType?) -> ())
     func downloadPhoto(photoInfoKey: PhotoInfoKey, completed: (photo: Photo?, err: ErrorType?) -> ())
+    
+    //func getPhotoKeysNearMe() -> [PhotoInfoKey]
     //func getMyPhotoKeys() -> [PhotoInfoKey]
 }
 
 extension ModelInterface: DownloadInterfaceProtocol {
-    func downloadPhotoKeysNear(lat: CLLocationDegrees, lon: CLLocationDegrees, completed: (photoInfoKeys: [PhotoInfoKey], err: ErrorType?) -> ()) {
+    func downloadPhotoKeysNear(lat: CLLocationDegrees, lon: CLLocationDegrees, completed: (photoInfoKeys: [PhotoInfoKey]?, err: ErrorType?) -> ()) {
         
+        Location.sharedInstance.downloadGeoBlockKeysFromNeighbouringBigGeoBlocks(lat, lon: lon) { (geoBlockKeys, err) in
+            guard err == nil else {
+                Log.debug("could not download geo block keys in big geo block neighbours")
+                completed(photoInfoKeys: nil, err: err)
+                return
+            }
+            
+            let sortedGeoBlockKeys = Location.sharedInstance.sortGeoBlocksByDistance(geoBlockKeys!, lat: lat, lon: lon)
+            
+            Location.sharedInstance.downloadPhotoInfoKeysInGeoBlocks(sortedGeoBlockKeys, completed: { (photoInfoKeys, err) in
+                guard err == nil else {
+                    Log.debug("could not download photo keys in geoblocks")
+                    completed(photoInfoKeys: nil, err: err)
+                    return
+                }
+                
+                completed(photoInfoKeys: photoInfoKeys, err: nil)
+            })
+        }
     }
     
     func downloadPhoto(photoInfoKey: PhotoInfoKey, completed: (photo: Photo?, err: ErrorType?) -> ()) {
-        // find and collect photoinfo in firebase -> helper
         downloadPhotoInfo(photoInfoKey) { (photoInfo, err) in
             guard err == nil else {
                 Log.debug("couldn't get PhotoInfo")
@@ -51,9 +70,6 @@ extension ModelInterface: DownloadInterfaceProtocol {
                 completed(photo: photo, err: nil)
             })
         }
-        
-        // grab image with that name from photoinfo -> helper
-        // create photo object with above info and image
     }
     
     private func downloadPhotoInfo(photoInfoKey: PhotoInfoKey, completed:(photoInfo: PhotoInfo?, err: ErrorType?) -> ()) {
@@ -61,6 +77,7 @@ extension ModelInterface: DownloadInterfaceProtocol {
         let firebaseRef = FIRDatabase.database().reference()
         
         firebaseRef.child(PermanentConstants.realTimeDatabasePhotoInfo).child(photoInfoKey).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            
             // Get photo info values
             let userKey = snapshot.value![PermanentConstants.photoInfoUserKey] as! String
             let lat = snapshot.value![PermanentConstants.photoInfoLat] as! CLLocationDegrees
@@ -68,14 +85,13 @@ extension ModelInterface: DownloadInterfaceProtocol {
             let time = snapshot.value![PermanentConstants.photoInfoTimeStamp] as! String
             
             let photoInfo = PhotoInfo(userKey: userKey, photoInfoKey: photoInfoKey, lat: lat, lon: lon, timeStamp: time)
+            
             completed(photoInfo: photoInfo, err: nil)
             
         }) { (error) in
             Log.debug(error.localizedDescription)
             completed(photoInfo: nil, err: error)
         }
-
-        
     }
     
     private func downloadImage(photoInfo: PhotoInfo, completed: (image: UIImage?, err: ErrorType?) -> ()) {
