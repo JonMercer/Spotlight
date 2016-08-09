@@ -12,7 +12,7 @@ import CoreLocation
 
 class MapViewVC: UIViewController {
     var container: MapViewContainer?
-    var selectedImagePhotoEntityKey: PhotoEntityKey?
+    var selectedImagePhotoInfoKey: PhotoInfoKey?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,24 +34,25 @@ class MapViewVC: UIViewController {
         view.addSubview(container!)
     }
     
-    func setUpLatLonOfMap(photoEntityKey: PhotoEntityKey) {
-        selectedImagePhotoEntityKey = photoEntityKey
+    func setUpLatLonOfMap(photoInfoKey: PhotoInfoKey) {
+        selectedImagePhotoInfoKey = photoInfoKey
     }
 }
 
 //MARK: - MapViewContainerDelegate
 extension MapViewVC: MapViewContainerDelegate {
     func getMapLocation(completion: (lat: CLLocationDegrees, lon: CLLocationDegrees) -> ()) {
-        self.getPhotoEntity(self.selectedImagePhotoEntityKey!, completion: { (photoEntity) in
-            completion(lat: photoEntity.lat, lon: photoEntity.lon)
-        })
+        ModelInterface.sharedInstance.downloadPhoto(self.selectedImagePhotoInfoKey!) { (photo, err) in
+            guard err == nil else {
+                Log.error(err.debugDescription)
+                return
+            }
+            
+            completion(lat: photo!.photoInfo!.lat, lon: photo!.photoInfo!.lon)
+        }
     }
     
     func goBackGridView() {
         performSegueWithIdentifier(Segues.toGridView, sender: self)
     }
-}
-
-//MARK: - PhotoEntityEditor
-extension MapViewVC: PhotoEntityEditor {
 }
