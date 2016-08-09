@@ -55,6 +55,9 @@
 		C87650861D2066860092A75A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C87650841D2066860092A75A /* LaunchScreen.storyboard */; };
 		C87650911D2066860092A75A /* SpotlightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87650901D2066860092A75A /* SpotlightTests.swift */; };
 		C876509C1D2066870092A75A /* SpotlightUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876509B1D2066870092A75A /* SpotlightUITests.swift */; };
+		C8766D271D59851A008FBF2A /* EditInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8766D261D59851A008FBF2A /* EditInterface.swift */; };
+		C8766D291D598530008FBF2A /* CommunityInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8766D281D598530008FBF2A /* CommunityInterface.swift */; };
+		C8766D2B1D598541008FBF2A /* DeletionInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8766D2A1D598541008FBF2A /* DeletionInterface.swift */; };
 		C8A6E0A51D453EB1000649A0 /* PhotoEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A6E0A41D453EB1000649A0 /* PhotoEntities.swift */; };
 		C8A6E0A91D457666000649A0 /* GeoUtilTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A6E0A81D457666000649A0 /* GeoUtilTest.swift */; };
 		C8BFBE121D23762400246DA1 /* DeviceOwnerPhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BFBE111D23762400246DA1 /* DeviceOwnerPhotoManager.swift */; };
@@ -145,6 +148,9 @@
 		C87650971D2066870092A75A /* SpotlightUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpotlightUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C876509B1D2066870092A75A /* SpotlightUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightUITests.swift; sourceTree = "<group>"; };
 		C876509D1D2066870092A75A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8766D261D59851A008FBF2A /* EditInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditInterface.swift; sourceTree = "<group>"; };
+		C8766D281D598530008FBF2A /* CommunityInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityInterface.swift; sourceTree = "<group>"; };
+		C8766D2A1D598541008FBF2A /* DeletionInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeletionInterface.swift; sourceTree = "<group>"; };
 		C8A6E0A41D453EB1000649A0 /* PhotoEntities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoEntities.swift; sourceTree = "<group>"; };
 		C8A6E0A81D457666000649A0 /* GeoUtilTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoUtilTest.swift; sourceTree = "<group>"; };
 		C8BFBE111D23762400246DA1 /* DeviceOwnerPhotoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceOwnerPhotoManager.swift; sourceTree = "<group>"; };
@@ -323,6 +329,9 @@
 			isa = PBXGroup;
 			children = (
 				C825AFE51D330A9E00EE5B0E /* ModelInterface.swift */,
+				C8766D2A1D598541008FBF2A /* DeletionInterface.swift */,
+				C8766D281D598530008FBF2A /* CommunityInterface.swift */,
+				C8766D261D59851A008FBF2A /* EditInterface.swift */,
 				C83B726A1D4ED4290055E689 /* UploadInterface.swift */,
 				A47148401D5697A500E5AE78 /* AuthInterface.swift */,
 				A47148421D56ABF200E5AE78 /* DownloadInterface.swift */,
@@ -690,6 +699,7 @@
 				C87650811D2066860092A75A /* Spotlight.xcdatamodeld in Sources */,
 				C83780B61D47281D008690E0 /* PokeCameraViewContainer.swift in Sources */,
 				C8BFBE121D23762400246DA1 /* DeviceOwnerPhotoManager.swift in Sources */,
+				C8766D291D598530008FBF2A /* CommunityInterface.swift in Sources */,
 				A4FB11901D208C4D001F36F2 /* PhotoAlbum.swift in Sources */,
 				C8D8FD851D3DCFFD003C9F16 /* NearMeVC.swift in Sources */,
 				A4ADCDF01D375511002ECF61 /* PhotoEntityEditor.swift in Sources */,
@@ -700,6 +710,7 @@
 				C876507B1D2066860092A75A /* ViewController.swift in Sources */,
 				A4E7D3D81D3DE2DD00609A1E /* NearMeViewContainerCell.swift in Sources */,
 				A47148411D5697A500E5AE78 /* AuthInterface.swift in Sources */,
+				C8766D271D59851A008FBF2A /* EditInterface.swift in Sources */,
 				A45169701D46F9E60004D1A7 /* MapViewContainer.swift in Sources */,
 				A4E7D3D41D3DD36600609A1E /* NearMeViewContainer.swift in Sources */,
 				C825AFEA1D330B9400EE5B0E /* Storable.swift in Sources */,
@@ -711,6 +722,7 @@
 				A47148471D56B0E500E5AE78 /* NSDateUtil.swift in Sources */,
 				C825AFE61D330A9E00EE5B0E /* ModelInterface.swift in Sources */,
 				7D4E28681D2CB82000F8E574 /* SingleViewCell.swift in Sources */,
+				C8766D2B1D598541008FBF2A /* DeletionInterface.swift in Sources */,
 				7D4E28661D2CB61500F8E574 /* SingleListVC.swift in Sources */,
 				C8D136371D2077760005F018 /* CameraVC.swift in Sources */,
 				C8A6E0A51D453EB1000649A0 /* PhotoEntities.swift in Sources */,
