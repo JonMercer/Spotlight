@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SingleListVC: UITableViewController, PhotoEntityEditor {
+class SingleListVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

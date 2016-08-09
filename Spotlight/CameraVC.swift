@@ -25,7 +25,6 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         setupViewContainer()
         
         Location.sharedInstance.startGettingLoc()
-        Location.sharedInstance.getGeoBlock(0.0)
         
         
         //TODO: authenticate user sign in
@@ -89,23 +88,6 @@ extension CameraVC: CameraViewContainerDelegate {
             }
         }
     }
-    
-    func getLocation(photoID: PhotoEntityKey, completion: (lat: CLLocationDegrees, lon: CLLocationDegrees) -> Void) {
-        self.getPhotoEntity(photoID) { (photoEntity) in
-            completion(lat: photoEntity.getLat(photoID), lon: photoEntity.getLon(photoID))
-        }
-    }
-}
-
-
-//MARK: - PhotoEntityEditor
-extension CameraVC: PhotoEntityEditor {
-    
-}
-
-//MARK: - PhotoEntities (might delete)
-extension CameraVC: PhotoEntities {
-    
 }
 
 
