@@ -17,31 +17,3 @@ import Foundation
 class ModelInterface {
   static let sharedInstance = ModelInterface()
 }
-
-
-
-protocol EditInterfaceProtocol {
-    func editPhotoDescription()
-    func editComment()
-}
-
-protocol CommunityInterfaceProtocol {
-    func addComment()
-    func thumbsUp()
-    func undoThumbsUp()
-    func deleteComment()
-    func flag()
-    func undoFlag()
-}
-
-protocol DeletionInterfaceProtocol {
-    func deletePhoto()
-    func deleteUser()
-}
-
-
-//extension ModelInterface:  {
-//    func uploadPhoto(<#parameters#>) -> <#return type#> {
-//        <#function body#>
-//    }
-//}

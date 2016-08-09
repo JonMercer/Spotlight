@@ -78,7 +78,7 @@ protocol PokeCameraViewContainerDelegate {
     func goToCameraPicker(picker: UIImagePickerController)
     func dismissViewControllerAnimated()
     func publishImage(image: UIImage, completion: () -> ())
-    func getLocation(photoID: PhotoEntityKey, completion: (lat: CLLocationDegrees, lon: CLLocationDegrees) -> Void)
+    //func getLocation(photoID: PhotoEntityKey, completion: (lat: CLLocationDegrees, lon: CLLocationDegrees) -> Void)
     func goBackGridView()
     func goToSingleMapView()
 }

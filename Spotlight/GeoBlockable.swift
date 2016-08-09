@@ -10,15 +10,31 @@ import Foundation
 import CoreLocation
 import Firebase
 
+///Handles all of geoAlgorithm. From POST to GET
 protocol GeoBlockable {
-    func getGeoBlockKey(lat: CLLocationDegrees, lon: CLLocationDegrees) -> GeoBlockKey
-    func getBigGeoBlockKey(lat: CLLocationDegrees, lon: CLLocationDegrees) -> BigGeoBlockKey
-    func getGeoBlock(loc: CLLocationDegrees) -> CLLocationIntegers
     
+    /// Mathematically finds the geoblock key that the lat and lon belongs to the nearest 0.0005
+    /// - Returns: a string that looks like "0377805_-1224010"
+    func getGeoBlockKey(lat: CLLocationDegrees, lon: CLLocationDegrees) -> GeoBlockKey
+    
+    /// Mathematically finds the bigGeoblock key that the lat and lon belongs to the nearest 1 degree
+    /// - Returns: a string that looks like "037_-122"
+    func getBigGeoBlockKey(lat: CLLocationDegrees, lon: CLLocationDegrees) -> BigGeoBlockKey
+    
+    /// Downloads all the geoBlock keys of 9 bigGeoBlocks. 8 neighbours and 1 that you're in.
+    /// - Parameter completed geoBlockKeys: a list of geoBlockKeys
+    /// - Parameter completed err: error
     func downloadGeoBlockKeysFromNeighbouringBigGeoBlocks(lat: CLLocationDegrees, lon: CLLocationDegrees, completed:(geoBlockKeys: [GeoBlockKey]?, err: ErrorType?) -> ())
-
+    
+    /// Downloads all the photoInfoKeys contained in geoBlocks from a list of geoBlockKeys
+    /// - Parameter geoBlockKeys: geoBlocks that you want to download photoInfoKeys from
+    /// - Parameter completed photoInfoKeys: a list of photoInfoKeys
+    /// - Parameter completed err: error
     func downloadPhotoInfoKeysInGeoBlocks(geoBlockKeys: [GeoBlockKey], completed: (photoInfoKeys: [PhotoInfoKey]?, err: ErrorType?) -> ())
     
+    /// Sorts all geoBlocks from a list of geoBlocks in order of manhattan distance from lat lon
+    /// - Parameter geoBlockKeys: geoBlocks that you want to sort
+    /// - Returns: sorted GeoBlockKeys
     func sortGeoBlocksByDistance(geoBlockKeys: [GeoBlockKey], lat: CLLocationDegrees, lon: CLLocationDegrees) -> [GeoBlockKey]
 }
 
@@ -35,53 +51,6 @@ extension GeoBlockable {
         let bigLonString = formatBigGeoBlockKey(getGeoBlock(lon))
         return "\(bigLatString)_\(bigLonString)"
     }
-    
-    // PURPOSE: We wanted to split up the world in 0.005 (lat lon) increments.
-    //          ex: So 1.12345 = 1.12000
-    //                 1.23879 = 1.23500
-    //                 -1.12345 = -1.12500
-    //                 -1.23879 = -1.24000
-    func getGeoBlock(loc: CLLocationDegrees) -> Int {
-        //did not want to work with doubles because -4.5 is technically -4.50000000001
-        let locInt = Int(loc * 10000)
-        
-        if (loc % 5) == 0 {
-            return locInt
-        }
-        
-        //if the number is close to x.xx5xxx
-        if (locInt % 5) == 0 && locInt > 0 {
-            return locInt
-        }
-        
-        //if the number is close to -x.xx50000 and -x.xx50001. This is here because of ceiling problems
-        if (locInt % 5) == 0 && locInt < 0 && (Double(locInt) - (loc * 10000) < 0.0000001) {
-            return locInt
-        }
-        
-        //this is the '#' in 123.45#789
-        let lastDigit = (locInt % 100)
-        
-        //positive numbers are floored such that the last digit is a 0 or a 5
-        if loc >= 0 {
-            if lastDigit >= 0 && lastDigit < 5 {
-                return locInt - lastDigit
-            } else {
-                return locInt - lastDigit + 5
-            }
-        }
-            //negative numbers are ceilinged such that the last digit is a 0 or a 5
-        else {
-            //if the number ends in a 5, assume that its not 0.00500000
-            if lastDigit <= 0 && lastDigit > -5 {
-                return locInt - lastDigit - 5
-            } else {
-                return locInt - lastDigit - 10
-            }
-        }
-    }
-    
-    
     
     //MARK: - DownloadInterface related
     
@@ -122,7 +91,8 @@ extension GeoBlockable {
                     return
                 }
                 
-                listOfPhotoInfoKeysToReturn.appendContentsOf(photoInfoKeys!)
+                //we reverse the list so that we append photos from newest to oldest
+                listOfPhotoInfoKeysToReturn.appendContentsOf(photoInfoKeys!.reverse())
                 counter = counter + 1
                 
                 if(counter == geoBlockKeys.count) {
@@ -131,7 +101,7 @@ extension GeoBlockable {
             })
         }
     }
-
+    
     
     func sortGeoBlocksByDistance(geoBlockKeys: [GeoBlockKey], lat: CLLocationDegrees, lon: CLLocationDegrees) -> [GeoBlockKey] {
         let currentGeoBlockKey = self.getGeoBlockKey(lat, lon: lon)
@@ -174,6 +144,52 @@ extension GeoBlockable {
     
     //MARK: - Private helper functions
     
+    // PURPOSE: We wanted to split up the world in 0.005 (lat lon) increments.
+    //          ex: So 1.12345 = 1.12000
+    //                 1.23879 = 1.23500
+    //                 -1.12345 = -1.12500
+    //                 -1.23879 = -1.24000
+    private func getGeoBlock(loc: CLLocationDegrees) -> Int {
+        //did not want to work with doubles because -4.5 is technically -4.50000000001
+        let locInt = Int(loc * 10000)
+        
+        if (loc % 5) == 0 {
+            return locInt
+        }
+        
+        //if the number is close to x.xx5xxx
+        if (locInt % 5) == 0 && locInt > 0 {
+            return locInt
+        }
+        
+        //if the number is close to -x.xx50000 and -x.xx50001. This is here because of ceiling problems
+        if (locInt % 5) == 0 && locInt < 0 && (Double(locInt) - (loc * 10000) < 0.0000001) {
+            return locInt
+        }
+        
+        //this is the '#' in 123.45#789
+        let lastDigit = (locInt % 100)
+        
+        //positive numbers are floored such that the last digit is a 0 or a 5
+        if loc >= 0 {
+            if lastDigit >= 0 && lastDigit < 5 {
+                return locInt - lastDigit
+            } else {
+                return locInt - lastDigit + 5
+            }
+        }
+            //negative numbers are ceilinged such that the last digit is a 0 or a 5
+        else {
+            //if the number ends in a 5, assume that its not 0.00500000
+            if lastDigit <= 0 && lastDigit > -5 {
+                return locInt - lastDigit - 5
+            } else {
+                return locInt - lastDigit - 10
+            }
+        }
+    }
+    
+    
     private func formatGeoBlockKey(locInt: CLLocationIntegers) -> String {
         if locInt < 0 {
             return String(format: "%08d", locInt)
@@ -194,6 +210,7 @@ extension GeoBlockable {
     private func getNeighbouringBigGeoBlockKeys(lat: CLLocationDegrees, lon: CLLocationDegrees) -> [BigGeoBlockKey] {
         var neighbouringBigGeoBlocks = [BigGeoBlockKey]()
         
+        //grab the left, right, top, bottom, and corners
         for i in -1...1 {
             for j in -1...1 {
                 let latNeighbour = lat + Double(i)
@@ -218,6 +235,7 @@ extension GeoBlockable {
                 listOfKeys.append(child.key)
             }
             
+            //It's possible to have a bigGeoBlock's neighbors not exist
             if !listOfKeys.isEmpty {
                 completed(geoBlockKeys: listOfKeys, err: nil)
             } else {
@@ -235,7 +253,6 @@ extension GeoBlockable {
     
     private func downloadPhotoKeysFromGeoBlock(geoBlockKey: GeoBlockKey, completed:(photoInfoKeys: [PhotoInfoKey]?, err: ErrorType?) -> ()) {
         let firebaseRef = FIRDatabase.database().reference()
-        
         firebaseRef.child(PermanentConstants.realTimeDatabaseGeoBlock).child(geoBlockKey).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             
             var listOfKeys = [PhotoInfoKey]()

@@ -115,7 +115,3 @@ extension NearMeVC: NearMeViewContainerDelegate {
 }
 
 
-//MARK: - PhotoEntityEditor
-extension NearMeVC: PhotoEntityEditor {
-    
-}
