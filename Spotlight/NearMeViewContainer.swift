@@ -12,6 +12,9 @@ class NearMeViewContainer: UIView {
     var delegate: NearMeViewContainerDelegate?
     var cell: NearMeViewContainerCell?
     
+    let windowWidth = UIScreen.mainScreen().bounds.width
+    let windowHeight = UIScreen.mainScreen().bounds.height
+    
     @IBOutlet var gridView: UICollectionView!
     
     override func awakeFromNib() {
@@ -40,26 +43,25 @@ protocol NearMeViewContainerDelegate {
 
 //MARK: - UICollectionViewDelegate
 extension NearMeViewContainer: UICollectionViewDelegate {
-    //TODO: does this function belong in this extension?
+
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        delegate!.collectionIndexSelected(indexPath)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSize(width: gridView.frame.width * 0.33, height: gridView.frame.width * 0.33)
+    }
+}
+//MARK: - UICollectionViewDataSource
+extension NearMeViewContainer: UICollectionViewDataSource {
+    
+
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //TODO: don't hardcore this
         // grab count of images in bigGeoBlock and neighbours
         return delegate!.getNumberOfCellImages()
     }
     
-    //TODO: does this function belong in this extension?
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        delegate!.collectionIndexSelected(indexPath)
-    }
-    
-    //TODO: does this function belong in this extension?
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize(width: gridView.frame.width * 0.33, height: gridView.frame.width * 0.33)
-    }
-}
-
-//MARK: - UICollectionViewDataSource
-extension NearMeViewContainer: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cellView = UINib(nibName: "NearMeViewContainerCell", bundle: nil)

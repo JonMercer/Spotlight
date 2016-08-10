@@ -24,7 +24,7 @@ class NearMeVC: UIViewController {
         
         createAndLoadInterstitial()
         // play ad every 5 minutes
-        NSTimer.scheduledTimerWithTimeInterval(300, target: self, selector: #selector(NearMeVC.addFullScreenAd), userInfo: nil, repeats: true)
+        //NSTimer.scheduledTimerWithTimeInterval(300, target: self, selector: #selector(NearMeVC.addFullScreenAd), userInfo: nil, repeats: true)
     }
     
     override func didReceiveMemoryWarning() {
