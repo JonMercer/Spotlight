@@ -109,7 +109,7 @@ extension ModelInterface: UploadInterfaceProtocol {
         let photoInfoKey = firebaseRef.child(PermanentConstants.realTimeDatabasePhotoInfo).childByAutoId().key
         let userKey = FIRAuth.auth()?.currentUser?.uid
         
-        return PhotoInfo(userKey: userKey!, photoInfoKey: photoInfoKey, lat: Location.sharedInstance.currentLat, lon: Location.sharedInstance.currentLat, timeStamp: NSDate().fireBaseImageTimeStamp())
+        return PhotoInfo(userKey: userKey!, photoInfoKey: photoInfoKey, lat: Location.sharedInstance.currentLat, lon: Location.sharedInstance.currentLon, timeStamp: NSDate().fireBaseImageTimeStamp())
     }
 }
 

@@ -18,13 +18,13 @@ class NearMeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        grabPhotoEntityKeysInBigGeoBlocks {
+        grabPhotoInfoKeysInBigGeoBlocks {
             self.setupViewContainer()
         }
         
         createAndLoadInterstitial()
         // play ad every 5 minutes
-        NSTimer.scheduledTimerWithTimeInterval(300, target: self, selector: #selector(NearMeVC.addFullScreenAd), userInfo: nil, repeats: true)
+        //NSTimer.scheduledTimerWithTimeInterval(300, target: self, selector: #selector(NearMeVC.addFullScreenAd), userInfo: nil, repeats: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -92,7 +92,7 @@ extension NearMeVC: NearMeViewContainerDelegate {
         }
     }
     
-    func grabPhotoEntityKeysInBigGeoBlocks(completion: () -> ()) {
+    func grabPhotoInfoKeysInBigGeoBlocks(completion: () -> ()) {
         ModelInterface.sharedInstance.downloadPhotoKeysNear(Location.sharedInstance.currentLat, lon: Location.sharedInstance.currentLon) { (photoInfoKeys, err) in
             guard err == nil else {
                 Log.error(err.debugDescription)
