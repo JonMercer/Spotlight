@@ -18,7 +18,7 @@ class NearMeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        grabPhotoEntityKeysInBigGeoBlocks {
+        grabPhotoInfoKeysInBigGeoBlocks {
             self.setupViewContainer()
         }
         
@@ -92,7 +92,7 @@ extension NearMeVC: NearMeViewContainerDelegate {
         }
     }
     
-    func grabPhotoEntityKeysInBigGeoBlocks(completion: () -> ()) {
+    func grabPhotoInfoKeysInBigGeoBlocks(completion: () -> ()) {
         ModelInterface.sharedInstance.downloadPhotoKeysNear(Location.sharedInstance.currentLat, lon: Location.sharedInstance.currentLon) { (photoInfoKeys, err) in
             guard err == nil else {
                 Log.error(err.debugDescription)

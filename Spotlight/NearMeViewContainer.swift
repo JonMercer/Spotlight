@@ -38,7 +38,7 @@ protocol NearMeViewContainerDelegate {
     func populateImage(cellImage: UIImageView, index: Int)
     func collectionIndexSelected(index: NSIndexPath)
     func getNumberOfCellImages() -> Int
-    func grabPhotoEntityKeysInBigGeoBlocks(completion: () -> ())
+    func grabPhotoInfoKeysInBigGeoBlocks(completion: () -> ())
 }
 
 //MARK: - UICollectionViewDelegate
@@ -55,21 +55,23 @@ extension NearMeViewContainer: UICollectionViewDelegate {
 //MARK: - UICollectionViewDataSource
 extension NearMeViewContainer: UICollectionViewDataSource {
     
-
+    //load this many cells
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //TODO: don't hardcore this
         // grab count of images in bigGeoBlock and neighbours
         return delegate!.getNumberOfCellImages()
     }
     
+    //called when a cell has to be displayed
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cellView = UINib(nibName: "NearMeViewContainerCell", bundle: nil)
         gridView.registerNib(cellView, forCellWithReuseIdentifier: "nearMeCell")
         let nearMeCell = self.gridView.dequeueReusableCellWithReuseIdentifier("nearMeCell", forIndexPath: indexPath) as! NearMeViewContainerCell
         
+        nearMeCell.cellImage.image = nil
+        
         delegate!.populateImage(nearMeCell.cellImage, index: indexPath.row)
-        //cell = nearMeCell
         
         return nearMeCell
 
