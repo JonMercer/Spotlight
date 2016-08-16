@@ -77,6 +77,11 @@ enum Segues {
     static let toTabView = "segueToTabView"
 }
 
+//MARK: = UIConstants
+enum UIConstants {
+    static let description = "Add description here"
+}
+
 // MARK: - Changeable backend information
 enum FirebaseConstants {
     static let storageURL = "gs://spotlight-5a0c3.appspot.com"
