@@ -94,11 +94,11 @@ class CameraViewContainer: UIView {
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
             if self.frame.origin.y != 0 {
-                self.frame.origin.y += keyboardSize.height
+                self.frame.origin.y = 0
             }
-        }
+        //}
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
