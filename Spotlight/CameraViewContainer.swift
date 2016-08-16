@@ -14,6 +14,11 @@ import CoreLocation
 class CameraViewContainer: UIView {
     var delegate: CameraViewContainerDelegate?
 
+    override func willMoveToSuperview(newSuperview: UIView?) {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CameraViewContainer.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CameraViewContainer.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
     //MARK: - UI Elements
     @IBOutlet var photoView: UIImageView!
     @IBOutlet weak var descriptionTextView: UITextView!
@@ -49,6 +54,8 @@ class CameraViewContainer: UIView {
                 descriptionText = descriptionTextView.text
             }
             
+            Log.test(descriptionText)
+            
             delegate?.publishImage(photo, description: descriptionText)
             
             //TODO: this crashes the app. Should re-do it
@@ -77,6 +84,28 @@ class CameraViewContainer: UIView {
         view.frame = frame
         return view
     }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue(){
+            if self.frame.origin.y == 0{
+                self.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            if self.frame.origin.y != 0 {
+                self.frame.origin.y += keyboardSize.height
+            }
+        }
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+        self.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
+    }
+
 }
 
 //MARK: - UIImagePickerControllerDelegate
