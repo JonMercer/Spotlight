@@ -59,6 +59,10 @@
 		C8BFBE121D23762400246DA1 /* DeviceOwnerPhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BFBE111D23762400246DA1 /* DeviceOwnerPhotoManager.swift */; };
 		C8C2153B1D2F3EAC0099FBB3 /* FeedbackViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8C2153A1D2F3EAC0099FBB3 /* FeedbackViewContainer.xib */; };
 		C8C2153D1D2F3F130099FBB3 /* FeedbackViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C2153C1D2F3F130099FBB3 /* FeedbackViewContainer.swift */; };
+		C8CB9E141D64100E005EFBE3 /* MeViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8CB9E131D64100E005EFBE3 /* MeViewContainer.xib */; };
+		C8CB9E161D641026005EFBE3 /* MeViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CB9E151D641026005EFBE3 /* MeViewContainer.swift */; };
+		C8CB9E181D64107B005EFBE3 /* MeViewContainerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8CB9E171D64107B005EFBE3 /* MeViewContainerCell.xib */; };
+		C8CB9E1A1D641089005EFBE3 /* MeViewContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CB9E191D641089005EFBE3 /* MeViewContainerCell.swift */; };
 		C8D136371D2077760005F018 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D136361D2077760005F018 /* CameraVC.swift */; };
 		C8D8FD851D3DCFFD003C9F16 /* NearMeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D8FD841D3DCFFD003C9F16 /* NearMeVC.swift */; };
 		C8E3428E1D348EC800D7F9D6 /* CameraViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8E3428D1D348EC800D7F9D6 /* CameraViewContainer.xib */; };
@@ -148,6 +152,10 @@
 		C8BFBE111D23762400246DA1 /* DeviceOwnerPhotoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceOwnerPhotoManager.swift; sourceTree = "<group>"; };
 		C8C2153A1D2F3EAC0099FBB3 /* FeedbackViewContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackViewContainer.xib; sourceTree = "<group>"; };
 		C8C2153C1D2F3F130099FBB3 /* FeedbackViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewContainer.swift; sourceTree = "<group>"; };
+		C8CB9E131D64100E005EFBE3 /* MeViewContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeViewContainer.xib; sourceTree = "<group>"; };
+		C8CB9E151D641026005EFBE3 /* MeViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewContainer.swift; sourceTree = "<group>"; };
+		C8CB9E171D64107B005EFBE3 /* MeViewContainerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeViewContainerCell.xib; sourceTree = "<group>"; };
+		C8CB9E191D641089005EFBE3 /* MeViewContainerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewContainerCell.swift; sourceTree = "<group>"; };
 		C8D136361D2077760005F018 /* CameraVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 		C8D8FD841D3DCFFD003C9F16 /* NearMeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearMeVC.swift; sourceTree = "<group>"; };
 		C8E3428D1D348EC800D7F9D6 /* CameraViewContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraViewContainer.xib; sourceTree = "<group>"; };
@@ -378,6 +386,10 @@
 		C8BBBC1B1D640C2300887A43 /* MeView */ = {
 			isa = PBXGroup;
 			children = (
+				C8CB9E131D64100E005EFBE3 /* MeViewContainer.xib */,
+				C8CB9E151D641026005EFBE3 /* MeViewContainer.swift */,
+				C8CB9E171D64107B005EFBE3 /* MeViewContainerCell.xib */,
+				C8CB9E191D641089005EFBE3 /* MeViewContainerCell.swift */,
 			);
 			name = MeView;
 			sourceTree = "<group>";
@@ -515,9 +527,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8CB9E181D64107B005EFBE3 /* MeViewContainerCell.xib in Resources */,
 				C83780B41D47280D008690E0 /* PokeCameraViewContainer.xib in Resources */,
 				C87650861D2066860092A75A /* LaunchScreen.storyboard in Resources */,
 				A4E7D3D21D3DD33200609A1E /* NearMeViewContainer.xib in Resources */,
+				C8CB9E141D64100E005EFBE3 /* MeViewContainer.xib in Resources */,
 				A4E7D3D61D3DE28800609A1E /* NearMeViewContainerCell.xib in Resources */,
 				C8647D9E1D29FAFC00C21A59 /* GoogleService-Info.plist in Resources */,
 				C87650831D2066860092A75A /* Assets.xcassets in Resources */,
@@ -696,8 +710,10 @@
 				A47148431D56ABF200E5AE78 /* DownloadInterface.swift in Sources */,
 				C8BBBC1D1D640C4300887A43 /* MeVC.swift in Sources */,
 				C8C2153D1D2F3F130099FBB3 /* FeedbackViewContainer.swift in Sources */,
+				C8CB9E161D641026005EFBE3 /* MeViewContainer.swift in Sources */,
 				A45169721D46FA4A0004D1A7 /* MapViewVC.swift in Sources */,
 				A47148471D56B0E500E5AE78 /* NSDateUtil.swift in Sources */,
+				C8CB9E1A1D641089005EFBE3 /* MeViewContainerCell.swift in Sources */,
 				C825AFE61D330A9E00EE5B0E /* ModelInterface.swift in Sources */,
 				7D4E28681D2CB82000F8E574 /* SingleViewCell.swift in Sources */,
 				C8766D2B1D598541008FBF2A /* DeletionInterface.swift in Sources */,
