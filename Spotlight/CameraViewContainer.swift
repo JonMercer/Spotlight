@@ -54,8 +54,6 @@ class CameraViewContainer: UIView {
                 descriptionText = descriptionTextView.text
             }
             
-            Log.test(descriptionText)
-            
             delegate?.publishImage(photo, description: descriptionText)
             
             //TODO: this crashes the app. Should re-do it

@@ -91,7 +91,7 @@ extension ModelInterface: DownloadInterfaceProtocol {
         })
         
         
-        firebaseRef.child(PermanentConstants.realTimeDatabaseUserInfo).child(PermanentConstants.realTimeDatabasePhotoInfo).child(userKey).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+        firebaseRef.child(PermanentConstants.realTimeDatabaseUserInfo).child(userKey).child(PermanentConstants.realTimeDatabasePhotoInfo).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             
             var listOfKeys = [PhotoInfoKey]()
             for child in snapshot.children {
