@@ -15,8 +15,14 @@ protocol DownloadInterfaceProtocol {
     func downloadPhotoKeysNear(lat: CLLocationDegrees, lon: CLLocationDegrees, completed: (photoInfoKeys: [PhotoInfoKey]?, err: ErrorType?) -> ())
     func downloadPhoto(photoInfoKey: PhotoInfoKey, completed: (photo: Photo?, err: ErrorType?) -> ())
     
+    /// Downloads the current user's PhotoInfoKeys
+    /// - Parameter userKey: the user's key to grab their photos from
+    /// - Parameter completed photoInfoKeys: a list of photoInfoKeys
+    func downloadUserPhotoInfoKeys(userKey: UserKey, completed: (photoInfoKeys: [PhotoInfoKey]?, err: ErrorType?) -> ())
+    
     //func getPhotoKeysNearMe() -> [PhotoInfoKey]
-    //func getMyPhotoKeys() -> [PhotoInfoKey]
+    
+    
 }
 
 extension ModelInterface: DownloadInterfaceProtocol {
@@ -71,6 +77,42 @@ extension ModelInterface: DownloadInterfaceProtocol {
             })
         }
     }
+    
+    func downloadUserPhotoInfoKeys(userKey: UserKey, completed: (photoInfoKeys: [PhotoInfoKey]?, err: ErrorType?) -> ()) {
+        let firebaseRef = FIRDatabase.database().reference()
+        
+        //check if user has uploaded photos
+        firebaseRef.child(PermanentConstants.realTimeDatabaseUserInfo).observeSingleEventOfType(.Value, withBlock: {
+            (snapshot) in
+            if(!snapshot.hasChild(userKey)) {
+                // user hasn't uploaded any photos so return an empty list
+                completed(photoInfoKeys: [], err: nil)
+            }
+        })
+        
+        
+        firebaseRef.child(PermanentConstants.realTimeDatabaseUserInfo).child(PermanentConstants.realTimeDatabasePhotoInfo).child(userKey).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            
+            var listOfKeys = [PhotoInfoKey]()
+            for child in snapshot.children {
+                listOfKeys.append(child.key)
+            }
+            
+            if !listOfKeys.isEmpty {
+                completed(photoInfoKeys: listOfKeys.reverse(), err: nil)
+            } else {
+                Log.debug("List of children should not be empty")
+                completed(photoInfoKeys: nil, err: DownloadError.UserHasNoPhotos)
+            }
+            
+        }) { (error) in
+            completed(photoInfoKeys: nil, err: DownloadError.FailedDownloadUserPhotoInfoKeys)
+        }
+
+    }
+    
+    
+    //MARK: - Private Helper Functions
     
     private func downloadPhotoInfo(photoInfoKey: PhotoInfoKey, completed:(photoInfo: PhotoInfo?, err: ErrorType?) -> ()) {
         

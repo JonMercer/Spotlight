@@ -27,6 +27,7 @@ protocol UploadInterfaceProtocol {
     
     /// Generates a new photo info.
     /// This is here so that we can get firebase related stuff like keys
+    /// - Requires: the user must be signed in
     /// - Returns: PhotoInfo with names, keys, timestamp, lat, and lon
     func createPhotoInfo() -> PhotoInfo
 }
