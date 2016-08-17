@@ -11,7 +11,6 @@
 		37517B4484A684BEBE43687B /* Pods_SpotlightUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 267D881F2BEED43F91DF5568 /* Pods_SpotlightUITests.framework */; };
 		7D4E28661D2CB61500F8E574 /* SingleListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4E28651D2CB61500F8E574 /* SingleListVC.swift */; };
 		7D4E28681D2CB82000F8E574 /* SingleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4E28671D2CB82000F8E574 /* SingleViewCell.swift */; };
-		7D9B41C61D2139B800B8389A /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9B41C51D2139B800B8389A /* MeVC.swift */; };
 		A400BFA81D57C59F00AE20D7 /* Photoshopable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A400BFA71D57C59F00AE20D7 /* Photoshopable.swift */; };
 		A451696E1D46F9C80004D1A7 /* MapViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = A451696D1D46F9C80004D1A7 /* MapViewContainer.xib */; };
 		A45169701D46F9E60004D1A7 /* MapViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451696F1D46F9E60004D1A7 /* MapViewContainer.swift */; };
@@ -56,9 +55,14 @@
 		C8766D291D598530008FBF2A /* CommunityInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8766D281D598530008FBF2A /* CommunityInterface.swift */; };
 		C8766D2B1D598541008FBF2A /* DeletionInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8766D2A1D598541008FBF2A /* DeletionInterface.swift */; };
 		C8A6E0A91D457666000649A0 /* GeoUtilTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A6E0A81D457666000649A0 /* GeoUtilTest.swift */; };
+		C8BBBC1D1D640C4300887A43 /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BBBC1C1D640C4300887A43 /* MeVC.swift */; };
 		C8BFBE121D23762400246DA1 /* DeviceOwnerPhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BFBE111D23762400246DA1 /* DeviceOwnerPhotoManager.swift */; };
 		C8C2153B1D2F3EAC0099FBB3 /* FeedbackViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8C2153A1D2F3EAC0099FBB3 /* FeedbackViewContainer.xib */; };
 		C8C2153D1D2F3F130099FBB3 /* FeedbackViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C2153C1D2F3F130099FBB3 /* FeedbackViewContainer.swift */; };
+		C8CB9E141D64100E005EFBE3 /* MeViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8CB9E131D64100E005EFBE3 /* MeViewContainer.xib */; };
+		C8CB9E161D641026005EFBE3 /* MeViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CB9E151D641026005EFBE3 /* MeViewContainer.swift */; };
+		C8CB9E181D64107B005EFBE3 /* MeViewContainerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8CB9E171D64107B005EFBE3 /* MeViewContainerCell.xib */; };
+		C8CB9E1A1D641089005EFBE3 /* MeViewContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CB9E191D641089005EFBE3 /* MeViewContainerCell.swift */; };
 		C8D136371D2077760005F018 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D136361D2077760005F018 /* CameraVC.swift */; };
 		C8D8FD851D3DCFFD003C9F16 /* NearMeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D8FD841D3DCFFD003C9F16 /* NearMeVC.swift */; };
 		C8E3428E1D348EC800D7F9D6 /* CameraViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8E3428D1D348EC800D7F9D6 /* CameraViewContainer.xib */; };
@@ -94,7 +98,6 @@
 		7AB65C32FCF86A353266FFFB /* Pods-SpotlightUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotlightUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpotlightUITests/Pods-SpotlightUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7D4E28651D2CB61500F8E574 /* SingleListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleListVC.swift; sourceTree = "<group>"; };
 		7D4E28671D2CB82000F8E574 /* SingleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleViewCell.swift; sourceTree = "<group>"; };
-		7D9B41C51D2139B800B8389A /* MeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
 		A400BFA71D57C59F00AE20D7 /* Photoshopable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photoshopable.swift; sourceTree = "<group>"; };
 		A451696D1D46F9C80004D1A7 /* MapViewContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewContainer.xib; sourceTree = "<group>"; };
 		A451696F1D46F9E60004D1A7 /* MapViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewContainer.swift; sourceTree = "<group>"; };
@@ -145,9 +148,14 @@
 		C8766D281D598530008FBF2A /* CommunityInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityInterface.swift; sourceTree = "<group>"; };
 		C8766D2A1D598541008FBF2A /* DeletionInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeletionInterface.swift; sourceTree = "<group>"; };
 		C8A6E0A81D457666000649A0 /* GeoUtilTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoUtilTest.swift; sourceTree = "<group>"; };
+		C8BBBC1C1D640C4300887A43 /* MeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
 		C8BFBE111D23762400246DA1 /* DeviceOwnerPhotoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceOwnerPhotoManager.swift; sourceTree = "<group>"; };
 		C8C2153A1D2F3EAC0099FBB3 /* FeedbackViewContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackViewContainer.xib; sourceTree = "<group>"; };
 		C8C2153C1D2F3F130099FBB3 /* FeedbackViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewContainer.swift; sourceTree = "<group>"; };
+		C8CB9E131D64100E005EFBE3 /* MeViewContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeViewContainer.xib; sourceTree = "<group>"; };
+		C8CB9E151D641026005EFBE3 /* MeViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewContainer.swift; sourceTree = "<group>"; };
+		C8CB9E171D64107B005EFBE3 /* MeViewContainerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeViewContainerCell.xib; sourceTree = "<group>"; };
+		C8CB9E191D641089005EFBE3 /* MeViewContainerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewContainerCell.swift; sourceTree = "<group>"; };
 		C8D136361D2077760005F018 /* CameraVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 		C8D8FD841D3DCFFD003C9F16 /* NearMeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearMeVC.swift; sourceTree = "<group>"; };
 		C8E3428D1D348EC800D7F9D6 /* CameraViewContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraViewContainer.xib; sourceTree = "<group>"; };
@@ -214,11 +222,11 @@
 				C84FDA6E1D2C975100E66DCD /* FeedbackVC.swift */,
 				C86CEA4A1D486BD5002C406A /* LoadingVC.swift */,
 				C8D136361D2077760005F018 /* CameraVC.swift */,
-				7D9B41C51D2139B800B8389A /* MeVC.swift */,
 				C8D8FD841D3DCFFD003C9F16 /* NearMeVC.swift */,
 				7D4E28651D2CB61500F8E574 /* SingleListVC.swift */,
 				7D4E28671D2CB82000F8E574 /* SingleViewCell.swift */,
 				A45169711D46FA4A0004D1A7 /* MapViewVC.swift */,
+				C8BBBC1C1D640C4300887A43 /* MeVC.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -375,9 +383,21 @@
 			path = SpotlightUITests;
 			sourceTree = "<group>";
 		};
+		C8BBBC1B1D640C2300887A43 /* MeView */ = {
+			isa = PBXGroup;
+			children = (
+				C8CB9E131D64100E005EFBE3 /* MeViewContainer.xib */,
+				C8CB9E151D641026005EFBE3 /* MeViewContainer.swift */,
+				C8CB9E171D64107B005EFBE3 /* MeViewContainerCell.xib */,
+				C8CB9E191D641089005EFBE3 /* MeViewContainerCell.swift */,
+			);
+			name = MeView;
+			sourceTree = "<group>";
+		};
 		C8C215391D2F3DFF0099FBB3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C8BBBC1B1D640C2300887A43 /* MeView */,
 				C83B72691D4ECE160055E689 /* MapView */,
 				C83B72681D4ECDF80055E689 /* NearMeView */,
 				C83B72671D4ECDD80055E689 /* CameraView */,
@@ -507,9 +527,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8CB9E181D64107B005EFBE3 /* MeViewContainerCell.xib in Resources */,
 				C83780B41D47280D008690E0 /* PokeCameraViewContainer.xib in Resources */,
 				C87650861D2066860092A75A /* LaunchScreen.storyboard in Resources */,
 				A4E7D3D21D3DD33200609A1E /* NearMeViewContainer.xib in Resources */,
+				C8CB9E141D64100E005EFBE3 /* MeViewContainer.xib in Resources */,
 				A4E7D3D61D3DE28800609A1E /* NearMeViewContainerCell.xib in Resources */,
 				C8647D9E1D29FAFC00C21A59 /* GoogleService-Info.plist in Resources */,
 				C87650831D2066860092A75A /* Assets.xcassets in Resources */,
@@ -664,7 +686,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D9B41C61D2139B800B8389A /* MeVC.swift in Sources */,
 				C858A75C1D5189B400140222 /* Location.swift in Sources */,
 				C825AFEE1D33127A00EE5B0E /* Util.swift in Sources */,
 				C84FDA6F1D2C975100E66DCD /* FeedbackVC.swift in Sources */,
@@ -687,9 +708,12 @@
 				C8E342901D348EDC00D7F9D6 /* CameraViewContainer.swift in Sources */,
 				C87650791D2066860092A75A /* AppDelegate.swift in Sources */,
 				A47148431D56ABF200E5AE78 /* DownloadInterface.swift in Sources */,
+				C8BBBC1D1D640C4300887A43 /* MeVC.swift in Sources */,
 				C8C2153D1D2F3F130099FBB3 /* FeedbackViewContainer.swift in Sources */,
+				C8CB9E161D641026005EFBE3 /* MeViewContainer.swift in Sources */,
 				A45169721D46FA4A0004D1A7 /* MapViewVC.swift in Sources */,
 				A47148471D56B0E500E5AE78 /* NSDateUtil.swift in Sources */,
+				C8CB9E1A1D641089005EFBE3 /* MeViewContainerCell.swift in Sources */,
 				C825AFE61D330A9E00EE5B0E /* ModelInterface.swift in Sources */,
 				7D4E28681D2CB82000F8E574 /* SingleViewCell.swift in Sources */,
 				C8766D2B1D598541008FBF2A /* DeletionInterface.swift in Sources */,
