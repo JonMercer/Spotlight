@@ -125,11 +125,33 @@
                     <connections>
                         <segue destination="GuB-hR-lYs" kind="relationship" relationship="viewControllers" id="w2t-In-8A4"/>
                         <segue destination="zUw-Ua-Tps" kind="relationship" relationship="viewControllers" id="I58-vY-JeW"/>
+                        <segue destination="QRT-vu-kTV" kind="relationship" relationship="viewControllers" id="RsL-1h-bI6"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZHB-As-1b9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="245" y="305"/>
+        </scene>
+        <!--Me-->
+        <scene sceneID="8fI-FO-se0">
+            <objects>
+                <viewController id="QRT-vu-kTV" userLabel="Me" customClass="MeVC" customModule="Spotlight" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cge-S8-cJy"/>
+                        <viewControllerLayoutGuide type="bottom" id="vo2-Qb-795"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Bcg-Dw-N6P">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Me" id="wKS-3S-htW"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bCM-98-m3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-278" y="1090"/>
         </scene>
         <!--Spotted-->
         <scene sceneID="DRZ-kl-hqJ">
@@ -290,7 +312,7 @@
         <image name="PokeSpotLogo" width="400" height="113"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="aeP-M8-OSB"/>
         <segue reference="oMN-ap-Ke9"/>
-        <segue reference="P6N-XF-oWu"/>
     </inferredMetricsTieBreakers>
 </document>
