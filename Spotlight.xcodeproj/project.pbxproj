@@ -11,7 +11,6 @@
 		37517B4484A684BEBE43687B /* Pods_SpotlightUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 267D881F2BEED43F91DF5568 /* Pods_SpotlightUITests.framework */; };
 		7D4E28661D2CB61500F8E574 /* SingleListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4E28651D2CB61500F8E574 /* SingleListVC.swift */; };
 		7D4E28681D2CB82000F8E574 /* SingleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4E28671D2CB82000F8E574 /* SingleViewCell.swift */; };
-		7D9B41C61D2139B800B8389A /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9B41C51D2139B800B8389A /* MeVC.swift */; };
 		A400BFA81D57C59F00AE20D7 /* Photoshopable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A400BFA71D57C59F00AE20D7 /* Photoshopable.swift */; };
 		A451696E1D46F9C80004D1A7 /* MapViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = A451696D1D46F9C80004D1A7 /* MapViewContainer.xib */; };
 		A45169701D46F9E60004D1A7 /* MapViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451696F1D46F9E60004D1A7 /* MapViewContainer.swift */; };
@@ -94,7 +93,6 @@
 		7AB65C32FCF86A353266FFFB /* Pods-SpotlightUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotlightUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpotlightUITests/Pods-SpotlightUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7D4E28651D2CB61500F8E574 /* SingleListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleListVC.swift; sourceTree = "<group>"; };
 		7D4E28671D2CB82000F8E574 /* SingleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleViewCell.swift; sourceTree = "<group>"; };
-		7D9B41C51D2139B800B8389A /* MeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
 		A400BFA71D57C59F00AE20D7 /* Photoshopable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photoshopable.swift; sourceTree = "<group>"; };
 		A451696D1D46F9C80004D1A7 /* MapViewContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewContainer.xib; sourceTree = "<group>"; };
 		A451696F1D46F9E60004D1A7 /* MapViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewContainer.swift; sourceTree = "<group>"; };
@@ -214,7 +212,6 @@
 				C84FDA6E1D2C975100E66DCD /* FeedbackVC.swift */,
 				C86CEA4A1D486BD5002C406A /* LoadingVC.swift */,
 				C8D136361D2077760005F018 /* CameraVC.swift */,
-				7D9B41C51D2139B800B8389A /* MeVC.swift */,
 				C8D8FD841D3DCFFD003C9F16 /* NearMeVC.swift */,
 				7D4E28651D2CB61500F8E574 /* SingleListVC.swift */,
 				7D4E28671D2CB82000F8E574 /* SingleViewCell.swift */,
@@ -664,7 +661,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D9B41C61D2139B800B8389A /* MeVC.swift in Sources */,
 				C858A75C1D5189B400140222 /* Location.swift in Sources */,
 				C825AFEE1D33127A00EE5B0E /* Util.swift in Sources */,
 				C84FDA6F1D2C975100E66DCD /* FeedbackVC.swift in Sources */,
