@@ -10,7 +10,7 @@ import Photos
 
 // MARK: - PhotoProtocol
 protocol PhotoProtocol {
-    var photoInfo: PhotoInfo? { get set }
+    var photoInfo: PhotoInfo? { get set}
     var photoImage: UIImage { get set }
     var photoIcon: UIImage { get set }
 }
@@ -23,7 +23,6 @@ class Photo: PhotoProtocol {
     var photoImage: UIImage
     var photoIcon: UIImage
     
-    // TODO: SL-203
     init(image: UIImage) {
         photoImage = image
         photoIcon = image

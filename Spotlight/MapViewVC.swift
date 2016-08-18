@@ -42,7 +42,7 @@ class MapViewVC: UIViewController {
 //MARK: - MapViewContainerDelegate
 extension MapViewVC: MapViewContainerDelegate {
     func getMapLocation(completion: (lat: CLLocationDegrees, lon: CLLocationDegrees) -> ()) {
-        ModelInterface.sharedInstance.downloadPhotoIcon(self.selectedImagePhotoInfoKey!) { (photo, err) in
+        ModelInterface.sharedInstance.downloadPhoto(self.selectedImagePhotoInfoKey!) { (photo, err) in
             guard err == nil else {
                 Log.error(err.debugDescription)
                 return

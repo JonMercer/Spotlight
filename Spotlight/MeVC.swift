@@ -83,7 +83,7 @@ extension MeVC: MeViewContainerDelegate {
             Log.error("PhotoInfoKeys should not be nil because grabPhotoEntityKeysInBigGeoBlocks() should have populated it")
             return
         }
-        ModelInterface.sharedInstance.downloadPhotoIcon(self.photoInfoKeysInGrid![index]) { (photo, err) in
+        ModelInterface.sharedInstance.downloadPhoto(self.photoInfoKeysInGrid![index]) { (photo, err) in
             guard err == nil else {
                 Log.error(err.debugDescription)
                 return

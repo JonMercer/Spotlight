@@ -13,7 +13,7 @@ import CoreLocation
 
 protocol DownloadInterfaceProtocol {
     func downloadPhotoKeysNear(lat: CLLocationDegrees, lon: CLLocationDegrees, completed: (photoInfoKeys: [PhotoInfoKey]?, err: ErrorType?) -> ())
-    func downloadPhotoIcon(photoInfoKey: PhotoInfoKey, completed: (photo: Photo?, err: ErrorType?) -> ())
+    func downloadPhoto(photoInfoKey: PhotoInfoKey, completed: (photo: Photo?, err: ErrorType?) -> ())
     
     /// Downloads the current user's PhotoInfoKeys
     /// - Parameter userKey: the user's key to grab their photos from
@@ -49,7 +49,7 @@ extension ModelInterface: DownloadInterfaceProtocol {
         }
     }
     
-    func downloadPhotoIcon(photoInfoKey: PhotoInfoKey, completed: (photo: Photo?, err: ErrorType?) -> ()) {
+    func downloadPhoto(photoInfoKey: PhotoInfoKey, completed: (photo: Photo?, err: ErrorType?) -> ()) {
         downloadPhotoInfo(photoInfoKey) { (photoInfo, err) in
             guard err == nil else {
                 Log.debug("couldn't get PhotoInfo")
@@ -59,7 +59,7 @@ extension ModelInterface: DownloadInterfaceProtocol {
             
             Log.info("downloaded photo info for: \(photoInfo!.name)")
             
-            self.downloadIcon(photoInfo!, completed: { (image, err) in
+            self.downloadImage(photoInfo!, completed: { (image, err) in
                 guard err == nil else {
                     Log.debug("couldn't get image")
                     completed(photo: nil, err: err)
@@ -68,7 +68,6 @@ extension ModelInterface: DownloadInterfaceProtocol {
                 
                 Log.info("downloaded image: \(photoInfo!.name)")
                 
-                // TODO: SL-203
                 let photo = Photo(image: image!)
                 photo.photoInfo = photoInfo
                 
@@ -137,12 +136,12 @@ extension ModelInterface: DownloadInterfaceProtocol {
         }
     }
     
-    private func downloadIcon(photoInfo: PhotoInfo, completed: (image: UIImage?, err: ErrorType?) -> ()) {
+    private func downloadImage(photoInfo: PhotoInfo, completed: (image: UIImage?, err: ErrorType?) -> ()) {
         let storage = FIRStorage.storage()
         let storageRef = storage.referenceForURL(FirebaseConstants.storageURL)
         
         // Create a reference to the file you want to download
-        let imageRef = storageRef.child(photoInfo.onlineIconStoragePath)
+        let imageRef = storageRef.child(photoInfo.onlineStoragePath)
         
         // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
         imageRef.dataWithMaxSize(FirebaseConstants.maxDownloadByteSize) { (data, error) -> Void in
