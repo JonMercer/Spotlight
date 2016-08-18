@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMobileAds
+import Firebase
 
 class MeVC: UIViewController {
     var container: MeViewContainer?
@@ -18,7 +19,7 @@ class MeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        grabPhotoInfoKeysInBigGeoBlocks {
+        grabMyPhotoInfoKeys {
             self.setupViewContainer()
         }
         
@@ -92,8 +93,16 @@ extension MeVC: MeViewContainerDelegate {
         }
     }
     
-    func grabPhotoInfoKeysInBigGeoBlocks(completion: () -> ()) {
-        ModelInterface.sharedInstance.downloadPhotoKeysNear(Location.sharedInstance.currentLat, lon: Location.sharedInstance.currentLon) { (photoInfoKeys, err) in
+    func grabMyPhotoInfoKeys(completion: () -> ()) {
+        let userKey = FIRAuth.auth()?.currentUser?.uid
+        
+        guard userKey != nil else {
+            Log.error("user is not signed in")
+            //TODO: SL-192
+            return
+        }
+        
+        ModelInterface.sharedInstance.downloadUserPhotoInfoKeys(userKey!) { (photoInfoKeys, err) in
             guard err == nil else {
                 Log.error(err.debugDescription)
                 return
@@ -109,7 +118,9 @@ extension MeVC: MeViewContainerDelegate {
     
     func collectionIndexSelected(index: NSIndexPath) {
         self.selectedCellIndexPath = index
-        self.performSegueWithIdentifier(Segues.toSingleMap, sender: self)
+        
+        // use this to hook up to photo view
+        //self.performSegueWithIdentifier(Segues.toSingleMap, sender: self)
     }
     
 }

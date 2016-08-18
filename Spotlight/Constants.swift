@@ -69,6 +69,8 @@ enum DownloadError: ErrorType {
     case FailedDownloadPhotoInfoKeys
     case EmptyGeoBlock
     case EmptyGeoBlockRadius
+    case UserHasNoPhotos
+    case FailedDownloadUserPhotoInfoKeys
 }
 
 enum Segues {

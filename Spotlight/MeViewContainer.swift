@@ -39,7 +39,7 @@ protocol MeViewContainerDelegate {
     func populateImage(cellImage: UIImageView, index: Int)
     func collectionIndexSelected(index: NSIndexPath)
     func getNumberOfCellImages() -> Int
-    func grabPhotoInfoKeysInBigGeoBlocks(completion: () -> ())
+    func grabMyPhotoInfoKeys(completion: () -> ())
 }
 
 //MARK: - UICollectionViewDelegate
