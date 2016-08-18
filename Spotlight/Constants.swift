@@ -27,13 +27,13 @@ enum Constants {
     static let albumName = "Spotlight"
     static let tempPathName = "test_path"  // temporary path name for testing local storage
     static let keySupposedToBeInFIR = "-KNVFMbkvuWGHrf0HzZE"
-    
-    //TODO: SL-202
-    static let compressedImageWidth = CGFloat(100)
-    static let compressedIconImageWidth = CGFloat(20)
+    static let compressedImageWidth = CGFloat(1080)
+    static let compressedIconImageWidth = CGFloat(360)
     
     static let AdmobID = "ca-app-pub-5958828933999537/7928373101"
     static let zoomLevel: Float = 15.0
+    
+    //TODO: SL-202
     static let imageCompressionRatio = CGFloat(0.1) // JPEG quality between 0 and 1
 }
 
