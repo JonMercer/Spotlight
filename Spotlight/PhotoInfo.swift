@@ -21,6 +21,7 @@ struct PhotoInfo {
     var timeStamp: TimeStampString
     let name: String
     let onlineStoragePath: OnlineStoragePath
+    let onlineIconStoragePath: OnlineStoragePath
     
     init(userKey: UserKey, photoInfoKey: PhotoInfoKey, lat: CLLocationDegrees, lon: CLLocationDegrees, timeStamp: TimeStampString) {
         self.lat = lat
@@ -30,5 +31,6 @@ struct PhotoInfo {
         self.userKey = userKey
         self.name = "\(timeStamp)-\(userKey)-\(key)-\(String.locationToString(lat.description))-\(String.locationToString(lon.description))"
         self.onlineStoragePath = "\(PermanentConstants.onlineStoragePhotoFolder)\(self.name).jpg"
+        self.onlineIconStoragePath = "\(PermanentConstants.onlineStoragePhotoIconFolder)\(self.name).jpg"
     }
 }

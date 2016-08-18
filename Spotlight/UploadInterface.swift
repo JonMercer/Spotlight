@@ -57,6 +57,27 @@ extension ModelInterface: UploadInterfaceProtocol {
         } else {
             completed(err: UploadError.FailedUploadPhoto)
         }
+        
+        if let onlineIconPath = photo.photoInfo?.onlineIconStoragePath {
+            let photoRef = storageRef.child(onlineIconPath)
+            let imageData = UIImageJPEGRepresentation(photo.photoIcon, Constants.imageCompressionRatio)
+            let metaData = FIRStorageMetadata()
+            metaData.contentType = "image/jpeg"
+            
+            //INFO: https://firebase.google.com/docs/reference/ios/firebasestorage/interface_f_i_r_storage_upload_task
+            // we should consider using uploadTask to pause and resume upload
+            photoRef.putData(imageData!, metadata: metaData) { metadata, error in
+                if (error != nil) {
+                    Log.error("\(onlineIconPath) failed to upload!")
+                    completed(err: UploadError.FailedUploadPhoto)
+                } else {
+                    Log.info("uploaded an image: \(onlineIconPath)")
+                    completed(err: nil)
+                }
+            }
+        } else {
+            completed(err: UploadError.FailedUploadPhoto)
+        }
     }
     
     func uploadPhotoInfo(photo: Photo, completed: (err: ErrorType?) -> ()) {

@@ -12,6 +12,7 @@ import Photos
 protocol PhotoProtocol {
     var photoInfo: PhotoInfo? { get set}
     var photoImage: UIImage { get set }
+    var photoIcon: UIImage { get set }
 }
 
 /// The everything needed to represent a photo the user created
@@ -20,9 +21,11 @@ protocol PhotoProtocol {
 class Photo: PhotoProtocol {
     var photoInfo: PhotoInfo?
     var photoImage: UIImage
+    var photoIcon: UIImage
     
     init(image: UIImage) {
         photoImage = image
+        photoIcon = image
     }
 }
 
