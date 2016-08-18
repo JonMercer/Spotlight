@@ -18,8 +18,9 @@ protocol OSResourcesInterfaceProtocol {
 }
 
 extension ModelInterface: OSResourcesInterfaceProtocol {
-    func savePhotoLocally(photo: Photo, completed: (err: ErrorType) -> ()) {
-        photo.resizeImage()
+    func savePhotoLocally(photoToSave: Photo, completed: (err: ErrorType) -> ()) {
+        var photo = photoToSave
+        photo.resizePhotoImage()
    
         // Convert PhotoView.image into a JPEG representation with full resolution
         let imageJPEG = UIImageJPEGRepresentation(photo.photoImage, 1.0)!
