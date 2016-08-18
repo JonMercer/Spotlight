@@ -118,7 +118,9 @@ extension MeVC: MeViewContainerDelegate {
     
     func collectionIndexSelected(index: NSIndexPath) {
         self.selectedCellIndexPath = index
-        self.performSegueWithIdentifier(Segues.toSingleMap, sender: self)
+        
+        // use this to hook up to photo view
+        //self.performSegueWithIdentifier(Segues.toSingleMap, sender: self)
     }
     
 }
