@@ -74,6 +74,7 @@ extension CameraVC: CameraViewContainerDelegate {
     func publishImage(image: UIImage, description: String) {
         var photo = Photo(image: image)
         photo.photoInfo = ModelInterface.sharedInstance.createPhotoInfo()
+        photo.photoInfo?.description = description
         
         photo.resizePhotoImage()
         photo.resizeIconImage()

@@ -109,6 +109,7 @@ enum PermanentConstants {
     static let photoInfoLat = "lat"
     static let photoInfoLon = "lon"
     static let photoInfoTimeStamp = "timeStamp"
+    static let photoInfoDescription = "description"
 }
 
 

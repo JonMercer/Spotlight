@@ -88,6 +88,10 @@ extension ModelInterface: UploadInterfaceProtocol {
             return
         }
         
+        if photo.photoInfo?.description == nil {
+            photo.photoInfo?.description = ""
+        }
+        
         Log.debug("about to upload: \(photo.photoInfo!.onlineStoragePath)")
         
         let firebaseRef = FIRDatabase.database().reference()
@@ -101,7 +105,8 @@ extension ModelInterface: UploadInterfaceProtocol {
                                  PermanentConstants.photoInfoName: photo.photoInfo!.name,
                                  PermanentConstants.photoInfoLat: photo.photoInfo!.lat,
                                  PermanentConstants.photoInfoLon: photo.photoInfo!.lon,
-                                 PermanentConstants.photoInfoTimeStamp: photo.photoInfo!.timeStamp]
+                                 PermanentConstants.photoInfoTimeStamp: photo.photoInfo!.timeStamp,
+                                 PermanentConstants.photoInfoDescription: photo.photoInfo!.description!]
         
         //SL-171
         let photoInfoAddress = "/\(PermanentConstants.realTimeDatabasePhotoInfo)/\(photo.photoInfo!.key)"
