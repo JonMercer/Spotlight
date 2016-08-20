@@ -14,12 +14,13 @@ import CoreLocation
 /// - Attention: this class is tighly coupled with UploadInterface. 
 /// - Todo: Consider creating a protocol to uphold a contract. SL-172
 struct PhotoInfo {
-    var userKey: UserKey
-    var key: PhotoInfoKey
-    var lat: CLLocationDegrees
-    var lon: CLLocationDegrees
-    var timeStamp: TimeStampString
+    let userKey: UserKey
+    let key: PhotoInfoKey
+    let lat: CLLocationDegrees
+    let lon: CLLocationDegrees
+    let timeStamp: TimeStampString
     let name: String
+    var description: String?
     let onlineStoragePath: OnlineStoragePath
     let onlineIconStoragePath: OnlineStoragePath
     
