@@ -126,7 +126,7 @@ extension ModelInterface: UploadInterfaceProtocol {
                 completed(err: UploadError.FailedUploadPhotoInfo)
             } else {
                 //TODO: return photo
-                //completed(photo: photo)
+                completed(err: error)
             }
         })
     }
