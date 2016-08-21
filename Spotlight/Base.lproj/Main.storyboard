@@ -262,7 +262,7 @@
         <!--Photo-->
         <scene sceneID="oZB-bS-EOO">
             <objects>
-                <viewController id="JwT-FW-WgO" userLabel="Photo" sceneMemberID="viewController">
+                <viewController id="JwT-FW-WgO" userLabel="Photo" customClass="PhotoVC" customModule="Spotlight" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Nyh-lJ-Cnk"/>
                         <viewControllerLayoutGuide type="bottom" id="BzZ-Nr-Cy0"/>
