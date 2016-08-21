@@ -27,7 +27,6 @@ class PhotoVC: UIViewController {
     }
     
     func setKey(key: PhotoInfoKey) {
-        Log.test("key is: \(key)")
         self.photoInfoKey = key
     }
    
@@ -38,7 +37,7 @@ class PhotoVC: UIViewController {
 }
 
 extension PhotoVC: PhotoViewContainerDelegate {
-    func simplePrint() {
-        Log.test("printing the delegate")
+    func goBackToGridView() {
+        performSegueWithIdentifier(Segues.toGridView, sender: self)
     }
 }

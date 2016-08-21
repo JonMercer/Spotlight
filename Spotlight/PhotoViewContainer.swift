@@ -16,6 +16,7 @@ class PhotoViewContainer: UIView {
     @IBOutlet weak var imageDescription: UITextView!
     
     @IBAction func backButton(sender: AnyObject) {
+        delegate?.goBackToGridView()
     }
     
     override func awakeFromNib() {
@@ -33,5 +34,5 @@ class PhotoViewContainer: UIView {
 }
 
 protocol PhotoViewContainerDelegate {
-    func simplePrint()
+    func goBackToGridView()
 }
