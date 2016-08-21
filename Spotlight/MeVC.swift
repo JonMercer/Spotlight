@@ -63,15 +63,16 @@ class MeVC: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == Segues.toSingleMap {
-            let singleMapView = segue.destinationViewController as! MapViewVC
+        if segue.identifier == Segues.toPhotoView {
+            guard photoInfoKeysInGrid != nil else {
+                Log.error("list of photo info keys should have been loaded by now")
+                return
+            }
+            
+            let photoView = segue.destinationViewController as! PhotoVC
             let index = selectedCellIndexPath!.row
             
-            if(photoInfoKeysInGrid != nil) {
-                singleMapView.setUpLatLonOfMap(photoInfoKeysInGrid![index])
-            } else {
-                Log.error("photoEntitiesInGrid was not set and shouldn't have been empty")
-            }
+            photoView.setKey(photoInfoKeysInGrid![index])
         }
     }
 }
@@ -118,9 +119,7 @@ extension MeVC: MeViewContainerDelegate {
     
     func collectionIndexSelected(index: NSIndexPath) {
         self.selectedCellIndexPath = index
-        
-        // use this to hook up to photo view
-        //self.performSegueWithIdentifier(Segues.toSingleMap, sender: self)
+        self.performSegueWithIdentifier(Segues.toPhotoView, sender: self)
     }
     
 }
