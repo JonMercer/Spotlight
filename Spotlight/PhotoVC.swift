@@ -16,6 +16,26 @@ class PhotoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewContainer()
+        
+        guard photoInfoKey != nil else {
+            Log.error("photo info key should have been set on segue")
+            return
+        }
+        
+        ModelInterface.sharedInstance.downloadPhoto(photoInfoKey!) { (photo, err) in
+            guard err == nil else {
+                Log.error(err.debugDescription)
+                return
+            }
+            
+            guard photo != nil else {
+                Log.error("photo should have been downloaded already")
+                return
+            }
+            
+            self.container?.loadImage((photo?.photoImage)!)
+            self.container?.loadDescription((photo?.photoInfo?.description)!)
+        }
     }
     
     //MARK: Helper Functions

@@ -22,6 +22,7 @@ typealias OnlineStoragePath = String
 typealias CLLocationIntegers = Int //CLLocationDegress x 1000
 typealias TimeStampString = String
 typealias Username = String
+typealias Description = String
 
 enum Constants {
     static let albumName = "Spotlight"

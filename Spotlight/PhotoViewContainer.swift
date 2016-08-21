@@ -30,6 +30,14 @@ class PhotoViewContainer: UIView {
         view.frame = frame
         return view
     }
+    
+    func loadImage(withImage: UIImage) {
+        self.image.image = withImage
+    }
+    
+    func loadDescription(withDescription: Description) {
+        imageDescription.text = withDescription
+    }
 
 }
 
