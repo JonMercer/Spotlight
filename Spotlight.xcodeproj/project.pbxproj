@@ -29,6 +29,7 @@
 		C81FEBBA1D3F2E250002127F /* LocationManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81FEBB91D3F2E250002127F /* LocationManagerTest.swift */; };
 		C825AFE61D330A9E00EE5B0E /* ModelInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C825AFE51D330A9E00EE5B0E /* ModelInterface.swift */; };
 		C825AFEE1D33127A00EE5B0E /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C825AFED1D33127A00EE5B0E /* Util.swift */; };
+		C8326F731D6A34A20062EEFF /* PhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8326F721D6A34A20062EEFF /* PhotoVC.swift */; };
 		C83780B21D472779008690E0 /* PokeCameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83780B11D472779008690E0 /* PokeCameraVC.swift */; };
 		C83780B41D47280D008690E0 /* PokeCameraViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = C83780B31D47280D008690E0 /* PokeCameraViewContainer.xib */; };
 		C83780B61D47281D008690E0 /* PokeCameraViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83780B51D47281D008690E0 /* PokeCameraViewContainer.swift */; };
@@ -116,6 +117,7 @@
 		C81FEBB91D3F2E250002127F /* LocationManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManagerTest.swift; sourceTree = "<group>"; };
 		C825AFE51D330A9E00EE5B0E /* ModelInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelInterface.swift; sourceTree = "<group>"; };
 		C825AFED1D33127A00EE5B0E /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		C8326F721D6A34A20062EEFF /* PhotoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoVC.swift; sourceTree = "<group>"; };
 		C83780B11D472779008690E0 /* PokeCameraVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeCameraVC.swift; sourceTree = "<group>"; };
 		C83780B31D47280D008690E0 /* PokeCameraViewContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PokeCameraViewContainer.xib; sourceTree = "<group>"; };
 		C83780B51D47281D008690E0 /* PokeCameraViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeCameraViewContainer.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				C876507A1D2066860092A75A /* ViewController.swift */,
 				C83780B11D472779008690E0 /* PokeCameraVC.swift */,
 				C84FDA6E1D2C975100E66DCD /* FeedbackVC.swift */,
+				C8326F721D6A34A20062EEFF /* PhotoVC.swift */,
 				C86CEA4A1D486BD5002C406A /* LoadingVC.swift */,
 				C8D136361D2077760005F018 /* CameraVC.swift */,
 				C8D8FD841D3DCFFD003C9F16 /* NearMeVC.swift */,
@@ -727,6 +730,7 @@
 				C83780B21D472779008690E0 /* PokeCameraVC.swift in Sources */,
 				C86CED8B1D209A9100B70FF0 /* CustomPhotoAlbum.swift in Sources */,
 				A4FB11941D20914B001F36F2 /* Constants.swift in Sources */,
+				C8326F731D6A34A20062EEFF /* PhotoVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
