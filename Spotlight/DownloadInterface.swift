@@ -124,7 +124,6 @@ extension ModelInterface: DownloadInterfaceProtocol {
                 }
                 
                 //SL-209
-                Log.test("create a tech debt for this")
                 let photo = Photo(image: image!)
                 photo.photoInfo = photoInfo
                 completed(photo: photo, err: err)

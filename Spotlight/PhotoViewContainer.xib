@@ -33,11 +33,20 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1AE-0c-J8N">
+                    <rect key="frame" x="274" y="18" width="30" height="30"/>
+                    <state key="normal" title="Map"/>
+                    <connections>
+                        <action selector="mapButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="PCa-43-Zjt"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="sAT-mG-BNq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="14" id="6Ef-du-QYG"/>
                 <constraint firstItem="G2i-5Y-RqL" firstAttribute="leading" secondItem="cfu-n6-PC6" secondAttribute="leading" id="FaY-XK-B0h"/>
+                <constraint firstItem="1AE-0c-J8N" firstAttribute="baseline" secondItem="sAT-mG-BNq" secondAttribute="baseline" id="IuC-bn-uHu"/>
+                <constraint firstAttribute="trailing" secondItem="1AE-0c-J8N" secondAttribute="trailing" constant="16" id="NvO-2R-qWU"/>
                 <constraint firstItem="cfu-n6-PC6" firstAttribute="top" secondItem="G2i-5Y-RqL" secondAttribute="bottom" constant="1" id="O2j-of-x2b"/>
                 <constraint firstAttribute="trailing" secondItem="G2i-5Y-RqL" secondAttribute="trailing" id="OrX-tZ-g5n"/>
                 <constraint firstItem="G2i-5Y-RqL" firstAttribute="trailing" secondItem="cfu-n6-PC6" secondAttribute="trailing" id="Vq6-DS-pLF"/>

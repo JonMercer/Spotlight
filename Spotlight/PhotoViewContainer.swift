@@ -19,6 +19,9 @@ class PhotoViewContainer: UIView {
         delegate?.goBackToGridView()
     }
     
+    @IBAction func mapButtonPressed(sender: AnyObject) {
+        delegate?.goToMapView()
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         Log.debug("Photo view container is loaded")
@@ -43,4 +46,5 @@ class PhotoViewContainer: UIView {
 
 protocol PhotoViewContainerDelegate {
     func goBackToGridView()
+    func goToMapView()
 }

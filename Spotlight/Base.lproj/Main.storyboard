@@ -278,11 +278,12 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <segue destination="d9W-T5-tax" kind="show" identifier="segueToGridView" id="aWJ-Wz-egd"/>
+                        <segue destination="Jjb-LD-kda" kind="show" identifier="segueToSingleMap" id="YnH-n6-ixh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jfB-6K-eOG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="245" y="1090"/>
+            <point key="canvasLocation" x="260" y="1182"/>
         </scene>
         <!--Near Me-->
         <scene sceneID="5SU-hd-qy0">
@@ -323,6 +324,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="JwT-FW-WgO" kind="show" identifier="segueToPhotoView" id="uLc-LB-VfV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D97-oq-Jrc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -335,8 +339,8 @@
         <image name="PokeSpotLogo" width="400" height="113"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wgY-BJ-UHE"/>
-        <segue reference="P6N-XF-oWu"/>
-        <segue reference="4y9-tu-Kso"/>
+        <segue reference="YnH-n6-ixh"/>
+        <segue reference="uLc-LB-VfV"/>
+        <segue reference="aWJ-Wz-egd"/>
     </inferredMetricsTieBreakers>
 </document>

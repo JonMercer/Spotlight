@@ -10,6 +10,7 @@ import UIKit
 
 class PhotoVC: UIViewController {
     var photoInfoKey: PhotoInfoKey?
+    var photo: Photo?
     
     var container: PhotoViewContainer?
     
@@ -32,9 +33,11 @@ class PhotoVC: UIViewController {
                 Log.error("photo should have been downloaded already")
                 return
             }
+            self.photo = photo
             
             self.container?.loadImage((photo?.photoImage)!)
             self.container?.loadDescription((photo?.photoInfo?.description)!)
+            
         }
     }
     
@@ -49,6 +52,18 @@ class PhotoVC: UIViewController {
     func setKey(key: PhotoInfoKey) {
         self.photoInfoKey = key
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == Segues.toSingleMap {
+            guard photo?.photoInfo != nil || photoInfoKey != nil else {
+                Log.error("PhotoInfo or photo info key cannot be null when going to map view")
+                return
+            }
+            
+            let singleMapView = segue.destinationViewController as! MapViewVC
+            singleMapView.setPhotoInfo((photo?.photoInfo)!, photoInfoKey: photoInfoKey!)
+        }
+    }
    
     
     override func didReceiveMemoryWarning() {
@@ -59,5 +74,8 @@ class PhotoVC: UIViewController {
 extension PhotoVC: PhotoViewContainerDelegate {
     func goBackToGridView() {
         performSegueWithIdentifier(Segues.toGridView, sender: self)
+    }
+    func goToMapView() {
+        performSegueWithIdentifier(Segues.toSingleMap, sender: self)
     }
 }
