@@ -11,16 +11,45 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Lm-Xp-FVl">
-                    <rect key="frame" x="77" y="81" width="46" height="30"/>
-                    <state key="normal" title="Button"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAT-mG-BNq">
+                    <rect key="frame" x="14" y="18" width="34" height="30"/>
+                    <state key="normal" title="Back"/>
                     <connections>
-                        <action selector="button:" destination="iN0-l3-epB" eventType="touchUpInside" id="IQf-IP-kqF"/>
+                        <action selector="backButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="bHa-4j-aiO"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G2i-5Y-RqL">
+                    <rect key="frame" x="0.0" y="51" width="320" height="320"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="320" id="vwZ-dV-ARW"/>
+                    </constraints>
+                </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="No Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cfu-n6-PC6">
+                    <rect key="frame" x="0.0" y="372" width="320" height="92"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="92" id="xKe-dz-pbe"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="sAT-mG-BNq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="14" id="6Ef-du-QYG"/>
+                <constraint firstItem="G2i-5Y-RqL" firstAttribute="leading" secondItem="cfu-n6-PC6" secondAttribute="leading" id="FaY-XK-B0h"/>
+                <constraint firstItem="cfu-n6-PC6" firstAttribute="top" secondItem="G2i-5Y-RqL" secondAttribute="bottom" constant="1" id="O2j-of-x2b"/>
+                <constraint firstAttribute="trailing" secondItem="G2i-5Y-RqL" secondAttribute="trailing" id="OrX-tZ-g5n"/>
+                <constraint firstItem="G2i-5Y-RqL" firstAttribute="trailing" secondItem="cfu-n6-PC6" secondAttribute="trailing" id="Vq6-DS-pLF"/>
+                <constraint firstItem="G2i-5Y-RqL" firstAttribute="top" secondItem="sAT-mG-BNq" secondAttribute="bottom" constant="3" id="aAX-ST-MiU"/>
+                <constraint firstItem="G2i-5Y-RqL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="hub-vD-MIO"/>
+                <constraint firstItem="sAT-mG-BNq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="18" id="qyY-Oq-wqn"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <connections>
+                <outlet property="image" destination="G2i-5Y-RqL" id="8iP-SP-NSR"/>
+                <outlet property="imageDescription" destination="cfu-n6-PC6" id="T7e-IS-jbA"/>
+            </connections>
             <point key="canvasLocation" x="320" y="360"/>
         </view>
     </objects>

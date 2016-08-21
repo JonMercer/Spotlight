@@ -11,9 +11,13 @@ import UIKit
 class PhotoViewContainer: UIView {
     var delegate: PhotoViewContainerDelegate?
     
-    @IBAction func button(sender: AnyObject) {
-        delegate?.simplePrint()
+    
+    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var imageDescription: UITextView!
+    
+    @IBAction func backButton(sender: AnyObject) {
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         Log.debug("Photo view container is loaded")
