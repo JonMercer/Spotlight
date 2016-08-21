@@ -9,6 +9,7 @@
 import UIKit
 
 class PhotoVC: UIViewController {
+    var photoInfoKey: PhotoInfoKey?
     
     var container: PhotoViewContainer?
     
@@ -23,6 +24,11 @@ class PhotoVC: UIViewController {
             CGRectMake(0, 0, view.bounds.width, view.bounds.height))
         container?.delegate = self
         view.addSubview(container!)
+    }
+    
+    func setKey(key: PhotoInfoKey) {
+        Log.test("key is: \(key)")
+        self.photoInfoKey = key
     }
    
     

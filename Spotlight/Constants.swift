@@ -79,6 +79,7 @@ enum DownloadError: ErrorType {
 
 enum Segues {
     static let toSingleMap = "segueToSingleMap"
+    static let toPhotoView = "segueToPhotoView"
     static let toGridView = "segueToGridView"
     static let toTabView = "segueToTabView"
 }
