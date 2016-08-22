@@ -33,10 +33,17 @@ class PhotoVC: UIViewController {
                 Log.error("photo should have been downloaded already")
                 return
             }
+            
+            guard photo?.photoInfo != nil else {
+                Log.error("photo info should not be null")
+                return
+            }
+            
+            
             self.photo = photo
             
             self.container?.loadImage((photo?.photoImage)!)
-            self.container?.loadDescription((photo?.photoInfo?.description)!)
+            self.container?.loadDescription(photo!.photoInfo!.description!)
             
         }
     }
