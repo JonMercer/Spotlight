@@ -12,12 +12,22 @@ import CoreLocation
 
 class MapViewVC: UIViewController {
     var container: MapViewContainer?
-    var selectedImagePhotoInfoKey: PhotoInfoKey?
+    //SL-210
+    var photoInfoKey: PhotoInfoKey?
+    var photoInfo: PhotoInfo?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewContainer()
+        
+        guard photoInfo != nil else {
+            Log.error("photoInfo should have been instantiated on segue")
+            return
+        }
+        container?.lat = photoInfo!.lat
+        container?.lon = photoInfo!.lon
         container?.loadLatLonOnMap()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -34,25 +44,28 @@ class MapViewVC: UIViewController {
         view.addSubview(container!)
     }
     
-    func setUpLatLonOfMap(photoInfoKey: PhotoInfoKey) {
-        selectedImagePhotoInfoKey = photoInfoKey
+    func setPhotoInfo(photoInfo: PhotoInfo, photoInfoKey: PhotoInfoKey) {
+        self.photoInfo = photoInfo
+        self.photoInfoKey = photoInfoKey
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == Segues.toPhotoView {
+            guard photoInfoKey != nil else {
+                Log.error("photoInfo key should have been loaded on segue")
+                return
+            }
+            
+            let photoView = segue.destinationViewController as! PhotoVC
+            photoView.setKey(photoInfoKey!)
+        }
     }
 }
 
 //MARK: - MapViewContainerDelegate
 extension MapViewVC: MapViewContainerDelegate {
-    func getMapLocation(completion: (lat: CLLocationDegrees, lon: CLLocationDegrees) -> ()) {
-        ModelInterface.sharedInstance.downloadPhotoIcon(self.selectedImagePhotoInfoKey!) { (photo, err) in
-            guard err == nil else {
-                Log.error(err.debugDescription)
-                return
-            }
-            
-            completion(lat: photo!.photoInfo!.lat, lon: photo!.photoInfo!.lon)
-        }
-    }
-    
-    func goBackGridView() {
-        performSegueWithIdentifier(Segues.toGridView, sender: self)
+    func goBackToPhotoView() {
+        performSegueWithIdentifier(Segues.toPhotoView, sender: self)
     }
 }

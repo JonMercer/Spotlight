@@ -22,6 +22,7 @@ typealias OnlineStoragePath = String
 typealias CLLocationIntegers = Int //CLLocationDegress x 1000
 typealias TimeStampString = String
 typealias Username = String
+typealias Description = String
 
 enum Constants {
     static let albumName = "Spotlight"
@@ -79,6 +80,7 @@ enum DownloadError: ErrorType {
 
 enum Segues {
     static let toSingleMap = "segueToSingleMap"
+    static let toPhotoView = "segueToPhotoView"
     static let toGridView = "segueToGridView"
     static let toTabView = "segueToTabView"
 }

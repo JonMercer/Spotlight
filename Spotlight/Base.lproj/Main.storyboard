@@ -148,6 +148,9 @@
                     <tabBarItem key="tabBarItem" title="Me" id="wKS-3S-htW"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="JwT-FW-WgO" kind="show" identifier="segueToPhotoView" id="Vd1-PJ-wwp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bCM-98-m3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -259,6 +262,29 @@
             </objects>
             <point key="canvasLocation" x="933" y="-875"/>
         </scene>
+        <!--Photo-->
+        <scene sceneID="oZB-bS-EOO">
+            <objects>
+                <viewController id="JwT-FW-WgO" userLabel="Photo" customClass="PhotoVC" customModule="Spotlight" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Nyh-lJ-Cnk"/>
+                        <viewControllerLayoutGuide type="bottom" id="BzZ-Nr-Cy0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8xT-wM-hoq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="d9W-T5-tax" kind="show" identifier="segueToGridView" id="aWJ-Wz-egd"/>
+                        <segue destination="Jjb-LD-kda" kind="show" identifier="segueToSingleMap" id="YnH-n6-ixh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jfB-6K-eOG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="260" y="1182"/>
+        </scene>
         <!--Near Me-->
         <scene sceneID="5SU-hd-qy0">
             <objects>
@@ -277,6 +303,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <segue destination="Jjb-LD-kda" kind="show" identifier="segueToSingleMap" id="wgY-BJ-UHE"/>
+                        <segue destination="JwT-FW-WgO" kind="show" identifier="segueToPhotoView" id="4y9-tu-Kso"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cOm-jj-kZq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -298,7 +325,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <segue destination="d9W-T5-tax" kind="show" identifier="segueToGridView" id="tey-1b-eDg"/>
+                        <segue destination="JwT-FW-WgO" kind="show" identifier="segueToPhotoView" id="uLc-LB-VfV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D97-oq-Jrc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -312,7 +339,8 @@
         <image name="PokeSpotLogo" width="400" height="113"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aeP-M8-OSB"/>
-        <segue reference="oMN-ap-Ke9"/>
+        <segue reference="YnH-n6-ixh"/>
+        <segue reference="uLc-LB-VfV"/>
+        <segue reference="aWJ-Wz-egd"/>
     </inferredMetricsTieBreakers>
 </document>

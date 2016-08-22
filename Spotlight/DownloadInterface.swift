@@ -20,9 +20,7 @@ protocol DownloadInterfaceProtocol {
     /// - Parameter completed photoInfoKeys: a list of photoInfoKeys
     func downloadUserPhotoInfoKeys(userKey: UserKey, completed: (photoInfoKeys: [PhotoInfoKey]?, err: ErrorType?) -> ())
     
-    //func getPhotoKeysNearMe() -> [PhotoInfoKey]
-    
-    
+    func downloadPhoto(byPhotoInfoKey: PhotoInfoKey, completed: (photo: Photo?, err: ErrorType?) -> ())
 }
 
 extension ModelInterface: DownloadInterfaceProtocol {
@@ -112,6 +110,28 @@ extension ModelInterface: DownloadInterfaceProtocol {
 
     }
     
+    func downloadPhoto(byPhotoInfoKey: PhotoInfoKey, completed: (photo: Photo?, err: ErrorType?) -> ()) {
+        downloadPhotoInfo(byPhotoInfoKey) { (photoInfo, err) in
+            guard err == nil || photoInfo != nil else {
+                completed(photo: nil, err: err)
+                return;
+            }
+            
+            self.downloadBigImage(photoInfo!, completed: { (image, err) in
+                guard err == nil || image != nil else {
+                    completed(photo: nil, err: err)
+                    return;
+                }
+                
+                //SL-209
+                let photo = Photo(image: image!)
+                photo.photoInfo = photoInfo
+                completed(photo: photo, err: err)
+            })
+            
+        }
+    }
+    
     
     //MARK: - Private Helper Functions
     
@@ -126,8 +146,13 @@ extension ModelInterface: DownloadInterfaceProtocol {
             let lat = snapshot.value![PermanentConstants.photoInfoLat] as! CLLocationDegrees
             let lon = snapshot.value![PermanentConstants.photoInfoLon] as! CLLocationDegrees
             let time = snapshot.value![PermanentConstants.photoInfoTimeStamp] as! String
+            let description = snapshot.value![PermanentConstants.photoInfoDescription] as! String
             
-            let photoInfo = PhotoInfo(userKey: userKey, photoInfoKey: photoInfoKey, lat: lat, lon: lon, timeStamp: time)
+            var photoInfo = PhotoInfo(userKey: userKey, photoInfoKey: photoInfoKey, lat: lat, lon: lon, timeStamp: time)
+            
+            if(!description.isEmpty || description != "") {
+                photoInfo.description = description
+            }
             
             completed(photoInfo: photoInfo, err: nil)
             
@@ -143,6 +168,26 @@ extension ModelInterface: DownloadInterfaceProtocol {
         
         // Create a reference to the file you want to download
         let imageRef = storageRef.child(photoInfo.onlineIconStoragePath)
+        
+        // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+        imageRef.dataWithMaxSize(FirebaseConstants.maxDownloadByteSize) { (data, error) -> Void in
+            guard error == nil else {
+                Log.debug("download image:\(photoInfo.name) failed")
+                completed(image: nil, err: error)
+                return
+            }
+            
+            let downloadedImage: UIImage! = UIImage(data: data!)
+            completed(image: downloadedImage, err: nil)
+        }
+    }
+    
+    private func downloadBigImage(photoInfo: PhotoInfo, completed: (image: UIImage?, err: ErrorType?) -> ()) {
+        let storage = FIRStorage.storage()
+        let storageRef = storage.referenceForURL(FirebaseConstants.storageURL)
+        
+        // Create a reference to the file you want to download
+        let imageRef = storageRef.child(photoInfo.onlineStoragePath)
         
         // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
         imageRef.dataWithMaxSize(FirebaseConstants.maxDownloadByteSize) { (data, error) -> Void in

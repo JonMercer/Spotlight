@@ -13,10 +13,12 @@ import GoogleMaps
 
 class MapViewContainer: UIView {
     var delegate: MapViewContainerDelegate?
+    var lat: CLLocationDegrees?
+    var lon: CLLocationDegrees?
     
     @IBOutlet weak var backButton: UIButton!
     @IBAction func backButton(sender: AnyObject) {
-        delegate?.goBackGridView()
+        delegate?.goBackToPhotoView()
     }
     
     @IBOutlet weak var singleMapView: GMSMapView!
@@ -39,26 +41,26 @@ class MapViewContainer: UIView {
     }
     
     func loadLatLonOnMap() {
-        delegate?.getMapLocation({ (lat, lon) in
-            Log.debug("lat: \(lat) lon: \(lon)")
-            let camera = GMSCameraPosition.cameraWithLatitude(lat,longitude: lon, zoom: Constants.zoomLevel)
-            self.singleMapView.camera = camera
-            self.singleMapView.myLocationEnabled = true
-            
-            
-            let marker = GMSMarker()
-            marker.icon = UIImage(named: "PokeMarker")
-            marker.position = CLLocationCoordinate2DMake(lat,lon)
-            //marker.title = "Sydney"
-            //marker.snippet = "Australia"
-            marker.map = self.singleMapView
-        })
-    }
+        guard lat != nil || lon != nil else {
+            Log.error("lat and lon should have been set on segue")
+            return
+        }
+        
+        Log.debug("lat: \(lat) lon: \(lon)")
+        let camera = GMSCameraPosition.cameraWithLatitude(lat!,longitude: lon!, zoom: Constants.zoomLevel)
+        self.singleMapView.camera = camera
+        self.singleMapView.myLocationEnabled = true
+        
+        let marker = GMSMarker()
+        marker.icon = UIImage(named: "PokeMarker")
+        marker.position = CLLocationCoordinate2DMake(lat!,lon!)
+        //marker.title = "Sydney"
+        //marker.snippet = "Australia"
+        marker.map = self.singleMapView    }
 }
 
 //MARK: - MapViewContainerDelegate
 protocol MapViewContainerDelegate {
-    func getMapLocation(completion: (lat: CLLocationDegrees, lon: CLLocationDegrees) -> ())
-    func goBackGridView()
+    func goBackToPhotoView()
 }
 
