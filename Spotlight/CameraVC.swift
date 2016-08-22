@@ -19,7 +19,7 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     @IBAction func GetImageFromAlbums(sender: AnyObject) {}
     @IBAction func SaveButton(sender: AnyObject) {}
     @IBAction func saveLocally(sender: AnyObject) {}
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewContainer()
@@ -36,7 +36,7 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
                 //TODO: handle error
             })
         }
-
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -50,6 +50,22 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
             CGRectMake(0, 0, view.bounds.width, view.bounds.height))
         container?.delegate = self
         view.addSubview(container!)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == Segues.toGridView {
+//            let photoView = segue.destinationViewController as! PhotoVC
+//            let index = selectedCellIndexPath!.row
+//            
+//            photoView.setKey(photoInfoKeysInGrid![index])
+            let meVC = segue.destinationViewController as! UITabBarController
+            meVC.selectedIndex = 2
+        }
+    }
+    
+    private func segueAfterPublish() {
+        Log.test("should segue")
+        performSegueWithIdentifier(Segues.toGridView, sender: self)
     }
 }
 
@@ -68,7 +84,7 @@ extension CameraVC: CameraViewContainerDelegate {
         //TODO: do I actually need to run this line?
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         CustomPhotoAlbum.sharedInstance.saveImage(image)
-
+        
     }
     
     func publishImage(image: UIImage, description: String) {
@@ -79,17 +95,39 @@ extension CameraVC: CameraViewContainerDelegate {
         photo.resizePhotoImage()
         photo.resizeIconImage()
         
+        //SL-211
+        //uploadingAlert()
         ModelInterface.sharedInstance.uploadPhoto(photo) { (err) in
-            if err != nil {
-                //TODO: let the user know SL-168
+            guard err == nil else {
                 Log.error(err.debugDescription)
-            } else {
-                ModelInterface.sharedInstance.uploadPhotoInfo(photo, completed: { (err) in
-                    //TODO: let the user know SL-168
-                    Log.error(err.debugDescription)
-                })
+                self.uploadFailedAlert()
+                return
             }
+    
+            ModelInterface.sharedInstance.uploadPhotoInfo(photo, completed: { (err) in
+                guard err == nil else {
+                    Log.error(err.debugDescription)
+                    self.uploadFailedAlert()
+                    return
+                }
+                //SL-211
+                //self.dismissViewControllerAnimated(false, completion: nil)
+                self.segueAfterPublish()
+            })
+            
         }
+    }
+    
+    private func uploadFailedAlert() {
+        let alert = UIAlertController(title: "Oops", message: "Photo could not be uploaded", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    private func uploadingAlert() {
+        let alert = UIAlertController(title: "Uploading", message: "Almost there!", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
 }
 
