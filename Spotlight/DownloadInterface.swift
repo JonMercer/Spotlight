@@ -150,9 +150,9 @@ extension ModelInterface: DownloadInterfaceProtocol {
             
             var photoInfo = PhotoInfo(userKey: userKey, photoInfoKey: photoInfoKey, lat: lat, lon: lon, timeStamp: time)
             
-            if(!description.isEmpty || description != "") {
-                photoInfo.description = description
-            }
+            
+            photoInfo.description = description
+            
             
             completed(photoInfo: photoInfo, err: nil)
             
