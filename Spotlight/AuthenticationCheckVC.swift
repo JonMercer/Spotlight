@@ -11,14 +11,22 @@ import Firebase
 
 class AuthenticationCheckVC: UIViewController {
     override func viewDidAppear(animated: Bool) {
-        FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
-            if user != nil {
-                Log.info("user is signed in")
-                self.performSegueWithIdentifier(Segues.toLoadingView, sender: self)
-            } else {
-                Log.info("user not signed in")
-                self.performSegueWithIdentifier(Segues.toLoginView, sender: self)
-            }
+        if let user = FIRAuth.auth()?.currentUser {
+            Log.info("user is signed in")
+            performSegueWithIdentifier(Segues.toLoadingView, sender: self)
+        } else {
+            Log.info("user not signed in")
+            performSegueWithIdentifier(Segues.toLoginView, sender: self)
         }
+        
+//        FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
+//            if user != nil {
+//                Log.info("user is signed in")
+//                self.performSegueWithIdentifier(Segues.toLoadingView, sender: self)
+//            } else {
+//                Log.info("user not signed in")
+//                self.performSegueWithIdentifier(Segues.toLoginView, sender: self)
+//            }
+//        }
     }
 }
