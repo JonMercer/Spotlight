@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,19 +12,89 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfB-J5-XKw">
-                    <rect key="frame" x="139" y="192" width="42" height="21"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HHd-0g-nf2">
+                    <rect key="frame" x="105" y="97" width="184" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KV4-T2-Fzl">
+                    <rect key="frame" x="105" y="239" width="184" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82z-6l-Cgh">
+                    <rect key="frame" x="33" y="101" width="41" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJl-AH-Q0r">
+                    <rect key="frame" x="31" y="243" width="45" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9J-NA-moV">
+                    <rect key="frame" x="16" y="139" width="74" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rha-59-Vwh">
+                    <rect key="frame" x="105" y="135" width="184" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xY1-jV-hdH">
+                    <rect key="frame" x="158" y="173" width="38" height="30"/>
+                    <state key="normal" title="Login"/>
+                    <connections>
+                        <action selector="loginButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="0W8-7h-PcN"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vs-3R-zdR">
+                    <rect key="frame" x="160" y="277" width="48" height="30"/>
+                    <state key="normal" title="Signup"/>
+                    <connections>
+                        <action selector="signUpButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="fr0-fp-mWk"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vhz-dD-jjF">
+                    <rect key="frame" x="98" y="33" width="141" height="30"/>
+                    <state key="normal" title="Login with Facebook"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="xfB-J5-XKw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="192" id="0EP-hC-ibD"/>
-                <constraint firstItem="xfB-J5-XKw" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="DYE-nV-FC3"/>
+                <constraint firstItem="82z-6l-Cgh" firstAttribute="centerX" secondItem="a9J-NA-moV" secondAttribute="centerX" id="5Kx-yZ-Lad"/>
+                <constraint firstItem="Vhz-dD-jjF" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="8.5" id="9g2-ag-Bna"/>
+                <constraint firstItem="Rha-59-Vwh" firstAttribute="trailing" secondItem="KV4-T2-Fzl" secondAttribute="trailing" id="9qa-G2-tbX"/>
+                <constraint firstItem="82z-6l-Cgh" firstAttribute="centerY" secondItem="HHd-0g-nf2" secondAttribute="centerY" id="9yV-fb-6ID"/>
+                <constraint firstItem="a9J-NA-moV" firstAttribute="centerX" secondItem="cJl-AH-Q0r" secondAttribute="centerX" id="EMY-Fr-HGF"/>
+                <constraint firstAttribute="trailing" secondItem="HHd-0g-nf2" secondAttribute="trailing" constant="31" id="F3G-XY-b38"/>
+                <constraint firstItem="cJl-AH-Q0r" firstAttribute="centerY" secondItem="KV4-T2-Fzl" secondAttribute="centerY" id="Jk8-4c-aGP"/>
+                <constraint firstItem="xY1-jV-hdH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="158" id="KVM-1t-ZL1"/>
+                <constraint firstItem="Rha-59-Vwh" firstAttribute="leading" secondItem="KV4-T2-Fzl" secondAttribute="leading" id="NrQ-qf-h9b"/>
+                <constraint firstItem="Rha-59-Vwh" firstAttribute="top" secondItem="HHd-0g-nf2" secondAttribute="bottom" constant="8" symbolic="YES" id="SNP-Fn-YOH"/>
+                <constraint firstItem="HHd-0g-nf2" firstAttribute="leading" secondItem="Rha-59-Vwh" secondAttribute="leading" id="TVD-lH-ox0"/>
+                <constraint firstItem="a9J-NA-moV" firstAttribute="centerY" secondItem="Rha-59-Vwh" secondAttribute="centerY" id="ToK-wZ-0lY"/>
+                <constraint firstItem="Rha-59-Vwh" firstAttribute="leading" secondItem="a9J-NA-moV" secondAttribute="trailing" constant="15" id="UUz-Cn-0sH"/>
+                <constraint firstItem="HHd-0g-nf2" firstAttribute="trailing" secondItem="Rha-59-Vwh" secondAttribute="trailing" id="Wcw-Tr-rd7"/>
+                <constraint firstItem="a9J-NA-moV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" constant="8" id="Wqb-TR-iMp"/>
+                <constraint firstItem="xY1-jV-hdH" firstAttribute="top" secondItem="Rha-59-Vwh" secondAttribute="bottom" constant="8" symbolic="YES" id="YmX-x6-wAx"/>
+                <constraint firstItem="8vs-3R-zdR" firstAttribute="top" secondItem="KV4-T2-Fzl" secondAttribute="bottom" constant="8" symbolic="YES" id="dES-3n-ucv"/>
+                <constraint firstItem="HHd-0g-nf2" firstAttribute="top" secondItem="Vhz-dD-jjF" secondAttribute="bottom" constant="34" id="fmF-Ne-zC2"/>
+                <constraint firstItem="Vhz-dD-jjF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="33" id="hwp-kh-1RK"/>
+                <constraint firstItem="8vs-3R-zdR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="160" id="iln-3c-oOc"/>
+                <constraint firstItem="KV4-T2-Fzl" firstAttribute="top" secondItem="xY1-jV-hdH" secondAttribute="bottom" constant="36" id="oUq-iK-jSk"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <connections>
+                <outlet property="emailTextField" destination="HHd-0g-nf2" id="53i-z6-pTK"/>
+                <outlet property="nameTextField" destination="KV4-T2-Fzl" id="zHM-0H-p7U"/>
+                <outlet property="passTextField" destination="Rha-59-Vwh" id="be5-Aw-k2L"/>
+            </connections>
+            <point key="canvasLocation" x="257" y="193"/>
         </view>
     </objects>
 </document>

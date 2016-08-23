@@ -28,9 +28,24 @@ class LoginVC: UIViewController {
         container?.delegate = self
         view.addSubview(container!)
     }
+    
+    private func signUpFailAlert() {
+        let alert = UIAlertController(title: "Oops", message: "Could not sign you up!", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+
 
 }
 
 extension LoginVC: LoginViewContainerDelegate {
-    
+    func loginInUser(email: String?, pass: String?) {
+        // check if values nil and alert
+        // otherwise log in
+    }
+    func signUpUser(email: String?, pass: String?, name: String?) {
+        // check if values nil and alert
+        // otherwise create new user with email and pass
+        // then set their name in database to the username
+    }
 }
