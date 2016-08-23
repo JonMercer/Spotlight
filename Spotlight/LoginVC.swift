@@ -10,7 +10,7 @@ import UIKit
 
 class LoginVC: UIViewController {
     override func viewDidLoad() {
-        //
+        Log.test("loaded login view")
     }
     
     override func didReceiveMemoryWarning() {

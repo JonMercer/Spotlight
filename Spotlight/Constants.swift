@@ -83,6 +83,8 @@ enum Segues {
     static let toPhotoView = "segueToPhotoView"
     static let toGridView = "segueToGridView"
     static let toTabView = "segueToTabView"
+    static let toLoadingView = "segueToLoadingView"
+    static let toLoginView = "segueToLoginView"
 }
 
 //MARK: = UIConstants

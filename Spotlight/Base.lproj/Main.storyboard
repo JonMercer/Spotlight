@@ -69,8 +69,8 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <segue destination="8YS-6b-cvv" kind="show" id="W92-EY-393"/>
-                        <segue destination="zZU-FF-hKm" kind="show" id="EFy-bQ-3C9"/>
+                        <segue destination="8YS-6b-cvv" kind="show" identifier="segueToLoginView" id="W92-EY-393"/>
+                        <segue destination="zZU-FF-hKm" kind="show" identifier="segueToLoadingView" id="EFy-bQ-3C9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0nk-0O-QWd" userLabel="First Responder" sceneMemberID="firstResponder"/>

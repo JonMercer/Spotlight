@@ -40,15 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Location.sharedInstance.startGettingLoc()
         
-        ModelInterface.sharedInstance.signIn { (err) in
-            Log.debug("couldn't sign in")
-            ModelInterface.sharedInstance.createUser({ (err) in
-                Log.error("Could not create a new user!")
-            })
-            
-            Log.debug("created user")
-            //TODO: consider creating username here
-        }
+
 
         //GADMobileAds.configureWithApplicationID("ca-app-pub-5958828933999537~6451639903");
 

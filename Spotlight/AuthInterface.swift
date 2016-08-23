@@ -13,14 +13,14 @@ import Firebase
 /// - Todo: consider changing authentication method to phone numbers or Facebook
 protocol AuthInterfaceProtocol {
     /// Signs in the user on this device
-    func signIn(completed: (err: ErrorType) -> ())
+    func signIn(completed: (err: ErrorType?) -> ())
     
     /// Creates an user with the app's unique ID on the device
     func createUser(completed: (err: ErrorType) -> ())
     
     /// Signs out the user on this device
     /// - Requires: the user to be signed in and to exist
-    func signOut(completed: (err: ErrorType) -> ())
+    func signOut(completed: (err: ErrorType?) -> ())
     
     /// Sets the current user's display username
     /// - Parameter name: the new username to set
@@ -34,13 +34,15 @@ protocol AuthInterfaceProtocol {
 }
 
 extension ModelInterface: AuthInterfaceProtocol {
-    func signIn(completed: (err: ErrorType) -> ()) {
+    func signIn(completed: (err: ErrorType?) -> ()) {
         //TODO: make phone number not unique ID
         let identifier: String = UIDevice.currentDevice().identifierForVendor!.UUIDString
         
         FIRAuth.auth()?.signInWithEmail("\(identifier)\(FirebaseConstants.emailDomain)", password: identifier) { (user, error) in
             if (error != nil) {
                 completed(err: AuthError.FailedSignIn)
+            } else {
+                completed(err: nil)
             }
         }
     }
@@ -58,7 +60,7 @@ extension ModelInterface: AuthInterfaceProtocol {
         }
     }
     
-    func signOut(completed: (err: ErrorType) -> ()) {
+    func signOut(completed: (err: ErrorType?) -> ()) {
         do {
             try FIRAuth.auth()?.signOut()
         } catch {
