@@ -87,10 +87,12 @@ extension ModelInterface: AuthInterfaceProtocol {
     
     
     func isSignedIn() -> Bool {
-        if (FIRAuth.auth()?.currentUser) != nil {
+        if FIRAuth.auth()?.currentUser?.uid != nil {
             return true;
         } else {
             return false;
         }
+        
+        
     }
 }

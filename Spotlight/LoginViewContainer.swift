@@ -20,6 +20,7 @@ class LoginViewContainer: UIView {
     }
     
     @IBAction func loginButton(sender: AnyObject) {
+        delegate?.loginInUser(emailTextField.text, pass: passTextField.text)
     }
     
     //MARK: - Helper functions
