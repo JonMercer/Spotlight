@@ -14,6 +14,8 @@
 		A400BFA81D57C59F00AE20D7 /* Photoshopable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A400BFA71D57C59F00AE20D7 /* Photoshopable.swift */; };
 		A41C6A8F1D6BDB8600DF2D7A /* AuthenticationCheckVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41C6A8E1D6BDB8600DF2D7A /* AuthenticationCheckVC.swift */; };
 		A41C6A911D6BDBB400DF2D7A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41C6A901D6BDBB400DF2D7A /* LoginVC.swift */; };
+		A41C6A941D6BE02300DF2D7A /* LoginViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = A41C6A931D6BE02300DF2D7A /* LoginViewContainer.xib */; };
+		A41C6A961D6BE03300DF2D7A /* LoginViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41C6A951D6BE03300DF2D7A /* LoginViewContainer.swift */; };
 		A451696E1D46F9C80004D1A7 /* MapViewContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = A451696D1D46F9C80004D1A7 /* MapViewContainer.xib */; };
 		A45169701D46F9E60004D1A7 /* MapViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451696F1D46F9E60004D1A7 /* MapViewContainer.swift */; };
 		A45169721D46FA4A0004D1A7 /* MapViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45169711D46FA4A0004D1A7 /* MapViewVC.swift */; };
@@ -106,6 +108,8 @@
 		A400BFA71D57C59F00AE20D7 /* Photoshopable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photoshopable.swift; sourceTree = "<group>"; };
 		A41C6A8E1D6BDB8600DF2D7A /* AuthenticationCheckVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationCheckVC.swift; sourceTree = "<group>"; };
 		A41C6A901D6BDBB400DF2D7A /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		A41C6A931D6BE02300DF2D7A /* LoginViewContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewContainer.xib; sourceTree = "<group>"; };
+		A41C6A951D6BE03300DF2D7A /* LoginViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewContainer.swift; sourceTree = "<group>"; };
 		A451696D1D46F9C80004D1A7 /* MapViewContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewContainer.xib; sourceTree = "<group>"; };
 		A451696F1D46F9E60004D1A7 /* MapViewContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewContainer.swift; sourceTree = "<group>"; };
 		A45169711D46FA4A0004D1A7 /* MapViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewVC.swift; sourceTree = "<group>"; };
@@ -222,6 +226,15 @@
 				7AB65C32FCF86A353266FFFB /* Pods-SpotlightUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A41C6A921D6BE00700DF2D7A /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				A41C6A931D6BE02300DF2D7A /* LoginViewContainer.xib */,
+				A41C6A951D6BE03300DF2D7A /* LoginViewContainer.swift */,
+			);
+			name = LoginView;
 			sourceTree = "<group>";
 		};
 		A4FB11911D208CD4001F36F2 /* Controllers */ = {
@@ -419,6 +432,7 @@
 		C8C215391D2F3DFF0099FBB3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A41C6A921D6BE00700DF2D7A /* LoginView */,
 				C8326F741D6A36A20062EEFF /* PhotoView */,
 				C8BBBC1B1D640C2300887A43 /* MeView */,
 				C83B72691D4ECE160055E689 /* MapView */,
@@ -560,6 +574,7 @@
 				C87650831D2066860092A75A /* Assets.xcassets in Resources */,
 				C876507E1D2066860092A75A /* Main.storyboard in Resources */,
 				C8C2153B1D2F3EAC0099FBB3 /* FeedbackViewContainer.xib in Resources */,
+				A41C6A941D6BE02300DF2D7A /* LoginViewContainer.xib in Resources */,
 				C8326F761D6A36BD0062EEFF /* PhotoViewContainer.xib in Resources */,
 				C8E3428E1D348EC800D7F9D6 /* CameraViewContainer.xib in Resources */,
 				A451696E1D46F9C80004D1A7 /* MapViewContainer.xib in Resources */,
@@ -728,6 +743,7 @@
 				A400BFA81D57C59F00AE20D7 /* Photoshopable.swift in Sources */,
 				C876507B1D2066860092A75A /* ViewController.swift in Sources */,
 				A4E7D3D81D3DE2DD00609A1E /* NearMeViewContainerCell.swift in Sources */,
+				A41C6A961D6BE03300DF2D7A /* LoginViewContainer.swift in Sources */,
 				A47148411D5697A500E5AE78 /* AuthInterface.swift in Sources */,
 				C8766D271D59851A008FBF2A /* EditInterface.swift in Sources */,
 				A45169701D46F9E60004D1A7 /* MapViewContainer.swift in Sources */,
