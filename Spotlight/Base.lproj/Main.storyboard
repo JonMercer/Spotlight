@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zZU-FF-hKm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CeD-TT-DvV">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -53,6 +53,29 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1897" y="-859"/>
+        </scene>
+        <!--Authentication  Check-->
+        <scene sceneID="e89-xe-LLA">
+            <objects>
+                <viewController id="CeD-TT-DvV" userLabel="Authentication  Check" customClass="AuthenticationCheckVC" customModule="Spotlight" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YTb-wx-MPW"/>
+                        <viewControllerLayoutGuide type="bottom" id="ArY-61-5zM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jhD-9S-REL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="8YS-6b-cvv" kind="show" id="W92-EY-393"/>
+                        <segue destination="zZU-FF-hKm" kind="show" id="EFy-bQ-3C9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0nk-0O-QWd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-925" y="170"/>
         </scene>
         <!--Loading-->
         <scene sceneID="MnP-do-xGM">
@@ -131,6 +154,28 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZHB-As-1b9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="245" y="305"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="A2a-Mf-OL4">
+            <objects>
+                <viewController id="8YS-6b-cvv" userLabel="Login" customClass="LoginVC" customModule="Spotlight" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="joT-sq-YNY"/>
+                        <viewControllerLayoutGuide type="bottom" id="Pdh-7W-Ea4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DcX-Ff-nUu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="d9W-T5-tax" kind="show" id="73b-Sj-nWY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KoG-ac-LeA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-362" y="-396"/>
         </scene>
         <!--Me-->
         <scene sceneID="8fI-FO-se0">
@@ -339,8 +384,8 @@
         <image name="PokeSpotLogo" width="400" height="113"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="73b-Sj-nWY"/>
         <segue reference="YnH-n6-ixh"/>
         <segue reference="uLc-LB-VfV"/>
-        <segue reference="aWJ-Wz-egd"/>
     </inferredMetricsTieBreakers>
 </document>
