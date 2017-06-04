@@ -19,13 +19,24 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     @IBAction func GetImageFromAlbums(sender: AnyObject) {}
     @IBAction func SaveButton(sender: AnyObject) {}
     @IBAction func saveLocally(sender: AnyObject) {}
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewContainer()
         
-        LocationManager.sharedInstance.startGettingLoc()
-
+        Location.sharedInstance.startGettingLoc()
+        
+        
+        //TODO: authenticate user sign in
+        let signedIn = ModelInterface.sharedInstance.isSignedIn()
+        
+        if(!signedIn) {
+            ModelInterface.sharedInstance.signIn({ (err) in
+                Log.error("Couldn't sign in user")
+                //TODO: handle error
+            })
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,6 +50,22 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
             CGRectMake(0, 0, view.bounds.width, view.bounds.height))
         container?.delegate = self
         view.addSubview(container!)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == Segues.toGridView {
+//            let photoView = segue.destinationViewController as! PhotoVC
+//            let index = selectedCellIndexPath!.row
+//            
+//            photoView.setKey(photoInfoKeysInGrid![index])
+            let meVC = segue.destinationViewController as! UITabBarController
+            meVC.selectedIndex = 2
+        }
+    }
+    
+    private func segueAfterPublish() {
+        Log.test("should segue")
+        performSegueWithIdentifier(Segues.toGridView, sender: self)
     }
 }
 
@@ -57,31 +84,51 @@ extension CameraVC: CameraViewContainerDelegate {
         //TODO: do I actually need to run this line?
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         CustomPhotoAlbum.sharedInstance.saveImage(image)
-
-    }
-    
-    func publishImage(image: UIImage) {
-        LocalStoragePhotoManager.saveImageLocal(image)
-        var urls = LocalStoragePhotoManager.getImageURLsInDirectory()
-        urls.sortInPlace({ $0.lastPathComponent<$1.lastPathComponent })
-        ModelInterface.sharedInstance.uploadPhoto(urls.last!) { (err) in
-            //TODO: handle error
-        }
-        
-        self.createPhotoEntity(urls.last!.lastPathComponent!)
         
     }
     
-    func getLocation(photoID: PhotoID, completion: (lat: CLLocationDegrees, lon: CLLocationDegrees) -> Void) {
-        self.getPhotoEntity(photoID) { (photoEntity) in
-            completion(lat: photoEntity.getLat(photoID), lon: photoEntity.getLon(photoID))
+    func publishImage(image: UIImage, description: String) {
+        var photo = Photo(image: image)
+        photo.photoInfo = ModelInterface.sharedInstance.createPhotoInfo()
+        photo.photoInfo?.description = description
+        
+        photo.resizePhotoImage()
+        photo.resizeIconImage()
+        
+        //SL-211
+        //uploadingAlert()
+        ModelInterface.sharedInstance.uploadPhoto(photo) { (err) in
+            guard err == nil else {
+                Log.error(err.debugDescription)
+                self.uploadFailedAlert()
+                return
+            }
+    
+            ModelInterface.sharedInstance.uploadPhotoInfo(photo, completed: { (err) in
+                guard err == nil else {
+                    Log.error(err.debugDescription)
+                    self.uploadFailedAlert()
+                    return
+                }
+                //SL-211
+                //self.dismissViewControllerAnimated(false, completion: nil)
+                self.segueAfterPublish()
+            })
+            
         }
+    }
+    
+    private func uploadFailedAlert() {
+        let alert = UIAlertController(title: "Oops", message: "Photo could not be uploaded", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    private func uploadingAlert() {
+        let alert = UIAlertController(title: "Uploading", message: "Almost there!", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
 }
 
-
-//MARK: - PhotoEntityEditor
-extension CameraVC: PhotoEntityEditor {
-    
-}
 

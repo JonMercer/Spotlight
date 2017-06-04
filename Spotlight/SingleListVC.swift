@@ -8,23 +8,17 @@
 
 import UIKit
 
-class SingleListVC: UITableViewController, PhotoEntityEditor {
+class SingleListVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        LocationManager.sharedInstance.stopGettingLoc()
+        //LocationManager.sharedInstance.stopGettingLoc()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        
-        self.getPhotoEntity("-KMu8BVxoZt6VhEN03qz"){
-            (photoEntity: PhotoEntity) in
-            Log.debug(photoEntity.debugDescription())
-        }
     }
 
     override func didReceiveMemoryWarning() {

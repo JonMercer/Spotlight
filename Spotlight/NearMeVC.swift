@@ -8,10 +8,9 @@
 
 import UIKit
 import GoogleMobileAds
-import Firebase
 
-class MeVC: UIViewController {
-    var container: MeViewContainer?
+class NearMeVC: UIViewController {
+    var container: NearMeViewContainer?
     var interstitial: GADInterstitial!
     var photoInfoKeysInGrid: [PhotoInfoKey]?
     
@@ -19,7 +18,7 @@ class MeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        grabMyPhotoInfoKeys {
+        grabPhotoInfoKeysInBigGeoBlocks {
             self.setupViewContainer()
         }
         
@@ -37,7 +36,7 @@ class MeVC: UIViewController {
     
     //MARK: Helper Functions
     private func setupViewContainer() {
-        container = MeViewContainer.instanceFromNib(
+        container = NearMeViewContainer.instanceFromNib(
             CGRectMake(0, 0, view.bounds.width, view.bounds.height))
         container?.delegate = self
         view.addSubview(container!)
@@ -65,7 +64,7 @@ class MeVC: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == Segues.toPhotoView {
             guard photoInfoKeysInGrid != nil else {
-                Log.error("list of photo info keys should have been loaded by now")
+                Log.error("list og photo info keys should have been loaded by now")
                 return
             }
             
@@ -78,7 +77,7 @@ class MeVC: UIViewController {
 }
 
 //MARK: - NearMeViewContainerDelegate
-extension MeVC: MeViewContainerDelegate {
+extension NearMeVC: NearMeViewContainerDelegate {
     func populateImage(cellImage: UIImageView, index: Int) {
         guard self.photoInfoKeysInGrid != nil else {
             Log.error("PhotoInfoKeys should not be nil because grabPhotoEntityKeysInBigGeoBlocks() should have populated it")
@@ -94,16 +93,8 @@ extension MeVC: MeViewContainerDelegate {
         }
     }
     
-    func grabMyPhotoInfoKeys(completion: () -> ()) {
-        let userKey = FIRAuth.auth()?.currentUser?.uid
-        
-        guard userKey != nil else {
-            Log.error("user is not signed in")
-            //TODO: SL-192
-            return
-        }
-        
-        ModelInterface.sharedInstance.downloadUserPhotoInfoKeys(userKey!) { (photoInfoKeys, err) in
+    func grabPhotoInfoKeysInBigGeoBlocks(completion: () -> ()) {
+        ModelInterface.sharedInstance.downloadPhotoKeysNear(Location.sharedInstance.currentLat, lon: Location.sharedInstance.currentLon) { (photoInfoKeys, err) in
             guard err == nil else {
                 Log.error(err.debugDescription)
                 return

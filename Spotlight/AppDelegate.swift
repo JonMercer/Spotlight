@@ -15,6 +15,7 @@ import UIKit
 import Firebase
 import CoreLocation
 import GoogleMaps
+import GoogleMobileAds
 
 import CoreData
 @UIApplicationMain
@@ -22,10 +23,13 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    let locManager = CLLocationManager()
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Custom UI Change
+        UITabBar.appearance().tintColor = UIColor.redColor()
+        
         // Cocoapods Setup
         FIRApp.configure()
         GMSServices.provideAPIKey("AIzaSyCqOcABvIB9rBd7AHGP4CgnfC3RiCbMg9g")
@@ -33,31 +37,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Custom Setup
         //TODO: put in launch screen
         CustomPhotoAlbum.init()
-        LocationManager.sharedInstance.customInit()
         
+        Location.sharedInstance.startGettingLoc()
         
-        //For stopping location manager
-        //manager.stopUpdatingLocation()
-        //manager.allowsBackgroundLocationUpdates = false
+        ModelInterface.sharedInstance.signIn { (err) in
+            Log.debug("couldn't sign in")
+            ModelInterface.sharedInstance.createUser({ (err) in
+                Log.error("Could not create a new user!")
+            })
+            
+            Log.debug("created user")
+            //TODO: consider creating username here
+        }
+
+        //GADMobileAds.configureWithApplicationID("ca-app-pub-5958828933999537~6451639903");
 
         
         return true
     }
     
-
-    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
         
-        LocationManager.sharedInstance.stopGettingLoc()
+        Location.sharedInstance.stopGettingLoc()
     }
     
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         
-        LocationManager.sharedInstance.stopGettingLoc()
+        Location.sharedInstance.stopGettingLoc()
     }
     
     func applicationWillEnterForeground(application: UIApplication) {
@@ -73,7 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         
-        LocationManager.sharedInstance.stopGettingLoc()
+        Location.sharedInstance.stopGettingLoc()
         self.saveContext()
     }
     

@@ -7,9 +7,9 @@
 //
 
 import Foundation
+import CoreLocation
 
 class URLUtil {
-    
     static func getNameFromStringPath(stringPath: String) -> String {
         //URL sees that "+" is a " "
         let spaceReplacedStringPath = stringPath.stringByReplacingOccurrencesOfString(" ", withString: "+")
@@ -23,33 +23,17 @@ class URLUtil {
 }
 
 
-extension NSDate {
-    
-    func hour() -> Int {
-        //Get Hour
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components(.Hour, fromDate: self)
-        let hour = components.hour
-        
-        //Return Hour
-        return hour
+extension Double {
+    /// Rounds the double to decimal places value
+    func roundToPlaces(places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return round(self * divisor) / divisor
     }
-    
-    
-    func minute() -> Int {
-        //Get Minute
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components(.Minute, fromDate: self)
-        let minute = components.minute
-        
-        //Return Minute
-        return minute
-    }
-    
-    func timeStamp() -> String {
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "HH:mm:ss.SSS"
-        return formatter.stringFromDate(self)
+}
+
+extension String {
+    static func locationToString(loc: String) -> String{
+        return loc.stringByReplacingOccurrencesOfString(".", withString: "_")
     }
 }
 

@@ -14,9 +14,14 @@ import CoreLocation
 class CameraViewContainer: UIView {
     var delegate: CameraViewContainerDelegate?
 
+    override func willMoveToSuperview(newSuperview: UIView?) {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CameraViewContainer.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CameraViewContainer.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
     //MARK: - UI Elements
     @IBOutlet var photoView: UIImageView!
-    @IBOutlet var mapView: GMSMapView!
+    @IBOutlet weak var descriptionTextView: UITextView!
     
     @IBAction func captureImageFromCameraButtonPressed(sender: AnyObject) {
         let picker = UIImagePickerController()
@@ -31,7 +36,7 @@ class CameraViewContainer: UIView {
         picker.delegate = self
         picker.sourceType = .PhotoLibrary
         
-       delegate?.goToCameraPicker(picker)
+        delegate?.goToCameraPicker(picker)
     }
     
     @IBAction func saveImageToCameraRollButtonPressed(sender: AnyObject) {
@@ -44,20 +49,26 @@ class CameraViewContainer: UIView {
     
     @IBAction func publishImageButtonPressed(sender: AnyObject) {
         if let photo = photoView.image {
-            delegate?.publishImage(photo)
+            var descriptionText = ""
+            if descriptionTextView.text != UIConstants.description {
+                descriptionText = descriptionTextView.text
+            }
             
-            delegate?.getLocation("-KMu8bC-zjnM4EMkgxdl", completion: { (lat, lon) in
-                let camera = GMSCameraPosition.cameraWithLatitude(lat,longitude: lon, zoom: 6)
-                self.mapView.camera = camera
-                self.mapView.myLocationEnabled = true
+            delegate?.publishImage(photo, description: descriptionText)
             
-                
-                let marker = GMSMarker()
-                marker.position = CLLocationCoordinate2DMake(lat,lon)
-                marker.title = "Sydney"
-                marker.snippet = "Australia"
-                marker.map = self.mapView
-            })
+            //TODO: this crashes the app. Should re-do it
+//            delegate?.getLocation(Constants.keySupposedToBeInFIR, completion: { (lat, lon) in
+//                let camera = GMSCameraPosition.cameraWithLatitude(lat,longitude: lon, zoom: 6)
+//                self.mapView.camera = camera
+//                self.mapView.myLocationEnabled = true
+//            
+//                
+//                let marker = GMSMarker()
+//                marker.position = CLLocationCoordinate2DMake(lat,lon)
+//                marker.title = "Sydney"
+//                marker.snippet = "Australia"
+//                marker.map = self.mapView
+//            })
             
             
         } else {
@@ -71,6 +82,28 @@ class CameraViewContainer: UIView {
         view.frame = frame
         return view
     }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue(){
+            if self.frame.origin.y == 0{
+                self.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            if self.frame.origin.y != 0 {
+                self.frame.origin.y = 0
+            }
+        //}
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+        self.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
+    }
+
 }
 
 //MARK: - UIImagePickerControllerDelegate
@@ -93,6 +126,5 @@ protocol CameraViewContainerDelegate {
     func goToCameraPicker(picker: UIImagePickerController)
     func dismissViewControllerAnimated()
     func saveToCameraRoll(image: UIImage)
-    func publishImage(image: UIImage)
-    func getLocation(photoID: PhotoID, completion: (lat: CLLocationDegrees, lon: CLLocationDegrees) -> Void)
+    func publishImage(image: UIImage, description: String)
 }
